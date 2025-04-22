@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bprbjuwc4odvo"]
+[gd_scene load_steps=5 format=3 uid="uid://bprbjuwc4odvo"]
 
 [ext_resource type="StyleBox" uid="uid://ur0jgjyh8wlr" path="res://theming/styles/shop/shop_item.tres" id="1_btjjm"]
 [ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="2_6gmg1"]
+[ext_resource type="Script" uid="uid://dxywixu88yfpy" path="res://scripts/shop/shop_item.gd" id="2_xcw7k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iywne"]
 
 [node name="ShopItem" type="PanelContainer"]
 theme_override_styles/panel = ExtResource("1_btjjm")
+script = ExtResource("2_xcw7k")
 
 [node name="ShopItemInner" type="HBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="ItemImage" type="TextureRect" parent="ShopItemInner"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_6gmg1")
@@ -24,12 +27,14 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="ItemTitleLabel" type="Label" parent="ShopItemInner/ItemInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Cooper Pickaxe"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemTitleDescriptionLabel" type="Label" parent="ShopItemInner/ItemInfo"]
+[node name="ItemDescriptionLabel" type="Label" parent="ShopItemInner/ItemInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "+ 1 per click"
 horizontal_alignment = 1

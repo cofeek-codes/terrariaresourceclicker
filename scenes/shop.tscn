@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://vko6pk1vj26k"]
+[gd_scene load_steps=5 format=3 uid="uid://vko6pk1vj26k"]
 
 [ext_resource type="PackedScene" uid="uid://bprbjuwc4odvo" path="res://scenes/shop_item.tscn" id="1_lx5au"]
+[ext_resource type="Resource" uid="uid://chnamdq46laeo" path="res://resources/shop_items/cooper_pickaxe.tres" id="2_xfvoa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
 bg_color = Color(0, 1, 0, 1)
@@ -57,3 +58,4 @@ theme_override_constants/separation = 10
 
 [node name="ShopItem" parent="VBoxContainer/PanelContainer/ScrollContainer/ShopItems" instance=ExtResource("1_lx5au")]
 layout_mode = 2
+item = ExtResource("2_xfvoa")
