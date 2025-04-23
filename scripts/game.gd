@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var player_data: PlayerData
 
 @onready var cursor: Sprite2D = %Cursor
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -8,6 +9,7 @@ extends Node2D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	cursor.texture = player_data.get_pickaxe_texture()
 	
 
 func handle_click():
