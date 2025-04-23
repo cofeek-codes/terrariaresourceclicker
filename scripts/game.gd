@@ -16,6 +16,7 @@ func handle_click():
 	print('click')
 	pickaxe_audio_player.pitch_scale = randf_range(0.5, 1.5)
 	pickaxe_audio_player.play()
+	animation_player.stop()
 	if is_cursor_right():
 		animation_player.play("click_right")
 		animation_player.play_backwards("click_right")
