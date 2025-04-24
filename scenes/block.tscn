@@ -1,8 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c6u6dd6vrme1g"]
 
-[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="1_8r6n6"]
 [ext_resource type="Script" uid="uid://drcrnlf60mi77" path="res://scripts/block.gd" id="1_cgrg5"]
-[ext_resource type="Material" uid="uid://k64o43n3wspi" path="res://resources/blocks/dirt_block/dirt_block_ppm.tres" id="3_4kun4"]
+[ext_resource type="Resource" uid="uid://cjt8d5ix3cmcb" path="res://resources/blocks/dirt_block/dirt_block_data.tres" id="2_ojgcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrg5"]
 
@@ -96,14 +95,18 @@ _data = {
 &"hit_right": SubResource("Animation_cgrg5")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cgrg5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="Block" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_cgrg5")
+block_data = ExtResource("2_ojgcc")
 
 [node name="BlockArea" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="BlockArea"]
-texture = ExtResource("1_8r6n6")
 
 [node name="Collider" type="CollisionShape2D" parent="BlockArea"]
 visible = false
@@ -121,4 +124,4 @@ emitting = false
 amount = 25
 one_shot = true
 explosiveness = 1.0
-process_material = ExtResource("3_4kun4")
+process_material = SubResource("ParticleProcessMaterial_cgrg5")

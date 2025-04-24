@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=4 format=3 uid="uid://cjt8d5ix3cmcb"]
+
+[ext_resource type="Material" uid="uid://k64o43n3wspi" path="res://resources/blocks/dirt_block/dirt_block_ppm.tres" id="1_ctgxx"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_hkxl0"]
+[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="2_bhcp2"]
+
+[resource]
+script = ExtResource("1_hkxl0")
+title = "Dirt Block"
+tier = 1
+texture = ExtResource("2_bhcp2")
+health = 3
+particles_material = ExtResource("1_ctgxx")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

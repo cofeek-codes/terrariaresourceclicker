@@ -2,6 +2,8 @@ extends Node2D
 
 var tween: Tween
 
+@export var block_data: BlockData
+
 @onready var sprite: Sprite2D = $BlockArea/Sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var block_hit_particles: GPUParticles2D = $BlockHitParticles
@@ -15,6 +17,11 @@ const MAX_PARTICLES: int = 50
 
 func _ready() -> void:
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
+	
+	# apply blockdata
+	sprite.texture = block_data.texture
+	block_hit_particles.process_material = block_data.particles_material
+	# apply blockdata
 
 func handle_click():
 	print('clicked on block')
