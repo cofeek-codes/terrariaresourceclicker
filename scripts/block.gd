@@ -9,6 +9,8 @@ var tween: Tween
 @onready var cursor = $"../Cursor"
 
 const TWEEN_DURATION: float = 0.5
+const MAX_PARTICLES: int = 50
+
 
 
 func _ready() -> void:
@@ -37,11 +39,14 @@ func shake():
 	
 
 func emit_particles():
-	var particles: GPUParticles2D = block_hit_particles.duplicate()
-	self.add_child(particles)
-	particles.position = to_local(get_global_mouse_position())
-	particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
-	particles.restart()
-	await particles.finished
-	particles.queue_free()
-	
+	if get_tree().get_node_count_in_group('particles') < MAX_PARTICLES:	
+		var particles: GPUParticles2D = block_hit_particles.duplicate()
+		self.add_to_group('particles')
+		self.add_child(particles)
+		particles.position = to_local(get_global_mouse_position())
+		particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
+		particles.restart()
+		await particles.finished
+		particles.queue_free()
+	else:
+		print('too many block particles')
