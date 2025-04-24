@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6u6dd6vrme1g"]
+
+[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://assets/blocks/dirt_block.png" id="1_8r6n6"]
+[ext_resource type="Script" uid="uid://drcrnlf60mi77" path="res://scripts/block.gd" id="1_cgrg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrg5"]
+
+[node name="Block" type="Node2D"]
+script = ExtResource("1_cgrg5")
+
+[node name="BlockArea" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="BlockArea"]
+texture = ExtResource("1_8r6n6")
+
+[node name="Collider" type="CollisionShape2D" parent="BlockArea"]
+visible = false
+shape = SubResource("RectangleShape2D_cgrg5")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
