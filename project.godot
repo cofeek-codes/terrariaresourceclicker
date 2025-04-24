@@ -15,6 +15,10 @@ run/main_scene="uid://bxb8ptr3q702f"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://scripts/singletones/autoloads/utils.gd"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0

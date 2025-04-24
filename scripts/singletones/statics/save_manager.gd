@@ -1,4 +1,4 @@
-class_name Globals
+class_name SaveManager
 
 const SAVE_PATH: String = "user://player_data.tres"
 
