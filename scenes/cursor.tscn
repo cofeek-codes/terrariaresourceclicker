@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4j13io34hy5x"]
+
+[ext_resource type="Script" uid="uid://btjp8pttcrsnn" path="res://scripts/cursor.gd" id="1_ndevg"]
+[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="1_s0nli"]
+[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_n5qf0"]
+[ext_resource type="AudioStream" uid="uid://d4fc8bigc1eve" path="res://assets/audio/sfx/pickaxe_swing.wav" id="2_ndevg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+
+[sub_resource type="Animation" id="Animation_n5qf0"]
+resource_name = "click_left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CursorArea/CursorSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_pey64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CursorArea/CursorSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjntw"]
+resource_name = "click_right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CursorArea/CursorSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.785398]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xl2q8"]
+_data = {
+&"RESET": SubResource("Animation_pey64"),
+&"click_left": SubResource("Animation_n5qf0"),
+&"click_right": SubResource("Animation_xjntw")
+}
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource("1_ndevg")
+player_data = ExtResource("2_n5qf0")
+
+[node name="CursorArea" type="Area2D" parent="."]
+
+[node name="CursorSprite" type="Sprite2D" parent="CursorArea"]
+texture = ExtResource("1_s0nli")
+
+[node name="CursorCollider" type="CollisionShape2D" parent="CursorArea"]
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xl2q8")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ndevg")

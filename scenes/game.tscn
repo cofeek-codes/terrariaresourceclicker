@@ -1,71 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=8 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop.tscn" id="2_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="4_lbhrr"]
-[ext_resource type="AudioStream" uid="uid://d4fc8bigc1eve" path="res://assets/audio/sfx/pickaxe_swing.wav" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block.tscn" id="7_u5sy4"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
 frame_0/texture = ExtResource("1_uwrxv")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
-
-[sub_resource type="Animation" id="Animation_iywne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Cursor/CursorArea/CursorSprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_p57ef"]
-resource_name = "click_left"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Cursor/CursorArea/CursorSprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.785398]
-}
-
-[sub_resource type="Animation" id="Animation_lbhrr"]
-resource_name = "click_right"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Cursor/CursorArea/CursorSprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.785398]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
-_data = {
-&"RESET": SubResource("Animation_iywne"),
-&"click_left": SubResource("Animation_p57ef"),
-&"click_right": SubResource("Animation_lbhrr")
-}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
@@ -106,23 +49,5 @@ offset_right = 0.0
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
 
-[node name="Cursor" type="Node2D" parent="CanvasLayer"]
+[node name="Cursor" parent="CanvasLayer" instance=ExtResource("6_p57ef")]
 unique_name_in_owner = true
-
-[node name="CursorArea" type="Area2D" parent="CanvasLayer/Cursor"]
-
-[node name="CursorSprite" type="Sprite2D" parent="CanvasLayer/Cursor/CursorArea"]
-texture = ExtResource("4_lbhrr")
-
-[node name="CursorCollider" type="CollisionShape2D" parent="CanvasLayer/Cursor/CursorArea"]
-scale = Vector2(1.8, 1.8)
-shape = SubResource("RectangleShape2D_u5sy4")
-
-[node name="CursorAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Cursor"]
-root_node = NodePath("../../..")
-libraries = {
-&"": SubResource("AnimationLibrary_p57ef")
-}
-
-[node name="CursorAudioPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Cursor"]
-stream = ExtResource("6_p57ef")
