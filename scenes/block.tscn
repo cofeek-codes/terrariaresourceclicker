@@ -96,6 +96,7 @@ _data = {
 }
 
 [node name="Block" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_cgrg5")
 
 [node name="BlockArea" type="Area2D" parent="."]
