@@ -13,15 +13,21 @@ const TWEEN_DURATION: float = 0.5
 const MAX_PARTICLES: int = 50
 
 var tween: Tween
-var current_hp
+var current_hp: int
 
 func _ready() -> void:
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
-	current_hp = block_data.health
+	
+	# appear animation
+	self.scale = Vector2.ONE
+	tween = Utils.safe_create_tween(tween)
+	tween.tween_property(self, "scale", Vector2(2,2), 0.3)
+	# appear animation
 	
 	# apply blockdata
 	sprite.texture = block_data.texture
 	block_hit_particles.process_material = block_data.particles_material
+	current_hp = block_data.health
 	# apply blockdata
 
 func handle_click():
