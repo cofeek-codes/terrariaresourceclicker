@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6u6dd6vrme1g"]
+[gd_scene load_steps=10 format=3 uid="uid://c6u6dd6vrme1g"]
 
 [ext_resource type="Script" uid="uid://drcrnlf60mi77" path="res://scripts/block.gd" id="1_cgrg5"]
 [ext_resource type="Resource" uid="uid://cjt8d5ix3cmcb" path="res://resources/blocks/dirt_block/dirt_block_data.tres" id="2_ojgcc"]
+[ext_resource type="AudioStream" uid="uid://dh8b5g111caoh" path="res://assets/audio/sounds/block_hit.wav" id="3_4kun4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrg5"]
 
@@ -112,7 +113,9 @@ block_data = ExtResource("2_ojgcc")
 visible = false
 shape = SubResource("RectangleShape2D_cgrg5")
 
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4kun4")
+bus = &"Sound"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

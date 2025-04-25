@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d4fc8bigc1eve"
-path="res://.godot/imported/pickaxe_swing.wav-5ad86bf81083a069b972813522396d06.sample"
+path="res://.godot/imported/pickaxe_swing.wav-a2e6f6e3f8b8c9deff381aae9f1a23eb.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/pickaxe_swing.wav"
-dest_files=["res://.godot/imported/pickaxe_swing.wav-5ad86bf81083a069b972813522396d06.sample"]
+source_file="res://assets/audio/sounds/pickaxe_swing.wav"
+dest_files=["res://.godot/imported/pickaxe_swing.wav-a2e6f6e3f8b8c9deff381aae9f1a23eb.sample"]
 
 [params]
 
