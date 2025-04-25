@@ -1,13 +1,18 @@
 extends Node2D
 
-@export var block_data: BlockData
+# leave export for debugging
+#@export var block_data: BlockData 
+@export var player_data: PlayerData 
+@export var block_dict: BlockDictionary
 
 @onready var sprite: Sprite2D = $BlockArea/Sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var block_hit_particles: GPUParticles2D = $BlockHitParticles
 @onready var hit_audio_player: AudioStreamPlayer = $HitAudioPlayer
+@onready var destroy_audio_player: AudioStreamPlayer = $DestroyAudioPlayer
 
 @onready var cursor = $"../Cursor"
+@onready var game = $"/root/Game"
 
 const TWEEN_DURATION: float = 0.5
 const MAX_PARTICLES: int = 50
@@ -16,36 +21,52 @@ var tween: Tween
 var current_hp: int
 
 func _ready() -> void:
+	var block_data: BlockData = get_random_block()
+	load_block_data(block_data)
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
+	animation_player.play_backwards("disappear")
 	
-	# appear animation
-	self.scale = Vector2.ONE
-	tween = Utils.safe_create_tween(tween)
-	tween.tween_property(self, "scale", Vector2(2,2), 0.3)
-	# appear animation
 	
-	# apply blockdata
-	sprite.texture = block_data.texture
-	block_hit_particles.process_material = block_data.particles_material
-	current_hp = block_data.health
-	# apply blockdata
-
 func handle_click():
 	print('clicked on block')
 	apply_click_visuals()
-	apply_block_hit()
+	block_hit()
 
 
-func apply_block_hit():
+func get_random_block() -> BlockData:
+	var player_tier = player_data.tier
+	var player_tier_blocks: Array[BlockData] = block_dict.blocks.filter(func(b:BlockData): return b.tier <= player_tier)
+	print(player_tier_blocks.map(func(b:BlockData): return b.title))
+	var res: BlockData = player_tier_blocks.pick_random()
+	print(res.title)
+	return res
+
+func load_block_data(bd: BlockData):
+	# apply blockdata
+	sprite.texture = bd.texture
+	block_hit_particles.process_material = bd.particles_material
+	current_hp = bd.health
+	hit_audio_player.stream = bd.hit_sound
+	destroy_audio_player.stream = bd.destroy_sound
+	
+	# apply blockdata
+
+func block_hit():
 	# @TODO: apply proper damage
 	current_hp -= 1
 	if current_hp <= 0:
-		apply_block_destroy()
+		block_destroy()
 	print(current_hp) 
 	
 	
-func apply_block_destroy():
+func block_destroy():
 	print('block should be destroyed')
+	var new_block_data: BlockData = get_random_block()
+	animation_player.play('disappear')
+	load_block_data(new_block_data)
+	animation_player.play('RESET')
+	await animation_player.animation_finished
+	animation_player.play_backwards('disappear')
 
 func apply_click_visuals():
 	shake()

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=5 format=3 uid="uid://dtl3mnnnsl7qg"]
+
+[ext_resource type="AudioStream" uid="uid://dh8b5g111caoh" path="res://assets/audio/sounds/block_hit.wav" id="1_rl888"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="2_1yydn"]
+[ext_resource type="Material" uid="uid://cj3v78yqk1d04" path="res://resources/blocks/wood_block/wood_block_ppm.tres" id="2_8mg2y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1yydn"]
+load_path = "res://.godot/imported/wood_block_sprite.png-0be344f343f18025fb6b7bfacc891213.ctex"
+
+[resource]
+script = ExtResource("2_1yydn")
+title = "Wood"
+tier = 1
+texture = SubResource("CompressedTexture2D_1yydn")
+health = 3
+particles_material = ExtResource("2_8mg2y")
+hit_sound = ExtResource("1_rl888")
+destroy_sound = ExtResource("1_rl888")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
