@@ -32,6 +32,10 @@ window/stretch/scale=1.5
 
 particles=""
 
+[gui]
+
+theme/custom_font="uid://rn4ltgdoucnx"
+
 [input]
 
 click={

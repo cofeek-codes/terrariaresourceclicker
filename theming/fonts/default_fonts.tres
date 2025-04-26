@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://rn4ltgdoucnx"]
+
+[ext_resource type="FontFile" uid="uid://cuxnsyaagbouk" path="res://theming/fonts/Andy_Bold.otf" id="1_4cg7w"]
+
+[resource]
+base_font = ExtResource("1_4cg7w")

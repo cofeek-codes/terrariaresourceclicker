@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpcuwcnejyl4l"]
+
+[ext_resource type="Script" uid="uid://bhf8ssr660kkm" path="res://scripts/pickup_text/pickup_text.gd" id="1_1tmcr"]
+
+[node name="PickupText" type="Control"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tmcr")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.19
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextListContainer" type="VBoxContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="ExampleStyleLabel" type="Label" parent="PanelContainer/TextListContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Dirt Block (1)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickupDisappearTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="resource_pickedup" from="." to="." method="_on_resource_pickedup"]
+[connection signal="timeout" from="PickupDisappearTimer" to="." method="_on_pickup_disappear_timer_timeout"]

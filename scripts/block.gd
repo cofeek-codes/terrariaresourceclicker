@@ -12,6 +12,7 @@ extends Node2D
 @onready var destroy_audio_player: AudioStreamPlayer = $DestroyAudioPlayer
 
 @onready var cursor = $"../Cursor"
+@onready var pickup_text = $"../GameUI/PickupText"
 @onready var game = $"/root/Game"
 
 const TWEEN_DURATION: float = 0.5
@@ -63,6 +64,7 @@ func block_destroy():
 	print('block should be destroyed')
 	var new_block_data: BlockData = get_random_block()
 	animation_player.play('disappear')
+	pickup_text.emit_signal('resource_pickedup', 'wood')
 	load_block_data(new_block_data)
 	animation_player.play('RESET')
 	await animation_player.animation_finished
@@ -73,9 +75,6 @@ func apply_click_visuals():
 	emit_particles()
 	
 func shake():
-	#var tween = Utils.safe_create_tween(tween)
-	#tween.tween_property(sprite, "scale", Vector2.ONE * 0.5, TWEEN_DURATION)
-	#tween.tween_property(sprite, "scale", Vector2.ONE, TWEEN_DURATION)
 	hit_audio_player.pitch_scale = randf_range(0.8, 1)
 	hit_audio_player.play()
 	animation_player.stop()
