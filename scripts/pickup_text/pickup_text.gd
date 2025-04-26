@@ -22,16 +22,22 @@ func play_disappear_animation(label: Label):
 	disappear_tween.tween_callback(label.queue_free)
 	
 func _on_resource_pickedup(item: String) -> void:
-	var item_label = Label.new()
-	var label_settings = LabelSettings.new()
-	label_settings.outline_color = Color.BLACK
-	label_settings.outline_size = 2
-	item_label.label_settings = label_settings
-	item_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	item_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var item_label = init_label_props()
 	item_label.text = "%s (%d)" % [item, 1]
 	text_list_container.add_child(item_label)
 	play_appear_animation(item_label)
+
+func init_label_props() -> Label:
+	var label = Label.new()
+	var label_settings = LabelSettings.new()
+	label_settings.outline_color = Color.BLACK
+	label_settings.outline_size = 2
+	label.label_settings = label_settings
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	return label
+
 
 
 func _on_pickup_disappear_timer_timeout() -> void:
