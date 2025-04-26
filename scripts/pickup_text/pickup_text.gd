@@ -5,19 +5,18 @@ signal resource_pickedup(item: String)
 @onready var text_list_container: VBoxContainer = %TextListContainer
 @onready var example_style_label: Label = %ExampleStyleLabel
 
-var appear_tween: Tween
-var disappear_tween: Tween
+
 
 
 func play_appear_animation(label: Label):
-	appear_tween = Utils.safe_create_tween(appear_tween)
+	var appear_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	label.self_modulate = Color.TRANSPARENT
 	# @FIXME: sometimes may not play the animation
 	appear_tween.tween_property(label, "self_modulate", Color.WHITE, 0.5)
 	
 	
 func play_disappear_animation(label: Label):
-	disappear_tween = Utils.safe_create_tween(disappear_tween)
+	var disappear_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	print(disappear_tween)
 	disappear_tween.tween_property(label, "self_modulate", Color.TRANSPARENT, 0.5)
 	
