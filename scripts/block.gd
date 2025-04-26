@@ -1,7 +1,7 @@
 extends Node2D
 
 # leave export for debugging
-#@export var block_data: BlockData 
+# @export var block_data: BlockData 
 @export var player_data: PlayerData 
 @export var block_dict: BlockDictionary
 
