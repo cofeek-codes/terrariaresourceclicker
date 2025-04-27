@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx6ktdrhkmw3t"]
+
+[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="1_qspu0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty45s"]
+bg_color = Color(0.0823499, 0.0444458, 0.317385, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="InventoryCell" type="PanelContainer"]
+custom_minimum_size = Vector2(45, 45)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ty45s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="InventoryItem" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_qspu0")
+
+[node name="AmountLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 2

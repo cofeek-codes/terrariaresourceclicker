@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=10 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cpcuwcnejyl4l" path="res://scenes/pickup_text.tscn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block.tscn" id="7_u5sy4"]
 
@@ -48,6 +49,9 @@ offset_left = 0.0
 offset_right = 0.0
 
 [node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
+layout_mode = 1
+
+[node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
 
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
