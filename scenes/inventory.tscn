@@ -21,6 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hj2ta"]
 resource_name = "appear"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,7 +29,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-211, 0), Vector2(0, 0)]
@@ -45,7 +46,7 @@ custom_minimum_size = Vector2(211, 0)
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 211.0
+offset_left = -211.0
 grow_vertical = 2
 script = ExtResource("1_hj2ta")
 
@@ -90,3 +91,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_53g1v")
 }
 speed_scale = 2.0
+
+[connection signal="inventory_close" from="." to="." method="_on_inventory_close"]
+[connection signal="inventory_open" from="." to="." method="_on_inventory_open"]
