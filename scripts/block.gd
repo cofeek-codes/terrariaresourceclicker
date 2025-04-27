@@ -89,8 +89,9 @@ func shake():
 func emit_particles():
 	if get_tree().get_node_count_in_group('particles') < MAX_PARTICLES:	
 		var particles: GPUParticles2D = block_hit_particles.duplicate()
-		self.add_to_group('particles')
 		self.add_child(particles)
+		particles.add_to_group('particles')
+		print("current particles amount: %d" % get_tree().get_node_count_in_group('particles'))
 		particles.position = to_local(get_global_mouse_position())
 		particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
 		particles.restart()
