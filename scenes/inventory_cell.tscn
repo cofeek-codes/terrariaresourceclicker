@@ -1,19 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx6ktdrhkmw3t"]
 
+[ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_nj5mk"]
 [ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="1_qspu0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty45s"]
-bg_color = Color(0.0823499, 0.0444458, 0.317385, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="InventoryCell" type="PanelContainer"]
 custom_minimum_size = Vector2(45, 45)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_ty45s")
+theme_override_styles/panel = ExtResource("1_nj5mk")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

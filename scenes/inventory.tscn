@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_hj2ta"]
 [ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory_cell.tscn" id="1_qw0r6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj2ta"]
-bg_color = Color(0.160784, 0.235294, 0.529412, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_ty45s"]
 
 [sub_resource type="Animation" id="Animation_ty45s"]
 length = 0.001
@@ -70,7 +64,7 @@ theme_override_constants/margin_bottom = 15
 [node name="OuterPanel" type="PanelContainer" parent="OuterMarginContainer"]
 custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hj2ta")
+theme_override_styles/panel = ExtResource("2_ty45s")
 
 [node name="InnerMarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel"]
 layout_mode = 2
