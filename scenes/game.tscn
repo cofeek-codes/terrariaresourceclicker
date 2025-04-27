@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=10 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cpcuwcnejyl4l" path="res://scenes/pickup_text.tscn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor.tscn" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block.tscn" id="7_u5sy4"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
@@ -54,7 +53,6 @@ layout_mode = 1
 
 [node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
-script = ExtResource("7_0tnpc")
 
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
