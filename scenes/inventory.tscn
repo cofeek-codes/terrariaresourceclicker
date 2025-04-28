@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dplcdtes3xutv"]
+[gd_scene load_steps=8 format=3 uid="uid://dplcdtes3xutv"]
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_hj2ta"]
 [ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory_cell.tscn" id="1_qw0r6"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_ty45s"]
+[ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_53g1v"]
 
 [sub_resource type="Animation" id="Animation_ty45s"]
 length = 0.001
@@ -46,7 +47,7 @@ custom_minimum_size = Vector2(211, 0)
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -211.0
+offset_right = 211.0
 grow_vertical = 2
 script = ExtResource("1_hj2ta")
 
@@ -67,23 +68,38 @@ custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_ty45s")
 
-[node name="InnerMarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OuterMarginContainer/OuterPanel"]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="CloseIcon" type="TextureRect" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_53g1v")
+
+[node name="InnerMarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="ScrollContainer" type="ScrollContainer" parent="OuterMarginContainer/OuterPanel/InnerMarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="OuterMarginContainer/OuterPanel/InnerMarginContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="InventoryCell" parent="OuterMarginContainer/OuterPanel/InnerMarginContainer/ScrollContainer/GridContainer" instance=ExtResource("1_qw0r6")]
+[node name="InventoryCell" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer/GridContainer" instance=ExtResource("1_qw0r6")]
 layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
