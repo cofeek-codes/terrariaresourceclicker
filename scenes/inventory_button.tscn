@@ -55,4 +55,5 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_j6i4b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vpwv6")
 
+[connection signal="inventory_close" from="." to="." method="_on_inventory_close"]
 [connection signal="pressed" from="OuterMargin/InventoryButtonPanel/OpenButton" to="." method="_on_open_button_pressed"]

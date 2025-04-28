@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dplcdtes3xutv"]
+[gd_scene load_steps=9 format=3 uid="uid://dplcdtes3xutv"]
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_hj2ta"]
 [ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory_cell.tscn" id="1_qw0r6"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_ty45s"]
 [ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_53g1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53g1v"]
 
 [sub_resource type="Animation" id="Animation_ty45s"]
 length = 0.001
@@ -82,6 +84,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_53g1v")
 
+[node name="CloseButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_53g1v")
+
 [node name="InnerMarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -108,5 +114,5 @@ libraries = {
 }
 speed_scale = 2.0
 
-[connection signal="inventory_close" from="." to="." method="_on_inventory_close"]
 [connection signal="inventory_open" from="." to="." method="_on_inventory_open"]
+[connection signal="pressed" from="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]

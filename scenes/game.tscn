@@ -54,6 +54,8 @@ layout_mode = 1
 
 [node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
+offset_left = -211.0
+offset_right = 0.0
 
 [node name="InventoryButton" parent="CanvasLayer/GameUI" instance=ExtResource("7_0tnpc")]
 layout_mode = 1
