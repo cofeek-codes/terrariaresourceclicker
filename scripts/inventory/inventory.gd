@@ -6,8 +6,12 @@ signal inventory_open
 
 @onready var inventory_button: Control = $"../InventoryButton"
 
-func _ready() -> void:
-	pass
+
+func _ready() -> void:	
+	# sometimes initial position of Inventory node can be wierd
+	# so better do it like this
+	 
+	self.position.x = -self.size.x
 
 
 func _on_inventory_open() -> void:
