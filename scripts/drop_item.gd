@@ -30,4 +30,4 @@ func _process(delta: float) -> void:
 	queue_free()
 		
 func _on_tree_exiting() -> void:
-	inventory.emit_signal('item_pickup', drop_item_data)
+	inventory.emit_signal('item_added', drop_item_data)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dplcdtes3xutv"]
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_bxceu"]
+[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_kl7fi"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_v8e04"]
 [ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_kl7fi"]
-[ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory/inventory_cell.tscn" id="4_x4j3l"]
 [ext_resource type="AudioStream" uid="uid://bacuwu1dbihb" path="res://assets/audio/sounds/item_pickup.wav" id="5_l6cit"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53g1v"]
@@ -53,6 +53,7 @@ anchor_bottom = 1.0
 offset_right = 211.0
 grow_vertical = 2
 script = ExtResource("1_bxceu")
+player_data = ExtResource("2_kl7fi")
 
 [node name="OuterMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -100,14 +101,12 @@ theme_override_constants/margin_bottom = 15
 [node name="ScrollContainer" type="ScrollContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer"]
+[node name="InventoryItemsContainer" type="GridContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
-
-[node name="InventoryCell" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_x4j3l")]
-layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -120,5 +119,5 @@ stream = ExtResource("5_l6cit")
 bus = &"Sound"
 
 [connection signal="inventory_open" from="." to="." method="_on_inventory_open"]
-[connection signal="item_pickup" from="." to="." method="_on_item_pickup"]
+[connection signal="item_added" from="." to="." method="_on_item_added"]
 [connection signal="pressed" from="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]

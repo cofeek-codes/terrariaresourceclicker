@@ -1,6 +1,6 @@
 extends Control
 
-signal resource_pickedup(item: String)
+signal resource_pickedup(item: String, amount: int)
 
 @onready var text_list_container: VBoxContainer = %TextListContainer
 @onready var example_style_label: Label = %ExampleStyleLabel
@@ -21,9 +21,9 @@ func play_disappear_animation(label: Label):
 	#outline_tween.tween_property(label, "label_settings:outline_size", 0, 0.3)
 	disappear_tween.tween_callback(label.queue_free)
 	
-func _on_resource_pickedup(item: String) -> void:
+func _on_resource_pickedup(item: String, amount: int) -> void:
 	var item_label = init_label_props()
-	item_label.text = "%s (%d)" % [item, 1]
+	item_label.text = "%s (%d)" % [item, amount]
 	text_list_container.add_child(item_label)
 	play_appear_animation(item_label)
 

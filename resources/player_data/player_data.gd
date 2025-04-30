@@ -5,6 +5,7 @@ class_name PlayerData
 @export var coins: int
 @export var active_items: Array[ActiveItem]
 @export var tier: int = 1
+@export var inventory: Array[InventoryItem]
 
 
 
@@ -13,3 +14,10 @@ func get_pickaxe_texture() -> Texture2D:
 	var pickaxes = items.filter(func(item: ShopItem): return item if item.type == ShopItem.ItemType.PICKAXE else null)
 	var target_pickaxe = pickaxes.reduce(func(prev, new): return new if new.tier > prev.tier else prev)
 	return target_pickaxe.texture
+
+func get_inventory_item_from_drop(item: DropItem) -> InventoryItem:
+	var target_idx = inventory.find_custom(func(i: InventoryItem): return i.item == item)
+	if target_idx >= 0 && target_idx < inventory.size(): 
+		return inventory[target_idx]
+	
+	return null

@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx6ktdrhkmw3t"]
+[gd_scene load_steps=4 format=3 uid="uid://bx6ktdrhkmw3t"]
 
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_nj5mk"]
 [ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="1_qspu0"]
+[ext_resource type="Script" uid="uid://dp3aq8tqofi5h" path="res://scripts/inventory/inventory_cell.gd" id="2_ixtl3"]
 
 [node name="InventoryCell" type="PanelContainer"]
 custom_minimum_size = Vector2(45, 45)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_nj5mk")
+script = ExtResource("2_ixtl3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -17,10 +19,12 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="InventoryItem" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_qspu0")
 
 [node name="AmountLabel" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
