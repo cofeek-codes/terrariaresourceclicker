@@ -34,7 +34,7 @@ window/stretch/scale=1.5
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/gameconsole/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [file_customization]
 

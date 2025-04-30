@@ -41,7 +41,7 @@ func init_label_props() -> Label:
 
 
 func _on_pickup_disappear_timer_timeout() -> void:
-	print('pickup_text timeout')
+	# print('pickup_text timeout')
 	if text_list_container.get_child_count() > 0:
 		var label_to_disappear = text_list_container.get_child(0)
 		if label_to_disappear:
