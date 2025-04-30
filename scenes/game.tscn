@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_iywne"]
-[ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop/shop.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cpcuwcnejyl4l" path="res://scenes/pickup_text.tscn" id="5_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory.tscn" id="6_gee14"]
-[ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://bwevbbxxfgp4q" path="res://scenes/inventory_button.tscn" id="7_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory/inventory.tscn" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor/cursor.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bwevbbxxfgp4q" path="res://scenes/inventory/inventory_button.tscn" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block/block.tscn" id="7_u5sy4"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
 frame_0/texture = ExtResource("1_uwrxv")

@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	# @NOTE: guessed some math again, idk how it works
 	# @NOTE: may be unoptimized
 	var time_to_reach_inventory = self.position.distance_to(target_position) / LERP_SPEED
-	print(time_to_reach_inventory)
+	# print(time_to_reach_inventory)
 	await get_tree().create_timer(time_to_reach_inventory - LERP_DELAY).timeout
 	queue_free()
 	

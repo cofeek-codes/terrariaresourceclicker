@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dplcdtes3xutv"]
 
-[ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_hj2ta"]
-[ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory_cell.tscn" id="1_qw0r6"]
-[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_ty45s"]
-[ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_53g1v"]
-[ext_resource type="AudioStream" uid="uid://bacuwu1dbihb" path="res://assets/audio/sounds/item_pickup.wav" id="5_yyk2a"]
+[ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_bxceu"]
+[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_v8e04"]
+[ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_kl7fi"]
+[ext_resource type="PackedScene" uid="uid://bx6ktdrhkmw3t" path="res://scenes/inventory/inventory_cell.tscn" id="4_x4j3l"]
+[ext_resource type="AudioStream" uid="uid://bacuwu1dbihb" path="res://assets/audio/sounds/item_pickup.wav" id="5_l6cit"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53g1v"]
 
@@ -52,7 +52,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 211.0
 grow_vertical = 2
-script = ExtResource("1_hj2ta")
+script = ExtResource("1_bxceu")
 
 [node name="OuterMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -69,7 +69,7 @@ theme_override_constants/margin_bottom = 15
 [node name="OuterPanel" type="PanelContainer" parent="OuterMarginContainer"]
 custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_ty45s")
+theme_override_styles/panel = ExtResource("2_v8e04")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OuterMarginContainer/OuterPanel"]
 layout_mode = 2
@@ -83,7 +83,7 @@ theme_override_constants/margin_right = 10
 [node name="CloseIcon" type="TextureRect" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-texture = ExtResource("3_53g1v")
+texture = ExtResource("3_kl7fi")
 
 [node name="CloseButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -106,7 +106,7 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="InventoryCell" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer/GridContainer" instance=ExtResource("1_qw0r6")]
+[node name="InventoryCell" parent="OuterMarginContainer/OuterPanel/VBoxContainer/InnerMarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_x4j3l")]
 layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -116,7 +116,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="PickupAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_yyk2a")
+stream = ExtResource("5_l6cit")
 bus = &"Sound"
 
 [connection signal="inventory_open" from="." to="." method="_on_inventory_open"]
