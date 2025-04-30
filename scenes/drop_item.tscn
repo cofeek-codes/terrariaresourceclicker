@@ -1,14 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://djl17nb6dixy3"]
+[gd_scene load_steps=2 format=3 uid="uid://djl17nb6dixy3"]
 
 [ext_resource type="Script" uid="uid://dmio5sjtq3k71" path="res://scripts/drop_item.gd" id="1_hj20x"]
-[ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_gt0ws"]
-[ext_resource type="Texture2D" uid="uid://dtphlrrrksqp4" path="res://resources/drop_items/wood/wood.png" id="4_fw3yw"]
 
 [node name="DropItem" type="Node2D"]
 script = ExtResource("1_hj20x")
-drop_item_data = ExtResource("2_gt0ws")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("4_fw3yw")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

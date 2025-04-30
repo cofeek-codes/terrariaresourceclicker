@@ -1,7 +1,6 @@
 extends Node2D
 
-# leave export for debugging
-# @export var block_data: BlockData 
+@export var current_block_data: BlockData
 @export var player_data: PlayerData 
 @export var block_dict: BlockDictionary
 
@@ -22,6 +21,7 @@ const MAX_PARTICLES: int = 50
 
 var tween: Tween
 var current_hp: int
+
 
 func _ready() -> void:
 	var block_data: BlockData = get_random_block()
@@ -45,12 +45,14 @@ func get_random_block() -> BlockData:
 	return res
 
 func load_block_data(bd: BlockData):
+	# set blockdata
+	current_block_data = bd
 	# apply blockdata
-	sprite.texture = bd.texture
-	block_hit_particles.process_material = bd.particles_material
-	current_hp = bd.health
-	hit_audio_player.stream = bd.hit_sound
-	destroy_audio_player.stream = bd.destroy_sound
+	sprite.texture = current_block_data.texture
+	block_hit_particles.process_material = current_block_data.particles_material
+	current_hp = current_block_data.health
+	hit_audio_player.stream = current_block_data.hit_sound
+	destroy_audio_player.stream = current_block_data.destroy_sound
 	
 	# apply blockdata
 
@@ -68,9 +70,8 @@ func block_destroy():
 	animation_player.play('disappear')	
 	var drop_item = drop_item_scene_preload.instantiate()
 	drop_item.position = self.position
-	#drop_item.drop_item_data = self.block
-	get_parent().add_child(drop_item) 
-	# pickup_text.emit_signal('resource_pickedup', 'wood')
+	drop_item.drop_item_data = current_block_data.drop_item
+	get_parent().add_child(drop_item)
 	load_block_data(new_block_data)
 	animation_player.play('RESET')
 	await animation_player.animation_finished
