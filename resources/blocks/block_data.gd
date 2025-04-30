@@ -9,3 +9,4 @@ class_name BlockData
 @export var particles_material: ParticleProcessMaterial
 @export var hit_sound: AudioStream = preload("res://assets/audio/sounds/block_hit.wav")
 @export var destroy_sound: AudioStream = preload("res://assets/audio/sounds/block_hit.wav")
+@export var drop_item: DropItem

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://dm82j3rrqnm2x"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_gmg3o"]
+[ext_resource type="Texture2D" uid="uid://dtphlrrrksqp4" path="res://resources/drop_items/wood/wood.png" id="2_d24l5"]
+
+[resource]
+script = ExtResource("1_gmg3o")
+title = "Wood"
+price = 5
+texture = ExtResource("2_d24l5")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

@@ -15,6 +15,8 @@ extends Node2D
 @onready var pickup_text = $"../GameUI/PickupText"
 @onready var game = $"/root/Game"
 
+var drop_item_scene_preload = preload("res://scenes/drop_item.tscn")
+
 const TWEEN_DURATION: float = 0.5
 const MAX_PARTICLES: int = 50
 
@@ -63,8 +65,12 @@ func block_hit():
 func block_destroy():
 	print('block should be destroyed')
 	var new_block_data: BlockData = get_random_block()
-	animation_player.play('disappear')
-	pickup_text.emit_signal('resource_pickedup', 'wood')
+	animation_player.play('disappear')	
+	var drop_item = drop_item_scene_preload.instantiate()
+	drop_item.position = self.position
+	#drop_item.drop_item_data = self.block
+	get_parent().add_child(drop_item) 
+	# pickup_text.emit_signal('resource_pickedup', 'wood')
 	load_block_data(new_block_data)
 	animation_player.play('RESET')
 	await animation_player.animation_finished

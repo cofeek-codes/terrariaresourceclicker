@@ -30,6 +30,16 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange",
+"res://resources/": "teal",
+"res://scenes/": "green",
+"res://scripts/": "blue",
+"res://theming/": "pink"
+}
+
 [global_group]
 
 particles=""
