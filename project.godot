@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Utils="*res://scripts/singletones/autoloads/utils.gd"
+Console="*res://addons/console/console.gd"
+DevConsole="*res://scripts/singletones/autoloads/dev_console.gd"
 
 [debug]
 
@@ -29,6 +31,10 @@ gdscript/warnings/unused_signal=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/gameconsole/plugin.cfg")
 
 [file_customization]
 
