@@ -46,18 +46,18 @@ func init_inventory_cells():
 		inventory_items_container.add_child(new_inventory_item)
 
 func add_item_to_inventory(item: DropItem):
-	var _item = InventoryItem.new()
-	_item.item = item
-	_item.amount = 1
-	var item_exists = player_data.inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
-	if item_exists != -1:
-		player_data.inventory[item_exists].amount += 1
+	var new_item = InventoryItem.new()
+	new_item.item = item
+	new_item.amount = 1
+	var existing_item_idx = player_data.inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
+	if existing_item_idx != -1:
+		player_data.inventory[existing_item_idx].amount += 1
 	else:
-		player_data.inventory.push_back(_item)
+		player_data.inventory.push_back(new_item)
 		
 	print('player_data.inventory in add_item_to_inventory')
 	print(player_data.inventory)
-	add_or_update_inventory_cell(item_exists)
+	add_or_update_inventory_cell(existing_item_idx)
 
 func add_or_update_inventory_cell(update_index: int):
 	if update_index == -1:
