@@ -1,12 +1,13 @@
 extends PanelContainer
 
+signal display_item
+
 @export var inventory_item_data: InventoryItem
 
 @onready var inventory_item_image: TextureRect = %InventoryItem
 @onready var amount_label: Label = %AmountLabel
 
 
-
-func _ready() -> void:
+func _on_display_item() -> void:
 	inventory_item_image.texture = inventory_item_data.item.texture
 	amount_label.text = str(inventory_item_data.amount)

@@ -46,29 +46,30 @@ func init_inventory_cells():
 		inventory_items_container.add_child(new_inventory_item)
 
 func add_item_to_inventory(item: DropItem):
-	var is_existing: bool = false
-	var new_item: InventoryItem = InventoryItem.new()
-	new_item.item = item
-	new_item.amount = 1
-	# @TODO: implement updating existing item
-	player_data.inventory.push_back(new_item)
-	print_debug(player_data.inventory)
-	add_or_update_inventory_cell(new_item, is_existing)
-	
-
-func add_or_update_inventory_cell(item: InventoryItem, is_existing: bool):
-	# @TODO: implement
-	print('add_or_update_inventory_cell with item %s, is_existing: %s' % [item.item.title, is_existing])
-	if !is_existing:
-		var new_inventory_cell = inventory_cell_preload.instantiate()
-		new_inventory_cell.inventory_item_data = item
-		inventory_items_container.add_child(new_inventory_cell)
+	var _item = InventoryItem.new()
+	_item.item = item
+	_item.amount = 1
+	var item_exists = player_data.inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
+	if item_exists != -1:
+		player_data.inventory[item_exists].amount += 1
 	else:
-		for container_item in inventory_items_container.get_children():
-			if container_item.inventory_item_data == item:
-				container_item.inventory_item_data.amount += 1
-			print(container_item)
-	
+		player_data.inventory.push_back(_item)
+		
+	print('player_data.inventory in add_item_to_inventory')
+	print(player_data.inventory)
+	add_or_update_inventory_cell(item_exists)
+
+func add_or_update_inventory_cell(update_index: int):
+	if update_index == -1:
+		var new_cell = inventory_cell_preload.instantiate()
+		new_cell.inventory_item_data = player_data.inventory[-1]
+		inventory_items_container.add_child(new_cell)
+		new_cell.emit_signal('display_item')
+	else:
+		var cell_to_update = inventory_items_container.get_child(update_index)
+		cell_to_update.inventory_item_data = player_data.inventory[update_index]
+		cell_to_update.emit_signal('display_item')
+		
 
 func _on_item_added(item: DropItem) -> void:
 	print('item added: %s' % item.title)

@@ -31,3 +31,5 @@ size_flags_vertical = 8
 text = "3"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[connection signal="display_item" from="." to="." method="_on_display_item"]
