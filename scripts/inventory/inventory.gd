@@ -58,7 +58,6 @@ func add_item_to_inventory(item: DropItem):
 		player_data.inventory.push_back(new_item)
 		pickup_text.emit_signal('resource_pickedup', new_item.item.title, 1)
 		
-		
 	print('player_data.inventory in add_item_to_inventory')
 	print(player_data.inventory)
 	add_or_update_inventory_cell(existing_item_idx)
@@ -79,5 +78,4 @@ func _on_item_added(item: DropItem) -> void:
 	print('item added: %s' % item.title)
 	pickup_audio_player.play()
 	var inventory_item = player_data.get_inventory_item_from_drop(item)
-	var item_amount = 1 if inventory_item == null else inventory_item.amount
 	add_item_to_inventory(item)

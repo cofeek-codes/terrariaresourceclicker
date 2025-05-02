@@ -16,8 +16,8 @@ func get_pickaxe_texture() -> Texture2D:
 	return target_pickaxe.texture
 
 func get_inventory_item_from_drop(item: DropItem) -> InventoryItem:
-	var target_idx = inventory.find_custom(func(i: InventoryItem): return i.item == item)
-	if target_idx >= 0 && target_idx < inventory.size(): 
+	var target_idx = inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
+	if target_idx != -1: 
 		return inventory[target_idx]
 	
 	return null
