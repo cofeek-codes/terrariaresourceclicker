@@ -51,9 +51,13 @@ func add_item_to_inventory(item: DropItem):
 	new_item.amount = 1
 	var existing_item_idx = player_data.inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
 	if existing_item_idx != -1:
-		player_data.inventory[existing_item_idx].amount += 1
+		var existing_item = player_data.inventory[existing_item_idx]
+		existing_item.amount += 1
+		pickup_text.emit_signal('resource_pickedup', existing_item.item.title, existing_item.amount)
 	else:
 		player_data.inventory.push_back(new_item)
+		pickup_text.emit_signal('resource_pickedup', new_item.item.title, 1)
+		
 		
 	print('player_data.inventory in add_item_to_inventory')
 	print(player_data.inventory)
@@ -75,6 +79,5 @@ func _on_item_added(item: DropItem) -> void:
 	print('item added: %s' % item.title)
 	pickup_audio_player.play()
 	var inventory_item = player_data.get_inventory_item_from_drop(item)
-	var item_amount = 1 if inventory_item == null else inventory_item.amount 
-	pickup_text.emit_signal('resource_pickedup', item.title, item_amount)
+	var item_amount = 1 if inventory_item == null else inventory_item.amount
 	add_item_to_inventory(item)
