@@ -72,6 +72,7 @@ func block_destroy():
 	drop_item.position = self.position
 	drop_item.drop_item_data = current_block_data.drop_item
 	get_parent().add_child(drop_item)
+	player_data.coins += current_block_data.tier
 	load_block_data(new_block_data)
 	animation_player.play('RESET')
 	await animation_player.animation_finished

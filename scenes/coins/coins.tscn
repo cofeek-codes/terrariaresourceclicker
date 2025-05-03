@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b74fuiowiv0iv"]
+
+[ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="1_dvgxo"]
+[ext_resource type="Script" uid="uid://d168aahi36mmq" path="res://scripts/coins/coins.gd" id="1_gjpli"]
+[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_8yhlj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8yhlj"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Coins" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("1_gjpli")
+player_data = ExtResource("2_8yhlj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 45
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_dvgxo")
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8yhlj")
