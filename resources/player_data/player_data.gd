@@ -3,6 +3,7 @@ extends Resource
 class_name PlayerData
 
 @export var coins: int
+@export var coins_per_second: int
 @export var active_items: Array[ActiveItem]
 @export var tier: int = 1
 @export var inventory: Array[InventoryItem]

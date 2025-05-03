@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="1_dvgxo"]
 [ext_resource type="Script" uid="uid://d168aahi36mmq" path="res://scripts/coins/coins.gd" id="1_gjpli"]
-[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_8yhlj"]
+[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/player_data.tres" id="2_8yhlj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8yhlj"]
 outline_size = 2
@@ -29,18 +29,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 45
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CoinsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="CoinIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/CoinsHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_dvgxo")
 stretch_mode = 5
 
-[node name="CoinLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="CoinLabel" type="Label" parent="MarginContainer/VBoxContainer/CoinsHBox"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "100"
 label_settings = SubResource("LabelSettings_8yhlj")
+
+[node name="CPSHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="CPSTitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CPSHBox"]
+layout_mode = 2
+text = "coins/second:"
+
+[node name="CPSLabel" type="Label" parent="MarginContainer/VBoxContainer/CPSHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_8yhlj")
+
+[node name="CPSTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="CPSTimer" to="." method="_on_cps_timer_timeout"]
