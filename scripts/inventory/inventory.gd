@@ -77,5 +77,4 @@ func add_or_update_inventory_cell(update_index: int):
 func _on_item_added(item: DropItem) -> void:
 	print('item added: %s' % item.title)
 	pickup_audio_player.play()
-	var inventory_item = player_data.get_inventory_item_from_drop(item)
 	add_item_to_inventory(item)
