@@ -10,8 +10,16 @@ extends Node2D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	player_data = SaveManager.load_player_data()
+	print('coins loaded from file: %d' % player_data.coins)
 	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('click'):
 		cursor.handle_click()
+
+
+func _notification(what: int) -> void:
+	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
+		print('about to exit...')
+		SaveManager.save_player_data(player_data)
