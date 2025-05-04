@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Utils="*res://scripts/singletones/autoloads/utils.gd"
 Console="*res://addons/console/console.gd"
 DevConsole="*res://scripts/singletones/autoloads/dev_console.gd"
+Globals="*res://scripts/singletones/autoloads/globals.gd"
 
 [debug]
 

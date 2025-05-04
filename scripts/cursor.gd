@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_data: PlayerData
+@onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var cursor_area: Area2D = $CursorArea
 @onready var cursor_sprite: Sprite2D = $CursorArea/CursorSprite

@@ -3,7 +3,7 @@ extends Control
 signal inventory_open
 signal item_added(item: DropItem)
 
-@export var player_data: PlayerData
+@onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pickup_audio_player: AudioStreamPlayer = $PickupAudioPlayer

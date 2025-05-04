@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var current_block_data: BlockData
-@export var player_data: PlayerData 
+@onready var player_data: PlayerData = Globals.get_player_data()
 @export var block_dict: BlockDictionary
 
 @onready var sprite: Sprite2D = $BlockArea/Sprite

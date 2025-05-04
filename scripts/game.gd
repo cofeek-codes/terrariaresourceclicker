@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_data: PlayerData
+@onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
@@ -10,7 +10,6 @@ extends Node2D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	player_data = SaveManager.load_player_data()
 	print('coins loaded from file: %d' % player_data.coins)
 	
 
@@ -22,4 +21,4 @@ func _process(delta: float) -> void:
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
 		print('about to exit...')
-		SaveManager.save_player_data(player_data)
+		SaveManager.save_player_data()

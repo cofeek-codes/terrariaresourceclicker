@@ -1,6 +1,6 @@
 extends Control
 
-@export var player_data: PlayerData
+@onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var coin_label: Label = %CoinLabel
 @onready var cps_label: Label = %CPSLabel

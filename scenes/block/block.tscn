@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6u6dd6vrme1g"]
+[gd_scene load_steps=11 format=3 uid="uid://c6u6dd6vrme1g"]
 
 [ext_resource type="Script" uid="uid://drcrnlf60mi77" path="res://scripts/block.gd" id="1_cgrg5"]
-[ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/player_data.tres" id="2_ojgcc"]
 [ext_resource type="Resource" uid="uid://bfanrgjbacisg" path="res://resources/blocks/block_dictionary.tres" id="3_1bw7o"]
 [ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="3_ojgcc"]
 
@@ -133,7 +132,6 @@ gravity = Vector3(0, 98, 0)
 [node name="Block" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_cgrg5")
-player_data = ExtResource("2_ojgcc")
 block_dict = ExtResource("3_1bw7o")
 
 [node name="BlockArea" type="Area2D" parent="."]
