@@ -45,8 +45,8 @@ texture = SubResource("AnimatedTexture_uwrxv")
 
 [node name="Shop" parent="CanvasLayer/GameUI" instance=ExtResource("2_yqjtg")]
 layout_mode = 1
-offset_left = 0.0
-offset_right = 0.0
+offset_left = -270.0
+offset_bottom = 648.0
 
 [node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
 layout_mode = 1
