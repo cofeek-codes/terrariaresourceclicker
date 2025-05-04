@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vko6pk1vj26k"]
+[gd_scene load_steps=7 format=3 uid="uid://vko6pk1vj26k"]
 
+[ext_resource type="Script" uid="uid://5ktjd7jeiuxt" path="res://scripts/shop/shop.gd" id="1_100s2"]
 [ext_resource type="PackedScene" uid="uid://bprbjuwc4odvo" path="res://scenes/shop/shop_item.tscn" id="1_lx5au"]
-[ext_resource type="Resource" uid="uid://chnamdq46laeo" path="res://resources/shop_items/cooper_pickaxe.tres" id="2_xfvoa"]
+[ext_resource type="Resource" uid="uid://chnamdq46laeo" path="res://resources/shop_items/cooper_pickaxe/cooper_pickaxe.tres" id="2_xfvoa"]
+[ext_resource type="Resource" uid="uid://dt242a8uyii15" path="res://resources/shop_items/mining_potion/mining_potion.tres" id="4_jp048"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
 bg_color = Color(0, 1, 0, 1)
@@ -27,6 +29,7 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_vertical = 10
+script = ExtResource("1_100s2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -51,11 +54,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 layout_mode = 2
 
 [node name="ShopItems" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="ShopItem" parent="VBoxContainer/PanelContainer/ScrollContainer/ShopItems" instance=ExtResource("1_lx5au")]
+[node name="CooperPickaxe" parent="VBoxContainer/PanelContainer/ScrollContainer/ShopItems" instance=ExtResource("1_lx5au")]
 layout_mode = 2
 item = ExtResource("2_xfvoa")
+
+[node name="MiningPotion" parent="VBoxContainer/PanelContainer/ScrollContainer/ShopItems" instance=ExtResource("1_lx5au")]
+layout_mode = 2
+item = ExtResource("4_jp048")

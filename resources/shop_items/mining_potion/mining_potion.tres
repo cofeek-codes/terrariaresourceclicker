@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://dt242a8uyii15"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_e32bo"]
+[ext_resource type="Texture2D" uid="uid://sg2bg4l5o2pe" path="res://resources/shop_items/mining_potion/mining_potion.webp" id="2_200sk"]
+
+[resource]
+script = ExtResource("1_e32bo")
+title = "Mining Potion"
+price = 2
+texture = ExtResource("2_200sk")
+effect_type = 0
+effect_factor = 2
+type = 1
+tier = 1
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"

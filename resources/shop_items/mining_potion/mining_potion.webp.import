@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gbn70djm1kpw"
-path="res://.godot/imported/Copper_Pickaxe.png-02cb6a58b619dc1c2c2074510a9595be.ctex"
+uid="uid://sg2bg4l5o2pe"
+path="res://.godot/imported/mining_potion.webp-62522b171d61f677c512f93f8d2b4675.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pickaxes/Copper_Pickaxe.png"
-dest_files=["res://.godot/imported/Copper_Pickaxe.png-02cb6a58b619dc1c2c2074510a9595be.ctex"]
+source_file="res://resources/shop_items/mining_potion/mining_potion.webp"
+dest_files=["res://.godot/imported/mining_potion.webp-62522b171d61f677c512f93f8d2b4675.ctex"]
 
 [params]
 

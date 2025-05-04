@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://ur0jgjyh8wlr" path="res://theming/styles/shop/shop_item.tres" id="1_btjjm"]
 [ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="1_hannv"]
-[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="2_6gmg1"]
+[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://resources/shop_items/cooper_pickaxe/copper_pickaxe.png" id="2_6gmg1"]
 [ext_resource type="Script" uid="uid://dxywixu88yfpy" path="res://scripts/shop/shop_item.gd" id="2_xcw7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hannv"]

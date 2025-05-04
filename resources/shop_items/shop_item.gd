@@ -18,7 +18,7 @@ enum ItemType {
 @export var effect_type: EffectType
 @export var effect_factor: int
 @export var type: ItemType
-@export var tier: int
+@export var tier: int = 1
 
 func get_description() -> String:
 	if effect_type == EffectType.CLICK_INCOME: 

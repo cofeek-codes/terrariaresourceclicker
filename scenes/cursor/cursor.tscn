@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4j13io34hy5x"]
 
 [ext_resource type="Script" uid="uid://btjp8pttcrsnn" path="res://scripts/cursor.gd" id="1_ndevg"]
-[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://resources/shop_items/cooper_pickaxe/copper_pickaxe.png" id="1_s0nli"]
 [ext_resource type="Resource" uid="uid://cce5w8itv82ds" path="res://resources/player_data/default_player_data.tres" id="2_n5qf0"]
 [ext_resource type="AudioStream" uid="uid://d4fc8bigc1eve" path="res://assets/audio/sounds/pickaxe_swing.wav" id="4_n5qf0"]
 
