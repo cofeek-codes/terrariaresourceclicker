@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://173vy3qcdgwu"
 script = ExtResource("4_ymm24")
 coins = 0
 coins_per_second = 0
+coins_per_click = 1
 active_items = Array[ExtResource("1_ej0lh")]([SubResource("Resource_4nlg4")])
 tier = 1
 inventory = Array[ExtResource("3_yeq82")]([])
