@@ -1,39 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bprbjuwc4odvo"]
+[gd_scene load_steps=6 format=3 uid="uid://bprbjuwc4odvo"]
 
 [ext_resource type="StyleBox" uid="uid://ur0jgjyh8wlr" path="res://theming/styles/shop/shop_item.tres" id="1_btjjm"]
+[ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="1_hannv"]
 [ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://assets/pickaxes/Copper_Pickaxe.png" id="2_6gmg1"]
 [ext_resource type="Script" uid="uid://dxywixu88yfpy" path="res://scripts/shop/shop_item.gd" id="2_xcw7k"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iywne"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hannv"]
+bg_color = Color(0, 0, 0, 0.313726)
 
 [node name="ShopItem" type="PanelContainer"]
-theme_override_styles/panel = ExtResource("1_btjjm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hannv")
 script = ExtResource("2_xcw7k")
 
-[node name="ShopItemInner" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ShopItemInner" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="ItemImage" type="TextureRect" parent="ShopItemInner"]
+[node name="ItemImage" type="TextureRect" parent="MarginContainer/ShopItemInner"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_6gmg1")
 stretch_mode = 3
 
-[node name="ItemInfo" type="VBoxContainer" parent="ShopItemInner"]
+[node name="ItemInfo" type="VBoxContainer" parent="MarginContainer/ShopItemInner"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="ItemTitleLabel" type="Label" parent="ShopItemInner/ItemInfo"]
+[node name="ItemTitleLabel" type="Label" parent="MarginContainer/ShopItemInner/ItemInfo"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Cooper Pickaxe"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemDescriptionLabel" type="Label" parent="ShopItemInner/ItemInfo"]
+[node name="ItemDescriptionLabel" type="Label" parent="MarginContainer/ShopItemInner/ItemInfo"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+ 1 per click"
@@ -43,4 +51,5 @@ vertical_alignment = 1
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_iywne")
+theme_override_styles/hover = ExtResource("1_hannv")
+theme_override_styles/normal = ExtResource("1_btjjm")
