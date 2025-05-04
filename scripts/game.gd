@@ -22,3 +22,4 @@ func _notification(what: int) -> void:
 	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
 		print('about to exit...')
 		SaveManager.save_player_data()
+		

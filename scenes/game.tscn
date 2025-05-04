@@ -65,3 +65,5 @@ unique_name_in_owner = true
 
 [node name="Cursor" parent="CanvasLayer" instance=ExtResource("6_p57ef")]
 unique_name_in_owner = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
