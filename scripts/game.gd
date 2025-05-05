@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 # saves in different ways
 
 func _on_save_timer_timeout() -> void:
-	print('saveTimer timeout')
+	print('save_timer timeout')
 	SaveManager.save_player_data()
 
 

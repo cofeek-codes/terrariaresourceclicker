@@ -29,13 +29,30 @@ func _on_buy_button_pressed() -> void:
 
 
 func buy_item():
+	# @NOTE: ill keep buff apply logic here for now
 	player_data.coins -= item.price
 	buy_audio_player.play()
+	add_active_item(item)
+	
+
+func add_active_item(item: ShopItem):
+	var existing_item_idx = player_data.active_items.find_custom((func(i: ActiveItem): return i.item == item).bind())
+	if existing_item_idx != -1:
+		player_data.active_items[existing_item_idx].amount += 1
+	else:
+		var new_item = ActiveItem.new()
+		new_item.item = item
+		new_item.amount = 1
+		player_data.active_items.push_back(new_item)
+	
+	apply_new_item_stats(item)
+
+func apply_new_item_stats(item: ShopItem):
 	match item.type:
 		item.ItemType.PICKAXE:
-			print('about to buy pickaxe: %s' % item.title)
+			print('applying stats for new pickaxe: %s' % item.title)
 		item.ItemType.BUFF:
-			print('about to buy buff: %s' % item.title)
+			print('applying stats for new buff: %s' % item.title)
 			match item.effect_type:
 				item.EffectType.TIME_INCOME:
 					player_data.coins_per_second += item.effect_factor
