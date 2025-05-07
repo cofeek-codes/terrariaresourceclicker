@@ -7,16 +7,17 @@ extends Node2D
 @onready var block_area: Area2D = block.get_node('BlockArea')
 
 
-
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	print('coins loaded from file: %d' % player_data.coins)
+	handle_mouse_hover_ui_elements()
 	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('click'):
 		cursor.handle_click()
+	
 
 # saves in different ways
 
@@ -37,3 +38,16 @@ func _notification(what: int) -> void:
 	elif what == NOTIFICATION_APPLICATION_PAUSED:
 		SaveManager.save_player_data()
 		
+func ui_mouse_entered():
+	print('ui mouse entered')
+	cursor.show_ui_cursor()
+	
+func ui_mouse_exited():
+	cursor.show_game_cursor()
+	
+	
+func handle_mouse_hover_ui_elements():
+	var ui_nodes = get_tree().get_nodes_in_group("ui_cursor") as Array[Control]
+	for node in ui_nodes:
+		node.mouse_entered.connect(ui_mouse_entered)
+		node.mouse_exited.connect(ui_mouse_exited)
