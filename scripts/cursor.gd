@@ -15,7 +15,7 @@ enum CursorMode {
 @onready var block: Node2D = $"../Block"
 @onready var block_area: Area2D = $"../Block/BlockArea"
 
-var ui_cursor_icon = preload("res://assets/icons/coin_icon.png")
+var ui_cursor_icon = preload("res://assets/icons/ui_cursor_icon.png")
 
 var mode: CursorMode = CursorMode.GAME
 
@@ -25,7 +25,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	cursor_sprite.flip_h = is_cursor_right()
+	if self.mode == CursorMode.GAME:
+		cursor_sprite.flip_h = is_cursor_right()
+	else:
+		cursor_sprite.flip_h = false
+		
 	self.position = get_global_mouse_position()
 
 
@@ -37,10 +41,12 @@ func is_cursor_right():
 func show_ui_cursor():
 	self.mode = CursorMode.UI
 	cursor_sprite.texture = ui_cursor_icon
+	cursor_sprite.scale = Vector2(0.5, 0.5)
 
 func show_game_cursor():
 	self.mode = CursorMode.GAME
 	cursor_sprite.texture = player_data.get_pickaxe_texture()
+	cursor_sprite.scale = Vector2.ONE
 
 
 

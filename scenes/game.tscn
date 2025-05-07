@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_uwrxv")
 
-[node name="Shop" parent="CanvasLayer/GameUI" groups=["ui_cursor"] instance=ExtResource("2_yqjtg")]
+[node name="Shop" parent="CanvasLayer/GameUI" instance=ExtResource("2_yqjtg")]
 layout_mode = 1
 offset_left = -270.0
 offset_bottom = 648.0
@@ -51,10 +51,10 @@ offset_bottom = 648.0
 [node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
 layout_mode = 1
 
-[node name="Inventory" parent="CanvasLayer/GameUI" groups=["ui_cursor"] instance=ExtResource("6_gee14")]
+[node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
 
-[node name="InventoryButton" parent="CanvasLayer/GameUI" groups=["ui_cursor"] instance=ExtResource("7_0tnpc")]
+[node name="InventoryButton" parent="CanvasLayer/GameUI" instance=ExtResource("7_0tnpc")]
 layout_mode = 1
 
 [node name="Coins" parent="CanvasLayer/GameUI" instance=ExtResource("8_vtaks")]

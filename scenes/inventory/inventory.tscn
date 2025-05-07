@@ -65,7 +65,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="OuterPanel" type="PanelContainer" parent="OuterMarginContainer"]
+[node name="OuterPanel" type="PanelContainer" parent="OuterMarginContainer" groups=["ui_cursor"]]
 custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_v8e04")
@@ -84,7 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_kl7fi")
 
-[node name="CloseButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
+[node name="CloseButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer" groups=["ui_cursor"]]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_53g1v")
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dp3aq8tqofi5h" path="res://scripts/inventory/inventory_cell.gd" id="2_ixtl3"]
 [ext_resource type="Texture2D" uid="uid://c5nhfia5305f1" path="res://resources/drop_items/dirt/dirt.png" id="3_ixtl3"]
 
-[node name="InventoryCell" type="PanelContainer"]
+[node name="InventoryCell" type="PanelContainer" groups=["ui_cursor"]]
 custom_minimum_size = Vector2(45, 45)
 size_flags_horizontal = 4
 size_flags_vertical = 4

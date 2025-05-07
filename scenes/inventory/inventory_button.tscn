@@ -50,7 +50,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 texture = ExtResource("2_3winp")
 
-[node name="OpenButton" type="Button" parent="OuterMargin/InventoryButtonPanel"]
+[node name="OpenButton" type="Button" parent="OuterMargin/InventoryButtonPanel" groups=["ui_cursor"]]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_j6i4b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vpwv6")
