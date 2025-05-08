@@ -39,7 +39,6 @@ func _notification(what: int) -> void:
 		SaveManager.save_player_data()
 		
 func ui_mouse_entered():
-	print('ui mouse entered')
 	cursor.show_ui_cursor()
 	
 func ui_mouse_exited():

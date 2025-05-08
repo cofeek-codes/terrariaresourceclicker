@@ -1,13 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://dplcdtes3xutv"]
+[gd_scene load_steps=14 format=3 uid="uid://dplcdtes3xutv"]
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_bxceu"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_v8e04"]
 [ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_kl7fi"]
+[ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="4_kl7fi"]
 [ext_resource type="AudioStream" uid="uid://bacuwu1dbihb" path="res://assets/audio/sounds/item_pickup.wav" id="5_l6cit"]
 [ext_resource type="AudioStream" uid="uid://c6y5ynvlmch88" path="res://assets/audio/sounds/menu_open.wav" id="5_v8e04"]
 [ext_resource type="AudioStream" uid="uid://qjv8hsaex80q" path="res://assets/audio/sounds/menu_close.wav" id="6_kl7fi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53g1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4j3l"]
+bg_color = Color(0.0823499, 0.0444458, 0.317385, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6cit"]
 
 [sub_resource type="Animation" id="Animation_ty45s"]
 length = 0.001
@@ -107,6 +123,71 @@ layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
+
+[node name="SellButtons" type="Control" parent="OuterMarginContainer/OuterPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="SellButtonsHBoxContainer" type="HBoxContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons" groups=["ui_cursor"]]
+layout_mode = 2
+offset_top = -29.0
+offset_right = 181.0
+offset_bottom = 3.0
+alignment = 1
+
+[node name="SellOneContainer" type="PanelContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4j3l")
+
+[node name="SellOneHBoxContainer" type="HBoxContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellOneContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SellOneIcon" type="TextureRect" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellOneContainer/SellOneHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kl7fi")
+stretch_mode = 5
+
+[node name="SellOneLabel" type="Label" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellOneContainer/SellOneHBoxContainer"]
+layout_mode = 2
+text = "Sell 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellOneButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellOneContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l6cit")
+
+[node name="SellAllContainer" type="PanelContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4j3l")
+
+[node name="SellAllHBoxContainer" type="HBoxContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellAllContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SellAllIcon" type="TextureRect" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellAllContainer/SellAllHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_kl7fi")
+stretch_mode = 5
+
+[node name="SellAllLabel" type="Label" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellAllContainer/SellAllHBoxContainer"]
+layout_mode = 2
+text = "Sell All"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellAllButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/SellButtons/SellButtonsHBoxContainer/SellAllContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l6cit")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
