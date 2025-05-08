@@ -7,6 +7,8 @@ signal item_added(item: DropItem)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pickup_audio_player: AudioStreamPlayer = $PickupAudioPlayer
+@onready var open_audio_player: AudioStreamPlayer = $OpenAudioPlayer
+@onready var close_audio_player: AudioStreamPlayer = $CloseAudioPlayer
 @onready var inventory_items_container: GridContainer = %InventoryItemsContainer
 
 @onready var inventory_button: Control = $"../InventoryButton"
@@ -25,12 +27,14 @@ func _ready() -> void:
 func _on_inventory_open() -> void:
 	print('inventory_open signal recieved')
 	animation_player.play("appear")
+	open_audio_player.play()
 
 
 func close_inventory() -> void:
 	print('inventory_close signal recieved')
 	animation_player.play_backwards("appear")
 	inventory_button.emit_signal('inventory_close')
+	close_audio_player.play()
 
 func is_open(): return self.position == Vector2.ZERO
 
