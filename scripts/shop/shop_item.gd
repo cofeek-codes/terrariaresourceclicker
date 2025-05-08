@@ -48,13 +48,15 @@ func add_active_item(item: ShopItem):
 	apply_new_item_stats(item)
 
 func apply_new_item_stats(item: ShopItem):
+	print('about to apply item stats for item: %s' % item.title)
 	match item.type:
 		item.ItemType.PICKAXE:
 			print('applying stats for new pickaxe: %s' % item.title)
 		item.ItemType.BUFF:
 			print('applying stats for new buff: %s' % item.title)
-			match item.effect_type:
-				item.EffectType.TIME_INCOME:
-					player_data.coins_per_second += item.effect_factor
-				item.EffectType.CLICK_INCOME:
-					player_data.coins_per_click += item.effect_factor
+			
+	match item.effect_type:
+		item.EffectType.TIME_INCOME:
+			player_data.coins_per_second += item.effect_factor
+		item.EffectType.CLICK_INCOME:
+			player_data.coins_per_click += item.effect_factor
