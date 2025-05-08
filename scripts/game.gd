@@ -46,7 +46,8 @@ func ui_mouse_exited():
 	
 	
 func handle_mouse_hover_ui_elements():
-	var ui_nodes = get_tree().get_nodes_in_group("ui_cursor") as Array[Control]
+	var ui_nodes = get_tree().get_nodes_in_group("ui_cursor")
 	for node in ui_nodes:
 		node.mouse_entered.connect(ui_mouse_entered)
 		node.mouse_exited.connect(ui_mouse_exited)
+		
