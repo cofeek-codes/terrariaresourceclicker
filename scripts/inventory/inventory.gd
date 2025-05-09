@@ -2,6 +2,7 @@ extends Control
 
 signal inventory_open
 signal item_added(item: DropItem)
+signal item_selected(item: InventoryItem)
 
 @onready var player_data: PlayerData = Globals.get_player_data()
 
@@ -82,3 +83,7 @@ func _on_item_added(item: DropItem) -> void:
 	print('item added: %s' % item.title)
 	pickup_audio_player.play()
 	add_item_to_inventory(item)
+
+
+func _on_item_selected(item: InventoryItem) -> void:
+	print('item selected: %s (%d)' % [item.item.title, item.amount])

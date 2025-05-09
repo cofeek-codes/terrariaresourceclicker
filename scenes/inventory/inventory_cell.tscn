@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx6ktdrhkmw3t"]
+[gd_scene load_steps=8 format=3 uid="uid://bx6ktdrhkmw3t"]
 
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_nj5mk"]
 [ext_resource type="Script" uid="uid://dp3aq8tqofi5h" path="res://scripts/inventory/inventory_cell.gd" id="2_ixtl3"]
 [ext_resource type="Texture2D" uid="uid://c5nhfia5305f1" path="res://resources/drop_items/dirt/dirt.png" id="3_ixtl3"]
+[ext_resource type="StyleBox" uid="uid://b6l1h7eyhf3xx" path="res://theming/styles/inventory/inventory_cell_select_hover_pressed.tres" id="4_gbdba"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3y20"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3y20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbdba"]
 
 [node name="InventoryCell" type="PanelContainer" groups=["ui_cursor"]]
 custom_minimum_size = Vector2(45, 45)
@@ -20,16 +29,30 @@ theme_override_constants/margin_bottom = 8
 
 [node name="InventoryItem" type="TextureRect" parent="MarginContainer"]
 unique_name_in_owner = true
+z_index = 3
 layout_mode = 2
 texture = ExtResource("3_ixtl3")
 
 [node name="AmountLabel" type="Label" parent="."]
 unique_name_in_owner = true
+z_index = 3
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "3"
+label_settings = SubResource("LabelSettings_f3y20")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="SelectButton" type="Button" parent="." groups=["ui_cursor"]]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_gbdba")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f3y20")
+theme_override_styles/hover = ExtResource("4_gbdba")
+theme_override_styles/pressed = ExtResource("4_gbdba")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gbdba")
+
+[node name="SelectAudioPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="display_item" from="." to="." method="_on_display_item"]
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmulwdcveox7f"]
+
+[ext_resource type="Script" uid="uid://dsrbly2bskk8a" path="res://scripts/inventory/sell_buttons.gd" id="1_b1tig"]
+[ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="1_wefco"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8e04"]
+bg_color = Color(0.0823499, 0.0444458, 0.317385, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kl7fi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4j3l"]
+
+[node name="SellButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 8
+script = ExtResource("1_b1tig")
+
+[node name="SellButtonsHBoxContainer" type="HBoxContainer" parent="." groups=["ui_cursor"]]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SellOneContainer" type="Control" parent="SellButtonsHBoxContainer" groups=["ui_cursor"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SellOnePanel" type="PanelContainer" parent="SellButtonsHBoxContainer/SellOneContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8e04")
+
+[node name="SellOneHBoxContainer" type="HBoxContainer" parent="SellButtonsHBoxContainer/SellOneContainer/SellOnePanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="SellOneIcon" type="TextureRect" parent="SellButtonsHBoxContainer/SellOneContainer/SellOnePanel/SellOneHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wefco")
+stretch_mode = 3
+
+[node name="SellOneLabel" type="Label" parent="SellButtonsHBoxContainer/SellOneContainer/SellOnePanel/SellOneHBoxContainer"]
+layout_mode = 2
+text = "Sell 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellOneButton" type="Button" parent="SellButtonsHBoxContainer/SellOneContainer" groups=["ui_cursor"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kl7fi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x4j3l")
+
+[node name="SellAllContainer" type="Control" parent="SellButtonsHBoxContainer" groups=["ui_cursor"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SellAllPanel" type="PanelContainer" parent="SellButtonsHBoxContainer/SellAllContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8e04")
+
+[node name="SellAllHBoxContainer" type="HBoxContainer" parent="SellButtonsHBoxContainer/SellAllContainer/SellAllPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="SellAllIcon" type="TextureRect" parent="SellButtonsHBoxContainer/SellAllContainer/SellAllPanel/SellAllHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wefco")
+stretch_mode = 3
+
+[node name="SellAllLabel" type="Label" parent="SellButtonsHBoxContainer/SellAllContainer/SellAllPanel/SellAllHBoxContainer"]
+layout_mode = 2
+text = "Sell All"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellAllButton" type="Button" parent="SellButtonsHBoxContainer/SellAllContainer" groups=["ui_cursor"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kl7fi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x4j3l")
