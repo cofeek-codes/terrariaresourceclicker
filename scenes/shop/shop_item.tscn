@@ -60,5 +60,6 @@ theme_override_styles/normal = ExtResource("1_btjjm")
 
 [node name="BuyAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_l6aef")
+bus = &"Sound"
 
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

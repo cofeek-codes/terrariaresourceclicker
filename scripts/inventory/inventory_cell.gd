@@ -9,6 +9,8 @@ signal display_item
 @onready var inventory_item_image: TextureRect = %InventoryItem
 @onready var amount_label: Label = %AmountLabel
 
+@onready var select_audio_player: AudioStreamPlayer = $SelectAudioPlayer
+
 
 func _ready() -> void:
 	inventory_item_image.texture = inventory_item_data.item.texture
@@ -21,4 +23,5 @@ func _on_display_item() -> void:
 
 
 func _on_select_button_pressed() -> void:
+	select_audio_player.play()
 	inventory.emit_signal("item_selected", inventory_item_data)
