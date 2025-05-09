@@ -113,6 +113,7 @@ theme_override_constants/v_separation = 8
 columns = 3
 
 [node name="SellButtons" parent="OuterMarginContainer/OuterPanel/VBoxContainer" instance=ExtResource("4_kl7fi")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

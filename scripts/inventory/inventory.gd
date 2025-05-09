@@ -11,6 +11,7 @@ signal item_selected(item: InventoryItem)
 @onready var open_audio_player: AudioStreamPlayer = $OpenAudioPlayer
 @onready var close_audio_player: AudioStreamPlayer = $CloseAudioPlayer
 @onready var inventory_items_container: GridContainer = %InventoryItemsContainer
+@onready var sell_buttons: Control = %SellButtons
 
 @onready var inventory_button: Control = $"../InventoryButton"
 @onready var pickup_text: Control = $"../PickupText"
@@ -87,3 +88,6 @@ func _on_item_added(item: DropItem) -> void:
 
 func _on_item_selected(item: InventoryItem) -> void:
 	print('item selected: %s (%d)' % [item.item.title, item.amount])
+	sell_buttons.selected_item = item
+	sell_buttons.show()
+	

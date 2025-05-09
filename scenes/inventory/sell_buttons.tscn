@@ -114,3 +114,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kl7fi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x4j3l")
+
+[connection signal="pressed" from="SellButtonsHBoxContainer/SellOneContainer/SellOneButton" to="." method="_on_sell_one_button_pressed"]
+[connection signal="pressed" from="SellButtonsHBoxContainer/SellAllContainer/SellAllButton" to="." method="_on_sell_all_button_pressed"]
