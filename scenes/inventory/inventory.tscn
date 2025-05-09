@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dplcdtes3xutv"]
+[gd_scene load_steps=13 format=3 uid="uid://dplcdtes3xutv"]
 
 [ext_resource type="Script" uid="uid://e7j3rr8fdesl" path="res://scripts/inventory/inventory.gd" id="1_bxceu"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="2_v8e04"]
 [ext_resource type="Texture2D" uid="uid://0k6c3kkywtgi" path="res://assets/icons/close_icon.png" id="3_kl7fi"]
 [ext_resource type="PackedScene" uid="uid://cmulwdcveox7f" path="res://scenes/inventory/sell_buttons.tscn" id="4_kl7fi"]
+[ext_resource type="StyleBox" uid="uid://3ndacia5jemj" path="res://theming/styles/inventory/inventory_close_button_hover.tres" id="4_x4j3l"]
 [ext_resource type="AudioStream" uid="uid://bacuwu1dbihb" path="res://assets/audio/sounds/item_pickup.wav" id="5_l6cit"]
 [ext_resource type="AudioStream" uid="uid://c6y5ynvlmch88" path="res://assets/audio/sounds/menu_open.wav" id="5_v8e04"]
 [ext_resource type="AudioStream" uid="uid://qjv8hsaex80q" path="res://assets/audio/sounds/menu_close.wav" id="6_kl7fi"]
@@ -83,12 +84,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
 [node name="CloseIcon" type="TextureRect" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer"]
+z_index = 3
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_kl7fi")
 
 [node name="CloseButton" type="Button" parent="OuterMarginContainer/OuterPanel/VBoxContainer/MarginContainer" groups=["ui_cursor"]]
 layout_mode = 2
+theme_override_styles/hover = ExtResource("4_x4j3l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_53g1v")
 
 [node name="InnerMarginContainer" type="MarginContainer" parent="OuterMarginContainer/OuterPanel/VBoxContainer"]
