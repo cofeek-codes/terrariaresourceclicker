@@ -22,7 +22,7 @@ func _ready() -> void:
 	print(is_open())
 	print(player_data.inventory)
 	init_inventory_cells()
-	 
+	sell_buttons.emit_signal('get_inventory_cells_container', inventory_items_container)
 	self.position.x = -self.size.x
 
 

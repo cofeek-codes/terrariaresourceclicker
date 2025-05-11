@@ -1,6 +1,7 @@
 extends Control
 
 signal resource_pickedup(item: String, amount: int)
+signal item_sold(item: String, amount: int, price: int)
 
 @onready var text_list_container: VBoxContainer = %TextListContainer
 @onready var example_style_label: Label = %ExampleStyleLabel
@@ -46,3 +47,10 @@ func _on_pickup_disappear_timer_timeout() -> void:
 		var label_to_disappear = text_list_container.get_child(0)
 		if label_to_disappear:
 			play_disappear_animation(label_to_disappear)
+
+
+func _on_item_sold(item: String, amount: int, price: int) -> void:
+	var item_label = init_label_props()
+	item_label.text = "sold %s (%d) for %d coins" % [item, amount, price]
+	text_list_container.add_child(item_label)
+	play_appear_animation(item_label)

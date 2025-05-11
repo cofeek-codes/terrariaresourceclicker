@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmulwdcveox7f"]
+[gd_scene load_steps=7 format=3 uid="uid://cmulwdcveox7f"]
 
 [ext_resource type="Script" uid="uid://dsrbly2bskk8a" path="res://scripts/inventory/sell_buttons.gd" id="1_b1tig"]
 [ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="1_wefco"]
+[ext_resource type="AudioStream" uid="uid://d2w32t2k8wwjx" path="res://assets/audio/sounds/purchase.wav" id="3_u43wu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8e04"]
 bg_color = Color(0.0823499, 0.0444458, 0.317385, 1)
@@ -115,5 +116,11 @@ grow_vertical = 2
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kl7fi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x4j3l")
 
+[node name="SellAudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_u43wu")
+bus = &"Sound"
+
+[connection signal="get_inventory_cells_container" from="." to="." method="_on_get_inventory_cells_container"]
 [connection signal="pressed" from="SellButtonsHBoxContainer/SellOneContainer/SellOneButton" to="." method="_on_sell_one_button_pressed"]
 [connection signal="pressed" from="SellButtonsHBoxContainer/SellAllContainer/SellAllButton" to="." method="_on_sell_all_button_pressed"]

@@ -1,8 +1,16 @@
 extends Control
 
+signal get_inventory_cells_container(cells_container_node: GridContainer)
+
 @export var selected_item: InventoryItem
 
 @onready var player_data: PlayerData = Globals.get_player_data()
+
+@onready var sell_audio_player: AudioStreamPlayer = %SellAudioPlayer
+
+@onready var pickup_text: Control = $"/root/Game/CanvasLayer/GameUI/PickupText"
+
+var inventory_cells_container: GridContainer
 
 # @onready var sell_one_button: Button = %SellOneButton
 # @onready var sell_all_button: Button = %SellAllButton
@@ -12,8 +20,29 @@ func _ready() -> void:
 
 
 func _on_sell_one_button_pressed() -> void:
-	pass # Replace with function body.
-
-
+	print('sell_one_button_pressed')
+	print('before: %s (%d)' % [selected_item.item.title, selected_item.amount])
+	sell_audio_player.play()
+	player_data.coins += selected_item.item.price
+	pickup_text.emit_signal('item_sold', selected_item.item.title, 1, selected_item.item.price)
+	var selected_item_idx = player_data.inventory.find(selected_item)
+	var inventory_cell_idx = inventory_cells_container.get_children().find_custom((func(c: PanelContainer): return c.inventory_item_data == selected_item).bind())
+	
+	if player_data.inventory[selected_item_idx].amount == 1:
+		player_data.inventory.remove_at(selected_item_idx)
+		inventory_cells_container.get_child(inventory_cell_idx).queue_free()
+		self.hide()
+	else:
+		player_data.inventory[selected_item_idx].amount -= 1
+		inventory_cells_container.get_child(inventory_cell_idx).emit_signal('display_item')	
+	
+	print('after: %s (%d)' % [selected_item.item.title, selected_item.amount])
+	
 func _on_sell_all_button_pressed() -> void:
-	pass # Replace with function body.
+	print('sell_all_button_pressed')
+	print('%s (%d)' % [selected_item.item.title, selected_item.amount])
+	sell_audio_player.play()
+
+
+func _on_get_inventory_cells_container(cells_container_node: GridContainer) -> void:
+	self.inventory_cells_container = cells_container_node
