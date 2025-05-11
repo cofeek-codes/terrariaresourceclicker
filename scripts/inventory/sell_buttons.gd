@@ -12,8 +12,6 @@ signal get_inventory_cells_container(cells_container_node: GridContainer)
 
 var inventory_cells_container: GridContainer
 
-# @onready var sell_one_button: Button = %SellOneButton
-# @onready var sell_all_button: Button = %SellAllButton
 
 func _ready() -> void:
 	self.hide()
