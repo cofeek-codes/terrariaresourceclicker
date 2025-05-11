@@ -13,6 +13,7 @@ signal display_item
 
 
 func _ready() -> void:
+	self.add_to_group('ui_cursor')
 	inventory_item_image.texture = inventory_item_data.item.texture
 	amount_label.text = str(inventory_item_data.amount)
 	
