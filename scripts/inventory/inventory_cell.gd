@@ -3,6 +3,7 @@ extends PanelContainer
 signal display_item
 
 @export var inventory_item_data: InventoryItem
+@export var select_button: Button
 
 @onready var inventory = $"/root/Game/CanvasLayer/GameUI/Inventory" 
 

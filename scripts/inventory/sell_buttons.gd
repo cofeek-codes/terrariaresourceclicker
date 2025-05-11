@@ -27,6 +27,8 @@ func _on_sell_one_button_pressed() -> void:
 	pickup_text.emit_signal('item_sold', selected_item.item.title, 1, selected_item.item.price)
 	var selected_item_idx = player_data.inventory.find(selected_item)
 	var inventory_cell_idx = inventory_cells_container.get_children().find_custom((func(c: PanelContainer): return c.inventory_item_data == selected_item).bind())
+	var inventory_cell_button: Button = inventory_cells_container.get_child(inventory_cell_idx).select_button
+	inventory_cell_button.grab_focus()
 	
 	if player_data.inventory[selected_item_idx].amount == 1:
 		player_data.inventory.remove_at(selected_item_idx)
