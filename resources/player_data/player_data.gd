@@ -13,6 +13,6 @@ class_name PlayerData
 
 func get_pickaxe_texture() -> Texture2D:
 	var items = active_items.map(func(ai: ActiveItem): return ai.item)
-	var pickaxes = items.filter(func(item: ShopItem): return item if item.type == ShopItem.ItemType.PICKAXE else null)
+	var pickaxes = items.filter(func(item: ShopItem): return item.type == ShopItem.ItemType.PICKAXE)
 	var target_pickaxe = pickaxes.reduce(func(prev, new): return new if new.tier > prev.tier else prev)
 	return target_pickaxe.texture
