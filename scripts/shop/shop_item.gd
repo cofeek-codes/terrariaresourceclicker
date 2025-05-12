@@ -11,6 +11,7 @@ extends PanelContainer
 
 @onready var buy_audio_player: AudioStreamPlayer = $BuyAudioPlayer
 
+@onready var game: Node2D = $"/root/Game"
 
 func _ready() -> void:
 	item_image.texture = item.texture
@@ -44,6 +45,10 @@ func add_active_item(item: ShopItem):
 		new_item.item = item
 		new_item.amount = 1
 		player_data.active_items.push_back(new_item)
+		
+		# introduce new pickaxe
+		if item.type == ShopItem.ItemType.PICKAXE:
+			game.emit_signal('introduce_pickaxe', item.texture)
 	
 	apply_new_item_stats(item)
 

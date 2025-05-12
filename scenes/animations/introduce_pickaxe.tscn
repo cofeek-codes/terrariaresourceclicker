@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://4yxteorema41"]
+
+[ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="1_vp0l3"]
+
+[sub_resource type="Animation" id="Animation_ivkem"]
+resource_name = "introduce"
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickaxeSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.5, 0.5), Vector2(0.7, 0.7), Vector2(0.9, 0.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickaxeSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.785398, 1.0472, 1.309]
+}
+
+[sub_resource type="Animation" id="Animation_f23se"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickaxeSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickaxeSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntcel"]
+_data = {
+&"RESET": SubResource("Animation_f23se"),
+&"introduce": SubResource("Animation_ivkem")
+}
+
+[node name="IntroducePickaxe" type="Node2D"]
+
+[node name="PickaxeSprite" type="Sprite2D" parent="."]
+position = Vector2(574, 324)
+texture = ExtResource("1_vp0l3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ntcel")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"

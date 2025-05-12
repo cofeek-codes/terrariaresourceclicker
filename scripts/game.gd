@@ -1,5 +1,7 @@
 extends Node2D
 
+signal introduce_pickaxe(pickaxe_texture: Texture2D)
+
 @onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var cursor: Node2D = %Cursor
@@ -51,3 +53,7 @@ func handle_mouse_hover_ui_elements():
 		node.mouse_entered.connect(ui_mouse_entered)
 		node.mouse_exited.connect(ui_mouse_exited)
 		
+
+
+func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
+	get_tree().paused = true
