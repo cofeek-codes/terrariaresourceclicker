@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://b77nq0ct1uf1e"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_l0iaf"]
+[ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="2_xsceb"]
+
+[resource]
+script = ExtResource("1_l0iaf")
+title = "Iron Pickaxe"
+price = 15
+texture = ExtResource("2_xsceb")
+effect_type = 1
+effect_factor = 3
+type = 0
+tier = 2
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
