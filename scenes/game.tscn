@@ -17,6 +17,7 @@ frame_0/texture = ExtResource("1_uwrxv")
 script = ExtResource("1_lnu2h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="GameUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3

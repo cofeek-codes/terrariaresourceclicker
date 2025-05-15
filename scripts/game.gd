@@ -6,8 +6,11 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
+
 @onready var block_area: Area2D = block.get_node('BlockArea')
 
+var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_pickaxe.tscn")
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -57,3 +60,7 @@ func handle_mouse_hover_ui_elements():
 
 func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	get_tree().paused = true
+	var new_pickaxe_scene = new_pickaxe_scene_preload.instantiate()
+	new_pickaxe_scene.pickaxe_texture = pickaxe_texture
+	canvas_layer.add_child(new_pickaxe_scene)
+	
