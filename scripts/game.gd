@@ -59,7 +59,6 @@ func handle_mouse_hover_ui_elements():
 
 
 func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
-	get_tree().paused = true
 	var new_pickaxe_scene = new_pickaxe_scene_preload.instantiate()
 	new_pickaxe_scene.pickaxe_texture = pickaxe_texture
 	canvas_layer.add_child(new_pickaxe_scene)
