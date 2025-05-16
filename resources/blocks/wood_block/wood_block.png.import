@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qcx78ybeemei"
-path="res://.godot/imported/wood_block_sprite.png-0be344f343f18025fb6b7bfacc891213.ctex"
+path="res://.godot/imported/wood_block.png-db830f7bfc1e6aa5806d88229acf8fdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/blocks/wood_block/wood_block_sprite.png"
-dest_files=["res://.godot/imported/wood_block_sprite.png-0be344f343f18025fb6b7bfacc891213.ctex"]
+source_file="res://resources/blocks/wood_block/wood_block.png"
+dest_files=["res://.godot/imported/wood_block.png-db830f7bfc1e6aa5806d88229acf8fdb.ctex"]
 
 [params]
 
