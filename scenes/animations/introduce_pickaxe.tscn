@@ -194,6 +194,12 @@ font_size = 36
 script = ExtResource("1_ntcel")
 pickaxe_texture = ExtResource("1_vp0l3")
 
+[node name="BackgroundPanel" type="Panel" parent="."]
+offset_left = -502.0
+offset_top = -434.0
+offset_right = 654.0
+offset_bottom = 415.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
