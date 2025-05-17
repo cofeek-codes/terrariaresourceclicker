@@ -83,7 +83,7 @@ func apply_click_visuals():
 	emit_particles()
 	
 func shake():
-	hit_audio_player.pitch_scale = randf_range(0.8, 1)
+	hit_audio_player.pitch_scale = randf_range(0.5, 1.5)
 	hit_audio_player.play()
 	animation_player.stop()
 	if cursor.is_cursor_right():

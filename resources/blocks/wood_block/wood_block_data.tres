@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://dtl3mnnnsl7qg"]
 
-[ext_resource type="AudioStream" uid="uid://dh8b5g111caoh" path="res://assets/audio/sounds/block_hit.wav" id="1_rl888"]
+[ext_resource type="AudioStream" uid="uid://dh8b5g111caoh" path="res://assets/audio/sounds/block_sounds/soft_block_hit.wav" id="1_rl888"]
 [ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="2_1yydn"]
 [ext_resource type="Material" uid="uid://cj3v78yqk1d04" path="res://resources/blocks/wood_block/wood_block_ppm.tres" id="2_8mg2y"]
 [ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_biqjx"]
