@@ -1,13 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://4yxteorema41"]
+[gd_scene load_steps=13 format=3 uid="uid://4yxteorema41"]
 
 [ext_resource type="Texture2D" uid="uid://bhe2itsbkwwvb" path="res://assets/sunrays_bg.png" id="1_ivkem"]
 [ext_resource type="Script" uid="uid://e1r62daerkkg" path="res://scripts/animations/introduce_pickaxe.gd" id="1_ntcel"]
 [ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="1_vp0l3"]
 [ext_resource type="AudioStream" uid="uid://cueemxccetipq" path="res://assets/audio/sounds/item_accuired_animation_rotation_sound.wav" id="3_f23se"]
+[ext_resource type="Resource" uid="uid://bfanrgjbacisg" path="res://resources/blocks/block_dictionary.tres" id="3_o3xas"]
 [ext_resource type="AudioStream" uid="uid://bo7s8at7uwcu3" path="res://assets/audio/sounds/pickaxe_animation_slap.wav" id="5_woijs"]
-[ext_resource type="PackedScene" uid="uid://c151g4387fh1j" path="res://scenes/animations/new_block.tscn" id="6_cmhvr"]
-[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="7_a4a7v"]
-[ext_resource type="Texture2D" uid="uid://qcx78ybeemei" path="res://resources/blocks/wood_block/wood_block.png" id="8_8c4dn"]
 
 [sub_resource type="Animation" id="Animation_f23se"]
 length = 0.001
@@ -193,6 +191,7 @@ font_size = 36
 [node name="IntroducePickaxe" type="Node2D"]
 script = ExtResource("1_ntcel")
 pickaxe_texture = ExtResource("1_vp0l3")
+block_dict = ExtResource("3_o3xas")
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 offset_left = -502.0
@@ -247,7 +246,8 @@ offset_top = 110.0
 offset_right = 158.0
 offset_bottom = 151.0
 
-[node name="NewBlocksHBoxContainer" type="HBoxContainer" parent="NewBlocks"]
+[node name="NewBlocksContainer" type="HBoxContainer" parent="NewBlocks"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -255,15 +255,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="NewBlock" parent="NewBlocks/NewBlocksHBoxContainer" instance=ExtResource("6_cmhvr")]
-layout_mode = 2
-block_texture = ExtResource("7_a4a7v")
-
-[node name="NewBlock2" parent="NewBlocks/NewBlocksHBoxContainer" instance=ExtResource("6_cmhvr")]
-layout_mode = 2
-block_texture = ExtResource("8_8c4dn")
-
-[node name="NewBlock3" parent="NewBlocks/NewBlocksHBoxContainer" instance=ExtResource("6_cmhvr")]
-layout_mode = 2
-block_texture = ExtResource("7_a4a7v")

@@ -3,6 +3,21 @@
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_vjtdl"]
 [ext_resource type="Script" uid="uid://befcktv2pypj4" path="res://scripts/animations/new_block.gd" id="2_w3ov7"]
 
+[sub_resource type="Animation" id="Animation_vjtdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_26ffj"]
 resource_name = "appear"
 length = 0.8
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_vjtdl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3ov7"]
