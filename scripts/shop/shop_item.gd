@@ -48,6 +48,7 @@ func add_active_item(item: ShopItem):
 		
 		# introduce new pickaxe
 		if item.type == ShopItem.ItemType.PICKAXE:
+			player_data.tier += 1
 			game.emit_signal('introduce_pickaxe', item.texture)
 	
 	apply_new_item_stats(item)
