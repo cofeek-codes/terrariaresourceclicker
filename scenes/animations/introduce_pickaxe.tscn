@@ -1,11 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://4yxteorema41"]
+[gd_scene load_steps=22 format=3 uid="uid://4yxteorema41"]
 
 [ext_resource type="Texture2D" uid="uid://bhe2itsbkwwvb" path="res://assets/sunrays_bg.png" id="1_ivkem"]
 [ext_resource type="Script" uid="uid://e1r62daerkkg" path="res://scripts/animations/introduce_pickaxe.gd" id="1_ntcel"]
 [ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="1_vp0l3"]
 [ext_resource type="AudioStream" uid="uid://cueemxccetipq" path="res://assets/audio/sounds/item_accuired_animation_rotation_sound.wav" id="3_f23se"]
 [ext_resource type="Resource" uid="uid://bfanrgjbacisg" path="res://resources/blocks/block_dictionary.tres" id="3_o3xas"]
+[ext_resource type="PackedScene" uid="uid://c151g4387fh1j" path="res://scenes/animations/new_block.tscn" id="5_qukxg"]
 [ext_resource type="AudioStream" uid="uid://bo7s8at7uwcu3" path="res://assets/audio/sounds/pickaxe_animation_slap.wav" id="5_woijs"]
+[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="6_g8i3q"]
+[ext_resource type="Texture2D" uid="uid://qcx78ybeemei" path="res://resources/blocks/wood_block/wood_block.png" id="7_h45j2"]
+[ext_resource type="Texture2D" uid="uid://csm1rpsm64uom" path="res://resources/blocks/demonite_ore_block/demonite_ore_block.png" id="8_58ojx"]
+[ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="11_g8i3q"]
+[ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="11_m5q23"]
+[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="12_6qi3x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_woijs"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmhvr"]
+font_size = 36
 
 [sub_resource type="Animation" id="Animation_f23se"]
 length = 0.001
@@ -69,6 +82,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ContinueButtonContainer:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_cmhvr"]
 resource_name = "after_idle"
@@ -125,7 +150,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0.5, 0.5)]
+"values": [Vector2(0, 0), Vector2(0.6, 0.6)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -174,6 +199,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ContinueButtonContainer:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ntcel"]
 _data = {
@@ -182,11 +219,10 @@ _data = {
 &"introduce": SubResource("Animation_ivkem")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_woijs"]
-font_size = 32
+[sub_resource type="LabelSettings" id="LabelSettings_37xhj"]
+font_size = 25
 
-[sub_resource type="LabelSettings" id="LabelSettings_cmhvr"]
-font_size = 36
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8i3q"]
 
 [node name="IntroducePickaxe" type="Node2D"]
 script = ExtResource("1_ntcel")
@@ -198,16 +234,6 @@ offset_left = -502.0
 offset_top = -434.0
 offset_right = 654.0
 offset_bottom = 415.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_ntcel")
-}
-speed_scale = 2.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Sound"
 
 [node name="SunraysBackground" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivkem")
@@ -255,3 +281,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="NewBlock" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+layout_mode = 2
+block_texture = ExtResource("6_g8i3q")
+
+[node name="NewBlock2" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+layout_mode = 2
+block_texture = ExtResource("7_h45j2")
+
+[node name="NewBlock3" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+layout_mode = 2
+block_texture = ExtResource("8_58ojx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ntcel")
+}
+speed_scale = 2.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="ContinueButtonContainer" type="PanelContainer" parent="."]
+offset_left = -57.0
+offset_top = 168.0
+offset_right = 56.0
+offset_bottom = 203.0
+pivot_offset = Vector2(57, 0)
+theme_override_styles/panel = ExtResource("12_6qi3x")
+
+[node name="ContinueMarginContainer" type="MarginContainer" parent="ContinueButtonContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 3
+
+[node name="ContinueLabel" type="Label" parent="ContinueButtonContainer/ContinueMarginContainer"]
+z_index = 3
+layout_mode = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_37xhj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="ContinueButtonContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("11_g8i3q")
+theme_override_styles/hover = ExtResource("11_m5q23")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g8i3q")
