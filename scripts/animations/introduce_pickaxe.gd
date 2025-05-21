@@ -28,6 +28,14 @@ func _ready() -> void:
 	 
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	animation_player.play("introduce")
-	
 	await animation_player.animation_finished
 	animation_player.play("after_idle")
+
+
+func _on_continue_button_pressed() -> void:
+	for child in new_resources_container.get_children():
+		child.emit_signal('dispawn_requested')
+		
+	animation_player.play_backwards("introduce_reverse")
+	await animation_player.animation_finished
+	queue_free()
