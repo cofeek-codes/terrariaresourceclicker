@@ -39,6 +39,8 @@ func handle_click():
 func get_random_block() -> BlockData:
 	var player_tier = player_data.tier
 	var player_tier_blocks: Array[BlockData] = block_dict.blocks.filter(func(b:BlockData): return b.tier <= player_tier)
+	print('player tier: %d ' % player_tier)
+	print('player tier blocks')
 	print(player_tier_blocks.map(func(b:BlockData): return b.title))
 	var res: BlockData = player_tier_blocks.pick_random()
 	print(res.title)

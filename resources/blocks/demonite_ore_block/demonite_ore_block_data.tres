@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BlockData" load_steps=5 format=3 uid="uid://bvlxu17t3no8x"]
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://bvlxu17t3no8x"]
 
 [ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_n5vlt"]
+[ext_resource type="Resource" uid="uid://cckhqxpt8xg0i" path="res://resources/drop_items/demonite_ore/demonite_ore.tres" id="2_hu26r"]
 [ext_resource type="Material" uid="uid://bb265ixfdt21y" path="res://resources/blocks/demonite_ore_block/demonite_ore_ppm.tres" id="2_n5vlt"]
 [ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="3_ee3qn"]
 [ext_resource type="Texture2D" uid="uid://csm1rpsm64uom" path="res://resources/blocks/demonite_ore_block/demonite_ore_block.png" id="4_0y0h2"]
@@ -14,4 +15,5 @@ health = 3
 particles_material = ExtResource("2_n5vlt")
 hit_sound = ExtResource("1_n5vlt")
 destroy_sound = ExtResource("1_n5vlt")
+drop_item = ExtResource("2_hu26r")
 metadata/_custom_type_script = "uid://bf5axqg6pxttl"

@@ -4,15 +4,13 @@
 [ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="2_1yydn"]
 [ext_resource type="Material" uid="uid://cj3v78yqk1d04" path="res://resources/blocks/wood_block/wood_block_ppm.tres" id="2_8mg2y"]
 [ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_biqjx"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1yydn"]
-load_path = "res://.godot/imported/wood_block_sprite.png-0be344f343f18025fb6b7bfacc891213.ctex"
+[ext_resource type="Texture2D" uid="uid://qcx78ybeemei" path="res://resources/blocks/wood_block/wood_block.png" id="5_biqjx"]
 
 [resource]
 script = ExtResource("2_1yydn")
 title = "Wood"
 tier = 1
-texture = SubResource("CompressedTexture2D_1yydn")
+texture = ExtResource("5_biqjx")
 health = 3
 particles_material = ExtResource("2_8mg2y")
 hit_sound = ExtResource("1_rl888")
