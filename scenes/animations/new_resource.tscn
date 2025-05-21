@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c151g4387fh1j"]
 
-[ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_vjtdl"]
-[ext_resource type="Script" uid="uid://befcktv2pypj4" path="res://scripts/animations/new_block.gd" id="2_w3ov7"]
+[ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_rs6p7"]
+[ext_resource type="Script" uid="uid://befcktv2pypj4" path="res://scripts/animations/new_block.gd" id="2_rqrqf"]
 
 [sub_resource type="Animation" id="Animation_vjtdl"]
 length = 0.001
@@ -40,13 +40,13 @@ _data = {
 &"appear": SubResource("Animation_26ffj")
 }
 
-[node name="NewBlock" type="PanelContainer"]
+[node name="NewResource" type="PanelContainer"]
 custom_minimum_size = Vector2(45, 45)
 offset_right = 45.0
 offset_bottom = 45.0
 pivot_offset = Vector2(22, 0)
-theme_override_styles/panel = ExtResource("1_vjtdl")
-script = ExtResource("2_w3ov7")
+theme_override_styles/panel = ExtResource("1_rs6p7")
+script = ExtResource("2_rqrqf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -55,7 +55,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="NewBlockTexture" type="TextureRect" parent="MarginContainer"]
+[node name="NewResourceTexture" type="TextureRect" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 

@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="1_vp0l3"]
 [ext_resource type="AudioStream" uid="uid://cueemxccetipq" path="res://assets/audio/sounds/item_accuired_animation_rotation_sound.wav" id="3_f23se"]
 [ext_resource type="Resource" uid="uid://bfanrgjbacisg" path="res://resources/blocks/block_dictionary.tres" id="3_o3xas"]
-[ext_resource type="PackedScene" uid="uid://c151g4387fh1j" path="res://scenes/animations/new_block.tscn" id="5_qukxg"]
+[ext_resource type="PackedScene" uid="uid://c151g4387fh1j" path="res://scenes/animations/new_resource.tscn" id="5_qukxg"]
 [ext_resource type="AudioStream" uid="uid://bo7s8at7uwcu3" path="res://assets/audio/sounds/pickaxe_animation_slap.wav" id="5_woijs"]
-[ext_resource type="Texture2D" uid="uid://dnmcn8v63g86r" path="res://resources/blocks/dirt_block/dirt_block.png" id="6_g8i3q"]
-[ext_resource type="Texture2D" uid="uid://qcx78ybeemei" path="res://resources/blocks/wood_block/wood_block.png" id="7_h45j2"]
-[ext_resource type="Texture2D" uid="uid://csm1rpsm64uom" path="res://resources/blocks/demonite_ore_block/demonite_ore_block.png" id="8_58ojx"]
+[ext_resource type="Texture2D" uid="uid://c5nhfia5305f1" path="res://resources/drop_items/dirt/dirt.png" id="6_g8i3q"]
+[ext_resource type="Texture2D" uid="uid://dtphlrrrksqp4" path="res://resources/drop_items/wood/wood.png" id="7_h45j2"]
+[ext_resource type="Texture2D" uid="uid://qwknuq4au71k" path="res://resources/drop_items/demonite_ore/demonite_ore.png" id="8_58ojx"]
 [ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="11_g8i3q"]
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="11_m5q23"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="12_6qi3x"]
@@ -259,12 +259,12 @@ offset_top = 50.0
 offset_right = 272.0
 offset_bottom = 92.0
 pivot_offset = Vector2(273, 0)
-text = "New Blocks Unlocked:"
+text = "New Resources Unlocked:"
 label_settings = SubResource("LabelSettings_cmhvr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NewBlocks" type="Control" parent="."]
+[node name="NewResources" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -154.0
@@ -272,7 +272,7 @@ offset_top = 110.0
 offset_right = 158.0
 offset_bottom = 151.0
 
-[node name="NewBlocksContainer" type="HBoxContainer" parent="NewBlocks"]
+[node name="NewResourcesContainer" type="HBoxContainer" parent="NewResources"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -282,17 +282,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="NewBlock" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+[node name="NewResource" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
 layout_mode = 2
-block_texture = ExtResource("6_g8i3q")
+resorce_texture = ExtResource("6_g8i3q")
 
-[node name="NewBlock2" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+[node name="NewResource2" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
 layout_mode = 2
-block_texture = ExtResource("7_h45j2")
+resorce_texture = ExtResource("7_h45j2")
 
-[node name="NewBlock3" parent="NewBlocks/NewBlocksContainer" instance=ExtResource("5_qukxg")]
+[node name="NewResource3" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
 layout_mode = 2
-block_texture = ExtResource("8_58ojx")
+resorce_texture = ExtResource("8_58ojx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
