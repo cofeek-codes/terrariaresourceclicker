@@ -4,8 +4,6 @@ signal resource_pickedup(item: String, amount: int)
 signal item_sold(item: String, amount: int, price: int)
 
 @onready var text_list_container: VBoxContainer = %TextListContainer
-@onready var example_style_label: Label = %ExampleStyleLabel
-
 
 
 func play_appear_animation(label: Label):
