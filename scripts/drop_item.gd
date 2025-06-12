@@ -12,7 +12,7 @@ const LERP_SPEED: float = 5
 const LERP_DELAY: float = 5
 
 var target_position: Vector2
-var is_sound_played: bool = false
+
 
 func _ready() -> void:
 	sprite.texture = drop_item_data.texture
