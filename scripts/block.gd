@@ -52,7 +52,8 @@ func load_block_data(bd: BlockData):
 	# apply blockdata
 	sprite.texture = current_block_data.texture
 	block_hit_particles.process_material = current_block_data.particles_material
-	current_hp = current_block_data.health
+	current_hp = current_block_data.calculate_health()
+	print('current block hp: ' + str(current_block_data.calculate_health()))
 	hit_audio_player.stream = current_block_data.hit_sound
 	destroy_audio_player.stream = current_block_data.destroy_sound
 	
