@@ -69,6 +69,8 @@ func block_hit():
 	
 func block_destroy():
 	print('block should be destroyed')
+	destroy_audio_player.play()
+	await destroy_audio_player.finished
 	var new_block_data: BlockData = get_random_block()
 	animation_player.play('disappear')	
 	var drop_item = drop_item_scene_preload.instantiate()
