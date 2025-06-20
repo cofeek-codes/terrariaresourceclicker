@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bprbjuwc4odvo"]
+[gd_scene load_steps=9 format=3 uid="uid://bprbjuwc4odvo"]
 
 [ext_resource type="StyleBox" uid="uid://ur0jgjyh8wlr" path="res://theming/styles/shop/shop_item.tres" id="1_btjjm"]
 [ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="1_hannv"]
 [ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://resources/shop_items/cooper_pickaxe/copper_pickaxe.png" id="2_6gmg1"]
 [ext_resource type="Script" uid="uid://dxywixu88yfpy" path="res://scripts/shop/shop_item.gd" id="2_xcw7k"]
 [ext_resource type="StyleBox" uid="uid://cl4s4060pcm6s" path="res://theming/styles/shop/shop_item_disabled.tres" id="3_4oha2"]
+[ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="3_cjtcq"]
 [ext_resource type="AudioStream" uid="uid://d2w32t2k8wwjx" path="res://assets/audio/sounds/purchase.wav" id="6_l6aef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hannv"]
@@ -43,12 +44,18 @@ text = "Cooper Pickaxe"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemDescriptionLabel" type="Label" parent="MarginContainer/ShopItemInner/ItemInfo"]
+[node name="ItemPriceContainer" type="HBoxContainer" parent="MarginContainer/ShopItemInner/ItemInfo"]
+layout_mode = 2
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="MarginContainer/ShopItemInner/ItemInfo/ItemPriceContainer"]
+layout_mode = 2
+texture = ExtResource("3_cjtcq")
+
+[node name="ItemPriceLabel" type="Label" parent="MarginContainer/ShopItemInner/ItemInfo/ItemPriceContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "+ 1 per click"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "5"
 
 [node name="BuyButton" type="Button" parent="." groups=["ui_cursor"]]
 unique_name_in_owner = true

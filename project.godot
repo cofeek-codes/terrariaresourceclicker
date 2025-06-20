@@ -54,6 +54,7 @@ ui_cursor=""
 
 [gui]
 
+timers/tooltip_delay_sec=0.3
 theme/custom_font="uid://rn4ltgdoucnx"
 
 [input]

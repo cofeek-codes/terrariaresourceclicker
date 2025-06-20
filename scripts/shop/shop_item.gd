@@ -6,7 +6,7 @@ extends PanelContainer
 
 @onready var item_image: TextureRect = %ItemImage
 @onready var item_title_label: Label = %ItemTitleLabel
-@onready var item_description_label: Label = %ItemDescriptionLabel
+@onready var item_price_label: Label = %ItemPriceLabel
 @onready var buy_button: Button = %BuyButton
 
 @onready var buy_audio_player: AudioStreamPlayer = $BuyAudioPlayer
@@ -16,7 +16,8 @@ extends PanelContainer
 func _ready() -> void:
 	item_image.texture = item.texture
 	item_title_label.text = item.title
-	item_description_label.text = item.get_description()
+	item_price_label.text = str(item.price)
+	buy_button.tooltip_text = item.get_description()
 	
 func _process(delta: float) -> void:
 	if player_data.coins < item.price:
