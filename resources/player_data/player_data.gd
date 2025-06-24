@@ -17,3 +17,8 @@ func get_pickaxe_texture() -> Texture2D:
 	# @TODO: maybe just get pickaxe by player tier
 	var target_pickaxe = pickaxes.reduce(func(prev, new): return new if new.tier > prev.tier else prev)
 	return target_pickaxe.texture
+
+
+func calculate_damage():
+#	@TODO: improve
+	return tier

@@ -60,8 +60,7 @@ func load_block_data(bd: BlockData):
 	# apply blockdata
 
 func block_hit():
-	# @TODO: apply proper damage
-	current_hp -= 1
+	current_hp -= player_data.calculate_damage()
 	if current_hp <= 0:
 		block_destroy()
 	print(current_hp) 
