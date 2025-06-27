@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo4owrjcvds1y"]
+
+[ext_resource type="PackedScene" uid="uid://o0tdgoxknh11" path="res://scenes/buffs/buff.tscn" id="1_evfai"]
+
+[node name="Buffs" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 215.0
+offset_top = 21.0
+offset_right = 500.0
+offset_bottom = 61.0
+
+[node name="BuffsContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuffContainer" parent="BuffsContainer" instance=ExtResource("1_evfai")]
+layout_mode = 2

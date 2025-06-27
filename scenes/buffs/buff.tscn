@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0tdgoxknh11"]
+
+[ext_resource type="Texture2D" uid="uid://beaydcwcdyt64" path="res://assets/icons/buffs/mining.png" id="1_uarqe"]
+
+[node name="BuffContainer" type="VBoxContainer"]
+
+[node name="BuffIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_uarqe")
+
+[node name="BuffLabel" type="Label" parent="."]
+layout_mode = 2
+text = "3m"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=12 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4j13io34hy5x" path="res://scenes/cursor/cursor.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bwevbbxxfgp4q" path="res://scenes/inventory/inventory_button.tscn" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block/block.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bo4owrjcvds1y" path="res://scenes/buffs/buffs.tscn" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b74fuiowiv0iv" path="res://scenes/coins/coins.tscn" id="8_vtaks"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
@@ -60,6 +61,8 @@ layout_mode = 1
 
 [node name="Coins" parent="CanvasLayer/GameUI" instance=ExtResource("8_vtaks")]
 layout_mode = 1
+
+[node name="Buffs" parent="CanvasLayer/GameUI" instance=ExtResource("8_kvpfn")]
 
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
