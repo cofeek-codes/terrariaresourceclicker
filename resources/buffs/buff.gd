@@ -3,6 +3,7 @@ extends Resource
 class_name Buff
 
 @export var item: ActiveItem
+@export var icon: Texture2D
 
 @export_custom(PROPERTY_HINT_NONE, "suffix:s") var duration: int
 

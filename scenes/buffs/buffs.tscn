@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo4owrjcvds1y"]
+[gd_scene load_steps=4 format=3 uid="uid://bo4owrjcvds1y"]
 
 [ext_resource type="Script" uid="uid://bo1gg4y78f0tw" path="res://scripts/buffs/buffs.gd" id="1_dmlc4"]
 [ext_resource type="PackedScene" uid="uid://o0tdgoxknh11" path="res://scenes/buffs/buff.tscn" id="1_evfai"]
+[ext_resource type="Resource" uid="uid://bdn3ei7xyht2i" path="res://resources/buffs/mining/mining.tres" id="3_7efco"]
 
 [node name="Buffs" type="Control"]
 layout_mode = 3
@@ -13,6 +14,7 @@ offset_bottom = 61.0
 script = ExtResource("1_dmlc4")
 
 [node name="BuffsContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,3 +24,6 @@ grow_vertical = 2
 
 [node name="BuffContainer" parent="BuffsContainer" instance=ExtResource("1_evfai")]
 layout_mode = 2
+buff = ExtResource("3_7efco")
+
+[connection signal="buff_added" from="." to="." method="_on_buff_added"]
