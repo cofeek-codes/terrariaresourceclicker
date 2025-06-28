@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dchhr226mql2u" path="res://scripts/buffs/buff.gd" id="1_0xkwd"]
 [ext_resource type="Texture2D" uid="uid://beaydcwcdyt64" path="res://resources/buffs/mining/mining.png" id="1_uarqe"]
 
-[node name="BuffContainer" type="VBoxContainer"]
+[node name="BuffContainer" type="VBoxContainer" groups=["ui_cursor"]]
 script = ExtResource("1_0xkwd")
 
 [node name="BuffIcon" type="TextureRect" parent="."]

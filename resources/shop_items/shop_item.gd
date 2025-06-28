@@ -19,9 +19,14 @@ enum ItemType {
 @export var effect_factor: int
 @export var type: ItemType
 @export var tier: int = 1
+@export var buff: Buff
+
 
 func get_description() -> String:
+	return "+%d %s" % [effect_factor, effect_type_to_string()] 
+
+func effect_type_to_string():
 	if effect_type == EffectType.CLICK_INCOME: 
-		return "+%d for click" % effect_factor
+		return "for click"
 	else:
-		return "+%d per second" % effect_factor
+		return "per second"

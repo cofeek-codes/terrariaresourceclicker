@@ -12,6 +12,7 @@ extends PanelContainer
 @onready var buy_audio_player: AudioStreamPlayer = $BuyAudioPlayer
 
 @onready var game: Node2D = $"/root/Game"
+@onready var buffs: Control = $"/root/Game/CanvasLayer/GameUI/Buffs"
 
 func _ready() -> void:
 	item_image.texture = item.texture
@@ -51,6 +52,8 @@ func add_active_item(item: ShopItem):
 		if item.type == ShopItem.ItemType.PICKAXE:
 			player_data.tier += 1
 			game.emit_signal('introduce_pickaxe', item.texture)
+		if item.type == ShopItem.ItemType.BUFF:
+			buffs.emit_signal('buff_added', item)
 	
 	apply_new_item_stats(item)
 

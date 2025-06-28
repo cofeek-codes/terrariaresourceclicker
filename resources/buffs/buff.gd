@@ -2,11 +2,10 @@ extends Resource
 
 class_name Buff
 
-@export var item: ActiveItem
+@export var title: String
 @export var icon: Texture2D
 
 @export_custom(PROPERTY_HINT_NONE, "suffix:s") var duration: int
 
-
-func get_tooltip():
-	return "%s (x%d) - %s" % [item.item.title, item.amount, item.item.get_description()]
+var item_effect_factor: int
+var item_effect_type_as_string: String
