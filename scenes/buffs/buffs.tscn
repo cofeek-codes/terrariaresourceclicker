@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo4owrjcvds1y"]
+[gd_scene load_steps=3 format=3 uid="uid://bo4owrjcvds1y"]
 
+[ext_resource type="Script" uid="uid://bo1gg4y78f0tw" path="res://scripts/buffs/buffs.gd" id="1_dmlc4"]
 [ext_resource type="PackedScene" uid="uid://o0tdgoxknh11" path="res://scenes/buffs/buff.tscn" id="1_evfai"]
 
 [node name="Buffs" type="Control"]
@@ -9,6 +10,7 @@ offset_left = 215.0
 offset_top = 21.0
 offset_right = 500.0
 offset_bottom = 61.0
+script = ExtResource("1_dmlc4")
 
 [node name="BuffsContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

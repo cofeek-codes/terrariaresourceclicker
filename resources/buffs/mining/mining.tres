@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Buff" load_steps=3 format=3 uid="uid://bdn3ei7xyht2i"]
+
+[ext_resource type="Script" uid="uid://cwii24t17f1ej" path="res://resources/buffs/buff.gd" id="1_hi33s"]
+[ext_resource type="Resource" uid="uid://dt242a8uyii15" path="res://resources/shop_items/mining_potion/mining_potion.tres" id="1_qej23"]
+
+[resource]
+script = ExtResource("1_hi33s")
+item = ExtResource("1_qej23")
+duration = 480
+metadata/_custom_type_script = "uid://cwii24t17f1ej"

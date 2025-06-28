@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o0tdgoxknh11"]
 
-[ext_resource type="Texture2D" uid="uid://beaydcwcdyt64" path="res://assets/icons/buffs/mining.png" id="1_uarqe"]
+[ext_resource type="Texture2D" uid="uid://beaydcwcdyt64" path="res://resources/buffs/mining/mining.png" id="1_uarqe"]
 
 [node name="BuffContainer" type="VBoxContainer"]
 

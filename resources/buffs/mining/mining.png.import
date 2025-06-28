@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beaydcwcdyt64"
-path="res://.godot/imported/mining.png-1aab8a4f9901edf44f98a7224ac8f2f6.ctex"
+path="res://.godot/imported/mining.png-90c567d52421e528d50bb9104ec58567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/buffs/mining.png"
-dest_files=["res://.godot/imported/mining.png-1aab8a4f9901edf44f98a7224ac8f2f6.ctex"]
+source_file="res://resources/buffs/mining/mining.png"
+dest_files=["res://.godot/imported/mining.png-90c567d52421e528d50bb9104ec58567.ctex"]
 
 [params]
 
