@@ -20,3 +20,5 @@ vertical_alignment = 1
 
 [node name="BuffDurationTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[connection signal="buff_updated" from="." to="." method="_on_buff_updated"]

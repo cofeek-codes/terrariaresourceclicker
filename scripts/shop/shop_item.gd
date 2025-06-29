@@ -52,11 +52,11 @@ func add_active_item(item: ShopItem):
 		if item.type == ShopItem.ItemType.PICKAXE:
 			player_data.tier += 1
 			game.emit_signal('introduce_pickaxe', item.texture)
-		if item.type == ShopItem.ItemType.BUFF:
-			buffs.emit_signal('buff_added', item)
 	
 	apply_new_item_stats(item)
-
+	buffs.emit_signal('buff_added', item)
+	
+	
 func apply_new_item_stats(item: ShopItem):
 	print('about to apply item stats for item: %s' % item.title)
 	match item.type:
@@ -64,6 +64,7 @@ func apply_new_item_stats(item: ShopItem):
 			print('applying stats for new pickaxe: %s' % item.title)
 		item.ItemType.BUFF:
 			print('applying stats for new buff: %s' % item.title)
+			
 			
 	match item.effect_type:
 		item.EffectType.TIME_INCOME:

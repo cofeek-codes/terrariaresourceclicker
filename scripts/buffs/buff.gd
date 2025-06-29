@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal buff_updated
+
 @export var buff: Buff
 
 @onready var buff_icon: TextureRect = %BuffIcon
@@ -31,3 +33,7 @@ func make_tooltip():
 
 func make_description():
 	return "+%d %s" % [(buff.item_effect_factor * get_buff_amount()), buff.item_effect_type_as_string]
+
+
+func _on_buff_updated() -> void:
+	buff_icon.tooltip_text = make_tooltip()
