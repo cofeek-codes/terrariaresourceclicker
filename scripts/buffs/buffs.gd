@@ -2,12 +2,19 @@ extends Control
 
 signal buff_added(item: ShopItem)
 
+@onready var player_data: PlayerData = Globals.get_player_data()
+
 @onready var buffs_container: HBoxContainer = %BuffsContainer
 
 @onready var game: Node2D = $"/root/Game"
 
 var buff_scene_preload = preload("res://scenes/buffs/buff.tscn")
 
+
+func _ready() -> void:
+	for item in player_data.active_items:
+		if item.item.buff != null:
+			buff_added.emit(item.item)
 
 func _on_buff_added(item: ShopItem) -> void:
 	var buff_scene = buff_scene_preload.instantiate()
