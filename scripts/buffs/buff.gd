@@ -26,6 +26,8 @@ func get_buff_amount():
 	if item_idx != -1:
 		var item: ActiveItem = player_data.active_items[item_idx]
 		return item.amount
+	else:
+		return 0
 	
 func make_tooltip():
 	return "%s (x%d) - %s" % [buff.title, get_buff_amount(), make_description()]

@@ -1,15 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://4yxteorema41"]
+[gd_scene load_steps=19 format=3 uid="uid://4yxteorema41"]
 
 [ext_resource type="Texture2D" uid="uid://bhe2itsbkwwvb" path="res://assets/sunrays_bg.png" id="1_ivkem"]
 [ext_resource type="Script" uid="uid://e1r62daerkkg" path="res://scripts/animations/introduce_pickaxe.gd" id="1_ntcel"]
 [ext_resource type="Texture2D" uid="uid://daws2k7nfvf5o" path="res://resources/shop_items/iron_pickaxe/iron_pickaxe.png" id="1_vp0l3"]
 [ext_resource type="AudioStream" uid="uid://cueemxccetipq" path="res://assets/audio/sounds/item_accuired_animation_rotation_sound.wav" id="3_f23se"]
 [ext_resource type="Resource" uid="uid://bfanrgjbacisg" path="res://resources/blocks/block_dictionary.tres" id="3_o3xas"]
-[ext_resource type="PackedScene" uid="uid://c151g4387fh1j" path="res://scenes/animations/new_resource.tscn" id="5_qukxg"]
 [ext_resource type="AudioStream" uid="uid://bo7s8at7uwcu3" path="res://assets/audio/sounds/pickaxe_animation_slap.wav" id="5_woijs"]
-[ext_resource type="Texture2D" uid="uid://c5nhfia5305f1" path="res://resources/drop_items/dirt/dirt.png" id="6_g8i3q"]
-[ext_resource type="Texture2D" uid="uid://dtphlrrrksqp4" path="res://resources/drop_items/wood/wood.png" id="7_h45j2"]
-[ext_resource type="Texture2D" uid="uid://qwknuq4au71k" path="res://resources/drop_items/demonite_ore/demonite_ore.png" id="8_58ojx"]
 [ext_resource type="StyleBox" uid="uid://b21kng5swgppl" path="res://theming/styles/shop/shop_item_hover.tres" id="11_g8i3q"]
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="11_m5q23"]
 [ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="12_6qi3x"]
@@ -378,18 +374,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="NewResource" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
-layout_mode = 2
-resorce_texture = ExtResource("6_g8i3q")
-
-[node name="NewResource2" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
-layout_mode = 2
-resorce_texture = ExtResource("7_h45j2")
-
-[node name="NewResource3" parent="NewResources/NewResourcesContainer" instance=ExtResource("5_qukxg")]
-layout_mode = 2
-resorce_texture = ExtResource("8_58ojx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

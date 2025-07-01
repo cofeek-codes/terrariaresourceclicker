@@ -20,7 +20,7 @@ func _on_buff_added(item: ShopItem) -> void:
 	var existing_buff_idx = buffs_container.get_children().find_custom((func(c): return c.buff == item.buff).bind())
 	if existing_buff_idx != -1:
 		var existing_buff = buffs_container.get_child(existing_buff_idx)
-		print_debug(existing_buff.buff.title)
+		# print_debug(existing_buff.buff.title)
 		existing_buff.buff = item.buff
 		existing_buff.emit_signal('buff_updated')
 	else:
