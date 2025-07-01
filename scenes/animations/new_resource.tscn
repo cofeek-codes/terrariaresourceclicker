@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c151g4387fh1j"]
 
 [ext_resource type="StyleBox" uid="uid://ofj57ve7kb34" path="res://theming/styles/inventory/inventory_cell_panel.tres" id="1_rs6p7"]
-[ext_resource type="Script" uid="uid://befcktv2pypj4" path="res://scripts/animations/new_block.gd" id="2_rqrqf"]
+[ext_resource type="Script" uid="uid://befcktv2pypj4" path="res://scripts/animations/new_resource.gd" id="2_rqrqf"]
 
 [sub_resource type="Animation" id="Animation_vjtdl"]
 length = 0.001
