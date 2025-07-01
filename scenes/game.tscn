@@ -65,14 +65,12 @@ layout_mode = 1
 [node name="Buffs" parent="CanvasLayer/GameUI" instance=ExtResource("8_kvpfn")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.186632
+anchor_left = 0.293403
 anchor_top = 0.0324074
 anchor_right = 0.434028
-anchor_bottom = 0.0941358
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = -3.8147e-06
+anchor_bottom = 0.376543
+offset_bottom = -1.52588e-05
+metadata/_edit_use_anchors_ = true
 
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
