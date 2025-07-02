@@ -7,15 +7,13 @@ extends Control
 @onready var cpc_label: Label = %CPCLabel
 
 func _ready() -> void:
-	coin_label.text = str(player_data.coins)
-	cps_label.text = str(player_data.coins_per_second)
-	cpc_label.text = str(player_data.coins_per_click)
+	pass
 
 
 func _process(delta: float) -> void:
-	coin_label.text = str(player_data.coins)
-	cps_label.text = str(player_data.coins_per_second)
-	cpc_label.text = str(player_data.coins_per_click)
+	coin_label.text = Utils.abbreviate_number(player_data.coins)
+	cps_label.text = Utils.abbreviate_number(player_data.coins_per_second)
+	cpc_label.text = Utils.abbreviate_number(player_data.coins_per_click)
 
 func _on_cps_timer_timeout() -> void:
 	player_data.coins += player_data.coins_per_second
