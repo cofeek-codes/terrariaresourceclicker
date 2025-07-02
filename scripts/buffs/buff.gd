@@ -42,3 +42,13 @@ func make_description():
 
 func _on_buff_updated() -> void:
 	buff_icon.tooltip_text = make_tooltip()
+
+
+func _on_buff_duration_timer_timeout() -> void:
+	print_debug('player_data.active_items before %s buff expired' % buff.title)
+	print(player_data.active_items.map(func(item: ActiveItem): return item.item.title))
+	player_data.active_items = player_data.active_items.filter(func(item: ActiveItem): return item.item.buff != buff)
+	print_debug('player_data.active_items after %s buff expired' % buff.title)
+	print(player_data.active_items.map(func(item: ActiveItem): return item.item.title))
+	self.queue_free()
+	Globals.update_income()

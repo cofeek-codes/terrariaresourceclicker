@@ -30,3 +30,4 @@ clip_text = true
 unique_name_in_owner = true
 
 [connection signal="buff_updated" from="." to="." method="_on_buff_updated"]
+[connection signal="timeout" from="BuffDurationTimer" to="." method="_on_buff_duration_timer_timeout"]

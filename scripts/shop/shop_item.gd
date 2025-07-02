@@ -68,8 +68,4 @@ func apply_new_item_stats(item: ShopItem):
 			print('applying stats for new buff: %s' % item.title)
 			
 			
-	match item.effect_type:
-		item.EffectType.TIME_INCOME:
-			player_data.coins_per_second += item.effect_factor
-		item.EffectType.CLICK_INCOME:
-			player_data.coins_per_click += item.effect_factor
+	Globals.update_income()
