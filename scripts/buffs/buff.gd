@@ -19,7 +19,10 @@ func _ready() -> void:
 	print(make_tooltip())
 
 func _process(delta: float) -> void:
-	buff_label.text = "%d s" % [buff_duration_timer.time_left]
+	if buff_duration_timer.time_left >= 60:
+		buff_label.text = "%d m" % [round(buff_duration_timer.time_left / 60)]
+	else:
+		buff_label.text = "%d s" % [buff_duration_timer.time_left]
  
 func get_buff_amount():
 	var item_idx: int = player_data.active_items.find_custom((func(i: ActiveItem): return i.item.buff == buff).bind())
