@@ -11,6 +11,7 @@ signal buff_updated
 @onready var player_data: PlayerData = Globals.get_player_data()
 
 func _ready() -> void:
+	print_debug(SaveManager.get_elapsed_time())
 	buff_icon.texture = buff.icon
 	buff_duration_timer.wait_time = buff.duration
 	buff_duration_timer.start()

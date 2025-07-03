@@ -32,12 +32,14 @@ func _on_save_timer_timeout() -> void:
 
 
 func _on_tree_exiting() -> void:
+	SaveManager.save_elapsed_time()
 	SaveManager.save_player_data()
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print('about to exit...')
+		SaveManager.save_elapsed_time()
 		SaveManager.save_player_data()
 		get_tree().quit()
 	elif what == NOTIFICATION_APPLICATION_PAUSED:
