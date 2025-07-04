@@ -9,6 +9,7 @@ class_name PlayerData
 @export var tier: int = 1
 @export var inventory: Array[InventoryItem]
 
+var elapsed_time: float
 
 
 func get_pickaxe_texture() -> Texture2D:

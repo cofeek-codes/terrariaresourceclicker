@@ -14,6 +14,8 @@ var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_picka
 
 
 func _ready() -> void:
+	player_data.elapsed_time = SaveManager.get_elapsed_time()
+	print_debug(player_data.elapsed_time)
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	print('coins loaded from file: %d' % player_data.coins)

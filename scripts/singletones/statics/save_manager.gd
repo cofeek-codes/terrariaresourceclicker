@@ -21,13 +21,16 @@ static func get_elapsed_time():
 		return -1
 	var timestamp = file.get_float()
 	file.close()
-	print_debug(Time.get_unix_time_from_system() - timestamp)
-	return round(Time.get_unix_time_from_system() - timestamp)
+	var current_time = Time.get_unix_time_from_system()
+	var elapsed_time = current_time - timestamp
+	print_debug(elapsed_time)
+	save_elapsed_time()
+	return round(elapsed_time)
 
 static func save_elapsed_time():
 	var file = FileAccess.open(TIMESTAMP_PATH, FileAccess.WRITE)
 	if !file:
-		return -1
+		return
 	print('saving exit time')
 	var exit_unix_time = Time.get_unix_time_from_system()
 	file.store_float(exit_unix_time)
