@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vko6pk1vj26k"]
+[gd_scene load_steps=9 format=3 uid="uid://vko6pk1vj26k"]
 
 [ext_resource type="Script" uid="uid://5ktjd7jeiuxt" path="res://scripts/shop/shop.gd" id="1_100s2"]
 [ext_resource type="PackedScene" uid="uid://bprbjuwc4odvo" path="res://scenes/shop/shop_item.tscn" id="1_lx5au"]
@@ -15,6 +15,10 @@ corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_offset = Vector2(0, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctpgp"]
+font_size = 36
+font_color = Color(0, 0, 0, 0.746)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -45,6 +49,18 @@ theme_override_constants/separation = 15
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
+
+[node name="Label" type="Label" parent="VBoxContainer/ShopLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_ctpgp")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" groups=["ui_cursor"]]
 layout_mode = 2
