@@ -9,7 +9,6 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var new_resources_container: HBoxContainer = %NewResourcesContainer
 
-
 var new_resource_preload = preload("res://scenes/animations/new_resource.tscn")
 
 func get_tier_blocks():
@@ -40,4 +39,4 @@ func _on_continue_button_pressed() -> void:
 		
 	animation_player.play_backwards("introduce_reverse")
 	await animation_player.animation_finished
-	queue_free()
+	self.queue_free()

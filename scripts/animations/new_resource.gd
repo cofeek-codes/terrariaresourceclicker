@@ -15,3 +15,5 @@ func _ready() -> void:
 
 func _on_dispawn_requested() -> void:
 	animation_player.play_backwards("appear")
+	await animation_player.animation_finished
+	self.queue_free()
