@@ -7,6 +7,7 @@ extends Node2D
 @onready var inventory: Control = $"../GameUI/Inventory"
 @onready var inventory_button: Control = $"../GameUI/InventoryButton"
 @onready var inventory_panel: MarginContainer = inventory_button.get_node("OuterMargin")
+@onready var inventory_reach_timer: Timer = $InventoryReachTimer
 
 const LERP_SPEED: float = 5
 const LERP_DELAY: float = 5
@@ -21,13 +22,13 @@ func _ready() -> void:
 	target_position = Vector2(x, y) 
 	
 func _process(delta: float) -> void:
-	self.position = self.position.lerp(target_position, LERP_SPEED * delta)
-	# @NOTE: guessed some math again, idk how it works
-	# @NOTE: may be unoptimized
-	var time_to_reach_inventory = self.position.distance_to(target_position) / LERP_SPEED
-	# print(time_to_reach_inventory)	
-	await get_tree().create_timer(time_to_reach_inventory - LERP_DELAY).timeout
-	queue_free()
-		
+	self.global_position = self.global_position.lerp(target_position, LERP_SPEED * delta)
+	# @NOTE: fixed timer leak, but locked timer to fixed 0.5 seconds for now
+	
+
 func _on_tree_exiting() -> void:
 	inventory.emit_signal('item_added', drop_item_data)
+
+
+func _on_inventory_reach_timer_timeout() -> void:
+	self.queue_free()

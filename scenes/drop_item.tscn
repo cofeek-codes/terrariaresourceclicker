@@ -7,4 +7,9 @@ script = ExtResource("1_hj20x")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
+[node name="InventoryReachTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="timeout" from="InventoryReachTimer" to="." method="_on_inventory_reach_timer_timeout"]
