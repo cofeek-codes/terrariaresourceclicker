@@ -21,7 +21,7 @@ func _ready() -> void:
 	buy_button.tooltip_text = item.get_description()
 	
 func _process(delta: float) -> void:
-	if player_data.coins < item.price:
+	if player_data.coins.isLessThan(item.price):
 		buy_button.disabled = true
 	else:
 		buy_button.disabled = false
@@ -33,7 +33,7 @@ func _on_buy_button_pressed() -> void:
 
 func buy_item():
 	# @NOTE: ill keep buff apply logic here for now
-	player_data.coins -= item.price
+	player_data.coins.minusEquals(item.price)
 	buy_audio_player.play()
 	add_active_item(item)
 	

@@ -11,9 +11,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	coin_label.text = Utils.abbreviate_number(player_data.coins)
-	cps_label.text = Utils.abbreviate_number(player_data.coins_per_second)
-	cpc_label.text = Utils.abbreviate_number(player_data.coins_per_click)
+	coin_label.text = player_data.coins.toAA(true)
+	cps_label.text = player_data.coins_per_second.toAA(true)
+	cpc_label.text = player_data.coins_per_click.toAA(true)
 
 func _on_cps_timer_timeout() -> void:
-	player_data.coins += player_data.coins_per_second
+	player_data.coins.plusEquals(player_data.coins_per_second)

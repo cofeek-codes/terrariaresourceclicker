@@ -17,7 +17,7 @@ func test_console():
 
 func save_player_data():
 	SaveManager.save_player_data()
-	Console.print_line('player data saved with coins: %d' % Globals.player_data.coins)
+	Console.print_line('player data saved with coins: %s' % Globals.player_data.coins.toAA())
 
 
 func show_ui_cursor():

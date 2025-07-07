@@ -18,7 +18,7 @@ func _ready() -> void:
 	print_debug(player_data.elapsed_time)
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	print('coins loaded from file: %d' % player_data.coins)
+	print('coins loaded from file: %s' % player_data.coins.toAA())
 	handle_mouse_hover_ui_elements()
 
 
