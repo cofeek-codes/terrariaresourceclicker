@@ -11,12 +11,12 @@ static func save_player_data():
 
 
 static func load_player_data():
-	if ResourceLoader.exists(SAVE_PATH):
+	if save_exists():
 		Globals.player_data = ResourceLoader.load(SAVE_PATH, "PlayerData")
+		_load_coins()
 	else:
 		Globals.player_data = Globals.default_player_data
 		
-	_load_coins()
 
 
 static func get_elapsed_time():
@@ -68,3 +68,7 @@ static func _load_coins():
 	Globals.player_data.coins = Big.new(coins_data['coins']) if ("coins" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_second = Big.new(coins_data['coins_per_second']) if ("coins_per_second" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_click = Big.new(coins_data['coins_per_click']) if ("coins_per_click" in coins_data) else Big.new(1)
+
+
+static func save_exists():
+	return FileAccess.file_exists(SAVE_PATH) && FileAccess.file_exists(COINS_PATH)
