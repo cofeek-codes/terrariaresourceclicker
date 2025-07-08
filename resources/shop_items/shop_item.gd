@@ -30,8 +30,7 @@ func calculate_price(active_items: Array[ActiveItem]):
 	var item_idx = active_items.find_custom((func (i: ActiveItem): return i.item == self).bind())
 	if item_idx != -1:
 		item_amount = active_items[item_idx].amount
-		price += (item_amount * 3)
-		print_debug("item_amount: %d, expected_price: %d, actual_price: %d" % [item_amount, (price + item_amount * 3), price])
+		price = base_price + (item_amount ** 3)
 	return price
 		
 		
