@@ -17,6 +17,8 @@ extends PanelContainer
 func _ready() -> void:
 	item_image.texture = item.texture
 	item_title_label.text = item.title
+	# initially recalculating price from save
+	item.price = item.calculate_price(player_data.active_items)
 	item_price_label.text = str(item.price)
 	buy_button.tooltip_text = item.get_description()
 	
@@ -36,7 +38,9 @@ func buy_item():
 	player_data.coins.minusEquals(item.price)
 	buy_audio_player.play()
 	add_active_item(item)
-	
+	item.price = item.calculate_price(player_data.active_items)
+	item_price_label.text = str(item.price)
+
 
 func add_active_item(item: ShopItem):
 	var existing_item_idx = player_data.active_items.find_custom((func(i: ActiveItem): return i.item == item).bind())
