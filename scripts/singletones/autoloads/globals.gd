@@ -31,3 +31,7 @@ func _update_cps():
 		player_data.coins_per_second = Big.new(0)
 		for item: ActiveItem in cps_items:
 			player_data.coins_per_second.plusEquals(item.item.effect_factor * item.amount)
+
+
+func get_active_buffs():
+	return get_tree().get_nodes_in_group('active_buffs')

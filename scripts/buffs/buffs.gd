@@ -1,6 +1,7 @@
 extends Control
 
-signal buff_added(item: ShopItem)
+signal buff_added_by_item(item: ShopItem)
+signal buff_added_by_active_buff(active_buff: ActiveBuff)
 
 @onready var player_data: PlayerData = Globals.get_player_data()
 
@@ -12,11 +13,10 @@ var buff_scene_preload = preload("res://scenes/buffs/buff.tscn")
 
 
 func _ready() -> void:
-	for item in player_data.active_items:
-		if item.item.buff != null:
-			buff_added.emit(item.item)
+	for buff in player_data.active_buffs:
+		self.buff_added_by_active_buff.emit(buff)
 
-func _on_buff_added(item: ShopItem) -> void:
+func _on_buff_added_by_item(item: ShopItem) -> void:
 	var existing_buff_idx = buffs_container.get_children().find_custom((func(c): return c.buff == item.buff).bind())
 	if existing_buff_idx != -1:
 		var existing_buff = buffs_container.get_child(existing_buff_idx)
@@ -30,3 +30,12 @@ func _on_buff_added(item: ShopItem) -> void:
 		buff_scene.buff = item.buff
 		buffs_container.add_child(buff_scene)
 		game.handle_mouse_hover_ui_elements()
+
+
+func _on_buff_added_by_active_buff(active_buff: ActiveBuff) -> void:
+	var buff_scene = buff_scene_preload.instantiate()
+	buff_scene.buff = active_buff.buff
+	buff_scene.buff_duration_left = active_buff.time_left
+	buffs_container.add_child(buff_scene)
+	game.handle_mouse_hover_ui_elements()
+	

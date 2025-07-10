@@ -14,8 +14,6 @@ var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_picka
 
 
 func _ready() -> void:
-	player_data.elapsed_time = SaveManager.get_elapsed_time()
-	print_debug(player_data.elapsed_time)
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	print('coins loaded from file: %s' % player_data.coins.toAA())
@@ -33,15 +31,9 @@ func _on_save_timer_timeout() -> void:
 	SaveManager.save_player_data()
 
 
-func _on_tree_exiting() -> void:
-	SaveManager.save_elapsed_time()
-	SaveManager.save_player_data()
-
-
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print('about to exit...')
-		SaveManager.save_elapsed_time()
 		SaveManager.save_player_data()
 		get_tree().quit()
 	elif what == NOTIFICATION_APPLICATION_PAUSED:

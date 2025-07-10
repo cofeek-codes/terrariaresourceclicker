@@ -52,6 +52,7 @@ folder_colors={
 
 particles=""
 ui_cursor=""
+active_buffs=""
 
 [gui]
 

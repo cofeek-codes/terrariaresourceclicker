@@ -3,6 +3,7 @@ extends VBoxContainer
 signal buff_updated
 
 @export var buff: Buff
+@export var buff_duration_left: float = -1
 
 @onready var buff_icon: TextureRect = %BuffIcon
 @onready var buff_label: Label = %BuffLabel
@@ -12,7 +13,10 @@ signal buff_updated
 
 func _ready() -> void:
 	buff_icon.texture = buff.icon
-	buff_duration_timer.wait_time = buff.duration
+	if buff_duration_left == -1:
+		buff_duration_timer.wait_time = buff.duration
+	else:
+		buff_duration_timer.wait_time = buff_duration_left
 	buff_duration_timer.start()
 	buff_icon.tooltip_text = make_tooltip()
 	print('buff tooltip')

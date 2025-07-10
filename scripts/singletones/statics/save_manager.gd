@@ -7,6 +7,7 @@ const COINS_PATH: String = "user://player_coins.dat"
 
 static func save_player_data():
 	_save_coins()
+	_save_active_timers()
 	ResourceSaver.save(Globals.player_data, SAVE_PATH)
 
 
@@ -16,32 +17,6 @@ static func load_player_data():
 		_load_coins()
 	else:
 		Globals.player_data = Globals.default_player_data
-		
-
-
-static func get_elapsed_time():
-	var file = FileAccess.open(TIMESTAMP_PATH, FileAccess.READ)
-	if !file:
-		return -1
-	var timestamp = file.get_float()
-	file.close()
-	var current_time = Time.get_unix_time_from_system()
-	var elapsed_time = current_time - timestamp
-	print_debug(elapsed_time)
-	save_elapsed_time()
-	return round(elapsed_time)
-
-
-static func save_elapsed_time():
-	var file = FileAccess.open(TIMESTAMP_PATH, FileAccess.WRITE)
-	if !file:
-		return
-	print('saving exit time')
-	var exit_unix_time = Time.get_unix_time_from_system()
-	file.store_float(exit_unix_time)
-	file.close()
-	print('exit_unix_time saved')
-	print(exit_unix_time)
 
 
 static func _save_coins():
@@ -68,6 +43,17 @@ static func _load_coins():
 	Globals.player_data.coins = Big.new(coins_data['coins']) if ("coins" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_second = Big.new(coins_data['coins_per_second']) if ("coins_per_second" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_click = Big.new(coins_data['coins_per_click']) if ("coins_per_click" in coins_data) else Big.new(1)
+
+
+static func _save_active_timers():
+	var buff_nodes: Array[Node] = Globals.get_active_buffs()
+	for buff_node in buff_nodes:
+		var active_buff = ActiveBuff.new()
+		active_buff.buff = buff_node.buff
+		var timer = buff_node.get_child(buff_node.get_child_count() - 1)
+		if timer is Timer:
+			active_buff.time_left = timer.time_left
+		Globals.player_data.active_buffs.push_back(active_buff)
 
 
 static func save_exists():

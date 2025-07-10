@@ -58,7 +58,7 @@ func add_active_item(item: ShopItem):
 			game.emit_signal('introduce_pickaxe', item.texture)
 	
 	if item.type == ShopItem.ItemType.BUFF:
-		buffs.emit_signal('buff_added', item)
+		buffs.emit_signal('buff_added_by_item', item)
 		
 	apply_new_item_stats(item)
 	

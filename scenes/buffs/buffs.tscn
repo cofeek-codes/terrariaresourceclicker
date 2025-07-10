@@ -12,4 +12,5 @@ unique_name_in_owner = true
 layout_mode = 1
 columns = 2
 
-[connection signal="buff_added" from="." to="." method="_on_buff_added"]
+[connection signal="buff_added_by_active_buff" from="." to="." method="_on_buff_added_by_active_buff"]
+[connection signal="buff_added_by_item" from="." to="." method="_on_buff_added_by_item"]

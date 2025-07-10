@@ -8,7 +8,7 @@ font_size = 14
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="BuffContainer" type="VBoxContainer" groups=["ui_cursor"]]
+[node name="BuffContainer" type="VBoxContainer" groups=["active_buffs", "ui_cursor"]]
 script = ExtResource("1_0xkwd")
 
 [node name="BuffIcon" type="TextureRect" parent="."]
