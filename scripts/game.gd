@@ -12,13 +12,18 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 
 var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_pickaxe.tscn")
 
+var on_before_unload_callback: JavaScriptObject
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	print('coins loaded from file: %s' % player_data.coins.toAA(true))
 	handle_mouse_hover_ui_elements()
-
+	if OS.has_feature('web'):
+		on_before_unload_callback = JavaScriptBridge.create_callback(_on_before_unload)
+		var web_window = JavaScriptBridge.get_interface('window')
+		print_debug(web_window)
+		web_window.onbeforeunload = on_before_unload_callback
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('click'):
@@ -38,6 +43,15 @@ func _notification(what: int) -> void:
 		get_tree().quit()
 	elif what == NOTIFICATION_APPLICATION_PAUSED:
 		SaveManager.save_player_data()
+
+
+func _on_before_unload(args):
+	var js_event = args[0]
+	print_debug('beforeunload happend in js')
+	SaveManager.save_player_data()
+	js_event.preventDefault()
+	js_event.returnValue = ""
+	
 		
 func ui_mouse_entered():
 	cursor.show_ui_cursor()
