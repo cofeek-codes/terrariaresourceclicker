@@ -16,7 +16,7 @@ var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_picka
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	print('coins loaded from file: %s' % player_data.coins.toAA())
+	print('coins loaded from file: %s' % player_data.coins.toAA(true))
 	handle_mouse_hover_ui_elements()
 
 
