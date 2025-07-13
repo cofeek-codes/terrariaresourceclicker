@@ -48,12 +48,25 @@ static func _load_coins():
 static func _save_active_timers():
 	var buff_nodes: Array[Node] = Globals.get_active_buffs()
 	for buff_node in buff_nodes:
-		var active_buff = ActiveBuff.new()
-		active_buff.buff = buff_node.buff
 		var timer = buff_node.get_child(buff_node.get_child_count() - 1)
-		if timer is Timer:
-			active_buff.time_left = timer.time_left
-		Globals.player_data.active_buffs.push_back(active_buff)
+		var existing_buff_idx = Globals.player_data.active_buffs.find_custom((func (ab: ActiveBuff): return ab.buff == buff_node.buff).bind())
+		if existing_buff_idx != -1:
+			var existing_buff = Globals.player_data.active_buffs[existing_buff_idx]
+			existing_buff.amount += 1
+			if timer is Timer:
+				existing_buff.time_left = timer.time_left
+			print_debug(existing_buff.buff.to_dict())
+
+		else:
+			var new_active_buff = ActiveBuff.new()
+			new_active_buff.buff = buff_node.buff
+			new_active_buff.item_effect_factor = buff_node.item_effect_factor
+			new_active_buff.item_effect_type_as_string = buff_node.item_effect_type_as_string
+			new_active_buff.amount = 1
+			if timer is Timer:
+				new_active_buff.time_left = timer.time_left
+			print_debug(new_active_buff.buff.to_dict())
+			Globals.player_data.active_buffs.push_back(new_active_buff)
 
 
 static func save_exists():

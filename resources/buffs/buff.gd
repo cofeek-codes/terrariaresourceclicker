@@ -7,5 +7,10 @@ class_name Buff
 
 @export_custom(PROPERTY_HINT_NONE, "suffix:s") var duration: int
 
-var item_effect_factor: int
-var item_effect_type_as_string: String
+
+func to_dict():
+	return {
+		"title": title,
+		"icon": icon.resource_path,
+		"duration": duration
+	}

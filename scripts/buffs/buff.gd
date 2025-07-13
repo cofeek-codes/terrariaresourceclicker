@@ -3,6 +3,8 @@ extends VBoxContainer
 signal buff_updated
 
 @export var buff: Buff
+@export var item_effect_factor: int
+@export var item_effect_type_as_string: String
 @export var buff_duration_left: float = -1
 
 @onready var buff_icon: TextureRect = %BuffIcon
@@ -12,6 +14,7 @@ signal buff_updated
 @onready var player_data: PlayerData = Globals.get_player_data()
 
 func _ready() -> void:
+	print_debug(self.buff.to_dict())
 	buff_icon.texture = buff.icon
 	if buff_duration_left == -1:
 		buff_duration_timer.wait_time = buff.duration
@@ -41,7 +44,7 @@ func make_tooltip():
 
 
 func make_description():
-	return "+%d %s" % [(buff.item_effect_factor * get_buff_amount()), buff.item_effect_type_as_string]
+	return "+%d %s" % [(item_effect_factor * get_buff_amount()), item_effect_type_as_string]
 
 
 func _on_buff_updated() -> void:
