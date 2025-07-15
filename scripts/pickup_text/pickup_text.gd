@@ -1,6 +1,7 @@
 extends Control
 
 signal resource_pickedup(item: String, amount: int)
+signal stack_overflow(item: String)
 signal item_sold(item: String, amount: int, price: int)
 
 @onready var text_list_container: VBoxContainer = %TextListContainer
@@ -21,10 +22,7 @@ func play_disappear_animation(label: Label):
 	disappear_tween.tween_callback(label.queue_free)
 	
 func _on_resource_pickedup(item: String, amount: int) -> void:
-	var item_label = init_label_props()
-	item_label.text = "%s (%d)" % [item, amount]
-	text_list_container.add_child(item_label)
-	play_appear_animation(item_label)
+	_add_label("%s (%d)" % [item, amount])
 
 func init_label_props() -> Label:
 	var label = Label.new()
@@ -34,10 +32,8 @@ func init_label_props() -> Label:
 	label.label_settings = label_settings
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	
 	return label
-
-
+ 
 
 func _on_pickup_disappear_timer_timeout() -> void:
 	# print('pickup_text timeout')
@@ -47,8 +43,26 @@ func _on_pickup_disappear_timer_timeout() -> void:
 			play_disappear_animation(label_to_disappear)
 
 
-func _on_item_sold(item: String, amount: int, price: int) -> void:
+func _add_label(text: String):
 	var item_label = init_label_props()
-	item_label.text = "sold %s (%d) for %d coins" % [item, amount, price]
+	item_label.text = text
 	text_list_container.add_child(item_label)
 	play_appear_animation(item_label)
+
+
+
+func _add_error_label(text: String):
+	var item_label = init_label_props()
+	item_label.label_settings.font_color = Color.RED
+	item_label.text = text
+	text_list_container.add_child(item_label)
+	play_appear_animation(item_label)
+
+
+
+func _on_item_sold(item: String, amount: int, price: int) -> void:
+	_add_label("sold %s (%d) for %d coins" % [item, amount, price])
+
+
+func _on_stack_overflow(item: String) -> void:
+	_add_error_label("stack overflow: %s" % item)

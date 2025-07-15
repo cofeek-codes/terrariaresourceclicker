@@ -58,8 +58,11 @@ func add_item_to_inventory(item: DropItem):
 	var existing_item_idx = player_data.inventory.find_custom((func(i: InventoryItem): return i.item == item).bind())
 	if existing_item_idx != -1:
 		var existing_item = player_data.inventory[existing_item_idx]
-		existing_item.amount += 1
-		pickup_text.emit_signal('resource_pickedup', existing_item.item.title, existing_item.amount)
+		if existing_item.amount >= Constants.INVENTORY_MAX_STACK:
+			pickup_text.emit_signal('stack_overflow', existing_item.item.title)
+		else:
+			existing_item.amount += 1
+			pickup_text.emit_signal('resource_pickedup', existing_item.item.title, existing_item.amount)
 	else:
 		player_data.inventory.push_back(new_item)
 		pickup_text.emit_signal('resource_pickedup', new_item.item.title, 1)

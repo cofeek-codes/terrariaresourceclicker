@@ -39,4 +39,5 @@ autostart = true
 
 [connection signal="item_sold" from="." to="." method="_on_item_sold"]
 [connection signal="resource_pickedup" from="." to="." method="_on_resource_pickedup"]
+[connection signal="stack_overflow" from="." to="." method="_on_stack_overflow"]
 [connection signal="timeout" from="PickupDisappearTimer" to="." method="_on_pickup_disappear_timer_timeout"]

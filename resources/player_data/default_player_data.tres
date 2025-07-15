@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=6 format=3 uid="uid://cce5w8itv82ds"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://cce5w8itv82ds"]
 
 [ext_resource type="Script" uid="uid://173vy3qcdgwu" path="res://resources/active_item/active_item.gd" id="1_ej0lh"]
+[ext_resource type="Script" uid="uid://cjq8xjccgnqp2" path="res://resources/active_buff/active_buff.gd" id="1_f6m8c"]
 [ext_resource type="Resource" uid="uid://chnamdq46laeo" path="res://resources/shop_items/cooper_pickaxe/cooper_pickaxe.tres" id="2_bnpoe"]
 [ext_resource type="Script" uid="uid://b1fmpr5675ri4" path="res://resources/inventory_item/inventory_item.gd" id="3_yeq82"]
 [ext_resource type="Script" uid="uid://tsjc6pqtd4g0" path="res://resources/player_data/player_data.gd" id="4_ymm24"]
@@ -13,10 +14,8 @@ metadata/_custom_type_script = "uid://173vy3qcdgwu"
 
 [resource]
 script = ExtResource("4_ymm24")
-coins = 0
-coins_per_second = 0
-coins_per_click = 1
 active_items = Array[ExtResource("1_ej0lh")]([SubResource("Resource_4nlg4")])
+active_buffs = Array[ExtResource("1_f6m8c")]([])
 tier = 1
 inventory = Array[ExtResource("3_yeq82")]([])
 metadata/_custom_type_script = "uid://tsjc6pqtd4g0"
