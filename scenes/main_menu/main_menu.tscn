@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://djq4e6mvyhj0x"]
+
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_0ebjn"]
+[ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_fsom3"]
+[ext_resource type="Script" uid="uid://cvaig28jc7uga" path="res://scripts/main_menu/main_menu.gd" id="2_ob46e"]
+[ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="4_uqeha"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0ebjn")
+script = ExtResource("2_ob46e")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fsom3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="HowToPlayButton" type="Button" parent="CenterContainer/MenuContainer"]
+layout_mode = 2
+text = "How to play"
+
+[node name="MenuAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_uqeha")
+bus = &"Sound"
+
+[connection signal="pressed" from="CenterContainer/MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
