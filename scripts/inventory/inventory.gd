@@ -68,7 +68,7 @@ func add_item_to_inventory(item: DropItem):
 		pickup_text.emit_signal('resource_pickedup', new_item.item.title, 1)
 		
 	print('player_data.inventory in add_item_to_inventory')
-	print(player_data.inventory)
+	print(player_data.inventory.map(func (i: InventoryItem): return "%s (%d)" % [i.item.title, i.amount]))
 	add_or_update_inventory_cell(existing_item_idx)
 
 func add_or_update_inventory_cell(update_index: int):
