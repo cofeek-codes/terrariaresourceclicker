@@ -35,7 +35,8 @@ layout_mode = 2
 alignment = 1
 
 [node name="PickupDisappearTimer" type="Timer" parent="."]
-autostart = true
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="item_sold" from="." to="." method="_on_item_sold"]
 [connection signal="resource_pickedup" from="." to="." method="_on_resource_pickedup"]

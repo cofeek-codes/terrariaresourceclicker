@@ -5,6 +5,7 @@ signal stack_overflow(item: String)
 signal item_sold(item: String, amount: int, price: int)
 
 @onready var text_list_container: VBoxContainer = %TextListContainer
+@onready var pickup_disappear_timer: Timer = %PickupDisappearTimer
 
 
 func play_appear_animation(label: Label):
@@ -23,6 +24,8 @@ func play_disappear_animation(label: Label):
 	
 func _on_resource_pickedup(item: String, amount: int) -> void:
 	_add_label("%s (%d)" % [item, amount])
+	if pickup_disappear_timer.is_stopped():
+		pickup_disappear_timer.start()
 
 func init_label_props() -> Label:
 	var label = Label.new()
@@ -41,6 +44,7 @@ func _on_pickup_disappear_timer_timeout() -> void:
 		var label_to_disappear = text_list_container.get_child(0)
 		if label_to_disappear:
 			play_disappear_animation(label_to_disappear)
+		pickup_disappear_timer.start()
 
 
 func _add_label(text: String):
@@ -62,7 +66,11 @@ func _add_error_label(text: String):
 
 func _on_item_sold(item: String, amount: int, price: int) -> void:
 	_add_label("sold %s (%d) for %d coins" % [item, amount, price])
+	if pickup_disappear_timer.is_stopped():
+		pickup_disappear_timer.start()
 
 
 func _on_stack_overflow(item: String) -> void:
 	_add_error_label("stack overflow: %s" % item)
+	if pickup_disappear_timer.is_stopped():
+		pickup_disappear_timer.start()
