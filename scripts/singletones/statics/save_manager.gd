@@ -1,7 +1,7 @@
 class_name SaveManager
 
 const SAVE_PATH: String = "user://player_data.tres"
-const TIMESTAMP_PATH: String = "user://elapsed_time.timestamp"
+const SETTINGS_PATH: String = "user://settings.tres"
 const COINS_PATH: String = "user://player_coins.dat"
 
 
@@ -71,3 +71,30 @@ static func _save_active_timers():
 
 static func save_exists():
 	return FileAccess.file_exists(SAVE_PATH) && FileAccess.file_exists(COINS_PATH)
+
+
+static func save_settings():
+	var master_bus_index = AudioServer.get_bus_index("Master")
+	var music_bus_index = AudioServer.get_bus_index("Music")
+	var sound_bus_index = AudioServer.get_bus_index("Sound")
+	
+	var settings = Settings.new()
+	settings.master_volume = AudioServer.get_bus_volume_linear(master_bus_index)
+	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
+	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
+	
+	ResourceSaver.save(settings, SETTINGS_PATH)
+
+
+static func load_settings():
+	if !FileAccess.file_exists(SETTINGS_PATH):
+		return
+	
+	var master_bus_index = AudioServer.get_bus_index("Master")
+	var music_bus_index = AudioServer.get_bus_index("Music")
+	var sound_bus_index = AudioServer.get_bus_index("Sound")
+	
+	var settings = ResourceLoader.load(SETTINGS_PATH, "Settings")
+	AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
+	AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
+	AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)

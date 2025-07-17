@@ -1,4 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c4eynk341nu50"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c4eynk341nu50"]
+
+[ext_resource type="Texture2D" uid="uid://cjvowaf28hjww" path="res://assets/icons/slider_grabber_normal.png" id="1_xflpf"]
+[ext_resource type="Texture2D" uid="uid://rigkn4v0rldp" path="res://assets/icons/grabber_disabled.png" id="2_0xuck"]
+[ext_resource type="Texture2D" uid="uid://b3cv4u2gudjwj" path="res://assets/icons/grabber_highlight.png" id="3_ts6oc"]
+[ext_resource type="StyleBox" uid="uid://da7uwjik3uxsd" path="res://theming/styles/settings/hslider.tres" id="4_xflpf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mrbd"]
 
@@ -21,3 +26,9 @@ Button/styles/focus = SubResource("StyleBoxEmpty_2eci4")
 Button/styles/hover = SubResource("StyleBoxEmpty_avtiv")
 Button/styles/normal = SubResource("StyleBoxEmpty_blecu")
 Button/styles/pressed = SubResource("StyleBoxEmpty_xflpf")
+HSlider/icons/grabber = ExtResource("1_xflpf")
+HSlider/icons/grabber_disabled = ExtResource("2_0xuck")
+HSlider/icons/grabber_highlight = ExtResource("3_ts6oc")
+HSlider/styles/grabber_area = ExtResource("4_xflpf")
+HSlider/styles/grabber_area_highlight = ExtResource("4_xflpf")
+Label/constants/outline_size = 3

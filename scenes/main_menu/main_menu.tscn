@@ -57,3 +57,4 @@ stream = ExtResource("4_uqeha")
 bus = &"Sound"
 
 [connection signal="pressed" from="CenterContainer/MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

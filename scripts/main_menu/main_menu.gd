@@ -4,10 +4,11 @@ extends Control
 @onready var menu_audio_stream_player: AudioStreamPlayer = %MenuAudioStreamPlayer
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
-var settings_scene_preload: PackedScene = preload("res://scenes/game.tscn")
+var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
 var htp_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 
 func _ready() -> void:
+	SaveManager.load_settings()
 	for child in menu_container.get_children():
 		if child is Button:
 			child.mouse_entered.connect(_on_mouse_entered.bind(child))
@@ -29,3 +30,7 @@ func _on_mouse_exited(button: Button):
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene_preload)
+
+
+func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_packed(settings_scene_preload)
