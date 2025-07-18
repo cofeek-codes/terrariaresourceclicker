@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_gel7q")
-title = "Demonite Ore"
+title = "DEMONITE_ORE"
 price = 10
 texture = ExtResource("2_dpqyr")
 metadata/_custom_type_script = "uid://5gk7ji521mtc"

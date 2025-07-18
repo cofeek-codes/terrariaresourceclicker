@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://xj58vf1qss6p"
+
+[deps]
+
+files=["res://localizations/resources/DropItem/DropItem.en.translation", "res://localizations/resources/DropItem/DropItem.ru.translation"]
+
+source_file="res://localizations/resources/DropItem/DropItem.csv"
+dest_files=["res://localizations/resources/DropItem/DropItem.en.translation", "res://localizations/resources/DropItem/DropItem.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0
