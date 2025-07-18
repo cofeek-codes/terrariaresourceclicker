@@ -11,6 +11,7 @@
 # res://scenes/main_menu/settings.tscn
 # res://scenes/shop/shop.tscn
 # res://resources/shop_items/shop_item.gd
+# res://scripts/pickup_text/pickup_text.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -92,4 +93,16 @@ msgstr ""
 
 #: resources/shop_items/shop_item.gd
 msgid "PER_SECOND"
+msgstr ""
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD"
+msgstr ""
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_FOR"
+msgstr ""
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_COINS"
 msgstr ""

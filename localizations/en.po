@@ -99,5 +99,17 @@ msgstr "for click"
 msgid "PER_SECOND"
 msgstr "per second"
 
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD"
+msgstr "Sold"
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_FOR"
+msgstr "for"
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_COINS"
+msgstr "coins"
+
 #~ msgid "100"
 #~ msgstr "100"

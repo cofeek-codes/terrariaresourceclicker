@@ -65,7 +65,8 @@ func _add_error_label(text: String):
 
 
 func _on_item_sold(item: String, amount: int, price: int) -> void:
-	_add_label("sold %s (%d) for %d coins" % [item, amount, price])
+	var label_text = _get_sold_label_text_localized(item, amount, price)
+	_add_label(label_text)
 	if pickup_disappear_timer.is_stopped():
 		pickup_disappear_timer.start()
 
@@ -74,3 +75,12 @@ func _on_stack_overflow(item: String) -> void:
 	_add_error_label("stack overflow: %s" % item)
 	if pickup_disappear_timer.is_stopped():
 		pickup_disappear_timer.start()
+
+
+func _get_sold_label_text_localized(item: String, amount: int, price: int):
+	var sold = tr("SOLD")
+	var sold_for = tr("SOLD_FOR")
+	var sold_coins = tr("SOLD_COINS")
+	return "%s %s (%d) %s %d %s" % [sold, tr(item), amount, sold_for, price, sold_coins]
+	 
+	

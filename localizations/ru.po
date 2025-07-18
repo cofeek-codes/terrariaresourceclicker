@@ -98,3 +98,15 @@ msgstr "за клик"
 #: resources/shop_items/shop_item.gd
 msgid "PER_SECOND"
 msgstr "в секунду"
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD"
+msgstr "Продано"
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_FOR"
+msgstr "за"
+
+#: scripts/pickup_text/pickup_text.gd
+msgid "SOLD_COINS"
+msgstr "монет"
