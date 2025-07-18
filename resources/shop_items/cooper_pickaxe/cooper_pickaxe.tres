@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_6nnlx")
-title = "Cooper Pickaxe"
+title = "COOPER_PICKAXE"
 base_price = 11
 texture = ExtResource("2_58deu")
 effect_type = 1

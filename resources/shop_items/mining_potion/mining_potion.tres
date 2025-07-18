@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_e32bo")
-title = "Mining Potion"
+title = "MINING_POTION"
 base_price = 5
 texture = ExtResource("2_200sk")
 effect_type = 0
