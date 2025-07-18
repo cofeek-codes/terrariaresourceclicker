@@ -17,70 +17,76 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: terrariaresourceclicker\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: cofeek-codes\n"
+"Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
 
 #: scenes/animations/introduce_pickaxe.tscn
 msgid "NEW_PICKAXE_UNLOCKED"
-msgstr ""
+msgstr "Новая Кирка Разблокирована!"
 
 #: scenes/animations/introduce_pickaxe.tscn
 msgid "NEW_RESOURCES_UNLOCKED"
-msgstr ""
+msgstr "Новые ресурсы разблокированы"
 
 #: scenes/animations/introduce_pickaxe.tscn
 msgid "BTN_CONTINUE"
-msgstr ""
+msgstr "Продолжить"
 
 #: scenes/coins/coins.tscn
 msgid "COINS_PER_SECOND"
-msgstr ""
+msgstr "Монеты в секунду"
 
 #: scenes/coins/coins.tscn
 msgid "COINS_PER_CLICK"
-msgstr ""
+msgstr "Монеты за клик"
 
 #: scenes/inventory/sell_buttons.tscn
 msgid "SELL_ONE"
-msgstr ""
+msgstr "Продать 1"
 
 #: scenes/inventory/sell_buttons.tscn
 msgid "SELL_ALL"
-msgstr ""
+msgstr "Продать все"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "MENU_PLAY"
-msgstr ""
+msgstr "Играть"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "MENU_SETTINGS"
-msgstr ""
+msgstr "Настройки"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "MENU_LIDERBOARDS"
-msgstr ""
+msgstr "Таблица Лидеров"
 
 #: scenes/main_menu/settings.tscn
 msgid "SETTINGS_VOLUME"
-msgstr ""
+msgstr "Громкость"
 
 #: scenes/main_menu/settings.tscn
 msgid "VOLUME_MASTER"
-msgstr ""
+msgstr "Общая"
 
 #: scenes/main_menu/settings.tscn
 msgid "VOLUME_MUSIC"
-msgstr ""
+msgstr "Музыка"
 
 #: scenes/main_menu/settings.tscn
 msgid "VOLUME_SOUND"
-msgstr ""
+msgstr "Звук"
 
 #: scenes/main_menu/settings.tscn
 msgid "SETTINGS_GO_BACK"
-msgstr ""
+msgstr "Вернуться"
 
 #: scenes/shop/shop.tscn
 msgid "SHOP"
-msgstr ""
+msgstr "Магазин"
