@@ -43,7 +43,7 @@ theme_override_constants/separation = 15
 
 [node name="VolumeLabel" type="Label" parent="CenterContainer/SettingsContainer"]
 layout_mode = 2
-text = "Volume"
+text = "SETTINGS_VOLUME"
 label_settings = SubResource("LabelSettings_hguh2")
 
 [node name="MasterVolumeContainer" type="VBoxContainer" parent="CenterContainer/SettingsContainer"]
@@ -53,7 +53,7 @@ alignment = 1
 
 [node name="MasterVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/MasterVolumeContainer"]
 layout_mode = 2
-text = "Master"
+text = "VOLUME_MASTER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -71,7 +71,7 @@ alignment = 1
 
 [node name="MusicVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/MusicVolumeContainer"]
 layout_mode = 2
-text = "Music"
+text = "VOLUME_MUSIC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -89,7 +89,7 @@ alignment = 1
 
 [node name="SoundVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/SoundVolumeContainer"]
 layout_mode = 2
-text = "Sound"
+text = "VOLUME_SOUND"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -103,7 +103,7 @@ step = 0.01
 [node name="BackButton" type="Button" parent="CenterContainer/SettingsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Go Back"
+text = "SETTINGS_GO_BACK"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

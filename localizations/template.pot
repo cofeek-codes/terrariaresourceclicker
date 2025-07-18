@@ -1,0 +1,86 @@
+# LANGUAGE translation for terrariaresourceclicker for the following files:
+# res://scenes/game.tscn
+# res://scenes/animations/introduce_pickaxe.tscn
+# res://scenes/animations/new_resource.tscn
+# res://scenes/block/block.tscn
+# res://scenes/coins/coins.tscn
+# res://scenes/cursor/cursor.tscn
+# res://scenes/inventory/inventory.tscn
+# res://scenes/inventory/sell_buttons.tscn
+# res://scenes/main_menu/main_menu.tscn
+# res://scenes/main_menu/settings.tscn
+# res://scenes/shop/shop.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: terrariaresourceclicker\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: scenes/animations/introduce_pickaxe.tscn
+msgid "NEW_PICKAXE_UNLOCKED"
+msgstr ""
+
+#: scenes/animations/introduce_pickaxe.tscn
+msgid "NEW_RESOURCES_UNLOCKED"
+msgstr ""
+
+#: scenes/animations/introduce_pickaxe.tscn
+msgid "BTN_CONTINUE"
+msgstr ""
+
+#: scenes/coins/coins.tscn
+msgid "COINS_PER_SECOND"
+msgstr ""
+
+#: scenes/coins/coins.tscn
+msgid "COINS_PER_CLICK"
+msgstr ""
+
+#: scenes/inventory/sell_buttons.tscn
+msgid "SELL_ONE"
+msgstr ""
+
+#: scenes/inventory/sell_buttons.tscn
+msgid "SELL_ALL"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "MENU_PLAY"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "MENU_SETTINGS"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "MENU_LIDERBOARDS"
+msgstr ""
+
+#: scenes/main_menu/settings.tscn
+msgid "SETTINGS_VOLUME\t"
+msgstr ""
+
+#: scenes/main_menu/settings.tscn
+msgid "VOLUME_MASTER\t"
+msgstr ""
+
+#: scenes/main_menu/settings.tscn
+msgid "VOLUME_MUSIC"
+msgstr ""
+
+#: scenes/main_menu/settings.tscn
+msgid "VOLUME_SOUND"
+msgstr ""
+
+#: scenes/main_menu/settings.tscn
+msgid "SETTINGS_GO_BACK"
+msgstr ""
+
+#: scenes/shop/shop.tscn
+msgid "SHOP"
+msgstr ""

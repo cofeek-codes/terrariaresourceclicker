@@ -62,7 +62,7 @@ stretch_mode = 3
 
 [node name="SellOneLabel" type="Label" parent="SellButtonsHBoxContainer/SellOneContainer/SellOnePanel/SellOneHBoxContainer"]
 layout_mode = 2
-text = "Sell 1"
+text = "SELL_ONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,7 +101,7 @@ stretch_mode = 3
 
 [node name="SellAllLabel" type="Label" parent="SellButtonsHBoxContainer/SellAllContainer/SellAllPanel/SellAllHBoxContainer"]
 layout_mode = 2
-text = "Sell All"
+text = "SELL_ALL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
