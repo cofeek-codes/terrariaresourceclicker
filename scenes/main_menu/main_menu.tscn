@@ -51,7 +51,7 @@ text = "Settings"
 layout_mode = 2
 text = "How to play"
 
-[node name="MenuAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_uqeha")
 bus = &"Sound"
