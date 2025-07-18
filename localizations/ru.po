@@ -90,3 +90,11 @@ msgstr "Вернуться"
 #: scenes/shop/shop.tscn
 msgid "SHOP"
 msgstr "Магазин"
+
+#: resources/shop_items/shop_item.gd
+msgid "FOR_CLICK"
+msgstr "за клик"
+
+#: resources/shop_items/shop_item.gd
+msgid "PER_SECOND"
+msgstr "в секунду"

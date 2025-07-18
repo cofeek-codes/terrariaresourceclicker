@@ -10,6 +10,7 @@
 # res://scenes/main_menu/main_menu.tscn
 # res://scenes/main_menu/settings.tscn
 # res://scenes/shop/shop.tscn
+# res://resources/shop_items/shop_item.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -83,4 +84,12 @@ msgstr ""
 
 #: scenes/shop/shop.tscn
 msgid "SHOP"
+msgstr ""
+
+#: resources/shop_items/shop_item.gd
+msgid "FOR_CLICK"
+msgstr ""
+
+#: resources/shop_items/shop_item.gd
+msgid "PER_SECOND"
 msgstr ""

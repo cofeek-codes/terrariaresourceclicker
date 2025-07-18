@@ -91,5 +91,13 @@ msgstr "Go Back"
 msgid "SHOP"
 msgstr "Shop"
 
+#: resources/shop_items/shop_item.gd
+msgid "FOR_CLICK"
+msgstr "for click"
+
+#: resources/shop_items/shop_item.gd
+msgid "PER_SECOND"
+msgstr "per second"
+
 #~ msgid "100"
 #~ msgstr "100"

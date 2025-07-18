@@ -40,6 +40,6 @@ func get_description() -> String:
 
 func effect_type_to_string():
 	if effect_type == EffectType.CLICK_INCOME: 
-		return "for click"
+		return tr("FOR_CLICK")
 	else:
-		return "per second"
+		return tr("PER_SECOND")
