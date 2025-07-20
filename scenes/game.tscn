@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=13 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_default.webp" id="1_uwrxv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block/block.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bo4owrjcvds1y" path="res://scenes/buffs/buffs.tscn" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b74fuiowiv0iv" path="res://scenes/coins/coins.tscn" id="8_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b6eiq62mirqlh" path="res://scenes/world/world.tscn" id="11_kvpfn"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
 frame_0/texture = ExtResource("1_uwrxv")
@@ -47,14 +48,19 @@ texture = SubResource("AnimatedTexture_uwrxv")
 
 [node name="Shop" parent="CanvasLayer/GameUI" instance=ExtResource("2_yqjtg")]
 layout_mode = 1
-offset_left = -270.0
-offset_bottom = 648.0
+offset_left = -300.0
+offset_bottom = -97.0
 
 [node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
 layout_mode = 1
 
 [node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.18316
+anchor_bottom = 0.850309
+offset_right = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="InventoryButton" parent="CanvasLayer/GameUI" instance=ExtResource("7_0tnpc")]
 layout_mode = 1
@@ -77,6 +83,8 @@ unique_name_in_owner = true
 
 [node name="Cursor" parent="CanvasLayer" instance=ExtResource("6_p57ef")]
 unique_name_in_owner = true
+
+[node name="World" parent="CanvasLayer" instance=ExtResource("11_kvpfn")]
 
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0

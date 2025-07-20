@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vwkf20qp3uea"
-path="res://.godot/imported/dirt_tiles_atlas.png-fc378dd91e13f286d3a201a2c732ab7f.ctex"
+path="res://.godot/imported/dirt_atlas.png-62aa19397fbea79ef01fa9799dcd6769.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/dirt_tiles_atlas.png"
-dest_files=["res://.godot/imported/dirt_tiles_atlas.png-fc378dd91e13f286d3a201a2c732ab7f.ctex"]
+source_file="res://tiles/dirt_atlas.png"
+dest_files=["res://.godot/imported/dirt_atlas.png-62aa19397fbea79ef01fa9799dcd6769.ctex"]
 
 [params]
 
