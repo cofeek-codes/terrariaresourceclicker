@@ -8,6 +8,7 @@ class_name Mob
 
 @onready var sprite_animation_player: AnimatedSprite2D = $SpriteAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var jump_cooldown_timer: Timer = $JumpCooldownTimer
 
 var max_hp: int
 var current_hp: int
@@ -29,14 +30,28 @@ func _physics_process(delta: float) -> void:
 
 
 func _move(delta: float):
-	if not is_on_floor():
+	if !is_on_floor():
 		velocity += get_gravity() * delta
 		
 	match mob_data.ai_type:
 		mob_data.AIType.JUMPING:
+			_jump(delta)
+		_:
 			pass
 	
 	move_and_slide()
+	
+	
+	
+func _jump(delta: float):
+	#if jump_cooldown_timer.is_inside_tree() && jump_cooldown_timer.is_stopped():
+	velocity.x += mob_data.speed * delta
+	if is_on_floor():
+		velocity.y = -abs(mob_data.jump_force)
+			
+		#jump_cooldown_timer.wait_time = randf_range(1, 1.5)
+		#jump_cooldown_timer.start()
+	
 	
 func handle_click():
 	print('clicked on mob %s' % mob_data.name)

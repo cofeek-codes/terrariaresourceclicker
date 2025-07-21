@@ -118,3 +118,5 @@ show_percentage = false
 visible = false
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_5ej25")
+
+[node name="JumpCooldownTimer" type="Timer" parent="."]
