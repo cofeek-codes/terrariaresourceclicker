@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SlimeMobData" load_steps=4 format=3 uid="uid://djxlsi7kgnrwy"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_1i50t"]
+[ext_resource type="Script" uid="uid://c8agwjpjces4n" path="res://resources/mob_data/slime_mob_data/slime_mob_data.gd" id="2_65ygr"]
+[ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_q237b"]
+
+[resource]
+script = ExtResource("2_65ygr")
+color = Color(1, 0, 0, 1)
+name = "RED_SLIME"
+health = 100
+drop = Array[ExtResource("1_1i50t")]([ExtResource("2_q237b")])
+speed = 5.0
+jump_force = 3.0
+ai_type = 2
+metadata/_custom_type_script = "uid://c8agwjpjces4n"

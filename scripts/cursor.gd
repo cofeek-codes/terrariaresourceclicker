@@ -69,3 +69,8 @@ func handle_click():
 # click on block
 	if cursor_area in block_area.get_overlapping_areas():
 		block.handle_click()
+	
+	for mob in get_tree().get_nodes_in_group('mobs'):
+		if mob is Area2D:
+			if cursor_area in mob.get_overlapping_areas():
+				mob.handle_click()
