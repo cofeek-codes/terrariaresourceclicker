@@ -23,6 +23,8 @@ func _ready() -> void:
 	health_bar.max_value = max_hp
 	health_bar.value = current_hp
 	health_bar.self_modulate = Color.TRANSPARENT
+	
+	jump_cooldown_timer.start()
 
 
 func _physics_process(delta: float) -> void:
@@ -44,13 +46,15 @@ func _move(delta: float):
 	
 	
 func _jump(delta: float):
-	#if jump_cooldown_timer.is_inside_tree() && jump_cooldown_timer.is_stopped():
-	velocity.x += mob_data.speed * delta
 	if is_on_floor():
-		velocity.y = -abs(mob_data.jump_force)
-			
-		#jump_cooldown_timer.wait_time = randf_range(1, 1.5)
-		#jump_cooldown_timer.start()
+		if jump_cooldown_timer.is_stopped():
+			velocity.x = mob_data.speed
+			velocity.y = -abs(mob_data.jump_force)
+			jump_cooldown_timer.wait_time = randf_range(1, 1.5)
+			jump_cooldown_timer.start()
+		else:
+			velocity.x = 0
+		
 	
 	
 func handle_click():

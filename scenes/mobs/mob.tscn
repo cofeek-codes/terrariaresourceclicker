@@ -83,6 +83,7 @@ mob_data = ExtResource("2_q44lt")
 
 [node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6b6g")
+animation = &"fall"
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 visible = false
@@ -106,4 +107,3 @@ shape = SubResource("RectangleShape2D_s6b6g")
 
 [node name="JumpCooldownTimer" type="Timer" parent="."]
 one_shot = true
-autostart = true
