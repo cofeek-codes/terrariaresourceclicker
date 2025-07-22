@@ -46,9 +46,10 @@ func _move(delta: float):
 	
 	
 func _jump(delta: float):
+	var direction = randi_range(-1, 1)
 	if is_on_floor():
 		if jump_cooldown_timer.is_stopped():
-			velocity.x = mob_data.speed
+			velocity.x = mob_data.speed * direction
 			velocity.y = -abs(mob_data.jump_force)
 			jump_cooldown_timer.wait_time = randf_range(1, 1.5)
 			jump_cooldown_timer.start()
