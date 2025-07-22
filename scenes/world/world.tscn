@@ -120,4 +120,4 @@ tile_map_data = PackedByteArray("AAAAABkABgACAAAAAAAAABoABgAFAAAAAAAAABsABgACAAA
 tile_set = SubResource("TileSet_6m72w")
 
 [node name="RedSlime" parent="." instance=ExtResource("4_6m72w")]
-position = Vector2(447, 124)
+position = Vector2(474, 202)

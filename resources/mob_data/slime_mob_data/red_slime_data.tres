@@ -1,16 +1,20 @@
-[gd_resource type="Resource" script_class="SlimeMobData" load_steps=4 format=3 uid="uid://djxlsi7kgnrwy"]
+[gd_resource type="Resource" script_class="SlimeMobData" load_steps=6 format=3 uid="uid://djxlsi7kgnrwy"]
 
 [ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_1i50t"]
+[ext_resource type="AudioStream" uid="uid://xsru30brnabh" path="res://assets/audio/sounds/mob_sounds/slime/slime_death.wav" id="1_8w35r"]
 [ext_resource type="Script" uid="uid://c8agwjpjces4n" path="res://resources/mob_data/slime_mob_data/slime_mob_data.gd" id="2_65ygr"]
 [ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_q237b"]
+[ext_resource type="AudioStream" uid="uid://d31d20001p32u" path="res://assets/audio/sounds/mob_sounds/slime/slime_hit.wav" id="4_otovc"]
 
 [resource]
 script = ExtResource("2_65ygr")
 color = Color(1, 0, 0, 1)
 name = "RED_SLIME"
-health = 100
+health = 5
 drop = Array[ExtResource("1_1i50t")]([ExtResource("2_q237b")])
 speed = 100.0
 jump_force = 400.0
 ai_type = 2
+hit_sound = ExtResource("4_otovc")
+death_sound = ExtResource("1_8w35r")
 metadata/_custom_type_script = "uid://c8agwjpjces4n"

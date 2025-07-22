@@ -14,6 +14,11 @@ region = Rect2(0, 27, 47, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s6b6g"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ej25")
@@ -46,7 +51,7 @@ radius = 8.06226
 bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ej25"]
-size = Vector2(33, 23)
+size = Vector2(31.7381, 21.3839)
 
 [node name="RedSlime" type="CharacterBody2D"]
 script = ExtResource("1_l38vw")
@@ -54,9 +59,8 @@ mob_data = ExtResource("2_5ej25")
 
 [node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6b6g")
-animation = &"fall"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.300835
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 visible = false
@@ -82,8 +86,15 @@ show_percentage = false
 
 [node name="ClickCollider" type="CollisionShape2D" parent="ClickableArea"]
 visible = false
-position = Vector2(0.5, 1.5)
+position = Vector2(0.662499, 2.22656)
+scale = Vector2(1.05, 1.05)
 shape = SubResource("RectangleShape2D_5ej25")
 
 [node name="JumpCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"

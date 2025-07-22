@@ -14,6 +14,8 @@ enum AIType {
 @export var speed: float
 @export var jump_force: float
 @export var ai_type: AIType
+@export var hit_sound: AudioStream
+@export var death_sound: AudioStream
 
 
 func to_dict():

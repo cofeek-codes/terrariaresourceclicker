@@ -9,6 +9,8 @@ class_name Mob
 @onready var sprite_animation_player: AnimatedSprite2D = $SpriteAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var jump_cooldown_timer: Timer = $JumpCooldownTimer
+@onready var hit_audio_player: AudioStreamPlayer = $HitAudioPlayer
+@onready var death_audio_player: AudioStreamPlayer = $DeathAudioPlayer
 
 var max_hp: int
 var current_hp: int
@@ -23,6 +25,8 @@ func _ready() -> void:
 	health_bar.max_value = max_hp
 	health_bar.value = current_hp
 	health_bar.self_modulate = Color.TRANSPARENT
+	hit_audio_player.stream = mob_data.hit_sound
+	death_audio_player.stream = mob_data.death_sound
 	
 	jump_cooldown_timer.start()
 
@@ -65,7 +69,13 @@ func _jump(delta: float):
 	
 func handle_click():
 	print('clicked on mob %s' % mob_data.name)
+	hit_audio_player.play()
+	_apply_knockback()
 	_take_damage(player_data.calculate_damage())
+
+
+func _apply_knockback():
+	pass
 
 
 func _take_damage(damage: int):
@@ -79,6 +89,7 @@ func _take_damage(damage: int):
 func _die():
 	print('mob %s should die' % mob_data.name)
 	sprite_animation_player.play("die")
+	death_audio_player.play()
 
 
 

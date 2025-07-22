@@ -26,6 +26,11 @@ region = Rect2(0, 27, 47, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s6b6g"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ee7tv")
@@ -83,7 +88,7 @@ mob_data = ExtResource("2_q44lt")
 
 [node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6b6g")
-animation = &"fall"
+animation = &"die"
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 visible = false
@@ -107,3 +112,9 @@ shape = SubResource("RectangleShape2D_s6b6g")
 
 [node name="JumpCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
