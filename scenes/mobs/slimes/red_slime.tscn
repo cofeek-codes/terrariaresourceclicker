@@ -1,12 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbjt5wslduckr"]
+[gd_scene load_steps=11 format=3 uid="uid://cbjt5wslduckr"]
 
 [ext_resource type="Script" uid="uid://c8dw52y84ynwb" path="res://scripts/mobs/slimes/red_slime.gd" id="1_l38vw"]
 [ext_resource type="Resource" uid="uid://djxlsi7kgnrwy" path="res://resources/mob_data/slime_mob_data/red_slime_data.tres" id="2_5ej25"]
 [ext_resource type="Texture2D" uid="uid://ck283md8e35ql" path="res://assets/mobs/base_slime_spritesheet.png" id="3_g3nn7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee7tv"]
-atlas = ExtResource("3_g3nn7")
-region = Rect2(0, 27, 47, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ej25"]
 atlas = ExtResource("3_g3nn7")
@@ -16,38 +12,18 @@ region = Rect2(0, 1, 47, 26)
 atlas = ExtResource("3_g3nn7")
 region = Rect2(0, 27, 47, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_adjne"]
-atlas = ExtResource("3_g3nn7")
-region = Rect2(0, 1, 47, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4do45"]
-atlas = ExtResource("3_g3nn7")
-region = Rect2(0, 27, 47, 26)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_s6b6g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
+"texture": SubResource("AtlasTexture_5ej25")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee7tv")
+"texture": SubResource("AtlasTexture_g3nn7")
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -59,17 +35,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 11.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adjne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4do45")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_komem"]
@@ -89,8 +54,9 @@ mob_data = ExtResource("2_5ej25")
 
 [node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6b6g")
-animation = &"idle"
+animation = &"fall"
 autoplay = "idle"
+frame_progress = 0.300835
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 visible = false

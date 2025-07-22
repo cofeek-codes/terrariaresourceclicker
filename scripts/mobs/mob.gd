@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 func _move(delta: float):
 	if !is_on_floor():
 		velocity += get_gravity() * delta
+		sprite_animation_player.play('fall')
 		
 	match mob_data.ai_type:
 		mob_data.AIType.JUMPING:
@@ -49,12 +50,16 @@ func _jump(delta: float):
 	var direction = randi_range(-1, 1)
 	if is_on_floor():
 		if jump_cooldown_timer.is_stopped():
+			# not all mobs will have dedicated jump animation
+			if sprite_animation_player.sprite_frames.has_animation('jump'):
+				sprite_animation_player.play('jump')
 			velocity.x = mob_data.speed * direction
 			velocity.y = -abs(mob_data.jump_force)
 			jump_cooldown_timer.wait_time = randf_range(1, 1.5)
 			jump_cooldown_timer.start()
 		else:
 			velocity.x = 0
+			sprite_animation_player.play('idle')
 		
 	
 	
