@@ -12,10 +12,13 @@ class_name Mob
 @onready var hit_audio_player: AudioStreamPlayer = $HitAudioPlayer
 @onready var death_audio_player: AudioStreamPlayer = $DeathAudioPlayer
 
+@onready var cursor: Node2D = $"/root/Game/CanvasLayer/Cursor"
+
 var max_hp: int
 var current_hp: int
 var sprite_size: Vector2
 
+const KNOCKBACK_VELOCITY_MULTIPLYER: float = 1.1
 
 func _ready() -> void:
 	print('Mob base scene initialized in _ready()')
@@ -75,7 +78,10 @@ func handle_click():
 
 
 func _apply_knockback():
-	pass
+	var direction = 1 if !cursor.is_cursor_right() else -1
+	velocity.x = (mob_data.speed * KNOCKBACK_VELOCITY_MULTIPLYER) * direction
+	velocity.y = -abs(mob_data.jump_force * KNOCKBACK_VELOCITY_MULTIPLYER)
+	print("%d | %d" % [velocity.x, direction])
 
 
 func _take_damage(damage: int):
