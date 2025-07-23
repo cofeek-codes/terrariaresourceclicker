@@ -11,6 +11,7 @@ class_name Mob
 @onready var jump_cooldown_timer: Timer = $JumpCooldownTimer
 @onready var hit_audio_player: AudioStreamPlayer = $HitAudioPlayer
 @onready var death_audio_player: AudioStreamPlayer = $DeathAudioPlayer
+@onready var mob_hit_particles: GPUParticles2D = $MobHitParticles
 
 @onready var cursor: Node2D = $"/root/Game/CanvasLayer/Cursor"
 
@@ -74,7 +75,24 @@ func handle_click():
 	print('clicked on mob %s' % mob_data.name)
 	hit_audio_player.play()
 	_apply_knockback()
+	_emit_particles()
 	_take_damage(player_data.calculate_damage())
+
+
+func _emit_particles():
+	if get_tree().get_node_count_in_group('particles') < Constants.MAX_PARTICLES:
+		var particles: GPUParticles2D = mob_hit_particles.duplicate()
+		self.add_child(particles)
+		particles.add_to_group('particles')
+		print("current particles amount: %d" % get_tree().get_node_count_in_group('particles'))
+		particles.position = to_local(get_global_mouse_position())
+		particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
+		particles.restart()
+		await particles.finished
+		particles.queue_free()
+	else:
+		print('too many mob particles')
+
 
 
 func _apply_knockback():
