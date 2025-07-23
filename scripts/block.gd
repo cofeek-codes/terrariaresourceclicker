@@ -17,7 +17,6 @@ extends Node2D
 var drop_item_scene_preload = preload("res://scenes/drop_item.tscn")
 
 const TWEEN_DURATION: float = 0.5
-const MAX_PARTICLES: int = 50
 
 var tween: Tween
 var current_hp: int
@@ -99,7 +98,7 @@ func shake():
 	
 
 func emit_particles():
-	if get_tree().get_node_count_in_group('particles') < MAX_PARTICLES:	
+	if get_tree().get_node_count_in_group('particles') < Constants.MAX_PARTICLES:
 		var particles: GPUParticles2D = block_hit_particles.duplicate()
 		self.add_child(particles)
 		particles.add_to_group('particles')
