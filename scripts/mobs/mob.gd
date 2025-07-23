@@ -19,6 +19,8 @@ var max_hp: int
 var current_hp: int
 var sprite_size: Vector2
 
+var is_dead: bool = false
+
 const KNOCKBACK_VELOCITY_MULTIPLYER: float = 1.1
 
 func _ready() -> void:
@@ -72,11 +74,12 @@ func _jump(delta: float):
 	
 	
 func handle_click():
-	print('clicked on mob %s' % mob_data.name)
-	hit_audio_player.play()
-	_apply_knockback()
-	_emit_particles()
-	_take_damage(player_data.calculate_damage())
+	if !is_dead:
+		print('clicked on mob %s' % mob_data.name)
+		hit_audio_player.play()
+		_apply_knockback()
+		_emit_particles()
+		_take_damage(player_data.calculate_damage())
 
 
 func _emit_particles():
@@ -112,9 +115,14 @@ func _take_damage(damage: int):
 
 func _die():
 	print('mob %s should die' % mob_data.name)
+	is_dead = true
 	sprite_animation_player.play("die")
 	death_audio_player.play()
-
+	health_bar.visible = false
+	var scale_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+	scale_tween.tween_property(sprite_animation_player, "scale", Vector2.ZERO, 0.3)
+	await get_tree().create_timer(1).timeout
+	self.queue_free()
 
 
 func _update_healthbar():
