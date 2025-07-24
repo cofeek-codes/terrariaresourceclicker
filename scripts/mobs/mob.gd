@@ -23,6 +23,9 @@ var is_dead: bool = false
 
 const KNOCKBACK_VELOCITY_MULTIPLYER: float = 1.1
 
+var drop_item_scene_preload = preload("res://scenes/drop_item.tscn")
+
+
 func _ready() -> void:
 	print('Mob base scene initialized in _ready()')
 	print('Mob %s ai_type %s' % [mob_data.name, mob_data.AIType.keys()[mob_data.ai_type]])
@@ -119,6 +122,7 @@ func _die():
 	sprite_animation_player.play("die")
 	death_audio_player.play()
 	health_bar.visible = false
+	_spawn_drop()
 	var scale_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	scale_tween.tween_property(sprite_animation_player, "scale", Vector2.ZERO, 0.3)
 	await get_tree().create_timer(1).timeout
@@ -132,3 +136,16 @@ func _update_healthbar():
 		await get_tree().create_timer(0.3).timeout
 	var value_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	value_tween.tween_property(health_bar, "value", current_hp, 0.3)
+
+
+func _spawn_drop():
+	print('should spawn drop')
+	print(mob_data.drop)
+	for item in mob_data.drop:
+		print(item)
+		print(mob_data.drop[item])
+		for i in mob_data.drop[item]:
+			var drop_item = drop_item_scene_preload.instantiate()
+			drop_item.position = self.position
+			drop_item.drop_item_data = item
+			self.get_parent().add_child(drop_item)

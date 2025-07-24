@@ -10,7 +10,7 @@ enum AIType {
 
 @export var name: String
 @export var health: int
-@export var drop: Array[DropItem]
+@export var drop: Dictionary[DropItem, int]
 @export var speed: float
 @export var jump_force: float
 @export var ai_type: AIType

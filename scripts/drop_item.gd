@@ -4,8 +4,8 @@ extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite
 
-@onready var inventory: Control = $"../GameUI/Inventory"
-@onready var inventory_button: Control = $"../GameUI/InventoryButton"
+@onready var inventory: Control = $"/root/Game/CanvasLayer/GameUI/Inventory"
+@onready var inventory_button: Control = $"/root/Game/CanvasLayer/GameUI/InventoryButton"
 @onready var inventory_panel: MarginContainer = inventory_button.get_node("OuterMargin")
 @onready var inventory_reach_timer: Timer = $InventoryReachTimer
 
