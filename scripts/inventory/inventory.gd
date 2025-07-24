@@ -38,7 +38,9 @@ func close_inventory() -> void:
 	inventory_button.emit_signal('inventory_close')
 	close_audio_player.play()
 
-func is_open(): return self.position == Vector2.ZERO
+
+func is_open():
+	return self.position == Vector2.ZERO
 
 
 func _on_close_button_pressed() -> void:
@@ -50,6 +52,7 @@ func init_inventory_cells():
 		var new_inventory_item = inventory_cell_preload.instantiate()
 		new_inventory_item.inventory_item_data = item
 		inventory_items_container.add_child(new_inventory_item)
+
 
 func add_item_to_inventory(item: DropItem):
 	var new_item = InventoryItem.new()
