@@ -18,24 +18,25 @@ signal item_selected(item: InventoryItem)
 
 var inventory_cell_preload = preload("res://scenes/inventory/inventory_cell.tscn")
 
+
 func _ready() -> void:
 	print(is_open())
 	print(player_data.inventory)
 	init_inventory_cells()
-	sell_buttons.emit_signal('get_inventory_cells_container', inventory_items_container)
+	sell_buttons.emit_signal("get_inventory_cells_container", inventory_items_container)
 	self.position.x = -self.size.x
 
 
 func _on_inventory_open() -> void:
-	print('inventory_open signal recieved')
+	print("inventory_open signal recieved")
 	animation_player.play("appear")
 	open_audio_player.play()
 
 
 func close_inventory() -> void:
-	print('inventory_close signal recieved')
+	print("inventory_close signal recieved")
 	animation_player.play_backwards("appear")
-	inventory_button.emit_signal('inventory_close')
+	inventory_button.emit_signal("inventory_close")
 	close_audio_player.play()
 
 
@@ -45,6 +46,7 @@ func is_open():
 
 func _on_close_button_pressed() -> void:
 	close_inventory()
+
 
 func init_inventory_cells():
 	print(player_data.inventory)
@@ -62,38 +64,38 @@ func add_item_to_inventory(item: DropItem):
 	if existing_item_idx != -1:
 		var existing_item = player_data.inventory[existing_item_idx]
 		if existing_item.amount >= Constants.INVENTORY_MAX_STACK:
-			pickup_text.emit_signal('stack_overflow', existing_item.item.get_localized_title())
+			pickup_text.emit_signal("stack_overflow", existing_item.item.get_localized_title())
 		else:
 			existing_item.amount += 1
-			pickup_text.emit_signal('resource_pickedup', existing_item.item.get_localized_title(), existing_item.amount)
+			pickup_text.emit_signal("resource_pickedup", existing_item.item.get_localized_title(), existing_item.amount)
 	else:
 		player_data.inventory.push_back(new_item)
-		pickup_text.emit_signal('resource_pickedup', new_item.item.get_localized_title(), 1)
-		
-	print('player_data.inventory in add_item_to_inventory')
-	print(player_data.inventory.map(func (i: InventoryItem): return "%s (%d)" % [i.item.title, i.amount]))
+		pickup_text.emit_signal("resource_pickedup", new_item.item.get_localized_title(), 1)
+
+	print("player_data.inventory in add_item_to_inventory")
+	print(player_data.inventory.map(func(i: InventoryItem): return "%s (%d)" % [i.item.title, i.amount]))
 	add_or_update_inventory_cell(existing_item_idx)
+
 
 func add_or_update_inventory_cell(update_index: int):
 	if update_index == -1:
 		var new_cell = inventory_cell_preload.instantiate()
 		new_cell.inventory_item_data = player_data.inventory[-1]
 		inventory_items_container.add_child(new_cell)
-		new_cell.emit_signal('display_item')
+		new_cell.emit_signal("display_item")
 	else:
 		var cell_to_update = inventory_items_container.get_child(update_index)
 		cell_to_update.inventory_item_data = player_data.inventory[update_index]
-		cell_to_update.emit_signal('display_item')
-		
+		cell_to_update.emit_signal("display_item")
+
 
 func _on_item_added(item: DropItem) -> void:
-	print('item added: %s' % item.title)
+	print("item added: %s" % item.title)
 	pickup_audio_player.play()
 	add_item_to_inventory(item)
 
 
 func _on_item_selected(item: InventoryItem) -> void:
-	print('item selected: %s (%d)' % [item.item.title, item.amount])
+	print("item selected: %s (%d)" % [item.item.title, item.amount])
 	sell_buttons.selected_item = item
 	sell_buttons.show()
-	

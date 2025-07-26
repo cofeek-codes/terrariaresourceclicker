@@ -12,5 +12,5 @@ func to_dict():
 	return {
 		"title": title,
 		"icon": icon.resource_path,
-		"duration": duration
+		"duration": duration,
 	}

@@ -13,6 +13,7 @@ signal buff_updated
 
 @onready var player_data: PlayerData = Globals.get_player_data()
 
+
 func _ready() -> void:
 	print_debug(self.buff.to_dict())
 	buff_icon.texture = buff.icon
@@ -22,15 +23,17 @@ func _ready() -> void:
 		buff_duration_timer.wait_time = buff_duration_left
 	buff_duration_timer.start()
 	buff_icon.tooltip_text = make_tooltip()
-	print('buff tooltip')
+	print("buff tooltip")
 	print(make_tooltip())
+
 
 func _process(delta: float) -> void:
 	if buff_duration_timer.time_left >= 60:
 		buff_label.text = "%d m" % [round(buff_duration_timer.time_left / 60)]
 	else:
 		buff_label.text = "%d s" % [buff_duration_timer.time_left]
- 
+
+
 func get_buff_amount():
 	var item_idx: int = player_data.active_items.find_custom((func(i: ActiveItem): return i.item.buff == buff).bind())
 	if item_idx != -1:
@@ -38,13 +41,14 @@ func get_buff_amount():
 		return item.amount
 	else:
 		return 0
-	
+
+
 func make_tooltip():
 	return "%s (x%d) - %s" % [buff.title, get_buff_amount(), make_description()]
 
 
 func make_description():
-	return "+%d %s" % [(item_effect_factor * get_buff_amount()), item_effect_type_as_string]
+	return "+%d %s" % [item_effect_factor * get_buff_amount(), item_effect_type_as_string]
 
 
 func _on_buff_updated() -> void:
@@ -52,10 +56,10 @@ func _on_buff_updated() -> void:
 
 
 func _on_buff_duration_timer_timeout() -> void:
-	print_debug('player_data.active_items before %s buff expired' % buff.title)
+	print_debug("player_data.active_items before %s buff expired" % buff.title)
 	print(player_data.active_items.map(func(item: ActiveItem): return item.item.title))
 	player_data.active_items = player_data.active_items.filter(func(item: ActiveItem): return item.item.buff != buff)
-	print_debug('player_data.active_items after %s buff expired' % buff.title)
+	print_debug("player_data.active_items after %s buff expired" % buff.title)
 	print(player_data.active_items.map(func(item: ActiveItem): return item.item.title))
 	self.queue_free()
 	Globals.update_income()

@@ -2,7 +2,8 @@ extends Node
 
 var player_data: PlayerData
 
-var default_player_data = load('res://resources/player_data/default_player_data.tres')
+var default_player_data = load("res://resources/player_data/default_player_data.tres")
+
 
 func get_player_data() -> PlayerData:
 	# @OPTIMIZE: not load every time?
@@ -13,7 +14,8 @@ func get_player_data() -> PlayerData:
 func update_income():
 	_update_cpc()
 	_update_cps()
-	
+
+
 func _update_cpc():
 	var cpc_items = player_data.active_items.filter(func(item: ActiveItem): return item.item.effect_type == ShopItem.EffectType.CLICK_INCOME)
 	if cpc_items.is_empty():
@@ -21,7 +23,8 @@ func _update_cpc():
 	else:
 		player_data.coins_per_click = Big.new(0)
 		for item: ActiveItem in cpc_items:
-			player_data.coins_per_click.plusEquals(item.item.effect_factor * item.amount) 
+			player_data.coins_per_click.plusEquals(item.item.effect_factor * item.amount)
+
 
 func _update_cps():
 	var cps_items = player_data.active_items.filter(func(item: ActiveItem): return item.item.effect_type == ShopItem.EffectType.TIME_INCOME)
@@ -34,4 +37,4 @@ func _update_cps():
 
 
 func get_active_buffs():
-	return get_tree().get_nodes_in_group('active_buffs')
+	return get_tree().get_nodes_in_group("active_buffs")

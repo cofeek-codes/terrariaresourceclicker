@@ -5,7 +5,8 @@ extends Control
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
-var htp_scene_preload: PackedScene = preload("res://scenes/game.tscn")
+# var htp_scene_preload: PackedScene = preload("res://scenes/game.tscn")
+
 
 func _ready() -> void:
 	SaveManager.load_settings()

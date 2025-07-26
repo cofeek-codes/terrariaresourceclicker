@@ -25,7 +25,7 @@ static func _save_coins():
 		"coins_per_second": Globals.player_data.coins_per_second.toScientific(true),
 		"coins_per_click": Globals.player_data.coins_per_click.toScientific(true),
 	}
-	
+
 	var file = FileAccess.open(COINS_PATH, FileAccess.WRITE)
 	if !file:
 		return
@@ -40,16 +40,16 @@ static func _load_coins():
 	var coins_data = file.get_var(true)
 	file.close()
 	print_debug(coins_data)
-	Globals.player_data.coins = Big.new(coins_data['coins']) if ("coins" in coins_data) else Big.new(0)
-	Globals.player_data.coins_per_second = Big.new(coins_data['coins_per_second']) if ("coins_per_second" in coins_data) else Big.new(0)
-	Globals.player_data.coins_per_click = Big.new(coins_data['coins_per_click']) if ("coins_per_click" in coins_data) else Big.new(1)
+	Globals.player_data.coins = Big.new(coins_data["coins"]) if ("coins" in coins_data) else Big.new(0)
+	Globals.player_data.coins_per_second = Big.new(coins_data["coins_per_second"]) if ("coins_per_second" in coins_data) else Big.new(0)
+	Globals.player_data.coins_per_click = Big.new(coins_data["coins_per_click"]) if ("coins_per_click" in coins_data) else Big.new(1)
 
 
 static func _save_active_timers():
 	var buff_nodes: Array[Node] = Globals.get_active_buffs()
 	for buff_node in buff_nodes:
 		var timer = buff_node.get_child(buff_node.get_child_count() - 1)
-		var existing_buff_idx = Globals.player_data.active_buffs.find_custom((func (ab: ActiveBuff): return ab.buff == buff_node.buff).bind())
+		var existing_buff_idx = Globals.player_data.active_buffs.find_custom((func(ab: ActiveBuff): return ab.buff == buff_node.buff).bind())
 		if existing_buff_idx != -1:
 			var existing_buff = Globals.player_data.active_buffs[existing_buff_idx]
 			existing_buff.amount += 1
@@ -77,23 +77,23 @@ static func save_settings():
 	var master_bus_index = AudioServer.get_bus_index("Master")
 	var music_bus_index = AudioServer.get_bus_index("Music")
 	var sound_bus_index = AudioServer.get_bus_index("Sound")
-	
+
 	var settings = Settings.new()
 	settings.master_volume = AudioServer.get_bus_volume_linear(master_bus_index)
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
-	
+
 	ResourceSaver.save(settings, SETTINGS_PATH)
 
 
 static func load_settings():
 	if !FileAccess.file_exists(SETTINGS_PATH):
 		return
-	
+
 	var master_bus_index = AudioServer.get_bus_index("Master")
 	var music_bus_index = AudioServer.get_bus_index("Music")
 	var sound_bus_index = AudioServer.get_bus_index("Sound")
-	
+
 	var settings = ResourceLoader.load(SETTINGS_PATH, "Settings")
 	AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
 	AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)

@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _on_master_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(master_bus_index, value)
-	
 
 
 func _on_music_volume_slider_value_changed(value: float) -> void:

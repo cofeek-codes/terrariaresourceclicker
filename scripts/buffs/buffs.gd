@@ -16,13 +16,14 @@ func _ready() -> void:
 	for buff in player_data.active_buffs:
 		self.buff_added_by_active_buff.emit(buff)
 
+
 func _on_buff_added_by_item(item: ShopItem) -> void:
 	var existing_buff_idx = buffs_container.get_children().find_custom((func(c): return c.buff == item.buff).bind())
 	if existing_buff_idx != -1:
 		var existing_buff = buffs_container.get_child(existing_buff_idx)
 		# print_debug(existing_buff.buff.title)
 		existing_buff.buff = item.buff
-		existing_buff.emit_signal('buff_updated')
+		existing_buff.emit_signal("buff_updated")
 	else:
 		var buff_scene = buff_scene_preload.instantiate()
 		buff_scene.item_effect_factor = item.effect_factor
@@ -41,4 +42,3 @@ func _on_buff_added_by_active_buff(active_buff: ActiveBuff) -> void:
 	buff_scene.buff_duration_left = active_buff.time_left
 	buffs_container.add_child(buff_scene)
 	game.handle_mouse_hover_ui_elements()
-	

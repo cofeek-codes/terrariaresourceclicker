@@ -1,8 +1,10 @@
 extends Node
 
+
 func _round_decimal(value: float, decimal_places: int) -> float:
 	var factor = pow(10, decimal_places)
 	return round(value * factor) / factor
+
 
 # Function to abbreviate numbers (e.g., 1,234,567 -> 1.23M)
 func abbreviate_number(num: float) -> String:

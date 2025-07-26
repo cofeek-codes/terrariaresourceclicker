@@ -12,7 +12,6 @@ var coins_per_second: Big = Big.new(0)
 var coins_per_click: Big = Big.new(1)
 
 
-
 func get_pickaxe_texture() -> Texture2D:
 	var items = active_items.map(func(ai: ActiveItem): return ai.item)
 	var pickaxes = items.filter(func(item: ShopItem): return item.type == ShopItem.ItemType.PICKAXE)
