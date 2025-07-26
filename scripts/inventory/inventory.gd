@@ -20,7 +20,6 @@ var inventory_cell_preload = preload("res://scenes/inventory/inventory_cell.tscn
 
 
 func _ready() -> void:
-	print(is_open())
 	print(player_data.inventory)
 	init_inventory_cells()
 	sell_buttons.emit_signal("get_inventory_cells_container", inventory_items_container)
@@ -49,7 +48,6 @@ func _on_close_button_pressed() -> void:
 
 
 func init_inventory_cells():
-	print(player_data.inventory)
 	for item: InventoryItem in player_data.inventory:
 		var new_inventory_item = inventory_cell_preload.instantiate()
 		new_inventory_item.inventory_item_data = item

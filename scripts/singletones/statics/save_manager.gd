@@ -39,7 +39,7 @@ static func _load_coins():
 		return
 	var coins_data = file.get_var(true)
 	file.close()
-	print_debug(coins_data)
+	# print_debug(coins_data)
 	Globals.player_data.coins = Big.new(coins_data["coins"]) if ("coins" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_second = Big.new(coins_data["coins_per_second"]) if ("coins_per_second" in coins_data) else Big.new(0)
 	Globals.player_data.coins_per_click = Big.new(coins_data["coins_per_click"]) if ("coins_per_click" in coins_data) else Big.new(1)
