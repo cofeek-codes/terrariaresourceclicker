@@ -18,4 +18,5 @@ active_items = Array[ExtResource("1_ej0lh")]([SubResource("Resource_4nlg4")])
 active_buffs = Array[ExtResource("1_f6m8c")]([])
 tier = 1
 inventory = Array[ExtResource("3_yeq82")]([])
+current_pickaxe = ExtResource("2_bnpoe")
 metadata/_custom_type_script = "uid://tsjc6pqtd4g0"

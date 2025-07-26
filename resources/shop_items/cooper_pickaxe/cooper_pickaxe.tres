@@ -7,6 +7,7 @@
 script = ExtResource("1_6nnlx")
 title = "COOPER_PICKAXE"
 base_price = 11
+damage = 4
 texture = ExtResource("2_58deu")
 effect_type = 1
 effect_factor = 1

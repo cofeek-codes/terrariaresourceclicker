@@ -14,6 +14,7 @@ enum ItemType {
 
 @export var title: String
 @export var base_price: int
+@export var damage: int
 @export var texture: Texture2D
 @export var effect_type: EffectType
 @export var effect_factor: int
