@@ -11,6 +11,7 @@ script = ExtResource("2_65ygr")
 color = Color(1, 0, 0, 1)
 name = "RED_SLIME"
 health = 5
+tier = 1
 drop = Dictionary[ExtResource("1_1i50t"), Vector2i]({
 ExtResource("3_8w35r"): Vector2i(2, 5)
 })
