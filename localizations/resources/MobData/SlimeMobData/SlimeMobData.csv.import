@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://sxsett4efgk1"
+
+[deps]
+
+files=["res://localizations/resources/MobData/SlimeMobData/SlimeMobData.en.translation", "res://localizations/resources/MobData/SlimeMobData/SlimeMobData.ru.translation"]
+
+source_file="res://localizations/resources/MobData/SlimeMobData/SlimeMobData.csv"
+dest_files=["res://localizations/resources/MobData/SlimeMobData/SlimeMobData.en.translation", "res://localizations/resources/MobData/SlimeMobData/SlimeMobData.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

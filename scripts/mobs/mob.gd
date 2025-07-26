@@ -144,7 +144,8 @@ func _spawn_drop():
 	for item in mob_data.drop:
 		print(item)
 		print(mob_data.drop[item])
-		for i in mob_data.drop[item]:
+		for i in randi_range(mob_data.drop[item].x, mob_data.drop[item].y):
+			print('drop i - %d' % i)
 			var drop_item = drop_item_scene_preload.instantiate()
 			drop_item.position = self.position
 			drop_item.drop_item_data = item

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_1i50t"]
 [ext_resource type="AudioStream" uid="uid://xsru30brnabh" path="res://assets/audio/sounds/mob_sounds/slime/slime_death.wav" id="1_8w35r"]
 [ext_resource type="Script" uid="uid://c8agwjpjces4n" path="res://resources/mob_data/slime_mob_data/slime_mob_data.gd" id="2_65ygr"]
-[ext_resource type="Resource" uid="uid://dm82j3rrqnm2x" path="res://resources/drop_items/wood/wood.tres" id="2_q237b"]
+[ext_resource type="Resource" uid="uid://cg4dmeuax28ve" path="res://resources/drop_items/gel/gel.tres" id="3_8w35r"]
 [ext_resource type="AudioStream" uid="uid://d31d20001p32u" path="res://assets/audio/sounds/mob_sounds/slime/slime_hit.wav" id="4_otovc"]
 
 [resource]
@@ -11,8 +11,8 @@ script = ExtResource("2_65ygr")
 color = Color(1, 0, 0, 1)
 name = "RED_SLIME"
 health = 5
-drop = Dictionary[ExtResource("1_1i50t"), int]({
-ExtResource("2_q237b"): 2
+drop = Dictionary[ExtResource("1_1i50t"), Vector2i]({
+ExtResource("3_8w35r"): Vector2i(2, 5)
 })
 speed = 100.0
 jump_force = 400.0
