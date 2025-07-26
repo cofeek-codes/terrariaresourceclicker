@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7oijrwetq4w"]
+
+[ext_resource type="Script" uid="uid://c7y6tgx2r4085" path="res://scripts/singletones/autoloads/env_manager.gd" id="1_vemch"]
+
+[node name="EnvManager" type="Node"]
+script = ExtResource("1_vemch")
+
+[node name="TimeOfDayTimer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
+
+[node name="BiomeTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="BiomeTimer" to="." method="_on_biome_timer_timeout"]
