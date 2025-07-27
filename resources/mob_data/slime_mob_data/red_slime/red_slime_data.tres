@@ -20,4 +20,7 @@ jump_force = 400.0
 ai_type = 2
 hit_sound = ExtResource("4_otovc")
 death_sound = ExtResource("1_8w35r")
+time_of_day = 0
+biome = 0
+scene_path = "uid://cbjt5wslduckr"
 metadata/_custom_type_script = "uid://c8agwjpjces4n"

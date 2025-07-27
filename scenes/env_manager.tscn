@@ -10,7 +10,7 @@ wait_time = 180.0
 autostart = true
 
 [node name="BiomeTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 16.0
 autostart = true
 
 [connection signal="timeout" from="BiomeTimer" to="." method="_on_biome_timer_timeout"]

@@ -1,16 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbjt5wslduckr"]
+[gd_scene load_steps=15 format=3 uid="uid://bh23ux5gtvivt"]
 
-[ext_resource type="Script" uid="uid://c8dw52y84ynwb" path="res://scripts/mobs/slimes/red_slime.gd" id="1_l38vw"]
-[ext_resource type="Resource" uid="uid://djxlsi7kgnrwy" path="res://resources/mob_data/slime_mob_data/red_slime/red_slime_data.tres" id="2_5ej25"]
-[ext_resource type="Texture2D" uid="uid://ck283md8e35ql" path="res://assets/mobs/base_slime_spritesheet.png" id="3_g3nn7"]
-[ext_resource type="Texture2D" uid="uid://cqau0k0bhapl" path="res://assets/mobs/slime_particle.png" id="4_g3nn7"]
+[ext_resource type="Script" uid="uid://c8dw52y84ynwb" path="res://scripts/mobs/slimes/red_slime.gd" id="1_cwwxr"]
+[ext_resource type="Resource" uid="uid://db8h0xmugnd5m" path="res://resources/mob_data/slime_mob_data/ice_slime/ice_slime_data.tres" id="2_cwwxr"]
+[ext_resource type="Texture2D" uid="uid://ck283md8e35ql" path="res://assets/mobs/base_slime_spritesheet.png" id="3_60wcc"]
+[ext_resource type="Texture2D" uid="uid://cqau0k0bhapl" path="res://assets/mobs/slime_particle.png" id="4_j6bv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ej25"]
-atlas = ExtResource("3_g3nn7")
+atlas = ExtResource("3_60wcc")
 region = Rect2(0, 1, 47, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3nn7"]
-atlas = ExtResource("3_g3nn7")
+atlas = ExtResource("3_60wcc")
 region = Rect2(0, 27, 47, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s6b6g"]
@@ -69,9 +69,9 @@ gravity = Vector3(0, 100, 0)
 scale_min = 0.5
 scale_curve = SubResource("CurveTexture_rqkdu")
 
-[node name="RedSlime" type="CharacterBody2D" groups=["mobs"]]
-script = ExtResource("1_l38vw")
-mob_data = ExtResource("2_5ej25")
+[node name="IceSlime" type="CharacterBody2D" groups=["mobs"]]
+script = ExtResource("1_cwwxr")
+mob_data = ExtResource("2_cwwxr")
 
 [node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6b6g")
@@ -118,7 +118,7 @@ bus = &"Sound"
 [node name="MobHitParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 15
-texture = ExtResource("4_g3nn7")
+texture = ExtResource("4_j6bv0")
 one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2(0, 0, 0, 0)

@@ -26,16 +26,16 @@ func _change_biome():
 
 func _set_texture():
 	match player_data.current_biome:
-		player_data.Biome.FOREST:
+		Globals.Biome.FOREST:
 			current_texture = forest_texture
-		player_data.Biome.WINTER:
+		Globals.Biome.WINTER:
 			current_texture = winter_texture
 
 	background.texture = current_texture
 
 
 func _on_biome_timer_timeout() -> void:
-	var other_biomes: Array = player_data.Biome.values().filter(func(v: int): return v != player_data.current_biome)
+	var other_biomes: Array = Globals.Biome.values().filter(func(v: int): return v != player_data.current_biome)
 	var new_biome: int = other_biomes.pick_random()
 	player_data.current_biome = new_biome
 	_change_biome()

@@ -7,14 +7,18 @@ enum SpawnerSide {
 
 @export var spawner_side: SpawnerSide
 
-var mob_scenes: Array[String] = [
-	"res://scenes/mobs/slimes/red_slime.tscn",
+var player_data: PlayerData = Globals.get_player_data()
+
+var mobs: Array[MobData] = [
+	preload("res://resources/mob_data/slime_mob_data/red_slime/red_slime_data.tres"),
+	preload("res://resources/mob_data/slime_mob_data/ice_slime/ice_slime_data.tres"),
 ]
 
 
 func _spawn_mob() -> void:
-	var mob_to_spawn = mob_scenes.pick_random()
-	var mob_scene: PackedScene = load(mob_to_spawn)
+	var filtered_mobs = mobs.filter(func(m: MobData): return m.time_of_day == player_data.current_time_of_day && m.biome == player_data.current_biome)
+	var mob_to_spawn = filtered_mobs.pick_random()
+	var mob_scene: PackedScene = load(mob_to_spawn.scene_path)
 	if is_instance_valid(mob_scene):
 		var mob = mob_scene.instantiate()
 		self.get_parent().add_child(mob)

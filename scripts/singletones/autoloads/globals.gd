@@ -1,5 +1,15 @@
 extends Node
 
+enum TimeOfDay {
+	DAY,
+	NIGHT,
+}
+
+enum Biome {
+	FOREST,
+	WINTER,
+}
+
 var player_data: PlayerData
 
 var default_player_data = load("res://resources/player_data/default_player_data.tres")
