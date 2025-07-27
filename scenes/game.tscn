@@ -87,6 +87,8 @@ unique_name_in_owner = true
 
 [node name="World" parent="CanvasLayer" instance=ExtResource("11_kvpfn")]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
