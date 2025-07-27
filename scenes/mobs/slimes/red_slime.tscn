@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cbjt5wslduckr"]
 
-[ext_resource type="Script" uid="uid://c8dw52y84ynwb" path="res://scripts/mobs/slimes/red_slime.gd" id="1_l38vw"]
+[ext_resource type="Script" uid="uid://c8dw52y84ynwb" path="res://scripts/mobs/slimes/base_slime.gd" id="1_l38vw"]
 [ext_resource type="Resource" uid="uid://djxlsi7kgnrwy" path="res://resources/mob_data/slime_mob_data/red_slime/red_slime_data.tres" id="2_5ej25"]
 [ext_resource type="Texture2D" uid="uid://ck283md8e35ql" path="res://assets/mobs/base_slime_spritesheet.png" id="3_g3nn7"]
 [ext_resource type="Texture2D" uid="uid://cqau0k0bhapl" path="res://assets/mobs/slime_particle.png" id="4_g3nn7"]

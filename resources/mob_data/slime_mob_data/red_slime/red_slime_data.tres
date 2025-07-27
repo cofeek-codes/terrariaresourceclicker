@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("2_65ygr")
+use_color = true
 color = Color(1, 0, 0, 1)
 name = "RED_SLIME"
 health = 5
