@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=3 format=3 uid="uid://ulnunayhikdb"]
+
+[ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="1_1gxdp"]
+[ext_resource type="Texture2D" uid="uid://cqllkjafw18yh" path="res://resources/biomes/winter/bg_winter.webp" id="1_pornn"]
+
+[resource]
+script = ExtResource("1_1gxdp")
+title = "BIOME_WINTER"
+biome = 1
+ground_cell_coords = Dictionary[int, Vector2i]({
+1: Vector2i(1, 1)
+})
+top_cell_coords = Dictionary[int, Vector2i]({
+1: Vector2i(1, 0)
+})
+background_texture = ExtResource("1_pornn")
+metadata/_custom_type_script = "uid://uah37q8x5ele"

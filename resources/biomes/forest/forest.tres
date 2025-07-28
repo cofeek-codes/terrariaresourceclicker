@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=3 format=3 uid="uid://bkuealg1tey6h"]
+
+[ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_rjhtc"]
+[ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="2_kkt48"]
+
+[resource]
+script = ExtResource("2_kkt48")
+title = "BIOME_FOREST"
+biome = 0
+top_cell_coords = Dictionary[int, Vector2i]({
+42: Vector2i(7, 1)
+})
+ground_cell_coords = Dictionary[int, Vector2i]({
+6: Vector2i(0, 0)
+})
+background_texture = ExtResource("1_rjhtc")
+metadata/_custom_type_script = "uid://uah37q8x5ele"

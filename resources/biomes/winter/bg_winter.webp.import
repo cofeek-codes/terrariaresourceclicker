@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be6gqblmdixgn"
-path="res://.godot/imported/bg_forest.webp-fbaa7eb84281a083b28978d40806a2a7.ctex"
+uid="uid://cqllkjafw18yh"
+path="res://.godot/imported/bg_winter.webp-525f7e45f400b3b0eff6c1521c96e15a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/bg_forest.webp"
-dest_files=["res://.godot/imported/bg_forest.webp-fbaa7eb84281a083b28978d40806a2a7.ctex"]
+source_file="res://resources/biomes/winter/bg_winter.webp"
+dest_files=["res://.godot/imported/bg_winter.webp-525f7e45f400b3b0eff6c1521c96e15a.ctex"]
 
 [params]
 

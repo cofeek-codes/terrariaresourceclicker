@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://assets/backgrounds/bg_forest.webp" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop/shop.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cpcuwcnejyl4l" path="res://scenes/pickup_text.tscn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory/inventory.tscn" id="6_gee14"]
