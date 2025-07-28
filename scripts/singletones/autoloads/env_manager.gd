@@ -24,7 +24,7 @@ func change_time_of_day():
 
 
 func _change_biome():
-	print("should change biome to %s" % current_biome)
+	print("changing biome from %s to %s" % [previous_biome, current_biome])
 	var disappear_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	disappear_tween.tween_property(canvas_modulate, "color", Color.BLACK, 3)
 	canvas_modulate.color = Color.BLACK
