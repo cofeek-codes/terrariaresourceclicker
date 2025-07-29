@@ -16,6 +16,7 @@ tier = 1
 drop = Dictionary[ExtResource("1_j73bw"), Vector2i]({
 ExtResource("3_sr1fj"): Vector2i(1, 2)
 })
+drop_coins = 3
 speed = 100.0
 jump_force = 400.0
 ai_type = 2

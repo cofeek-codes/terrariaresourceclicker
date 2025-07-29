@@ -119,6 +119,7 @@ func _die():
 	sprite_animation_player.play("die")
 	death_audio_player.play()
 	health_bar.visible = false
+	player_data.coins.plusEquals(mob_data.drop_coins)
 	_spawn_drop()
 	var scale_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	scale_tween.tween_property(sprite_animation_player, "scale", Vector2.ZERO, 0.3)

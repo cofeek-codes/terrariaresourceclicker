@@ -12,6 +12,7 @@ enum AIType {
 @export var health: int
 @export var tier: int = 1
 @export var drop: Dictionary[DropItem, Vector2i]  # using Vector2i to store drop min-max range
+@export var drop_coins: int
 @export var speed: float
 @export var jump_force: float
 @export var ai_type: AIType
