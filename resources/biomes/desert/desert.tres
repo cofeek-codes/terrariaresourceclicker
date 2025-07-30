@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=4 format=3 uid="uid://6vf7l7v77dor"]
+
+[ext_resource type="Texture2D" uid="uid://bpe7nul7hp06f" path="res://resources/biomes/desert/bg_desert.webp" id="1_01p05"]
+[ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="1_cgb0u"]
+[ext_resource type="AudioStream" uid="uid://drc84cgmmvmcl" path="res://resources/biomes/desert/bgm_desert.wav" id="3_o5fte"]
+
+[resource]
+script = ExtResource("1_cgb0u")
+title = "BIOME_DESERT"
+biome = 2
+top_cell_coords = Dictionary[int, Vector2i]({
+3: Vector2i(0, 0)
+})
+ground_cell_coords = Dictionary[int, Vector2i]({
+2: Vector2i(0, 0)
+})
+background_texture = ExtResource("1_01p05")
+track = ExtResource("3_o5fte")
+metadata/_custom_type_script = "uid://uah37q8x5ele"

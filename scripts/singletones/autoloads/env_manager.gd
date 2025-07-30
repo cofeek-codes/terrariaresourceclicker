@@ -10,6 +10,7 @@ extends Node
 var biomes: Array[BiomeData] = [
 	preload("res://resources/biomes/forest/forest.tres"),
 	preload("res://resources/biomes/winter/winter.tres"),
+	preload("res://resources/biomes/desert/desert.tres"),
 ]
 
 var previous_biome: BiomeData

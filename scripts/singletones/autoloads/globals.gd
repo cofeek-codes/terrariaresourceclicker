@@ -3,6 +3,7 @@ extends Node
 enum Biome {
 	FOREST,
 	WINTER,
+	DESERT,
 }
 
 var player_data: PlayerData

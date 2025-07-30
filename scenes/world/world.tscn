@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b6eiq62mirqlh"]
+[gd_scene load_steps=18 format=4 uid="uid://b6eiq62mirqlh"]
 
 [ext_resource type="Script" uid="uid://ck5p8knkw00nm" path="res://scripts/world/world.gd" id="1_dphjl"]
 [ext_resource type="Texture2D" uid="uid://vwkf20qp3uea" path="res://resources/biomes/forest/dirt_atlas.png" id="2_sl2e5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://1h3kfif80j3i" path="res://resources/biomes/forest/grass_atlas.png" id="3_1fp7r"]
 [ext_resource type="Texture2D" uid="uid://d20sxbqqp5t3u" path="res://resources/biomes/winter/snow_top_atlas.png" id="3_bq33v"]
 [ext_resource type="PackedScene" uid="uid://c2ew47euyja2" path="res://scenes/mobs/mob_spawner.tscn" id="4_6m72w"]
+[ext_resource type="Texture2D" uid="uid://b57a51m4ce5a1" path="res://resources/biomes/desert/desert_ground_atlas.png" id="4_j2gmx"]
+[ext_resource type="Texture2D" uid="uid://b64kjt8c30oky" path="res://resources/biomes/desert/desert_top_atlas.png" id="5_1yooq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2gmx"]
 texture = ExtResource("2_t5ptc")
@@ -13,6 +15,15 @@ texture = ExtResource("2_t5ptc")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yooq"]
 texture = ExtResource("3_bq33v")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb53w"]
+texture = ExtResource("4_j2gmx")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qq27"]
+texture = ExtResource("5_1yooq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -123,6 +134,8 @@ sources/42 = SubResource("TileSetAtlasSource_6m72w")
 sources/6 = SubResource("TileSetAtlasSource_1fp7r")
 sources/0 = SubResource("TileSetAtlasSource_j2gmx")
 sources/1 = SubResource("TileSetAtlasSource_1yooq")
+sources/2 = SubResource("TileSetAtlasSource_gb53w")
+sources/3 = SubResource("TileSetAtlasSource_5qq27")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [1, Vector2i(0, 0)], [6, Vector2i(1, 0)], [2, Vector2i(0, 0)], [6, Vector2i(2, 0)], [3, Vector2i(0, 0)], [6, Vector2i(3, 0)], [4, Vector2i(0, 0)], [6, Vector2i(4, 0)], [5, Vector2i(0, 0)], [6, Vector2i(5, 0)], [9, Vector2i(0, 0)], [17, Vector2i(0, 0)], [10, Vector2i(0, 0)], [17, Vector2i(1, 0)], [11, Vector2i(0, 0)], [17, Vector2i(2, 0)], [12, Vector2i(0, 0)], [17, Vector2i(3, 0)], [13, Vector2i(0, 0)], [17, Vector2i(4, 0)], [14, Vector2i(0, 0)], [17, Vector2i(5, 0)], [15, Vector2i(0, 0)], [17, Vector2i(6, 0)], [16, Vector2i(0, 0)], [17, Vector2i(7, 0)], [17, Vector2i(0, 0)], [6, Vector2i(6, 0)], [17, Vector2i(1, 0)], [6, Vector2i(7, 0)], [17, Vector2i(2, 0)], [6, Vector2i(8, 0)], [17, Vector2i(3, 0)], [6, Vector2i(9, 0)], [17, Vector2i(4, 0)], [6, Vector2i(10, 0)], [17, Vector2i(5, 0)], [6, Vector2i(11, 0)], [17, Vector2i(6, 0)], [6, Vector2i(12, 0)], [17, Vector2i(7, 0)], [6, Vector2i(13, 0)], [18, Vector2i(0, 0)], [42, Vector2i(0, 0)], [19, Vector2i(0, 0)], [42, Vector2i(1, 0)], [20, Vector2i(0, 0)], [42, Vector2i(2, 0)], [21, Vector2i(0, 0)], [42, Vector2i(3, 0)], [22, Vector2i(0, 0)], [42, Vector2i(4, 0)], [23, Vector2i(0, 0)], [42, Vector2i(5, 0)], [24, Vector2i(0, 0)], [42, Vector2i(6, 0)], [25, Vector2i(0, 0)], [42, Vector2i(7, 0)], [26, Vector2i(0, 0)], [42, Vector2i(8, 0)], [27, Vector2i(0, 0)], [42, Vector2i(9, 0)], [28, Vector2i(0, 0)], [42, Vector2i(10, 0)], [29, Vector2i(0, 0)], [42, Vector2i(0, 1)], [30, Vector2i(0, 0)], [42, Vector2i(1, 1)], [31, Vector2i(0, 0)], [42, Vector2i(2, 1)], [32, Vector2i(0, 0)], [42, Vector2i(3, 1)], [33, Vector2i(0, 0)], [42, Vector2i(4, 1)], [34, Vector2i(0, 0)], [42, Vector2i(5, 1)], [35, Vector2i(0, 0)], [42, Vector2i(6, 1)], [36, Vector2i(0, 0)], [42, Vector2i(7, 1)], [37, Vector2i(0, 0)], [42, Vector2i(8, 1)], [38, Vector2i(0, 0)], [42, Vector2i(9, 1)], [39, Vector2i(0, 0)], [42, Vector2i(10, 1)], [40, Vector2i(0, 0)], [42, Vector2i(0, 2)], [41, Vector2i(0, 0)], [42, Vector2i(1, 2)]]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6m72w"]
