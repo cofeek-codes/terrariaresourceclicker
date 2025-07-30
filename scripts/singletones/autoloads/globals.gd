@@ -1,10 +1,5 @@
 extends Node
 
-enum TimeOfDay {
-	DAY,
-	NIGHT,
-}
-
 enum Biome {
 	FOREST,
 	WINTER,

@@ -7,7 +7,6 @@ class_name PlayerData
 @export var tier: int = 1
 @export var inventory: Array[InventoryItem]
 @export var current_pickaxe: ShopItem
-@export var current_time_of_day: Globals.TimeOfDay
 @export var current_biome: Globals.Biome
 
 var coins: Big = Big.new(0)

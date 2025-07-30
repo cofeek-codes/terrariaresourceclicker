@@ -5,10 +5,6 @@
 [node name="EnvManager" type="Node"]
 script = ExtResource("1_vemch")
 
-[node name="TimeOfDayTimer" type="Timer" parent="."]
-wait_time = 180.0
-autostart = true
-
 [node name="BiomeTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true

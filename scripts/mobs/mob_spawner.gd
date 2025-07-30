@@ -16,7 +16,7 @@ var mobs: Array[MobData] = [
 
 
 func _spawn_mob() -> void:
-	var filtered_mobs = mobs.filter(func(m: MobData): return m.time_of_day == player_data.current_time_of_day && m.biome == player_data.current_biome)
+	var filtered_mobs = mobs.filter(func(m: MobData): return m.biome == player_data.current_biome)
 	var mob_to_spawn = filtered_mobs.pick_random()
 	var mob_scene: PackedScene = load(mob_to_spawn.scene_path)
 	if is_instance_valid(mob_scene):

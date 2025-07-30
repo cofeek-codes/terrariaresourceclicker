@@ -19,10 +19,6 @@ func _ready() -> void:
 	current_biome = biomes[biomes.find_custom((func(b: BiomeData): return b.biome == player_data.current_biome).bind())]
 
 
-func change_time_of_day():
-	pass
-
-
 func _change_biome():
 	print("changing biome from %s to %s" % [previous_biome, current_biome])
 	var disappear_tween = create_tween().set_trans(Tween.TRANS_CUBIC)

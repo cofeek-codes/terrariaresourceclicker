@@ -17,7 +17,6 @@ enum AIType {
 @export var ai_type: AIType
 @export var hit_sound: AudioStream
 @export var death_sound: AudioStream
-@export var time_of_day: Globals.TimeOfDay
 @export var biome: Globals.Biome
 @export_file("*.tscn") var scene_path: String
 
