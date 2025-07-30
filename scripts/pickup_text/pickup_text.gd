@@ -33,7 +33,7 @@ func init_label_props() -> Label:
 	var label = Label.new()
 	var label_settings = LabelSettings.new()
 	label_settings.outline_color = Color.BLACK
-	label_settings.outline_size = 2
+	label_settings.outline_size = 3
 	label.label_settings = label_settings
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b74fuiowiv0iv"]
+[gd_scene load_steps=5 format=3 uid="uid://b74fuiowiv0iv"]
 
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_8yhlj"]
 [ext_resource type="Texture2D" uid="uid://dubj1nd0kfieh" path="res://assets/icons/coin_icon.png" id="1_dvgxo"]
 [ext_resource type="Script" uid="uid://d168aahi36mmq" path="res://scripts/coins/coins.gd" id="1_gjpli"]
 
@@ -16,6 +17,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+theme = ExtResource("1_8yhlj")
 script = ExtResource("1_gjpli")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
