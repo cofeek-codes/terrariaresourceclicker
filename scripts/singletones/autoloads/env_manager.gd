@@ -17,6 +17,9 @@ var current_biome: BiomeData
 
 func _ready() -> void:
 	current_biome = biomes[biomes.find_custom((func(b: BiomeData): return b.biome == player_data.current_biome).bind())]
+	previous_biome = biomes[0]  # set first `previous_biome` to forest as it dosen't matter
+	_set_texture()
+	_set_tiles()
 
 
 func _change_biome():
