@@ -5,6 +5,7 @@ extends Node
 @onready var background: TextureRect = $"/root/Game/CanvasLayer/GameUI/BgWrapper/Background"
 @onready var tilemap: TileMapLayer = $"/root/Game/CanvasLayer/World/TileMapLayer"
 @onready var canvas_modulate: CanvasModulate = $"/root/Game/CanvasLayer/CanvasModulate"
+@onready var background_music_player: AudioStreamPlayer = $"/root/BackgroundMusic"
 
 var biomes: Array[BiomeData] = [
 	preload("res://resources/biomes/forest/forest.tres"),
@@ -20,6 +21,7 @@ func _ready() -> void:
 	previous_biome = biomes[0]  # set first `previous_biome` to forest as it dosen't matter
 	_set_texture()
 	_set_tiles()
+	_set_track()
 
 
 func _change_biome():
@@ -29,12 +31,18 @@ func _change_biome():
 	canvas_modulate.color = Color.BLACK
 	_set_texture()
 	_set_tiles()
+	_set_track()
 	var appear_tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	appear_tween.tween_property(canvas_modulate, "color", Color.WHITE, 3)
 
 
 func _set_texture():
 	background.texture = current_biome.background_texture
+
+
+func _set_track():
+	background_music_player.stream = current_biome.track
+	background_music_player.play()
 
 
 func _set_tiles():

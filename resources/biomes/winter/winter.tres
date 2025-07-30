@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="BiomeData" load_steps=3 format=3 uid="uid://ulnunayhikdb"]
+[gd_resource type="Resource" script_class="BiomeData" load_steps=4 format=3 uid="uid://ulnunayhikdb"]
 
 [ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="1_1gxdp"]
 [ext_resource type="Texture2D" uid="uid://cqllkjafw18yh" path="res://resources/biomes/winter/bg_winter.webp" id="1_pornn"]
+[ext_resource type="AudioStream" uid="uid://dqc35syfwcjho" path="res://resources/biomes/winter/bgm_winter.wav" id="3_xk2o1"]
 
 [resource]
 script = ExtResource("1_1gxdp")
@@ -14,4 +15,5 @@ ground_cell_coords = Dictionary[int, Vector2i]({
 0: Vector2i(0, 0)
 })
 background_texture = ExtResource("1_pornn")
+track = ExtResource("3_xk2o1")
 metadata/_custom_type_script = "uid://uah37q8x5ele"

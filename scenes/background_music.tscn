@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ck8a78gsg1s47"]
 
-[ext_resource type="AudioStream" uid="uid://cehcjnr3serxj" path="res://assets/audio/music/background_music.wav" id="1_0rulj"]
+[ext_resource type="AudioStream" uid="uid://cehcjnr3serxj" path="res://resources/biomes/forest/bgm_forest.wav" id="1_0rulj"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_0rulj")

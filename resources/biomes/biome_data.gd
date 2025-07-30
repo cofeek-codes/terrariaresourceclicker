@@ -7,6 +7,7 @@ class_name BiomeData
 @export var top_cell_coords: Dictionary[int, Vector2i]
 @export var ground_cell_coords: Dictionary[int, Vector2i]
 @export var background_texture: Texture2D
+@export var track: AudioStream
 
 
 func _to_string() -> String:
