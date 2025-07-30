@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://glq71g2jpeke"
-path="res://.godot/imported/snow_ground_atlas.png-ccf975d7899a7118f0ae99aedaac6066.ctex"
+uid="uid://1h3kfif80j3i"
+path="res://.godot/imported/grass_atlas.png-7097f76f15766c186ba46008efa22734.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/snow_ground_atlas.png"
-dest_files=["res://.godot/imported/snow_ground_atlas.png-ccf975d7899a7118f0ae99aedaac6066.ctex"]
+source_file="res://resources/biomes/forest/grass_atlas.png"
+dest_files=["res://.godot/imported/grass_atlas.png-7097f76f15766c186ba46008efa22734.ctex"]
 
 [params]
 
