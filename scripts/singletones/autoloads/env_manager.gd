@@ -25,12 +25,7 @@ func _ready() -> void:
 
 
 func _load_biomes():
-	var file = FileAccess.open(BIOMES_FILE_PATH, FileAccess.READ)
-	var content = file.get_as_text()
-	var parsed = JSON.parse_string(content)
-	for line in parsed:
-		biomes.push_back(load(line))
-	file.close()
+	Globals.load_json_array(BIOMES_FILE_PATH, biomes)
 
 
 func _change_biome():

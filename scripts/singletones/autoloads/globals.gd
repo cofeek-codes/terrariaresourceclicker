@@ -44,3 +44,12 @@ func _update_cps():
 
 func get_active_buffs():
 	return get_tree().get_nodes_in_group("active_buffs")
+
+
+func load_json_array(path: String, arr: Array):
+	var file = FileAccess.open(path, FileAccess.READ)
+	var content = file.get_as_text()
+	var parsed = JSON.parse_string(content)
+	for line in parsed:
+		arr.push_back(load(line))
+	file.close()
