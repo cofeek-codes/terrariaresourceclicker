@@ -9,10 +9,17 @@ enum SpawnerSide {
 
 var player_data: PlayerData = Globals.get_player_data()
 
-var mobs: Array[MobData] = [
-	preload("res://resources/mob_data/slime_mob_data/red_slime/red_slime_data.tres"),
-	preload("res://resources/mob_data/slime_mob_data/ice_slime/ice_slime_data.tres"),
-]
+var mobs: Array[MobData]
+
+const MOBS_FILE_PATH: String = "res://resources/mob_data/mobs.json"
+
+
+func _ready() -> void:
+	_load_mobs()
+
+
+func _load_mobs():
+	Globals.load_json_array(MOBS_FILE_PATH, mobs)
 
 
 func _spawn_mob() -> void:
