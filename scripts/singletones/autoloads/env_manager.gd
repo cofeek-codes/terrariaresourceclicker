@@ -7,22 +7,30 @@ extends Node
 @onready var canvas_modulate: CanvasModulate = $"/root/Game/CanvasLayer/CanvasModulate"
 @onready var background_music_player: AudioStreamPlayer = $"/root/BackgroundMusic"
 
-var biomes: Array[BiomeData] = [
-	preload("res://resources/biomes/forest/forest.tres"),
-	preload("res://resources/biomes/winter/winter.tres"),
-	preload("res://resources/biomes/desert/desert.tres"),
-]
+var biomes: Array[BiomeData]
 
 var previous_biome: BiomeData
 var current_biome: BiomeData
 
+const BIOMES_FILE_PATH: String = "res://resources/biomes/biomes.json"
+
 
 func _ready() -> void:
+	_load_biomes()
 	current_biome = biomes[biomes.find_custom((func(b: BiomeData): return b.biome == player_data.current_biome).bind())]
 	previous_biome = biomes[0]  # set first `previous_biome` to forest as it dosen't matter
 	_set_texture()
 	_set_tiles()
 	_set_track()
+
+
+func _load_biomes():
+	var file = FileAccess.open(BIOMES_FILE_PATH, FileAccess.READ)
+	var content = file.get_as_text()
+	var parsed = JSON.parse_string(content)
+	for line in parsed:
+		biomes.push_back(load(line))
+	file.close()
 
 
 func _change_biome():
