@@ -1,0 +1,184 @@
+[gd_scene load_steps=22 format=3 uid="uid://bsmi108rfdcss"]
+
+[ext_resource type="Script" uid="uid://5cytl4pp83a8" path="res://scripts/mobs/mob.gd" id="1_530fh"]
+[ext_resource type="Resource" uid="uid://bjik674jgs3lf" path="res://resources/mob_data/volture_mob_data/vulture_data.tres" id="2_ri64k"]
+[ext_resource type="Texture2D" uid="uid://cqueedfdl1a0p" path="res://resources/mob_data/volture_mob_data/vulture_spritesheet.png" id="3_ri64k"]
+[ext_resource type="Texture2D" uid="uid://bphrwq1txpyyd" path="res://resources/mob_data/volture_mob_data/vulture_particles_spritesheet.png" id="4_ri64k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri64k"]
+atlas = ExtResource("3_ri64k")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu3ab"]
+atlas = ExtResource("3_ri64k")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6y08"]
+atlas = ExtResource("3_ri64k")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wes24"]
+atlas = ExtResource("3_ri64k")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l7du"]
+atlas = ExtResource("3_ri64k")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7pcj"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri64k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu3ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6y08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wes24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l7du")
+}],
+"loop": true,
+"name": &"move",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2wnx"]
+size = Vector2(60, 34.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri64k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu3ab"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6b6g"]
+size = Vector2(30.75, 20.5)
+
+[sub_resource type="Curve" id="Curve_rgo27"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ri64k"]
+curve = SubResource("Curve_rgo27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uu3ab"]
+particle_flag_disable_z = true
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 100, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ri64k")
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uu3ab"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ri64k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uu3ab"]
+curve = SubResource("Curve_ri64k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6y08"]
+particle_flag_disable_z = true
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_uu3ab")
+anim_speed_max = 1.0
+
+[node name="Vulture" type="CharacterBody2D" groups=["mobs"]]
+script = ExtResource("1_530fh")
+mob_data = ExtResource("2_ri64k")
+
+[node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l7pcj")
+animation = &"move"
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_s2wnx")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 24.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/background = SubResource("StyleBoxFlat_ri64k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uu3ab")
+value = 70.0
+show_percentage = false
+
+[node name="ClickableArea" type="Area2D" parent="." groups=["mobs"]]
+
+[node name="ClickCollider" type="CollisionShape2D" parent="ClickableArea"]
+visible = false
+position = Vector2(1.25, 0)
+scale = Vector2(2.205, 2.1)
+shape = SubResource("RectangleShape2D_s6b6g")
+
+[node name="JumpCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="MobHitParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+randomness = 0.6
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_uu3ab")
+
+[node name="MobDeathParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_uu3ab")
+emitting = false
+amount = 5
+texture = ExtResource("4_ri64k")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_j6y08")
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]

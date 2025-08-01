@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MobData" load_steps=5 format=3 uid="uid://bjik674jgs3lf"]
+
+[ext_resource type="AudioStream" uid="uid://dnise8c0fxh2k" path="res://resources/mob_data/volture_mob_data/vulture_death.ogg" id="1_0wkeg"]
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="2_25vb2"]
+[ext_resource type="AudioStream" uid="uid://bu770t2h2kbmb" path="res://resources/mob_data/volture_mob_data/vulture_hit.ogg" id="3_rbxq3"]
+[ext_resource type="Script" uid="uid://bia10tyfex413" path="res://resources/mob_data/mob_data.gd" id="4_vwowt"]
+
+[resource]
+script = ExtResource("4_vwowt")
+name = "VULTURE"
+health = 40
+tier = 1
+drop = Dictionary[ExtResource("2_25vb2"), Vector2i]({})
+drop_coins = 60
+speed = 3.0
+jump_force = 0.0
+ai_type = 1
+hit_sound = ExtResource("3_rbxq3")
+death_sound = ExtResource("1_0wkeg")
+biome = 2
+scene_path = "uid://bsmi108rfdcss"
+metadata/_custom_type_script = "uid://bia10tyfex413"

@@ -12,12 +12,15 @@ class_name Mob
 @onready var hit_audio_player: AudioStreamPlayer = $HitAudioPlayer
 @onready var death_audio_player: AudioStreamPlayer = $DeathAudioPlayer
 @onready var mob_hit_particles: GPUParticles2D = $MobHitParticles
+@onready var mob_death_particles: GPUParticles2D = $MobDeathParticles
+@onready var direction_change_timer: Timer = $DirectionChangeTimer
 
 @onready var cursor: Node2D = $"/root/Game/CanvasLayer/Cursor"
 
 var max_hp: int
 var current_hp: int
 var sprite_size: Vector2
+var direction: int
 
 var is_dead: bool = false
 
@@ -45,14 +48,19 @@ func _physics_process(delta: float) -> void:
 
 
 func _move(delta: float):
-	if !is_on_floor():
+	if !is_on_floor() && mob_data.ai_type != mob_data.AIType.FLYING:
 		velocity += get_gravity() * delta
 		sprite_animation_player.play("fall")
 
 	match mob_data.ai_type:
 		mob_data.AIType.JUMPING:
 			_jump(delta)
-		_:
+		mob_data.AIType.FLYING:
+			sprite_animation_player.play("move")
+			sprite_animation_player.flip_h = direction > 0
+			velocity.x += mob_data.speed * direction
+			velocity.y += mob_data.speed * direction
+		mob_data.AIType.WALKING:
 			pass
 
 	move_and_slide()
@@ -117,6 +125,7 @@ func _die():
 	print("mob %s should die" % mob_data.name)
 	is_dead = true
 	sprite_animation_player.play("die")
+	mob_death_particles.restart()
 	death_audio_player.play()
 	health_bar.visible = false
 	player_data.coins.plusEquals(mob_data.drop_coins)
@@ -148,3 +157,7 @@ func _spawn_drop():
 			drop_item.position = self.position
 			drop_item.drop_item_data = item
 			self.get_parent().add_child(drop_item)
+
+
+func _on_direction_change_timer_timeout() -> void:
+	direction = randi_range(-1, 1)

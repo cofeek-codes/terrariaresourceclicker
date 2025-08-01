@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cde2ons654mup"
+
+[deps]
+
+files=["res://localizations/resources/MobData/MobData.en.translation", "res://localizations/resources/MobData/MobData.ru.translation"]
+
+source_file="res://localizations/resources/MobData/MobData.csv"
+dest_files=["res://localizations/resources/MobData/MobData.en.translation", "res://localizations/resources/MobData/MobData.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

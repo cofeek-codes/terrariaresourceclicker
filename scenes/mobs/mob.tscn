@@ -79,9 +79,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2wnx"]
-size = Vector2(24, 21)
+size = Vector2(60, 34.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6b6g"]
+size = Vector2(30.75, 20.5)
 
 [sub_resource type="Curve" id="Curve_2sf44"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -143,3 +144,17 @@ one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2(0, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_sg8ih")
+
+[node name="MobDeathParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 15
+texture = ExtResource("4_62b1e")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_sg8ih")
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]

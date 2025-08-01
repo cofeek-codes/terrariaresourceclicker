@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b6eiq62mirqlh"]
+[gd_scene load_steps=19 format=4 uid="uid://b6eiq62mirqlh"]
 
 [ext_resource type="Script" uid="uid://ck5p8knkw00nm" path="res://scripts/world/world.gd" id="1_dphjl"]
 [ext_resource type="Texture2D" uid="uid://vwkf20qp3uea" path="res://resources/biomes/forest/dirt_atlas.png" id="2_sl2e5"]
@@ -145,6 +145,9 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 distance = 384.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gb53w"]
+normal = Vector2(0, 1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_dphjl")
 
@@ -164,6 +167,13 @@ collision_mask = 3
 [node name="RightWallCollider" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(1152, 1)
 shape = SubResource("WorldBoundaryShape2D_v5dby")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+collision_mask = 3
+
+[node name="CeilingCollider" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(1152, 1)
+shape = SubResource("WorldBoundaryShape2D_gb53w")
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
