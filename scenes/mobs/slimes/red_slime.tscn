@@ -123,3 +123,15 @@ one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2(0, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_adjne")
+
+[node name="MobDeathParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 15
+texture = ExtResource("4_g3nn7")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_adjne")
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+autostart = true
