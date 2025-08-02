@@ -40,8 +40,6 @@ func _ready() -> void:
 	hit_audio_player.stream = mob_data.hit_sound
 	death_audio_player.stream = mob_data.death_sound
 
-	jump_cooldown_timer.start()
-
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -51,7 +49,8 @@ func _move(delta: float):
 	if !is_on_floor() && mob_data.ai_type != mob_data.AIType.FLYING:
 		velocity += get_gravity() * delta
 		sprite_animation_player.play("fall")
-
+	if is_on_wall():
+		_change_direction(true)
 	match mob_data.ai_type:
 		mob_data.AIType.JUMPING:
 			_jump(delta)
@@ -61,13 +60,18 @@ func _move(delta: float):
 			velocity.x += mob_data.speed * direction
 			velocity.y += mob_data.speed * direction
 		mob_data.AIType.WALKING:
-			pass
+			if direction == 0:
+				sprite_animation_player.play("idle")
+				velocity.x = 0
+			else:
+				sprite_animation_player.play("move")
+				sprite_animation_player.flip_h = direction > 0
+				velocity.x = mob_data.speed * direction
 
 	move_and_slide()
 
 
 func _jump(delta: float):
-	var direction = randi_range(-1, 1)
 	if is_on_floor():
 		if jump_cooldown_timer.is_stopped():
 			# not all mobs will have dedicated jump animation
@@ -160,4 +164,13 @@ func _spawn_drop():
 
 
 func _on_direction_change_timer_timeout() -> void:
+	_change_direction()
+	direction_change_timer.wait_time = randf_range(3, 5)
+	direction_change_timer.start()
+
+
+func _change_direction(reverse: bool = false):
+	if reverse:
+		direction = -direction
+
 	direction = randi_range(-1, 1)

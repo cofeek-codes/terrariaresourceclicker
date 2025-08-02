@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ZombieMobData" load_steps=9 format=3 uid="uid://xjyqrpvkn62"]
+
+[ext_resource type="AudioStream" uid="uid://tftrg4gsxtc" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_death.ogg" id="1_c0ako"]
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_neryg"]
+[ext_resource type="Script" uid="uid://bavycake1xc" path="res://resources/mob_data/zombie_mob_data/zombie_mob_data.gd" id="2_csqyf"]
+[ext_resource type="AudioStream" uid="uid://d31d20001p32u" path="res://assets/audio/sounds/mob_sounds/slime/slime_hit.wav" id="3_jh6qb"]
+[ext_resource type="AudioStream" uid="uid://yba765u5yqu" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_1.ogg" id="4_i6i3p"]
+[ext_resource type="AudioStream" uid="uid://jnc74s27vswc" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_2.ogg" id="5_5jrxc"]
+[ext_resource type="AudioStream" uid="uid://bxvm7eabpelc0" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_3.ogg" id="6_yewtn"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i6i3p"]
+streams_count = 3
+stream_0/stream = ExtResource("4_i6i3p")
+stream_1/stream = ExtResource("5_5jrxc")
+stream_2/stream = ExtResource("6_yewtn")
+
+[resource]
+script = ExtResource("2_csqyf")
+idle_sound = SubResource("AudioStreamRandomizer_i6i3p")
+name = "COMMON_ZOMBIE"
+health = 40
+tier = 1
+drop = Dictionary[ExtResource("1_neryg"), Vector2i]({})
+drop_coins = 60
+speed = 65.0
+jump_force = 200.0
+ai_type = 0
+hit_sound = ExtResource("3_jh6qb")
+death_sound = ExtResource("1_c0ako")
+biome = 0
+scene_path = "uid://kxv36ic4happ"
+metadata/_custom_type_script = "uid://bavycake1xc"

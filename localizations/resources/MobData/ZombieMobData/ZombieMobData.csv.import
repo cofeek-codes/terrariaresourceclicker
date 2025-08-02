@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://j2ql3tehvec3"
+
+[deps]
+
+files=["res://localizations/resources/MobData/ZombieMobData/ZombieMobData.en.translation", "res://localizations/resources/MobData/ZombieMobData/ZombieMobData.ru.translation"]
+
+source_file="res://localizations/resources/MobData/ZombieMobData/ZombieMobData.csv"
+dest_files=["res://localizations/resources/MobData/ZombieMobData/ZombieMobData.en.translation", "res://localizations/resources/MobData/ZombieMobData/ZombieMobData.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0
