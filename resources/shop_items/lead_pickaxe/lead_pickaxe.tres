@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://b3at22ri81blr"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_5gawo"]
+[ext_resource type="Texture2D" uid="uid://bf18coemde52v" path="res://resources/shop_items/lead_pickaxe/lead_pickaxe.png" id="2_iinhp"]
+
+[resource]
+script = ExtResource("1_5gawo")
+title = "LEAD_PICKAXE"
+base_price = 6
+damage = 6
+texture = ExtResource("2_iinhp")
+effect_type = 1
+effect_factor = 6
+type = 0
+tier = 2
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
