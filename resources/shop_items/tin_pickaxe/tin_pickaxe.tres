@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://cd7ilfyhxrwhp"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_axbhk"]
+[ext_resource type="Texture2D" uid="uid://dlo5pqp8crwjj" path="res://resources/shop_items/tin_pickaxe/tin_pickaxe.png" id="2_jniem"]
+
+[resource]
+script = ExtResource("1_axbhk")
+title = "TIN_PICKAXE"
+base_price = 8
+damage = 5
+texture = ExtResource("2_jniem")
+effect_type = 1
+effect_factor = 3
+type = 0
+tier = 1
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"

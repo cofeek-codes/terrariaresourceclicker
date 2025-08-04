@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://bf304wnstxktu"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_xugn3"]
+[ext_resource type="Texture2D" uid="uid://b7lthdt61iuif" path="res://resources/shop_items/cactus_pickaxe/cactus_pickaxe.png" id="2_luwwt"]
+
+[resource]
+script = ExtResource("1_xugn3")
+title = "CACTUS_PICKAXE"
+base_price = 4
+damage = 4
+texture = ExtResource("2_luwwt")
+effect_type = 1
+effect_factor = 4
+type = 0
+tier = 1
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
