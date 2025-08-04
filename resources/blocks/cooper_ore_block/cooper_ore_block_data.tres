@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://c0avi653xjud3"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_nwt8f"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_ramdu"]
+[ext_resource type="Resource" uid="uid://dukdagphmfxs2" path="res://resources/drop_items/cooper_ore/cooper_ore.tres" id="2_trwdw"]
+[ext_resource type="Material" uid="uid://cbl8d06jskkdm" path="res://resources/blocks/cooper_ore_block/cooper_ore_ppm.tres" id="3_m4l7m"]
+[ext_resource type="Texture2D" uid="uid://falan3qvpeww" path="res://resources/blocks/cooper_ore_block/cooper_ore_block.png" id="5_nwt8f"]
+
+[resource]
+script = ExtResource("1_ramdu")
+title = "COOPER_ORE_BLOCK"
+tier = 1
+texture = ExtResource("5_nwt8f")
+particles_material = ExtResource("3_m4l7m")
+hit_sound = ExtResource("1_nwt8f")
+destroy_sound = ExtResource("1_nwt8f")
+drop_item = ExtResource("2_trwdw")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
