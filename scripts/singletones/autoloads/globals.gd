@@ -12,8 +12,8 @@ var default_player_data = load("res://resources/player_data/default_player_data.
 
 
 func get_player_data() -> PlayerData:
-	# @OPTIMIZE: not load every time?
-	SaveManager.load_player_data()
+	if player_data == null:
+		SaveManager.load_player_data()
 	return player_data
 
 
