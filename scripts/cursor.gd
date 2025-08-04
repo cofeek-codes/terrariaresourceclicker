@@ -1,5 +1,7 @@
 extends Node2D
 
+signal update_pickaxe
+
 enum CursorMode {
 	UI,
 	GAME,
@@ -21,7 +23,7 @@ var mode: CursorMode = CursorMode.GAME
 
 
 func _ready() -> void:
-	cursor_sprite.texture = player_data.get_pickaxe_texture()
+	_update_sprite()
 
 
 func _process(delta: float) -> void:
@@ -46,7 +48,7 @@ func show_ui_cursor():
 
 func show_game_cursor():
 	self.mode = CursorMode.GAME
-	cursor_sprite.texture = player_data.get_pickaxe_texture()
+	_update_sprite()
 	cursor_sprite.scale = Vector2.ONE
 
 
@@ -73,3 +75,11 @@ func handle_click():
 		if mob is Area2D:
 			if cursor_area in mob.get_overlapping_areas():
 				mob.get_parent().handle_click()
+
+
+func _on_update_pickaxe() -> void:
+	_update_sprite()
+
+
+func _update_sprite():
+	cursor_sprite.texture = player_data.get_pickaxe_texture()

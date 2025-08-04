@@ -13,6 +13,7 @@ extends PanelContainer
 
 @onready var game: Node2D = $"/root/Game"
 @onready var buffs: Control = $"/root/Game/CanvasLayer/GameUI/Buffs"
+@onready var cursor: Node2D = $"/root/Game/CanvasLayer/Cursor"
 
 
 func _ready() -> void:
@@ -54,11 +55,13 @@ func add_active_item(item: ShopItem):
 		new_item.amount = 1
 		player_data.active_items.push_back(new_item)
 
-		# introduce new pickaxe
-		if item.type == ShopItem.ItemType.PICKAXE && item.tier > player_data.tier:
-			player_data.tier += 1
+		if item.type == ShopItem.ItemType.PICKAXE:
 			player_data.current_pickaxe = item
-			game.emit_signal("introduce_pickaxe", item.texture)
+			cursor.emit_signal("update_pickaxe")
+			# introduce new pickaxe
+			if item.tier > player_data.tier:
+				player_data.tier += 1
+				game.emit_signal("introduce_pickaxe", item.texture)
 
 	if item.type == ShopItem.ItemType.BUFF:
 		buffs.emit_signal("buff_added_by_item", item)
