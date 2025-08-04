@@ -23,7 +23,7 @@ func _load_mobs():
 
 
 func _spawn_mob() -> void:
-	var filtered_mobs = mobs.filter(func(m: MobData): return m.biome == player_data.current_biome)
+	var filtered_mobs = mobs.filter(func(m: MobData): return m.biome == player_data.current_biome && m.tier <= player_data.tier)
 	var mob_to_spawn = filtered_mobs.pick_random()
 	var mob_scene: PackedScene = load(mob_to_spawn.scene_path)
 	if is_instance_valid(mob_scene):
