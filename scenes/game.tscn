@@ -96,5 +96,4 @@ autostart = true
 [node name="EnvManager" parent="." instance=ExtResource("12_dinhu")]
 
 [connection signal="introduce_pickaxe" from="." to="." method="_on_introduce_pickaxe"]
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
