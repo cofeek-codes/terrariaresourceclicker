@@ -65,6 +65,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
+vertical_scroll_mode = 3
 
 [node name="ShopItems" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
 unique_name_in_owner = true
