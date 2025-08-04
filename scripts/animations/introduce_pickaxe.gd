@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var pickaxe_texture: Texture2D
-@export var block_dict: BlockDictionary
 
 @onready var player_data = Globals.get_player_data()
 
@@ -11,13 +10,14 @@ extends Node2D
 
 var new_resource_preload = preload("res://scenes/animations/new_resource.tscn")
 
+var blocks: Array[BlockData]
 
-func get_tier_blocks():
-	print_debug(player_data.tier)
-	return block_dict.blocks.filter(func(b: BlockData): return b.tier == player_data.tier)
+const BLOCKS_FILE_PATH: String = "res://resources/blocks/blocks.json"
 
 
 func _ready() -> void:
+	_load_blocks()
+
 	pickaxe_sprite.texture = pickaxe_texture
 
 	# displaying all blocks of new unlocked tier
@@ -33,6 +33,15 @@ func _ready() -> void:
 	animation_player.play("introduce")
 	await animation_player.animation_finished
 	animation_player.play("after_idle")
+
+
+func _load_blocks():
+	Globals.load_json_array(BLOCKS_FILE_PATH, blocks)
+
+
+func get_tier_blocks():
+	print_debug(player_data.tier)
+	return blocks.filter(func(b: BlockData): return b.tier == player_data.tier)
 
 
 func _on_continue_button_pressed() -> void:

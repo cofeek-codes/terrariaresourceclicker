@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var current_block_data: BlockData
-@export var block_dict: BlockDictionary
 
 @onready var player_data: PlayerData = Globals.get_player_data()
 
@@ -19,15 +18,22 @@ var drop_item_scene_preload = preload("res://scenes/drop_item.tscn")
 
 var tween: Tween
 var current_hp: int
+var blocks: Array[BlockData]
 
 const TWEEN_DURATION: float = 0.5
+const BLOCKS_FILE_PATH: String = "res://resources/blocks/blocks.json"
 
 
 func _ready() -> void:
+	_load_blocks()
 	var block_data: BlockData = get_random_block()
 	load_block_data(block_data)
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	animation_player.play_backwards("disappear")
+
+
+func _load_blocks():
+	Globals.load_json_array(BLOCKS_FILE_PATH, blocks)
 
 
 func handle_click():
@@ -38,7 +44,7 @@ func handle_click():
 
 func get_random_block() -> BlockData:
 	var player_tier = player_data.tier
-	var player_tier_blocks: Array[BlockData] = block_dict.blocks.filter(func(b: BlockData): return b.tier <= player_tier)
+	var player_tier_blocks: Array[BlockData] = blocks.filter(func(b: BlockData): return b.tier <= player_tier)
 	print("player tier: %d " % player_tier)
 	print("player tier blocks")
 	print(player_tier_blocks.map(func(b: BlockData): return b.title))
