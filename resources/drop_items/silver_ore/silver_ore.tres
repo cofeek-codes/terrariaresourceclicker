@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://ovnk77jq6qdj"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_m6hnn"]
+[ext_resource type="Texture2D" uid="uid://bdb3iumdss2y2" path="res://resources/drop_items/silver_ore/silver_ore.png" id="2_bjmgq"]
+
+[resource]
+script = ExtResource("1_m6hnn")
+title = "SILVER_ORE"
+price = 15
+texture = ExtResource("2_bjmgq")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://6o6gywrabxo0"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_1yjra"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_w3uag"]
+[ext_resource type="Resource" uid="uid://ovnk77jq6qdj" path="res://resources/drop_items/silver_ore/silver_ore.tres" id="2_d2bct"]
+[ext_resource type="Material" uid="uid://dc76smdvj6hry" path="res://resources/blocks/silver_ore_block/silver_ore_ppm.tres" id="3_83w5j"]
+[ext_resource type="Texture2D" uid="uid://cb2si4xibu2iw" path="res://resources/blocks/silver_ore_block/silver_block.png" id="5_d83o3"]
+
+[resource]
+script = ExtResource("1_w3uag")
+title = "SILVER_BLOCK"
+tier = 3
+texture = ExtResource("5_d83o3")
+particles_material = ExtResource("3_83w5j")
+hit_sound = ExtResource("1_1yjra")
+destroy_sound = ExtResource("1_1yjra")
+drop_item = ExtResource("2_d2bct")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

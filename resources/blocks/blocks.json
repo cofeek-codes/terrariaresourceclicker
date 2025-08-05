@@ -1,9 +1,11 @@
 [
-	"res://resources/blocks/cooper_ore_block/cooper_ore_block_data.tres",
-	"res://resources/blocks/demonite_ore_block/demonite_ore_block_data.tres",
 	"res://resources/blocks/dirt_block/dirt_block_data.tres",
+	"res://resources/blocks/wood_block/wood_block_data.tres",
+	"res://resources/blocks/cooper_ore_block/cooper_ore_block_data.tres",
 	"res://resources/blocks/iron_ore_block/iron_ore_block_data.tres",
 	"res://resources/blocks/tin_ore_block/tin_ore_block_data.tres",
 	"res://resources/blocks/lead_ore_block/lead_ore_block_data.tres",
 	"res://resources/blocks/tungsten_ore_block/tungsten_ore_block_data.tres",
+	"res://resources/blocks/silver_ore_block/silver_ore_block_data.tres",
+	"res://resources/blocks/demonite_ore_block/demonite_ore_block_data.tres",
 ]
