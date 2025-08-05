@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://cwquehsaf80d8"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_8oqpn"]
+[ext_resource type="Texture2D" uid="uid://ccac8id4suxnx" path="res://resources/drop_items/tin_ore/tin_ore.png" id="2_tl24h"]
+
+[resource]
+script = ExtResource("1_8oqpn")
+title = "TIN_ORE"
+price = 5
+texture = ExtResource("2_tl24h")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

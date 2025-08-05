@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://hmqyxjpyrsg1"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_6qa8k"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_ooo5g"]
+[ext_resource type="Resource" uid="uid://cwquehsaf80d8" path="res://resources/drop_items/tin_ore/tin_ore.tres" id="2_1kytq"]
+[ext_resource type="Material" uid="uid://qafv7p7kcolq" path="res://resources/blocks/tin_ore_block/tin_ore_ppm.tres" id="3_y8qle"]
+[ext_resource type="Texture2D" uid="uid://ckis3famgem6y" path="res://resources/blocks/tin_ore_block/tin_ore_block.png" id="5_huqwa"]
+
+[resource]
+script = ExtResource("1_ooo5g")
+title = "TIN_ORE_BLOCK"
+tier = 2
+texture = ExtResource("5_huqwa")
+particles_material = ExtResource("3_y8qle")
+hit_sound = ExtResource("1_6qa8k")
+destroy_sound = ExtResource("1_6qa8k")
+drop_item = ExtResource("2_1kytq")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

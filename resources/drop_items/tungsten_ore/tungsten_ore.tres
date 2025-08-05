@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://lpj4ovrbnjmt"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_bw0nw"]
+[ext_resource type="Texture2D" uid="uid://3cbniv0u736d" path="res://resources/drop_items/tungsten_ore/tungsten_ore.png" id="2_0owiy"]
+
+[resource]
+script = ExtResource("1_bw0nw")
+title = "TUNGSTEN_ORE"
+price = 7
+texture = ExtResource("2_0owiy")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

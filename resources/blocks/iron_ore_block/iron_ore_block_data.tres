@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://cp17fufnud4kg"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_1enr4"]
+[ext_resource type="Resource" uid="uid://d0pplumt24vby" path="res://resources/drop_items/iron_ore/iron_ore.tres" id="2_5ny1x"]
+[ext_resource type="Material" uid="uid://5pifuhxvganv" path="res://resources/blocks/iron_ore_block/iron_ore_ppm.tres" id="3_h3ub2"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="4_uju85"]
+[ext_resource type="Texture2D" uid="uid://d3uo6kvmyb2c4" path="res://resources/blocks/iron_ore_block/iron_ore_block.png" id="5_cxdtm"]
+
+[resource]
+script = ExtResource("4_uju85")
+title = "IRON_ORE_BLOCK"
+tier = 2
+texture = ExtResource("5_cxdtm")
+particles_material = ExtResource("3_h3ub2")
+hit_sound = ExtResource("1_1enr4")
+destroy_sound = ExtResource("1_1enr4")
+drop_item = ExtResource("2_5ny1x")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

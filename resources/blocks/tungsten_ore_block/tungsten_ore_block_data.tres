@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://deokfy4mgiki5"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_loqmh"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_tq3dp"]
+[ext_resource type="Resource" uid="uid://lpj4ovrbnjmt" path="res://resources/drop_items/tungsten_ore/tungsten_ore.tres" id="2_6at11"]
+[ext_resource type="Material" uid="uid://b2wwukl0b67h2" path="res://resources/blocks/tungsten_ore_block/tungsten_ore_ppm.tres" id="3_yuf31"]
+[ext_resource type="Texture2D" uid="uid://b27ge731jd5tf" path="res://resources/blocks/tungsten_ore_block/tungsten_ore_block.png" id="5_6fcrb"]
+
+[resource]
+script = ExtResource("1_tq3dp")
+title = "TUNGSTEN_ORE_BLOCK"
+tier = 2
+texture = ExtResource("5_6fcrb")
+particles_material = ExtResource("3_yuf31")
+hit_sound = ExtResource("1_loqmh")
+destroy_sound = ExtResource("1_loqmh")
+drop_item = ExtResource("2_6at11")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

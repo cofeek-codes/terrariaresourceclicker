@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://cabko2koegufr"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_jkrys"]
+[ext_resource type="Texture2D" uid="uid://ph2iusucvkrq" path="res://resources/drop_items/lead_ore/lead_ore.png" id="2_vqsa3"]
+
+[resource]
+script = ExtResource("1_jkrys")
+title = "LEAD_ORE"
+price = 5
+texture = ExtResource("2_vqsa3")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

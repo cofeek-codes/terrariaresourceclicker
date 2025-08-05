@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://dmn3ow30umtau"]
+
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_4v8ly"]
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_h0j4n"]
+[ext_resource type="Texture2D" uid="uid://yj3sfacxrtop" path="res://resources/blocks/lead_ore_block/lead_ore_block.png" id="2_f8kgu"]
+[ext_resource type="Resource" uid="uid://cabko2koegufr" path="res://resources/drop_items/lead_ore/lead_ore.tres" id="2_r1wm4"]
+[ext_resource type="Material" uid="uid://llrxtfa7ot5v" path="res://resources/blocks/lead_ore_block/lead_ore_ppm.tres" id="3_r1wm4"]
+
+[resource]
+script = ExtResource("1_4v8ly")
+title = "LEAD_ORE_BLOCK"
+tier = 2
+texture = ExtResource("2_f8kgu")
+particles_material = ExtResource("3_r1wm4")
+hit_sound = ExtResource("1_h0j4n")
+destroy_sound = ExtResource("1_h0j4n")
+drop_item = ExtResource("2_r1wm4")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
