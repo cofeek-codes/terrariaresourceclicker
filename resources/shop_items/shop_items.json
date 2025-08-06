@@ -3,7 +3,8 @@
 	"res://resources/shop_items/mining_potion/mining_potion.tres",
 	"res://resources/shop_items/tin_pickaxe/tin_pickaxe.tres",
 	"res://resources/shop_items/cactus_pickaxe/cactus_pickaxe.tres",
-
 	"res://resources/shop_items/iron_pickaxe/iron_pickaxe.tres",
 	"res://resources/shop_items/lead_pickaxe/lead_pickaxe.tres",
+	"res://resources/shop_items/silver_pickaxe/silver_pickaxe.tres",
+	"res://resources/shop_items/gold_pickaxe/gold_pickaxe.tres",
 ]
