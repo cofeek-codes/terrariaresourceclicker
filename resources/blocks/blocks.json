@@ -7,5 +7,6 @@
 	"res://resources/blocks/lead_ore_block/lead_ore_block_data.tres",
 	"res://resources/blocks/tungsten_ore_block/tungsten_ore_block_data.tres",
 	"res://resources/blocks/silver_ore_block/silver_ore_block_data.tres",
+	"res://resources/blocks/gold_ore_block/gold_ore_block_data.tres",
 	"res://resources/blocks/demonite_ore_block/demonite_ore_block_data.tres",
 ]

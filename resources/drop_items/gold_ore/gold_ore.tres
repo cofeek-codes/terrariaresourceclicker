@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://cuuj4vjptajk8"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_4tuas"]
+[ext_resource type="Texture2D" uid="uid://b0xr64x7etp5j" path="res://resources/drop_items/gold_ore/gold_ore.png" id="2_h0guw"]
+
+[resource]
+script = ExtResource("1_4tuas")
+title = "GOLD_ORE"
+price = 35
+texture = ExtResource("2_h0guw")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"
