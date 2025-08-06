@@ -99,7 +99,7 @@ gravity = Vector3(0, 100, 0)
 scale_min = 0.5
 scale_curve = SubResource("CurveTexture_62b1e")
 
-[node name="Mob" type="CharacterBody2D" groups=["mobs"]]
+[node name="Mob" type="CharacterBody2D"]
 script = ExtResource("1_s2wnx")
 mob_data = ExtResource("2_q44lt")
 

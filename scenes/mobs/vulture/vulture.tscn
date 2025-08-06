@@ -113,7 +113,7 @@ scale_min = 0.5
 scale_curve = SubResource("CurveTexture_uu3ab")
 anim_speed_max = 1.0
 
-[node name="Vulture" type="CharacterBody2D" groups=["mobs"]]
+[node name="Vulture" type="CharacterBody2D"]
 script = ExtResource("1_530fh")
 mob_data = ExtResource("2_ri64k")
 
