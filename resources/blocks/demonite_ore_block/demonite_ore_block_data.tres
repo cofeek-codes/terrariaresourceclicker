@@ -11,7 +11,6 @@ script = ExtResource("3_ee3qn")
 title = "Demonite Ore"
 tier = 2
 texture = ExtResource("4_0y0h2")
-health = 3
 particles_material = ExtResource("2_n5vlt")
 hit_sound = ExtResource("1_n5vlt")
 destroy_sound = ExtResource("1_n5vlt")

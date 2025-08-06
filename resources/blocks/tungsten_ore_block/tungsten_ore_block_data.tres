@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_tq3dp")
 title = "TUNGSTEN_ORE_BLOCK"
-tier = 2
+tier = 1
 texture = ExtResource("5_6fcrb")
 particles_material = ExtResource("3_yuf31")
 hit_sound = ExtResource("1_loqmh")

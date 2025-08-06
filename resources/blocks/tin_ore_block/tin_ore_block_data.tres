@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_ooo5g")
 title = "TIN_ORE_BLOCK"
-tier = 2
+tier = 1
 texture = ExtResource("5_huqwa")
 particles_material = ExtResource("3_y8qle")
 hit_sound = ExtResource("1_6qa8k")

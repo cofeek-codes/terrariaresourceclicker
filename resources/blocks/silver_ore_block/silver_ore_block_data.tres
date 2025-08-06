@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_w3uag")
 title = "SILVER_BLOCK"
-tier = 3
+tier = 2
 texture = ExtResource("5_d83o3")
 particles_material = ExtResource("3_83w5j")
 hit_sound = ExtResource("1_1yjra")
