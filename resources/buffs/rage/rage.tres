@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Buff" load_steps=3 format=3 uid="uid://cj6plbto1j871"]
+
+[ext_resource type="Script" uid="uid://cwii24t17f1ej" path="res://resources/buffs/buff.gd" id="1_cmg7k"]
+[ext_resource type="Texture2D" uid="uid://m41ssf8v73uy" path="res://resources/buffs/rage/rage.png" id="1_u313x"]
+
+[resource]
+script = ExtResource("1_cmg7k")
+title = "BUFF_RAGE"
+icon = ExtResource("1_u313x")
+duration = 240
+metadata/_custom_type_script = "uid://cwii24t17f1ej"
