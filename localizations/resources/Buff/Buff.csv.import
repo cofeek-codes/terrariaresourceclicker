@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://i1bci8n5t6o5"
+
+[deps]
+
+files=["res://localizations/resources/Buff/Buff.en.translation", "res://localizations/resources/Buff/Buff.ru.translation"]
+
+source_file="res://localizations/resources/Buff/Buff.csv"
+dest_files=["res://localizations/resources/Buff/Buff.en.translation", "res://localizations/resources/Buff/Buff.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

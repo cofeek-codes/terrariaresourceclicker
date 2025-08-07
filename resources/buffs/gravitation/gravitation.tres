@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Buff" load_steps=3 format=3 uid="uid://0s4olbsh8qmt"]
+
+[ext_resource type="Script" uid="uid://cwii24t17f1ej" path="res://resources/buffs/buff.gd" id="1_jidj6"]
+[ext_resource type="Texture2D" uid="uid://b76fk1be7gyxo" path="res://resources/buffs/gravitation/gravitation.png" id="1_jxsq4"]
+
+[resource]
+script = ExtResource("1_jidj6")
+title = "BUFF_GRAVITATION"
+icon = ExtResource("1_jxsq4")
+duration = 300
+metadata/_custom_type_script = "uid://cwii24t17f1ej"

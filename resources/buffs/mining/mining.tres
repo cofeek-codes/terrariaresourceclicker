@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_hi33s")
-title = "Mining"
+title = "BUFF_MINING"
 icon = ExtResource("1_x4oxu")
 duration = 480
 metadata/_custom_type_script = "uid://cwii24t17f1ej"

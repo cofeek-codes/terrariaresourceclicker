@@ -44,7 +44,7 @@ func get_buff_amount():
 
 
 func make_tooltip():
-	return "%s (x%d) - %s" % [buff.title, get_buff_amount(), make_description()]
+	return "%s (x%d) - %s" % [tr(buff.title), get_buff_amount(), make_description()]
 
 
 func make_description():
