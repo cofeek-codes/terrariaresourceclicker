@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://baeh7sqdqt0d8"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_4dy7d"]
+[ext_resource type="Texture2D" uid="uid://cdxpfefhum2ix" path="res://resources/shop_items/deathbringer_pickaxe/deathbringer_pickaxe.png" id="2_tgscf"]
+
+[resource]
+script = ExtResource("1_4dy7d")
+title = "DEATHBRINGER_PICKAXE"
+base_price = 35
+damage = 7
+texture = ExtResource("2_tgscf")
+effect_type = 1
+effect_factor = 15
+type = 0
+tier = 3
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"

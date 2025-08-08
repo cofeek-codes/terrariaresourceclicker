@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://cmfsuw0gjbllm"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_yu1td"]
+[ext_resource type="Texture2D" uid="uid://qsewp1dggvsm" path="res://resources/shop_items/nightmare_pickaxe/nightmare_pickaxe.png" id="2_747tx"]
+
+[resource]
+script = ExtResource("1_yu1td")
+title = "NIGHTMARE_PICKAXE"
+base_price = 35
+damage = 7
+texture = ExtResource("2_747tx")
+effect_type = 1
+effect_factor = 15
+type = 0
+tier = 3
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
