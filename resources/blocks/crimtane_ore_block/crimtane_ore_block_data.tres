@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://chh1p2w5frthn"]
+
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_hx2rc"]
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_ukifm"]
+[ext_resource type="Material" uid="uid://dai1n6af2h78m" path="res://resources/blocks/crimtane_ore_block/crimtane_ore_ppm.tres" id="2_3pdjh"]
+[ext_resource type="Resource" uid="uid://ceh6ul6g8a8pk" path="res://resources/drop_items/crimtane_ore/crimtane_ore.tres" id="2_oqbfe"]
+[ext_resource type="Texture2D" uid="uid://c467l1bh32a6g" path="res://resources/blocks/crimtane_ore_block/crimtane_ore_block.png" id="4_oqbfe"]
+
+[resource]
+script = ExtResource("1_hx2rc")
+title = "CRIMTANE_ORE_BLOCK"
+tier = 2
+texture = ExtResource("4_oqbfe")
+particles_material = ExtResource("2_3pdjh")
+hit_sound = ExtResource("1_ukifm")
+destroy_sound = ExtResource("1_ukifm")
+drop_item = ExtResource("2_oqbfe")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

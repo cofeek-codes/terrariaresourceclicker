@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("3_ee3qn")
-title = "Demonite Ore"
+title = "DEMONITE_ORE_BLOCK"
 tier = 2
 texture = ExtResource("4_0y0h2")
 particles_material = ExtResource("2_n5vlt")

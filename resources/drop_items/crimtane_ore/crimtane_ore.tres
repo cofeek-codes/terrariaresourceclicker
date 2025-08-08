@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://ceh6ul6g8a8pk"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_40v5r"]
+[ext_resource type="Texture2D" uid="uid://dfmks7me2spsm" path="res://resources/drop_items/crimtane_ore/crimtane_ore.png" id="2_ugw5d"]
+
+[resource]
+script = ExtResource("1_40v5r")
+title = "CRIMTANE_ORE"
+price = 50
+texture = ExtResource("2_ugw5d")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"
