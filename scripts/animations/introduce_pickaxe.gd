@@ -26,7 +26,6 @@ func _ready() -> void:
 	for block in tier_blocks:
 		var new_resource = new_resource_preload.instantiate()
 		new_resource.resource_texture = block.drop_item.texture
-		# print_debug(block.drop_item.texture)
 		new_resources_container.add_child(new_resource)
 
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
