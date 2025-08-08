@@ -17,6 +17,7 @@ func _ready() -> void:
 	self.add_to_group("ui_cursor")
 	inventory_item_image.texture = inventory_item_data.item.texture
 	amount_label.text = str(inventory_item_data.amount)
+	select_button.tooltip_text = inventory_item_data.item.get_localized_title()
 
 
 func _on_display_item() -> void:
