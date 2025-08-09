@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://cpii2k7n7rcww"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_tm6k3"]
+[ext_resource type="Texture2D" uid="uid://cd8234imten0p" path="res://resources/drop_items/obsidian/obsidian.png" id="2_cp7pc"]
+
+[resource]
+script = ExtResource("1_tm6k3")
+title = "OBSIDIAN"
+price = 45
+texture = ExtResource("2_cp7pc")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

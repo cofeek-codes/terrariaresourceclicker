@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://by4h18thpuru1"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_a7v6m"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_p478f"]
+[ext_resource type="Material" uid="uid://cnot8w5acaon" path="res://resources/blocks/obsidian_block/obsidian_block_ppm.tres" id="2_67bi7"]
+[ext_resource type="Resource" uid="uid://cpii2k7n7rcww" path="res://resources/drop_items/obsidian/obsidian.tres" id="2_ogoym"]
+[ext_resource type="Texture2D" uid="uid://ct8sbd8ux6tjb" path="res://resources/blocks/obsidian_block/obsidian_block.png" id="4_ogoym"]
+
+[resource]
+script = ExtResource("1_p478f")
+title = "OBSIDIAN_BLOCK"
+tier = 3
+texture = ExtResource("4_ogoym")
+particles_material = ExtResource("2_67bi7")
+hit_sound = ExtResource("1_a7v6m")
+destroy_sound = ExtResource("1_a7v6m")
+drop_item = ExtResource("2_ogoym")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
