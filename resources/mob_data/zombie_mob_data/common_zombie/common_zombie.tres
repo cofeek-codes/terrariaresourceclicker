@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="ZombieMobData" load_steps=9 format=3 uid="uid://xjyqrpvkn62"]
 
-[ext_resource type="AudioStream" uid="uid://tftrg4gsxtc" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_death.ogg" id="1_c0ako"]
+[ext_resource type="AudioStream" uid="uid://tftrg4gsxtc" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_death.ogg" id="1_c0ako"]
 [ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_neryg"]
 [ext_resource type="Script" uid="uid://bavycake1xc" path="res://resources/mob_data/zombie_mob_data/zombie_mob_data.gd" id="2_csqyf"]
 [ext_resource type="AudioStream" uid="uid://d31d20001p32u" path="res://assets/mobs/base_mob_hit.wav" id="3_jh6qb"]
-[ext_resource type="AudioStream" uid="uid://yba765u5yqu" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_1.ogg" id="4_i6i3p"]
-[ext_resource type="AudioStream" uid="uid://jnc74s27vswc" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_2.ogg" id="5_5jrxc"]
-[ext_resource type="AudioStream" uid="uid://bxvm7eabpelc0" path="res://resources/mob_data/zombie_mob_data/common_zombie/zombie_idle_3.ogg" id="6_yewtn"]
+[ext_resource type="AudioStream" uid="uid://yba765u5yqu" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_1.ogg" id="4_i6i3p"]
+[ext_resource type="AudioStream" uid="uid://jnc74s27vswc" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_2.ogg" id="5_5jrxc"]
+[ext_resource type="AudioStream" uid="uid://bxvm7eabpelc0" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_3.ogg" id="6_yewtn"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i6i3p"]
 streams_count = 3
