@@ -1,0 +1,220 @@
+[gd_scene load_steps=25 format=3 uid="uid://qldpt12yhvle"]
+
+[ext_resource type="Script" uid="uid://du57jn6a5bhxy" path="res://scripts/mobs/zombie/common_zombie.gd" id="1_blmnk"]
+[ext_resource type="Resource" uid="uid://xjyqrpvkn62" path="res://resources/mob_data/zombie_mob_data/common_zombie/common_zombie.tres" id="2_fk0jg"]
+[ext_resource type="Texture2D" uid="uid://bvc0clvov4h2g" path="res://resources/mob_data/zombie_mob_data/winter_zombie/winter_zombie_particles.png" id="4_blmnk"]
+[ext_resource type="Texture2D" uid="uid://b77crgyh7f08t" path="res://resources/mob_data/zombie_mob_data/winter_zombie/winter_zombie_spritesheet.png" id="4_fk0jg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk0jg"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(35, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85rej"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(70, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b7pq"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(0, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o71sc"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(35, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afdr4"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(70, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rosl1"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(0, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6djt"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(35, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk6pk"]
+atlas = ExtResource("4_fk0jg")
+region = Rect2(70, 0, 35, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6b6g"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk0jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85rej")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b7pq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o71sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afdr4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rosl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6djt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk6pk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2wnx"]
+size = Vector2(35, 46)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clniu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakvd"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6b6g"]
+size = Vector2(35, 46)
+
+[sub_resource type="Curve" id="Curve_e5qbn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ri64k"]
+curve = SubResource("Curve_e5qbn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aefwa"]
+particle_flag_disable_z = true
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 100, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ri64k")
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ww6bo"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_1gxgg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uu3ab"]
+curve = SubResource("Curve_1gxgg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fjmy0"]
+particle_flag_disable_z = true
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_uu3ab")
+anim_speed_max = 1.0
+
+[node name="Zombie" type="CharacterBody2D"]
+script = ExtResource("1_blmnk")
+mob_data = ExtResource("2_fk0jg")
+
+[node name="SpriteAnimationPlayer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s6b6g")
+animation = &"move"
+frame_progress = 0.848551
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_s2wnx")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = 28.0
+offset_right = 26.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/background = SubResource("StyleBoxFlat_clniu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xakvd")
+value = 70.0
+show_percentage = false
+
+[node name="ClickableArea" type="Area2D" parent="." groups=["mobs"]]
+
+[node name="ClickCollider" type="CollisionShape2D" parent="ClickableArea"]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_s6b6g")
+
+[node name="JumpCooldownTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="IdleAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="MobHitParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+randomness = 0.6
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_aefwa")
+
+[node name="MobDeathParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ww6bo")
+emitting = false
+amount = 5
+texture = ExtResource("4_blmnk")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_fjmy0")
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="IdleSoundTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]
+[connection signal="timeout" from="IdleSoundTimer" to="." method="_on_idle_sound_timer_timeout"]

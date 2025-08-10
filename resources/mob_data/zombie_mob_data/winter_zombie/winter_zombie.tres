@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ZombieMobData" load_steps=9 format=3 uid="uid://cwycv2jjakn60"]
+
+[ext_resource type="AudioStream" uid="uid://tftrg4gsxtc" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_death.ogg" id="1_qtt2j"]
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="2_bi06l"]
+[ext_resource type="AudioStream" uid="uid://d31d20001p32u" path="res://assets/mobs/base_mob_hit.wav" id="3_tgloh"]
+[ext_resource type="AudioStream" uid="uid://yba765u5yqu" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_1.ogg" id="4_7lnmj"]
+[ext_resource type="AudioStream" uid="uid://jnc74s27vswc" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_2.ogg" id="5_vw5gm"]
+[ext_resource type="AudioStream" uid="uid://bxvm7eabpelc0" path="res://assets/audio/sounds/mob_sounds/zombie/zombie_idle_3.ogg" id="6_44dki"]
+[ext_resource type="Script" uid="uid://bavycake1xc" path="res://resources/mob_data/zombie_mob_data/zombie_mob_data.gd" id="7_rlrs0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i6i3p"]
+streams_count = 3
+stream_0/stream = ExtResource("4_7lnmj")
+stream_1/stream = ExtResource("5_vw5gm")
+stream_2/stream = ExtResource("6_44dki")
+
+[resource]
+script = ExtResource("7_rlrs0")
+idle_sound = SubResource("AudioStreamRandomizer_i6i3p")
+name = "WINTER_ZOMBIE"
+health = 50
+tier = 1
+drop = Dictionary[ExtResource("2_bi06l"), Vector2i]({})
+drop_coins = 80
+speed = 65.0
+jump_force = 200.0
+ai_type = 0
+hit_sound = ExtResource("3_tgloh")
+death_sound = ExtResource("1_qtt2j")
+biome = 1
+scene_path = "uid://qldpt12yhvle"
+metadata/_custom_type_script = "uid://bavycake1xc"
