@@ -28,6 +28,7 @@ func _spawn_mob() -> void:
 	var mob_scene: PackedScene = load(mob_to_spawn.scene_path)
 	if is_instance_valid(mob_scene):
 		var mob = mob_scene.instantiate()
+		mob.position = self.position
 		self.get_parent().add_child(mob)
 
 
