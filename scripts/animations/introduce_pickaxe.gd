@@ -8,6 +8,8 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var new_resources_container: HBoxContainer = %NewResourcesContainer
 
+@onready var game: Node2D = $"/root/Game"
+
 var new_resource_preload = preload("res://scenes/animations/new_resource.tscn")
 
 var blocks: Array[BlockData]
@@ -26,7 +28,11 @@ func _ready() -> void:
 	for block in tier_blocks:
 		var new_resource = new_resource_preload.instantiate()
 		new_resource.resource_texture = block.drop_item.texture
+		new_resource.tooltip = block.drop_item.get_localized_title()
 		new_resources_container.add_child(new_resource)
+		new_resource.add_to_group("ui_cursor")
+
+	game.handle_mouse_hover_ui_elements()
 
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	animation_player.play("introduce")

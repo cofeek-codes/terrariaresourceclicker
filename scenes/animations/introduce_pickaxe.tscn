@@ -406,7 +406,7 @@ label_settings = SubResource("LabelSettings_37xhj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="ContinueButtonContainer"]
+[node name="ContinueButton" type="Button" parent="ContinueButtonContainer" groups=["ui_cursor"]]
 layout_mode = 2
 theme_override_styles/focus = ExtResource("11_g8i3q")
 theme_override_styles/hover = ExtResource("11_m5q23")
