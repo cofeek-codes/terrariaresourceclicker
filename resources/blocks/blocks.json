@@ -11,4 +11,5 @@
 	"res://resources/blocks/demonite_ore_block/demonite_ore_block_data.tres",
 	"res://resources/blocks/crimtane_ore_block/crimtane_ore_block_data.tres",
 	"res://resources/blocks/obsidian_block/obsidian_block_data.tres",
+	"res://resources/blocks/hellstone_block/hellstone_block_data.tres",
 ]

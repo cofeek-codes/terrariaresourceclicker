@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://bjqfarcjsyqpi"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_1djnr"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_yb7aq"]
+[ext_resource type="Material" uid="uid://dw0ojfiienakg" path="res://resources/blocks/hellstone_block/hellstone_ppm.tres" id="2_61y7v"]
+[ext_resource type="Resource" uid="uid://7fjgdnctecl8" path="res://resources/drop_items/hellstone/hellstone.tres" id="2_pgpf6"]
+[ext_resource type="Texture2D" uid="uid://oar6g53m2gu2" path="res://resources/blocks/hellstone_block/hellstone_block.png" id="4_pgpf6"]
+
+[resource]
+script = ExtResource("1_yb7aq")
+title = "HELLSTONE_BLOCK"
+tier = 3
+texture = ExtResource("4_pgpf6")
+particles_material = ExtResource("2_61y7v")
+hit_sound = ExtResource("1_1djnr")
+destroy_sound = ExtResource("1_1djnr")
+drop_item = ExtResource("2_pgpf6")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

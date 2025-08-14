@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://7fjgdnctecl8"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_6jcmt"]
+[ext_resource type="Texture2D" uid="uid://b6rdhe7mmx73n" path="res://resources/drop_items/hellstone/hellstone.png" id="2_ovtbv"]
+
+[resource]
+script = ExtResource("1_6jcmt")
+title = "HELLSTONE"
+price = 50
+texture = ExtResource("2_ovtbv")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"
