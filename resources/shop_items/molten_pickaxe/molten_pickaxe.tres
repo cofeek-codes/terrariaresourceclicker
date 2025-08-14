@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://n211wsopjqg5"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_rfkmj"]
+[ext_resource type="Texture2D" uid="uid://ccuoecvcqk0aa" path="res://resources/shop_items/molten_pickaxe/molten_pickaxe.png" id="2_elmp0"]
+
+[resource]
+script = ExtResource("1_rfkmj")
+title = "MOLTEN_PICKAXE"
+base_price = 70
+damage = 15
+texture = ExtResource("2_elmp0")
+effect_type = 1
+effect_factor = 15
+type = 0
+tier = 4
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
