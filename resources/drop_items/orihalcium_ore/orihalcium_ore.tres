@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://bea0elxdnalj1"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_rtt57"]
+[ext_resource type="Texture2D" uid="uid://3bkb7uarh8i1" path="res://resources/drop_items/orihalcium_ore/orichalcum_ore.png" id="2_q2ot8"]
+
+[resource]
+script = ExtResource("1_rtt57")
+title = "ORIHALCIUM_ORE"
+price = 110
+texture = ExtResource("2_q2ot8")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

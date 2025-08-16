@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://bua3hrco3khyy"]
+
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_3aidu"]
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_g44ok"]
+[ext_resource type="Material" uid="uid://bcwh5g4gourk1" path="res://resources/blocks/orihalcium_ore_block/orihalcium_ore_ppm.tres" id="1_kl373"]
+[ext_resource type="Resource" uid="uid://bea0elxdnalj1" path="res://resources/drop_items/orihalcium_ore/orihalcium_ore.tres" id="2_4hjsh"]
+[ext_resource type="Texture2D" uid="uid://c3om3pupvrn3s" path="res://resources/blocks/orihalcium_ore_block/orihalcium_ore_block.png" id="5_4hjsh"]
+
+[resource]
+script = ExtResource("1_3aidu")
+title = "ORIHALCIUM_ORE_BLOCK"
+tier = 6
+texture = ExtResource("5_4hjsh")
+particles_material = ExtResource("1_kl373")
+hit_sound = ExtResource("1_g44ok")
+destroy_sound = ExtResource("1_g44ok")
+drop_item = ExtResource("2_4hjsh")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
