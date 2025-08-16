@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://dxasjbvweawdg"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_cioig"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_qnfbm"]
+[ext_resource type="Resource" uid="uid://sq8yu0ydrcy6" path="res://resources/drop_items/palladium_ore/palladium_ore.tres" id="2_qgdro"]
+[ext_resource type="Material" uid="uid://by45017n76xlo" path="res://resources/blocks/palladium_ore_block/palladium_ore_ppm.tres" id="3_t544r"]
+[ext_resource type="Texture2D" uid="uid://c0w4s28uwsag6" path="res://resources/blocks/palladium_ore_block/palladium_ore_block.png" id="5_qgdro"]
+
+[resource]
+script = ExtResource("1_qnfbm")
+title = "PALLADIUM_ORE_BLOCK"
+tier = 5
+texture = ExtResource("5_qgdro")
+particles_material = ExtResource("3_t544r")
+hit_sound = ExtResource("1_cioig")
+destroy_sound = ExtResource("1_cioig")
+drop_item = ExtResource("2_qgdro")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

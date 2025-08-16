@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://sq8yu0ydrcy6"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_phtc7"]
+[ext_resource type="Texture2D" uid="uid://ku3egu3rt2c2" path="res://resources/drop_items/palladium_ore/palladium_ore.png" id="2_ey7tb"]
+
+[resource]
+script = ExtResource("1_phtc7")
+title = "PALLADIUM_ORE"
+price = 90
+texture = ExtResource("2_ey7tb")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"
