@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://bctlgbtinh7wi"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_yp6qd"]
+[ext_resource type="Texture2D" uid="uid://dqp522qdbknsd" path="res://resources/drop_items/mythril_ore/mythril_ore.png" id="2_omrae"]
+
+[resource]
+script = ExtResource("1_yp6qd")
+title = "MYTHRIL_ORE"
+price = 110
+texture = ExtResource("2_omrae")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

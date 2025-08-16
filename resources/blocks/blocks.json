@@ -14,4 +14,5 @@
 	"res://resources/blocks/hellstone_block/hellstone_block_data.tres",
 	"res://resources/blocks/cobalt_ore_block/cobalt_ore_block.tres",
 	"res://resources/blocks/palladium_ore_block/palladium_ore_block.tres",
+	"res://resources/blocks/mythril_ore_block/mythril_ore_block.tres",
 ]

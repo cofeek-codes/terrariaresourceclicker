@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://hhgux7h2a7nk"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_5d32g"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_mbkck"]
+[ext_resource type="Resource" uid="uid://bctlgbtinh7wi" path="res://resources/drop_items/mythril_ore/mythril_ore.tres" id="2_f6fcr"]
+[ext_resource type="Material" uid="uid://d23uiquglpoik" path="res://resources/blocks/mythril_ore_block/mythril_ppm.tres" id="3_ekpey"]
+[ext_resource type="Texture2D" uid="uid://uc4yjuaknc0m" path="res://resources/blocks/mythril_ore_block/mythril_ore_block.png" id="5_f6fcr"]
+
+[resource]
+script = ExtResource("1_mbkck")
+title = "MYTHRIL_ORE_BLOCK"
+tier = 6
+texture = ExtResource("5_f6fcr")
+particles_material = ExtResource("3_ekpey")
+hit_sound = ExtResource("1_5d32g")
+destroy_sound = ExtResource("1_5d32g")
+drop_item = ExtResource("2_f6fcr")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"
