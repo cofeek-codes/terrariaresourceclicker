@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://cbpfin14kt1i6"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_ny7c8"]
+[ext_resource type="Texture2D" uid="uid://b2okhxfc8o2ai" path="res://resources/shop_items/palladium_pickaxe/palladium_pickaxe.png" id="2_8soow"]
+
+[resource]
+script = ExtResource("1_ny7c8")
+title = "PALLADIUM_PICKAXE"
+base_price = 70
+damage = 12
+texture = ExtResource("2_8soow")
+effect_type = 1
+effect_factor = 25
+type = 0
+tier = 7
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
