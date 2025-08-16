@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://b05h1yampa4yu"]
+
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="1_gixyl"]
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_tks2r"]
+[ext_resource type="Resource" uid="uid://cswe52khcb2w2" path="res://resources/drop_items/cobalt_ore/cobalt_ore.tres" id="2_wguc0"]
+[ext_resource type="Material" uid="uid://vtewv3hwynrl" path="res://resources/blocks/cobalt_ore_block/cobalt_ore_ppm.tres" id="3_4gtty"]
+[ext_resource type="Texture2D" uid="uid://c14i1slt3lg06" path="res://resources/blocks/cobalt_ore_block/cobalt_ore_block.png" id="5_wguc0"]
+
+[resource]
+script = ExtResource("1_gixyl")
+title = "COBALT_ORE_BLOCK"
+tier = 5
+texture = ExtResource("5_wguc0")
+particles_material = ExtResource("3_4gtty")
+hit_sound = ExtResource("1_tks2r")
+destroy_sound = ExtResource("1_tks2r")
+drop_item = ExtResource("2_wguc0")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

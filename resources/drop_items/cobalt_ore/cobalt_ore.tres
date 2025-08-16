@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://cswe52khcb2w2"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_r3bqj"]
+[ext_resource type="Texture2D" uid="uid://c0aussv867t6u" path="res://resources/drop_items/cobalt_ore/cobalt_ore.png" id="2_ghj5c"]
+
+[resource]
+script = ExtResource("1_r3bqj")
+title = "COBALT_ORE"
+price = 70
+texture = ExtResource("2_ghj5c")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

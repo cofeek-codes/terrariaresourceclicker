@@ -12,4 +12,5 @@
 	"res://resources/blocks/crimtane_ore_block/crimtane_ore_block_data.tres",
 	"res://resources/blocks/obsidian_block/obsidian_block_data.tres",
 	"res://resources/blocks/hellstone_block/hellstone_block_data.tres",
+	"res://resources/blocks/cobalt_ore_block/cobalt_ore_block.tres",
 ]
