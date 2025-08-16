@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://b488vht2w0fip"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_td51b"]
+[ext_resource type="Texture2D" uid="uid://db8nikijm51sq" path="res://resources/shop_items/cobalt_pickaxe/cobalt_pickaxe.png" id="2_4i7lh"]
+
+[resource]
+script = ExtResource("1_td51b")
+title = "COBALT_PICKAXE"
+base_price = 70
+damage = 10
+texture = ExtResource("2_4i7lh")
+effect_type = 1
+effect_factor = 20
+type = 0
+tier = 6
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
