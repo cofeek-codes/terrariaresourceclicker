@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("1_mbkck")
 title = "MYTHRIL_ORE_BLOCK"
-tier = 6
 texture = ExtResource("5_f6fcr")
+tier = 6
 particles_material = ExtResource("3_ekpey")
 hit_sound = ExtResource("1_5d32g")
 destroy_sound = ExtResource("1_5d32g")

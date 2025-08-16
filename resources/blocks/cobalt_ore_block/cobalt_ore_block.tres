@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("1_gixyl")
 title = "COBALT_ORE_BLOCK"
-tier = 5
 texture = ExtResource("5_wguc0")
+tier = 5
 particles_material = ExtResource("3_4gtty")
 hit_sound = ExtResource("1_tks2r")
 destroy_sound = ExtResource("1_tks2r")

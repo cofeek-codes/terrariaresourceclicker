@@ -14,12 +14,12 @@ enum ItemType {
 
 @export var title: String
 @export var base_price: int
+@export var tier: int = 1
 @export var damage: int
 @export var texture: Texture2D
 @export var effect_type: EffectType
 @export var effect_factor: int
 @export var type: ItemType
-@export var tier: int = 1
 @export var buff: Buff
 
 var price: int

@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("4_uju85")
 title = "IRON_ORE_BLOCK"
-tier = 1
 texture = ExtResource("5_cxdtm")
+tier = 1
 particles_material = ExtResource("3_h3ub2")
 hit_sound = ExtResource("1_1enr4")
 destroy_sound = ExtResource("1_1enr4")
