@@ -12,5 +12,5 @@ texture = ExtResource("2_elmp0")
 effect_type = 1
 effect_factor = 15
 type = 0
-tier = 4
+tier = 5
 metadata/_custom_type_script = "uid://bo3g4elxgnxet"

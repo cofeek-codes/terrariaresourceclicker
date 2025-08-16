@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_yb7aq")
 title = "HELLSTONE_BLOCK"
-tier = 3
+tier = 4
 texture = ExtResource("4_pgpf6")
 particles_material = ExtResource("2_61y7v")
 hit_sound = ExtResource("1_1djnr")
