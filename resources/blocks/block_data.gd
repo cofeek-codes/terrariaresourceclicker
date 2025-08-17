@@ -11,6 +11,14 @@ class_name BlockData
 @export var drop_item: DropItem
 
 
-func calculate_health():
-	# @TODO: consider better health calculation
-	return tier * 3
+func calculate_health(player_tier: int):
+	var hp: int
+
+	if tier == player_tier:
+		hp = 3
+	elif tier == player_tier - 1:
+		hp = 2
+	else:
+		hp = 1
+
+	return hp

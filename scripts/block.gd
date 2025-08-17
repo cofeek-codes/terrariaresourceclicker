@@ -59,8 +59,8 @@ func load_block_data(bd: BlockData):
 	# apply blockdata
 	sprite.texture = current_block_data.texture
 	block_hit_particles.process_material = current_block_data.particles_material
-	current_hp = current_block_data.calculate_health()
-	print("current block hp: " + str(current_block_data.calculate_health()))
+	current_hp = current_block_data.calculate_health(player_data.tier)
+	print("current block hp: " + str(current_block_data.calculate_health(player_data.tier)))
 	hit_audio_player.stream = current_block_data.hit_sound
 	destroy_audio_player.stream = current_block_data.destroy_sound
 
@@ -68,7 +68,8 @@ func load_block_data(bd: BlockData):
 
 
 func block_hit():
-	current_hp -= player_data.calculate_damage()
+	# we use `1` as damage here because block takes maximum 3 hits to be destroyed
+	current_hp -= 1
 	if current_hp <= 0:
 		block_destroy()
 	print(current_hp)
