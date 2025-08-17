@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://vjoqkbaa2xhe"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_ni8qw"]
+[ext_resource type="Texture2D" uid="uid://cvnqtxao8721y" path="res://resources/drop_items/titanium_ore/titanium_ore.png" id="2_w06ak"]
+
+[resource]
+script = ExtResource("1_ni8qw")
+title = "TITANIUM_ORE"
+price = 170
+texture = ExtResource("2_w06ak")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"

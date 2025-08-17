@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=6 format=3 uid="uid://uv47a5axg7du"]
+
+[ext_resource type="AudioStream" uid="uid://dryoh1ehdmhi3" path="res://assets/audio/sounds/block_sounds/stone_block_hit.wav" id="1_a0krf"]
+[ext_resource type="Resource" uid="uid://vjoqkbaa2xhe" path="res://resources/drop_items/titanium_ore/titanium_ore.tres" id="2_ors4q"]
+[ext_resource type="Material" uid="uid://cww34xkhdw4h8" path="res://resources/blocks/titanium_ore_block/titanium_ore_ppm.tres" id="3_75yyj"]
+[ext_resource type="Script" uid="uid://bf5axqg6pxttl" path="res://resources/blocks/block_data.gd" id="4_htm0l"]
+[ext_resource type="Texture2D" uid="uid://cgev75e5wcdy6" path="res://resources/blocks/titanium_ore_block/titanium_ore_block.png" id="5_ors4q"]
+
+[resource]
+script = ExtResource("4_htm0l")
+title = "TITANIUM_ORE_BLOCK"
+texture = ExtResource("5_ors4q")
+tier = 7
+particles_material = ExtResource("3_75yyj")
+hit_sound = ExtResource("1_a0krf")
+destroy_sound = ExtResource("1_a0krf")
+drop_item = ExtResource("2_ors4q")
+metadata/_custom_type_script = "uid://bf5axqg6pxttl"

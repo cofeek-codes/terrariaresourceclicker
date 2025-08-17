@@ -17,4 +17,5 @@
 	"res://resources/blocks/mythril_ore_block/mythril_ore_block.tres",
 	"res://resources/blocks/orihalcium_ore_block/orihalcium_ore_block.tres",
 	"res://resources/blocks/adamantite_ore_block/adamantite_ore_block_data.tres",
+	"res://resources/blocks/titanium_ore_block/titanium_ore_block_data.tres",
 ]
