@@ -12,6 +12,7 @@
 # res://scenes/shop/shop.tscn
 # res://resources/shop_items/shop_item.gd
 # res://scripts/pickup_text/pickup_text.gd
+# res://scenes/pause_overlay.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -105,4 +106,8 @@ msgstr ""
 
 #: scripts/pickup_text/pickup_text.gd
 msgid "SOLD_COINS"
+msgstr ""
+
+#: scenes/pause_overlay.tscn
+msgid "PAUSE"
 msgstr ""

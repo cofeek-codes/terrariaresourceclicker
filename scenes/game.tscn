@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=15 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dqvag3kerawc8" path="res://scenes/pause_overlay.tscn" id="2_kvuet"]
 [ext_resource type="PackedScene" uid="uid://vko6pk1vj26k" path="res://scenes/shop/shop.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cpcuwcnejyl4l" path="res://scenes/pickup_text.tscn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dplcdtes3xutv" path="res://scenes/inventory/inventory.tscn" id="6_gee14"]
@@ -89,11 +90,22 @@ unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
 
+[node name="PauseOverlay" parent="CanvasLayer" instance=ExtResource("2_kvuet")]
+unique_name_in_owner = true
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
 
 [node name="EnvManager" parent="." instance=ExtResource("12_dinhu")]
 
+[node name="AdTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
 [connection signal="introduce_pickaxe" from="." to="." method="_on_introduce_pickaxe"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
+[connection signal="timeout" from="AdTimer" to="." method="_on_ad_timer_timeout"]

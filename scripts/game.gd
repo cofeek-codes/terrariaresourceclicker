@@ -7,6 +7,7 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
+@onready var pause_overlay: Control = %PauseOverlay
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
@@ -77,3 +78,24 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	var new_pickaxe_scene = new_pickaxe_scene_preload.instantiate()
 	new_pickaxe_scene.pickaxe_texture = pickaxe_texture
 	canvas_layer.add_child(new_pickaxe_scene)
+
+
+func pause():
+	print_debug("game.pause called")
+	pause_overlay.show()
+	AudioServer.set_bus_mute(0, true)
+	get_tree().paused = true
+	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
+
+
+func unpause():
+	print_debug("game.unpause called")
+	get_tree().paused = false
+	pause_overlay.hide()
+	AudioServer.set_bus_mute(0, false)
+	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
+
+
+func _on_ad_timer_timeout() -> void:
+	print("should show interstitial")
+	AdManager.show_interstitial()

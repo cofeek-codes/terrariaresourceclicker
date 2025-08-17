@@ -110,3 +110,7 @@ msgstr "за"
 #: scripts/pickup_text/pickup_text.gd
 msgid "SOLD_COINS"
 msgstr "монет"
+
+#: scenes/pause_overlay.tscn
+msgid "PAUSE"
+msgstr "Пауза"

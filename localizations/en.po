@@ -111,5 +111,9 @@ msgstr "for"
 msgid "SOLD_COINS"
 msgstr "coins"
 
+#: scenes/pause_overlay.tscn
+msgid "PAUSE"
+msgstr "Pause"
+
 #~ msgid "100"
 #~ msgstr "100"
