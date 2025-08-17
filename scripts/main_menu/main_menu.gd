@@ -9,6 +9,7 @@ var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settin
 
 
 func _ready() -> void:
+	_init_locale()
 	SaveManager.load_settings()
 	for child in menu_container.get_children():
 		if child is Button:
@@ -37,3 +38,7 @@ func _on_play_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	get_tree().change_scene_to_packed(settings_scene_preload)
+
+
+func _init_locale():
+	TranslationServer.set_locale(Bridge.platform.language)
