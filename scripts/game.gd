@@ -26,6 +26,8 @@ func _ready() -> void:
 		print_debug(web_window)
 		web_window.onbeforeunload = on_before_unload_callback
 
+	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):

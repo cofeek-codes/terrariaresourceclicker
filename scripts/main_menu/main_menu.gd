@@ -15,6 +15,8 @@ func _ready() -> void:
 			child.mouse_entered.connect(_on_mouse_entered.bind(child))
 			child.mouse_exited.connect(_on_mouse_exited.bind(child))
 
+	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
+
 
 func _on_mouse_entered(button: Button):
 	button.pivot_offset = Vector2(button.size.x / 2, 0)
