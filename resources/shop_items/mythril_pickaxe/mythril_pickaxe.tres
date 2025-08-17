@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" load_steps=3 format=3 uid="uid://uggnrvbsxyl3"]
+
+[ext_resource type="Script" uid="uid://bo3g4elxgnxet" path="res://resources/shop_items/shop_item.gd" id="1_s6gb5"]
+[ext_resource type="Texture2D" uid="uid://1ojvofrvmbpv" path="res://resources/shop_items/mythril_pickaxe/mythril_pickaxe.png" id="2_t0gc5"]
+
+[resource]
+script = ExtResource("1_s6gb5")
+title = "MYTHRIL_PICKAXE"
+base_price = 90
+tier = 7
+damage = 15
+texture = ExtResource("2_t0gc5")
+effect_type = 1
+effect_factor = 30
+type = 0
+metadata/_custom_type_script = "uid://bo3g4elxgnxet"
