@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://b258len28uwgl"]
+
+[ext_resource type="Script" uid="uid://5gk7ji521mtc" path="res://resources/drop_items/drop_item.gd" id="1_vsdse"]
+[ext_resource type="Texture2D" uid="uid://b5eb67nqgrmq1" path="res://resources/drop_items/adamantite_ore/adamantite_ore.png" id="2_ly25s"]
+
+[resource]
+script = ExtResource("1_vsdse")
+title = "ADAMANTITE_ORE"
+price = 150
+texture = ExtResource("2_ly25s")
+metadata/_custom_type_script = "uid://5gk7ji521mtc"
