@@ -15,6 +15,7 @@ func show_interstitial():
 
 	game.pause()
 	Bridge.advertisement.show_interstitial()
+	SaveManager.save_player_data()
 
 
 func show_rewarded():
@@ -31,6 +32,8 @@ func _on_interstitial_state_changed(state):
 
 
 func _on_visibility_state_changed(state):
+	SaveManager.save_player_data()
+
 	game = get_node_or_null("/root/Game")
 
 	if state == "hidden":
