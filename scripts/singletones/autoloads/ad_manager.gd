@@ -5,6 +5,7 @@ var game: Node2D
 
 func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", _on_interstitial_state_changed)
+	Bridge.game.connect("visibility_state_changed", _on_visibility_state_changed)
 
 
 func show_interstitial():
@@ -27,3 +28,20 @@ func _on_interstitial_state_changed(state):
 		"closed", "failed":
 			print("closing interstitial ad...")
 			game.unpause()
+
+
+func _on_visibility_state_changed(state):
+	game = get_node_or_null("/root/Game")
+
+	if state == "hidden":
+		if game != null:
+			game.pause()
+		else:
+			get_tree().paused = true
+			Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
+	else:
+		if game != null:
+			game.unpause()
+		else:
+			get_tree().paused = false
+			Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
