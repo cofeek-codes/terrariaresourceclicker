@@ -9,6 +9,7 @@ static func save_player_data():
 	_save_coins()
 	_save_active_timers()
 	ResourceSaver.save(Globals.player_data, SAVE_PATH)
+	_update_leaderboard()
 
 
 static func load_player_data():
@@ -68,6 +69,12 @@ static func _save_active_timers():
 			Globals.player_data.active_buffs.push_back(new_active_buff)
 
 
+static func _update_leaderboard():
+	var leaderboard_id = Constants.COINS_LEADERBOARD_ID
+	var coins: int = int(Globals.player_data.coins.toFloat())
+	Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
+
+
 static func save_exists():
 	return FileAccess.file_exists(SAVE_PATH) && FileAccess.file_exists(COINS_PATH)
 
@@ -97,3 +104,8 @@ static func load_settings():
 	AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
 	AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
 	AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)
+
+
+static func _on_update_leaderboard_completed(success):
+	print("should update leaderboard")
+	print(success)

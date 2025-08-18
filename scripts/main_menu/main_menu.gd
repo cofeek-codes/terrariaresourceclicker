@@ -5,7 +5,7 @@ extends Control
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
-# var htp_scene_preload: PackedScene = preload("res://scenes/game.tscn")
+var leaderboards_scene_preload: PackedScene = preload("res://scenes/leaderboards.tscn")
 
 
 func _ready() -> void:
@@ -17,6 +17,10 @@ func _ready() -> void:
 			child.mouse_exited.connect(_on_mouse_exited.bind(child))
 
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
+
+
+func _init_locale():
+	TranslationServer.set_locale(Bridge.platform.language)
 
 
 func _on_mouse_entered(button: Button):
@@ -40,5 +44,5 @@ func _on_settings_button_pressed() -> void:
 	get_tree().change_scene_to_packed(settings_scene_preload)
 
 
-func _init_locale():
-	TranslationServer.set_locale(Bridge.platform.language)
+func _on_leaderboards_button_pressed() -> void:
+	get_tree().change_scene_to_packed(leaderboards_scene_preload)
