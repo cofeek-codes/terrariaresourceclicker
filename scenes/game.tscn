@@ -103,7 +103,7 @@ autostart = true
 [node name="EnvManager" parent="." instance=ExtResource("12_dinhu")]
 
 [node name="AdTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 300.0
 autostart = true
 
 [connection signal="introduce_pickaxe" from="." to="." method="_on_introduce_pickaxe"]
