@@ -9,7 +9,7 @@ static func save_player_data():
 	_save_coins()
 	_save_active_timers()
 	ResourceSaver.save(Globals.player_data, SAVE_PATH)
-	_update_leaderboard()
+	# _update_leaderboard()
 
 
 static func load_player_data():
@@ -70,6 +70,7 @@ static func _save_active_timers():
 
 
 static func _update_leaderboard():
+	# TODO: implement auth check
 	var leaderboard_id = Constants.COINS_LEADERBOARD_ID
 	var coins: int = int(Globals.player_data.coins.toFloat())
 	Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
