@@ -23,6 +23,23 @@ func show_rewarded():
 	pass
 
 
+func is_authorized():
+	return Bridge.player.is_authorized
+
+
+func authorize():
+	var options = {"scopes": true}
+
+	Bridge.player.authorize(options, _on_player_authorize_completed)
+
+
+func _on_player_authorize_completed(success: bool):
+	if success:
+		print("[YANDEX]: Authorized")
+	else:
+		print("[YANDEX]: Authorization error")
+
+
 func _on_interstitial_state_changed(state):
 	print_debug(state)
 	match state:
