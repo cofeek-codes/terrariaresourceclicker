@@ -2,7 +2,6 @@ extends Node
 
 const SAVE_PATH: String = "user://player_data.tres"
 const SETTINGS_PATH: String = "user://settings.tres"
-const COINS_PATH: String = "user://player_coins.dat"
 
 
 func save_player_data():
@@ -13,36 +12,24 @@ func save_player_data():
 
 
 func load_player_data():
-	if save_exists():
+	if FileAccess.file_exists(SAVE_PATH):
 		Globals.player_data = ResourceLoader.load(SAVE_PATH, "PlayerData")
-		_load_coins()
 	else:
 		Globals.player_data = Globals.default_player_data
 
+	_load_coins()
+
 
 func _save_coins():
-	var coins_data = {
-		"coins": Globals.player_data.coins.toScientific(true),
-		"coins_per_second": Globals.player_data.coins_per_second.toScientific(true),
-		"coins_per_click": Globals.player_data.coins_per_click.toScientific(true),
-	}
-
-	var file = FileAccess.open(COINS_PATH, FileAccess.WRITE)
-	if !file:
-		return
-	file.store_var(coins_data, true)
-	file.close()
+	Globals.player_data.coins_string = Globals.player_data.coins.toScientific(true)
+	Globals.player_data.coins_per_second_string = Globals.player_data.coins_per_second.toScientific(true)
+	Globals.player_data.coins_per_click_string = Globals.player_data.coins_per_click.toScientific(true)
 
 
 func _load_coins():
-	var file = FileAccess.open(COINS_PATH, FileAccess.READ)
-	if !file:
-		return
-	var coins_data = file.get_var(true)
-	file.close()
-	Globals.player_data.coins = Big.new(coins_data["coins"]) if ("coins" in coins_data) else Big.new(0)
-	Globals.player_data.coins_per_second = Big.new(coins_data["coins_per_second"]) if ("coins_per_second" in coins_data) else Big.new(0)
-	Globals.player_data.coins_per_click = Big.new(coins_data["coins_per_click"]) if ("coins_per_click" in coins_data) else Big.new(1)
+	Globals.player_data.coins = Big.new(Globals.player_data.coins_string)
+	Globals.player_data.coins_per_second = Big.new(Globals.player_data.coins_per_second_string)
+	Globals.player_data.coins_per_click = Big.new(Globals.player_data.coins_per_click_string)
 
 
 func _save_active_timers():
@@ -74,10 +61,6 @@ func _update_leaderboard():
 	var leaderboard_id = Constants.COINS_LEADERBOARD_ID
 	var coins: int = int(Globals.player_data.coins.toFloat())
 	Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
-
-
-func save_exists():
-	return FileAccess.file_exists(SAVE_PATH) && FileAccess.file_exists(COINS_PATH)
 
 
 func save_settings():

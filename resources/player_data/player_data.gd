@@ -8,6 +8,9 @@ class_name PlayerData
 @export var inventory: Array[InventoryItem]
 @export var current_pickaxe: ShopItem
 @export var current_biome: Globals.Biome
+@export var coins_string: String = str(0)
+@export var coins_per_second_string: String = str(0)
+@export var coins_per_click_string: String = str(1)
 
 var coins: Big = Big.new(0)
 var coins_per_second: Big = Big.new(0)
