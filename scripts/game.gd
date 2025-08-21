@@ -98,4 +98,4 @@ func unpause():
 
 func _on_ad_timer_timeout() -> void:
 	print("should show interstitial")
-	AdManager.show_interstitial()
+	YandexManager.show_interstitial()
