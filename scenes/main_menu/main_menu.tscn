@@ -39,19 +39,28 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer"]
+[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
 layout_mode = 2
 text = "MENU_PLAY"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer"]
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
 layout_mode = 2
 text = "MENU_SETTINGS"
 
-[node name="LeaderboardsButton" type="Button" parent="CenterContainer/MenuContainer"]
+[node name="LeaderboardsButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
 process_mode = 4
 visible = false
 layout_mode = 2
 text = "MENU_LIDERBOARDS"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="CloudSaveButton" type="Button" parent="CenterContainer/MenuContainer/MarginContainer" groups=["menu_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MENU_CLOUDSAVE"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -61,3 +70,4 @@ bus = &"Sound"
 [connection signal="pressed" from="CenterContainer/MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MenuContainer/LeaderboardsButton" to="." method="_on_leaderboards_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuContainer/MarginContainer/CloudSaveButton" to="." method="_on_cloud_save_button_pressed"]

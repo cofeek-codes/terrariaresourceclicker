@@ -13,6 +13,7 @@
 # res://resources/shop_items/shop_item.gd
 # res://scripts/pickup_text/pickup_text.gd
 # res://scenes/pause_overlay.tscn
+# res://scripts/main_menu/main_menu.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -64,6 +65,11 @@ msgstr ""
 msgid "MENU_LIDERBOARDS"
 msgstr ""
 
+#: scenes/main_menu/main_menu.tscn
+#: scripts/main_menu/main_menu.gd
+msgid "MENU_CLOUDSAVE"
+msgstr ""
+
 #: scenes/main_menu/settings.tscn
 msgid "SETTINGS_VOLUME"
 msgstr ""
@@ -110,4 +116,12 @@ msgstr ""
 
 #: scenes/pause_overlay.tscn
 msgid "PAUSE"
+msgstr ""
+
+#: scripts/main_menu/main_menu.gd
+msgid "ON"
+msgstr ""
+
+#: scripts/main_menu/main_menu.gd
+msgid "OFF"
 msgstr ""

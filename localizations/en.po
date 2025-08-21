@@ -67,6 +67,10 @@ msgstr "Settings"
 msgid "MENU_LIDERBOARDS"
 msgstr "Liderboards"
 
+#: scenes/main_menu/main_menu.tscn scripts/main_menu/main_menu.gd
+msgid "MENU_CLOUDSAVE"
+msgstr "Cloud Save"
+
 #: scenes/main_menu/settings.tscn
 msgid "SETTINGS_VOLUME"
 msgstr "Volume"
@@ -114,6 +118,14 @@ msgstr "coins"
 #: scenes/pause_overlay.tscn
 msgid "PAUSE"
 msgstr "Pause"
+
+#: scripts/main_menu/main_menu.gd
+msgid "ON"
+msgstr "ON"
+
+#: scripts/main_menu/main_menu.gd
+msgid "OFF"
+msgstr "OFF"
 
 #~ msgid "100"
 #~ msgstr "100"
