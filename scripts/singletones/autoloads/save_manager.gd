@@ -7,17 +7,42 @@ const SETTINGS_PATH: String = "user://settings.tres"
 func save_player_data():
 	_save_coins()
 	_save_active_timers()
-	ResourceSaver.save(Globals.player_data, SAVE_PATH)
+
+	if YandexManager.is_authorized():
+		_save_player_data_cloud()
+
+	else:
+		_save_player_data_local()
+
 	# _update_leaderboard()
 
 
+func _save_player_data_local():
+	ResourceSaver.save(Globals.player_data, SAVE_PATH)
+
+
+func _save_player_data_cloud():
+	pass
+
+
 func load_player_data():
+	if YandexManager.is_authorized():
+		_load_player_data_cloud()
+	else:
+		_load_player_data_local()
+
+	_load_coins()
+
+
+func _load_player_data_local():
 	if FileAccess.file_exists(SAVE_PATH):
 		Globals.player_data = ResourceLoader.load(SAVE_PATH, "PlayerData")
 	else:
 		Globals.player_data = Globals.default_player_data
 
-	_load_coins()
+
+func _load_player_data_cloud():
+	pass
 
 
 func _save_coins():
@@ -73,21 +98,47 @@ func save_settings():
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
 
+	if YandexManager.is_authorized():
+		_save_settings_cloud(settings)
+	else:
+		_save_settings_local(settings)
+
+
+func _save_settings_local(settings: Settings):
 	ResourceSaver.save(settings, SETTINGS_PATH)
 
 
+func _save_settings_cloud(settings: Settings):
+	pass
+
+
 func load_settings():
-	if !FileAccess.file_exists(SETTINGS_PATH):
-		return
+	var settings: Settings = null
 
-	var master_bus_index = AudioServer.get_bus_index("Master")
-	var music_bus_index = AudioServer.get_bus_index("Music")
-	var sound_bus_index = AudioServer.get_bus_index("Sound")
+	if YandexManager.is_authorized():
+		settings = load_settings_cloud()
+	else:
+		settings = load_settings_local()
 
-	var settings = ResourceLoader.load(SETTINGS_PATH, "Settings")
-	AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
-	AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
-	AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)
+	if settings != null:
+		var master_bus_index = AudioServer.get_bus_index("Master")
+		var music_bus_index = AudioServer.get_bus_index("Music")
+		var sound_bus_index = AudioServer.get_bus_index("Sound")
+
+		AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
+		AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
+		AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)
+
+
+func load_settings_local():
+	if FileAccess.file_exists(SETTINGS_PATH):
+		return ResourceLoader.load(SETTINGS_PATH, "Settings")
+
+	return null
+
+
+func load_settings_cloud():
+	return null
 
 
 func _on_update_leaderboard_completed(success):
