@@ -22,6 +22,7 @@ Bridge="*res://addons/playgama_bridge/bridge.gd"
 Globals="*res://scripts/singletones/autoloads/globals.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
 AdManager="*res://scripts/singletones/autoloads/ad_manager.gd"
+SaveManager="*res://scripts/singletones/autoloads/save_manager.gd"
 
 [debug]
 
