@@ -49,9 +49,19 @@ func _load_player_data_local():
 
 func _load_player_data_cloud():
 	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
-	print_debug(player_data_loaded_json)
-	if JSON.parse_string(player_data_loaded_json) == null:
+
+
+func _post_load_player_data_cloud(player_data_loaded_json: String):
+	print_debug("player_data_loaded_json")
+	var player_data_parsed = JSON.parse_string(player_data_loaded_json)
+	print_debug("player_data_parsed")
+	print_debug(player_data_parsed)
+	if player_data_parsed == null:
 		Globals.player_data = Globals.default_player_data
+	else:
+		print("player_data_parsed")
+		print(player_data_parsed)
+		print(type_string(typeof(player_data_parsed)))
 
 
 func _save_coins():
@@ -169,7 +179,7 @@ func _on_load_player_data_cloud_completed(success: bool, data):
 		print(data)
 		if data != null:
 			player_data_loaded_json = data
-			print("player_data_loaded_json")
-			print(player_data_loaded_json)
 	else:
 		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
+
+	_post_load_player_data_cloud(player_data_loaded_json)
