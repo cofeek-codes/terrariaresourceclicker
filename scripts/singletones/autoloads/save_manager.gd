@@ -1,5 +1,7 @@
 extends Node
 
+var player_data_loaded_json: String
+
 const SAVE_PATH: String = "user://player_data.tres"
 const SETTINGS_PATH: String = "user://settings.tres"
 
@@ -46,7 +48,10 @@ func _load_player_data_local():
 
 
 func _load_player_data_cloud():
-	pass
+	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
+	print_debug(player_data_loaded_json)
+	if JSON.parse_string(player_data_loaded_json) == null:
+		Globals.player_data = Globals.default_player_data
 
 
 func _save_coins():
@@ -155,3 +160,16 @@ func _on_save_player_data_cloud_completed(success: bool):
 		print("[%s]: SUCCESS" % _on_save_player_data_cloud_completed.get_method().to_upper())
 	else:
 		print("[%s]: ERROR" % _on_save_player_data_cloud_completed.get_method().to_upper())
+
+
+func _on_load_player_data_cloud_completed(success: bool, data):
+	if success:
+		print("[%s]: SUCCESS" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("data")
+		print(data)
+		if data != null && data[0] != null:
+			player_data_loaded_json = data[0]
+			print("player_data_loaded_json")
+			print(player_data_loaded_json)
+	else:
+		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
