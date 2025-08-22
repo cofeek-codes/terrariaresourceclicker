@@ -11,6 +11,7 @@ var leaderboards_scene_preload: PackedScene = preload("res://scenes/leaderboards
 
 func _ready() -> void:
 	_init_locale()
+	_set_cloudsave_btn_text()
 	SaveManager.load_settings()
 	for btn in get_tree().get_nodes_in_group("menu_buttons"):
 		btn.mouse_entered.connect(_on_mouse_entered.bind(btn))
@@ -20,7 +21,7 @@ func _ready() -> void:
 
 
 func _set_cloudsave_btn_text():
-	var s = "%s: %s" % [tr("MENU_CLOUDSAVE"), tr("ON") if Globals.cloudsave_enabled else tr("OFF")]
+	var s = "%s: %s" % [tr("MENU_CLOUDSAVE"), tr("ON") if YandexManager.is_authorized() else tr("OFF")]
 	cloud_save_button.text = s
 
 
@@ -54,4 +55,7 @@ func _on_leaderboards_button_pressed() -> void:
 
 
 func _on_cloud_save_button_pressed() -> void:
+	if !YandexManager.is_authorized():
+		YandexManager.authorize()
+
 	_set_cloudsave_btn_text()

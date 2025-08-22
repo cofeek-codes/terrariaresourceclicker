@@ -22,7 +22,11 @@ func _save_player_data_local():
 
 
 func _save_player_data_cloud():
-	pass
+	var player_data_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var player_data_as_text = player_data_file.get_as_text()
+	var player_data_encoded = JSON.stringify(player_data_as_text)
+	print_debug(player_data_encoded)
+	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
 
 
 func load_player_data():
@@ -144,3 +148,10 @@ func load_settings_cloud():
 func _on_update_leaderboard_completed(success):
 	print("should update leaderboard")
 	print(success)
+
+
+func _on_save_player_data_cloud_completed(success: bool):
+	if success:
+		print("[%s]: SUCCESS" % _on_save_player_data_cloud_completed.get_method().to_upper())
+	else:
+		print("[%s]: ERROR" % _on_save_player_data_cloud_completed.get_method().to_upper())
