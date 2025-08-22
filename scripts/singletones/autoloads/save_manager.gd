@@ -24,10 +24,10 @@ func _save_player_data_local():
 
 
 func _save_player_data_cloud():
+	_save_player_data_local()  # save local anyway as a source for cloud
 	var player_data_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	var player_data_as_text = player_data_file.get_as_text()
 	var player_data_encoded = JSON.stringify(player_data_as_text)
-	print_debug(player_data_encoded)
 	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
 
 
@@ -167,8 +167,8 @@ func _on_load_player_data_cloud_completed(success: bool, data):
 		print("[%s]: SUCCESS" % _on_load_player_data_cloud_completed.get_method().to_upper())
 		print("data")
 		print(data)
-		if data != null && data[0] != null:
-			player_data_loaded_json = data[0]
+		if data != null:
+			player_data_loaded_json = data
 			print("player_data_loaded_json")
 			print(player_data_loaded_json)
 	else:
