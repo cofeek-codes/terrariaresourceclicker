@@ -69,6 +69,8 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 		if pd != null:
 			Globals.player_data = pd
 
+		# TODO: fallback to local save on fail
+
 	_load_coins()
 
 
