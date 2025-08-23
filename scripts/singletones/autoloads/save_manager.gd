@@ -3,6 +3,7 @@ extends Node
 var player_data_loaded_json: String
 
 const SAVE_PATH: String = "user://player_data.tres"
+const CLOUD_SAVE_TMP_PATH: String = "user://player_data_cloud.tres"
 const SETTINGS_PATH: String = "user://settings.tres"
 
 
@@ -37,14 +38,14 @@ func load_player_data():
 	else:
 		_load_player_data_local()
 
-	_load_coins()
-
 
 func _load_player_data_local():
 	if FileAccess.file_exists(SAVE_PATH):
 		Globals.player_data = ResourceLoader.load(SAVE_PATH, "PlayerData")
 	else:
 		Globals.player_data = Globals.default_player_data
+
+	_load_coins()
 
 
 func _load_player_data_cloud():
@@ -62,6 +63,17 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 		print("player_data_parsed")
 		print(player_data_parsed)
 		print(type_string(typeof(player_data_parsed)))
+		var cloud_save_file = FileAccess.open(CLOUD_SAVE_TMP_PATH, FileAccess.WRITE_READ)
+		print("open error")
+		print(FileAccess.get_open_error())
+		print("writing player_data_parsed to temp file at %s (%s)" % [CLOUD_SAVE_TMP_PATH, cloud_save_file.get_path()])
+		cloud_save_file.store_string(player_data_parsed)
+		print("contents of temp file")
+		print(cloud_save_file.get_as_text())
+		cloud_save_file.close()
+		Globals.player_data = load(CLOUD_SAVE_TMP_PATH)
+
+	_load_coins()
 
 
 func _save_coins():
