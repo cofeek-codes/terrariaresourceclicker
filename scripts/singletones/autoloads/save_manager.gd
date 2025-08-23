@@ -72,7 +72,9 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 		print("contents of temp file")
 		print(cloud_save_file.get_as_text())
 		cloud_save_file.close()
-		Globals.player_data = load(CLOUD_SAVE_TMP_PATH)
+		var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
+		if pd != null:
+			Globals.player_data = pd
 
 	_load_coins()
 
