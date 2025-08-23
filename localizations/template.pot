@@ -14,6 +14,7 @@
 # res://scripts/pickup_text/pickup_text.gd
 # res://scenes/pause_overlay.tscn
 # res://scripts/main_menu/main_menu.gd
+# res://scenes/main_menu/auth_modal.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -124,4 +125,16 @@ msgstr ""
 
 #: scripts/main_menu/main_menu.gd
 msgid "OFF"
+msgstr ""
+
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_TEXT"
+msgstr ""
+
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_AUTHORIZE"
+msgstr ""
+
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_CANCEL"
 msgstr ""

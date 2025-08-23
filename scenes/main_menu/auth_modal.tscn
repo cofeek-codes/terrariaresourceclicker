@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnvkr8wi3agf1"]
+
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_2k2eo"]
+[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="1_n1e41"]
+[ext_resource type="Script" uid="uid://d4hta3fuj2pkg" path="res://scripts/main_menu/auth_modal.gd" id="2_rqedj"]
+
+[node name="AuthModal" type="Control"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2k2eo")
+script = ExtResource("2_rqedj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_n1e41")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextMarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/TextMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "AUTH_MODAL_TEXT"
+
+[node name="ButtonsMarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ButtonsMarginContainer"]
+layout_mode = 2
+
+[node name="AuthButton" type="Button" parent="Panel/VBoxContainer/ButtonsMarginContainer/HBoxContainer" groups=["menu_buttons"]]
+layout_mode = 2
+text = "AUTH_MODAL_AUTHORIZE"
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/ButtonsMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelButton" type="Button" parent="Panel/VBoxContainer/ButtonsMarginContainer/HBoxContainer" groups=["menu_buttons"]]
+layout_mode = 2
+text = "AUTH_MODAL_CANCEL"
+
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonsMarginContainer/HBoxContainer/AuthButton" to="." method="_on_auth_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonsMarginContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

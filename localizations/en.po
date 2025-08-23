@@ -127,5 +127,25 @@ msgstr "ON"
 msgid "OFF"
 msgstr "OFF"
 
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_TEXT"
+msgstr ""
+"[font_size=0].[/font_size]\n"
+"\n"
+"[center] [font_size=32]ATTENTION[/font_size]\n"
+"\n"
+"\n"
+"[font_size=21]\n"
+"In order to be able to save game progress in cloud or use leaderboards you need to Sign in to your Yadnex ID account\n"
+"[/font_size]"
+
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_AUTHORIZE"
+msgstr "Authorize"
+
+#: scenes/main_menu/auth_modal.tscn
+msgid "AUTH_MODAL_CANCEL"
+msgstr "Cancel"
+
 #~ msgid "100"
 #~ msgstr "100"
