@@ -127,10 +127,11 @@ func save_settings():
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
 
-	if YandexManager.is_authorized():
-		_save_settings_cloud(settings)
-	else:
-		_save_settings_local(settings)
+	#if YandexManager.is_authorized():
+	#_save_settings_cloud(settings)
+	#else:
+
+	_save_settings_local(settings)
 
 
 func _save_settings_local(settings: Settings):
@@ -144,10 +145,11 @@ func _save_settings_cloud(settings: Settings):
 func load_settings():
 	var settings: Settings = null
 
-	if YandexManager.is_authorized():
-		settings = load_settings_cloud()
-	else:
-		settings = load_settings_local()
+	#if YandexManager.is_authorized():
+	#settings = load_settings_cloud()
+	#else:
+
+	settings = load_settings_local()
 
 	if settings != null:
 		var master_bus_index = AudioServer.get_bus_index("Master")
