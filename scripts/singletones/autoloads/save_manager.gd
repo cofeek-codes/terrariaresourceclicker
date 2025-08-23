@@ -55,22 +55,15 @@ func _load_player_data_cloud():
 
 func _post_load_player_data_cloud(player_data_loaded_json: String):
 	print_debug("player_data_loaded_json")
+	print_debug(player_data_loaded_json)
 	var player_data_parsed = JSON.parse_string(player_data_loaded_json)
-	print_debug("player_data_parsed")
-	print_debug(player_data_parsed)
 	if player_data_parsed == null:
 		Globals.player_data = Globals.default_player_data
 	else:
-		print("player_data_parsed")
-		print(player_data_parsed)
-		print(type_string(typeof(player_data_parsed)))
+		print_debug("player_data_parsed")
+		print_debug(player_data_parsed)
 		var cloud_save_file = FileAccess.open(CLOUD_SAVE_TMP_PATH, FileAccess.WRITE_READ)
-		print("open error")
-		print(FileAccess.get_open_error())
-		print("writing player_data_parsed to temp file at %s (%s)" % [CLOUD_SAVE_TMP_PATH, cloud_save_file.get_path()])
 		cloud_save_file.store_string(player_data_parsed)
-		print("contents of temp file")
-		print(cloud_save_file.get_as_text())
 		cloud_save_file.close()
 		var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
 		if pd != null:
