@@ -49,6 +49,7 @@ func _load_player_data_local():
 
 
 func _load_player_data_cloud():
+	Globals.player_data = Globals.default_player_data
 	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
 
 
