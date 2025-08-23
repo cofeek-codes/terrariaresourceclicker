@@ -6,7 +6,7 @@ extends Control
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
-var leaderboards_scene_preload: PackedScene = preload("res://scenes/leaderboards.tscn")
+var leaderboards_scene_preload: PackedScene = preload("res://scenes/main_menu/leaderboards.tscn")
 
 
 func _ready() -> void:
