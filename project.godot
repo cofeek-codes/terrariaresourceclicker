@@ -37,6 +37,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
 
+[editor]
+
+movie_writer/movie_file="C:/Users/cofeek/Desktop/terrariaresourceclicker_exports/capture.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdgdtoolkit/plugin.cfg", "res://addons/playgama_bridge/plugin.cfg")
