@@ -39,7 +39,7 @@
 	"payments": [],
 	"leaderboards": [
 		{
-			"id": "coins",
+			"id": "coins"
 		}
 	]
 }
