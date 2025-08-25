@@ -14,7 +14,7 @@ config/name="terrariaresourceclicker"
 config/version="v1.0.0-pre-icons"
 run/main_scene="uid://djq4e6mvyhj0x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dkbptdo2aw2bs"
 
 [autoload]
 
