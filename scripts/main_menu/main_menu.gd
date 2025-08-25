@@ -6,6 +6,7 @@ signal cloudsave_state_changed
 @onready var audio_player: AudioStreamPlayer = %AudioPlayer
 @onready var cloud_save_button: Button = %CloudSaveButton
 @onready var auth_modal: Control = %AuthModal
+@onready var logo: Control = %Logo
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
@@ -38,6 +39,14 @@ func _set_cloudsave_btn_text(force_true: bool = false):
 
 func _init_locale():
 	TranslationServer.set_locale(Bridge.platform.language)
+	_init_logo()
+
+
+func _init_logo():
+	if TranslationServer.get_locale() == "ru":
+		logo.scale = Vector2(0.6, 0.6)
+	else:
+		logo.scale = Vector2(0.8, 0.8)
 
 
 func _on_mouse_entered(button: Button):
