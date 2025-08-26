@@ -5,6 +5,7 @@ class_name PlayerData
 @export var active_items: Array[ActiveItem]
 @export var active_buffs: Array[ActiveBuff]
 @export var tier: int = 1
+@export var prev_tier: int = 1  # needed for `introduce_pickaxe` logic
 @export var inventory: Array[InventoryItem]
 @export var current_pickaxe: ShopItem
 @export var current_biome: Globals.Biome

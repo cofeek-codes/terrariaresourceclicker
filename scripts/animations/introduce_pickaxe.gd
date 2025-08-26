@@ -24,7 +24,7 @@ func _ready() -> void:
 
 	# displaying all blocks of new unlocked tier
 	var tier_blocks: Array[BlockData] = get_tier_blocks()
-
+	print_debug(tier_blocks)
 	for block in tier_blocks:
 		var new_resource = new_resource_preload.instantiate()
 		new_resource.resource_texture = block.drop_item.texture
@@ -46,7 +46,7 @@ func _load_blocks():
 
 func get_tier_blocks():
 	print_debug(player_data.tier)
-	return blocks.filter(func(b: BlockData): return b.tier == player_data.tier)
+	return blocks.filter(func(b: BlockData): return b.tier > player_data.prev_tier && b.tier <= player_data.tier)
 
 
 func _on_continue_button_pressed() -> void:

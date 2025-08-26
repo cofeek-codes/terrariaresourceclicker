@@ -22,3 +22,7 @@ func calculate_health(player_tier: int):
 		hp = 1
 
 	return hp
+
+
+func _to_string() -> String:
+	return title
