@@ -14,6 +14,8 @@ config/name="terrariaresourceclicker"
 config/version="v1.0.0-pre-icons"
 run/main_scene="uid://djq4e6mvyhj0x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/use_filter=false
+boot_splash/image="uid://cw2wrsmpp74ok"
 config/icon="uid://dkbptdo2aw2bs"
 
 [autoload]
