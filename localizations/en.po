@@ -63,7 +63,7 @@ msgstr "Play"
 msgid "MENU_SETTINGS"
 msgstr "Settings"
 
-#: scenes/main_menu/main_menu.tscn
+#: scenes/main_menu/main_menu.tscn scenes/main_menu/leaderboards.tscn
 msgid "MENU_LIDERBOARDS"
 msgstr "Liderboards"
 
@@ -87,9 +87,9 @@ msgstr "Music"
 msgid "VOLUME_SOUND"
 msgstr "Sound"
 
-#: scenes/main_menu/settings.tscn
-msgid "SETTINGS_GO_BACK"
-msgstr "Go Back"
+#: scenes/main_menu/settings.tscn scenes/main_menu/leaderboards.tscn
+msgid "BACK_BTN"
+msgstr "Back"
 
 #: scenes/shop/shop.tscn
 msgid "SHOP"
@@ -136,7 +136,8 @@ msgstr ""
 "\n"
 "\n"
 "[font_size=21]\n"
-"In order to be able to save game progress in cloud or use leaderboards you need to Sign in to your Yadnex ID account\n"
+"In order to be able to save game progress in cloud or use leaderboards you "
+"need to Sign in to your Yadnex ID account\n"
 "[/font_size]"
 
 #: scenes/main_menu/auth_modal.tscn
@@ -146,6 +147,9 @@ msgstr "Authorize"
 #: scenes/main_menu/auth_modal.tscn
 msgid "AUTH_MODAL_CANCEL"
 msgstr "Cancel"
+
+#~ msgid "SETTINGS_GO_BACK"
+#~ msgstr "Go Back"
 
 #~ msgid "100"
 #~ msgstr "100"

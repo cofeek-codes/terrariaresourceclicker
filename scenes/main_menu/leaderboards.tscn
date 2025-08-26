@@ -1,17 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmh23lcsgron6"]
 
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_fdatn"]
+[ext_resource type="Script" uid="uid://bixsw4871q4v0" path="res://scripts/main_menu/leaderboards.gd" id="1_m1v2b"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_pjn4p"]
-[ext_resource type="Texture2D" uid="uid://btjy0wn8epu1g" path="res://assets/avatar.webp" id="2_fi4kd"]
-[ext_resource type="Shader" uid="uid://c383ejnc13fe4" path="res://shaders/circle_avatar_shader.gdshader" id="2_jhwl6"]
-[ext_resource type="LabelSettings" uid="uid://cbyk86jlx8oat" path="res://theming/styles/leaderboards/leaderboards_label_settings.tres" id="3_qqefk"]
+[ext_resource type="Script" uid="uid://by7ubl72da02t" path="res://addons/dynamic_table/dynamic_table.gd" id="2_tmwms"]
+[ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="5_h3ryc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjn4p"]
 font_size = 28
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqjpt"]
-shader = ExtResource("2_jhwl6")
 
 [node name="Leaderboards" type="Control"]
 layout_mode = 3
@@ -20,6 +18,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_fdatn")
+script = ExtResource("1_m1v2b")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -50,38 +50,42 @@ label_settings = SubResource("LabelSettings_pjn4p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeaderboardContainer" type="VBoxContainer" parent="CenterContainer/MainContainer"]
+[node name="TableMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="DynamicTable" type="Control" parent="TableMarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-alignment = 1
+size_flags_vertical = 3
+focus_mode = 2
+script = ExtResource("2_tmwms")
+metadata/_custom_type_script = "uid://by7ubl72da02t"
 
-[node name="LeaderboardEntry" type="HBoxContainer" parent="CenterContainer/MainContainer/LeaderboardContainer"]
-layout_mode = 2
-alignment = 1
+[node name="BackButtonMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 43.0
+offset_bottom = 36.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
 
-[node name="Avatar" type="TextureRect" parent="CenterContainer/MainContainer/LeaderboardContainer/LeaderboardEntry"]
-material = SubResource("ShaderMaterial_bqjpt")
+[node name="BackButton" type="Button" parent="BackButtonMarginContainer" groups=["menu_buttons"]]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_fi4kd")
-stretch_mode = 5
+text = "BACK_BTN"
 
-[node name="NameLabel" type="Label" parent="CenterContainer/MainContainer/LeaderboardContainer/LeaderboardEntry"]
-layout_mode = 2
-text = "Cofeek"
-label_settings = ExtResource("3_qqefk")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_h3ryc")
 
-[node name="ScoreLabel" type="Label" parent="CenterContainer/MainContainer/LeaderboardContainer/LeaderboardEntry"]
-layout_mode = 2
-text = "15"
-label_settings = ExtResource("3_qqefk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RankLabel" type="Label" parent="CenterContainer/MainContainer/LeaderboardContainer/LeaderboardEntry"]
-layout_mode = 2
-text = "#1"
-label_settings = ExtResource("3_qqefk")
-horizontal_alignment = 1
-vertical_alignment = 1
+[connection signal="mouse_entered" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_pressed"]

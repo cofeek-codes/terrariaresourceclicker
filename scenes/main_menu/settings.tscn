@@ -103,7 +103,7 @@ step = 0.01
 [node name="BackButton" type="Button" parent="CenterContainer/SettingsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "SETTINGS_GO_BACK"
+text = "BACK_BTN"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

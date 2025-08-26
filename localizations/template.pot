@@ -15,6 +15,8 @@
 # res://scenes/pause_overlay.tscn
 # res://scripts/main_menu/main_menu.gd
 # res://scenes/main_menu/auth_modal.tscn
+# res://scenes/main_menu/leaderboards.tscn
+# res://scripts/main_menu/leaderboards.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -63,6 +65,7 @@ msgid "MENU_SETTINGS"
 msgstr ""
 
 #: scenes/main_menu/main_menu.tscn
+#: scenes/main_menu/leaderboards.tscn
 msgid "MENU_LIDERBOARDS"
 msgstr ""
 
@@ -88,7 +91,8 @@ msgid "VOLUME_SOUND"
 msgstr ""
 
 #: scenes/main_menu/settings.tscn
-msgid "SETTINGS_GO_BACK"
+#: scenes/main_menu/leaderboards.tscn
+msgid "BACK_BTN"
 msgstr ""
 
 #: scenes/shop/shop.tscn

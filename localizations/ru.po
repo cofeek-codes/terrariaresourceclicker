@@ -63,7 +63,7 @@ msgstr "Играть"
 msgid "MENU_SETTINGS"
 msgstr "Настройки"
 
-#: scenes/main_menu/main_menu.tscn
+#: scenes/main_menu/main_menu.tscn scenes/main_menu/leaderboards.tscn
 msgid "MENU_LIDERBOARDS"
 msgstr "Таблица Лидеров"
 
@@ -87,9 +87,9 @@ msgstr "Музыка"
 msgid "VOLUME_SOUND"
 msgstr "Звук"
 
-#: scenes/main_menu/settings.tscn
-msgid "SETTINGS_GO_BACK"
-msgstr "Вернуться"
+#: scenes/main_menu/settings.tscn scenes/main_menu/leaderboards.tscn
+msgid "BACK_BTN"
+msgstr "Назад"
 
 #: scenes/shop/shop.tscn
 msgid "SHOP"
@@ -136,7 +136,8 @@ msgstr ""
 "\n"
 "\n"
 "[font_size=21]\n"
-"Чтобы иметь возможность сохранять прогресс в облаке и просматривать таблицу лидеров, необходимо войти в Yadnex ID аккаунт\n"
+"Чтобы иметь возможность сохранять прогресс в облаке и просматривать таблицу "
+"лидеров, необходимо войти в Yadnex ID аккаунт\n"
 "[/font_size]"
 
 #: scenes/main_menu/auth_modal.tscn
@@ -146,3 +147,6 @@ msgstr "Авторизоваться"
 #: scenes/main_menu/auth_modal.tscn
 msgid "AUTH_MODAL_CANCEL"
 msgstr "Закрыть"
+
+#~ msgid "SETTINGS_GO_BACK"
+#~ msgstr "Вернуться"

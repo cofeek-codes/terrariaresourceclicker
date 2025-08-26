@@ -50,8 +50,6 @@ layout_mode = 2
 text = "MENU_SETTINGS"
 
 [node name="LeaderboardsButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
-process_mode = 4
-visible = false
 layout_mode = 2
 text = "MENU_LIDERBOARDS"
 
