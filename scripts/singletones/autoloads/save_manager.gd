@@ -17,7 +17,7 @@ func save_player_data():
 	else:
 		_save_player_data_local()
 
-	# _update_leaderboard()
+	_update_leaderboard()
 
 
 func _save_player_data_local():
@@ -111,10 +111,12 @@ func _save_active_timers():
 
 
 func _update_leaderboard():
-	# TODO: implement auth check
-	var leaderboard_id = Constants.COINS_LEADERBOARD_ID
-	var coins: int = int(Globals.player_data.coins.toFloat())
-	Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
+	if YandexManager.is_authorized():
+		print("leaderboards type")
+		print(Bridge.leaderboards.type)
+		var leaderboard_id = Constants.COINS_LEADERBOARD_ID
+		var coins: int = int(Globals.player_data.coins.toFloat())
+		Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
 
 
 func save_settings():
@@ -172,9 +174,11 @@ func load_settings_cloud():
 	return null
 
 
-func _on_update_leaderboard_completed(success):
-	print("should update leaderboard")
-	print(success)
+func _on_update_leaderboard_completed(success: bool):
+	if success:
+		print("[%s]: SUCCESS" % _on_update_leaderboard_completed.get_method().to_upper())
+	else:
+		print("[%s]: ERROR" % _on_update_leaderboard_completed.get_method().to_upper())
 
 
 func _on_save_player_data_cloud_completed(success: bool):

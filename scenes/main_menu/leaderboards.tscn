@@ -86,6 +86,19 @@ text = "BACK_BTN"
 unique_name_in_owner = true
 stream = ExtResource("5_h3ryc")
 
+[node name="AvatarHTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.109568
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [connection signal="mouse_entered" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="request_completed" from="AvatarHTTPRequest" to="." method="_on_avatar_http_request_request_completed"]
