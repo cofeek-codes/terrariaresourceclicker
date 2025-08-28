@@ -142,3 +142,19 @@ msgstr ""
 #: scenes/main_menu/auth_modal.tscn
 msgid "AUTH_MODAL_CANCEL"
 msgstr ""
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_RANK"
+msgstr ""
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_AVATAR"
+msgstr ""
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_NAME"
+msgstr ""
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_COINS_EARNED"
+msgstr ""

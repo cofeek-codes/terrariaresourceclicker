@@ -148,5 +148,21 @@ msgstr "Авторизоваться"
 msgid "AUTH_MODAL_CANCEL"
 msgstr "Закрыть"
 
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_RANK"
+msgstr "Ранг"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_AVATAR"
+msgstr "Аватар"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_NAME"
+msgstr "Имя"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_COINS_EARNED"
+msgstr "Монет Заработано"
+
 #~ msgid "SETTINGS_GO_BACK"
 #~ msgstr "Вернуться"

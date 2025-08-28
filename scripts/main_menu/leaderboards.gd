@@ -12,10 +12,10 @@ var main_menu_scene_preload: PackedScene = load("res://scenes/main_menu/main_men
 var avatar_request_count: int = 0
 
 var headers: Array[String] = [
-	"Rank",
-	"Avatar|image",
-	"Name",
-	"Score",
+	tr("LDB_RANK"),
+	tr("LDB_AVATAR") + "|image",
+	tr("LDB_NAME"),
+	tr("LDB_COINS_EARNED"),
 ]
 
 var data: Array = []

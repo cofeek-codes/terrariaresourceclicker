@@ -68,6 +68,7 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 2
 script = ExtResource("2_tmwms")
+default_minimum_column_width = 80.0
 metadata/_custom_type_script = "uid://by7ubl72da02t"
 
 [node name="BackButtonMarginContainer" type="MarginContainer" parent="."]

@@ -148,6 +148,22 @@ msgstr "Authorize"
 msgid "AUTH_MODAL_CANCEL"
 msgstr "Cancel"
 
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_RANK"
+msgstr "Rank"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_AVATAR"
+msgstr "Avatar"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_NAME"
+msgstr "Name"
+
+#: scripts/main_menu/leaderboards.gd
+msgid "LDB_COINS_EARNED"
+msgstr "Coins Earned"
+
 #~ msgid "SETTINGS_GO_BACK"
 #~ msgstr "Go Back"
 
