@@ -92,6 +92,7 @@ unique_name_in_owner = true
 
 [node name="PauseOverlay" parent="CanvasLayer" instance=ExtResource("2_kvuet")]
 unique_name_in_owner = true
+process_mode = 2
 visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,7 +104,7 @@ autostart = true
 [node name="EnvManager" parent="." instance=ExtResource("12_dinhu")]
 
 [node name="AdTimer" type="Timer" parent="."]
-wait_time = 300.0
+wait_time = 185.0
 autostart = true
 
 [connection signal="introduce_pickaxe" from="." to="." method="_on_introduce_pickaxe"]

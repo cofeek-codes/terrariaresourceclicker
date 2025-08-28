@@ -57,11 +57,14 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	canvas_layer.add_child(new_pickaxe_scene)
 
 
-func pause():
+func pause(is_ad: bool = false):
 	print_debug("game.pause called")
+	if is_ad:
+		print("pause with is_ad = true")
+	get_tree().paused = true
+	pause_overlay.is_ad = is_ad
 	pause_overlay.show()
 	AudioServer.set_bus_mute(0, true)
-	get_tree().paused = true
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
 
 
@@ -74,5 +77,5 @@ func unpause():
 
 
 func _on_ad_timer_timeout() -> void:
-	print("should show interstitial")
-	YandexManager.show_interstitial()
+	print("_on_ad_timer_timeout")
+	self.pause(true)

@@ -115,7 +115,7 @@ msgstr "за"
 msgid "SOLD_COINS"
 msgstr "монет"
 
-#: scenes/pause_overlay.tscn
+#: scenes/pause_overlay.tscn scripts/pause_overlay.gd
 msgid "PAUSE"
 msgstr "Пауза"
 
@@ -163,6 +163,10 @@ msgstr "Имя"
 #: scripts/main_menu/leaderboards.gd
 msgid "LDB_COINS_EARNED"
 msgstr "Монет Заработано"
+
+#: scripts/pause_overlay.gd
+msgid "PAUSE_AD_IN"
+msgstr "Реклама через"
 
 #~ msgid "SETTINGS_GO_BACK"
 #~ msgstr "Вернуться"

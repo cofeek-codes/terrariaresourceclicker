@@ -115,7 +115,7 @@ msgstr "for"
 msgid "SOLD_COINS"
 msgstr "coins"
 
-#: scenes/pause_overlay.tscn
+#: scenes/pause_overlay.tscn scripts/pause_overlay.gd
 msgid "PAUSE"
 msgstr "Pause"
 
@@ -163,6 +163,10 @@ msgstr "Name"
 #: scripts/main_menu/leaderboards.gd
 msgid "LDB_COINS_EARNED"
 msgstr "Coins Earned"
+
+#: scripts/pause_overlay.gd
+msgid "PAUSE_AD_IN"
+msgstr "AD in"
 
 #~ msgid "SETTINGS_GO_BACK"
 #~ msgstr "Go Back"

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqvag3kerawc8"]
+[gd_scene load_steps=3 format=3 uid="uid://dqvag3kerawc8"]
+
+[ext_resource type="Script" uid="uid://djxqxsyagwgn1" path="res://scripts/pause_overlay.gd" id="1_23pkr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0mu0o"]
 font_size = 32
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_23pkr")
 
 [node name="Overlay" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,8 +32,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseLabel" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "PAUSE"
 label_settings = SubResource("LabelSettings_0mu0o")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PreAdTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="timeout" from="PreAdTimer" to="." method="_on_pre_ad_timer_timeout"]

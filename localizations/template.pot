@@ -17,6 +17,7 @@
 # res://scenes/main_menu/auth_modal.tscn
 # res://scenes/main_menu/leaderboards.tscn
 # res://scripts/main_menu/leaderboards.gd
+# res://scripts/pause_overlay.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -120,6 +121,7 @@ msgid "SOLD_COINS"
 msgstr ""
 
 #: scenes/pause_overlay.tscn
+#: scripts/pause_overlay.gd
 msgid "PAUSE"
 msgstr ""
 
@@ -157,4 +159,8 @@ msgstr ""
 
 #: scripts/main_menu/leaderboards.gd
 msgid "LDB_COINS_EARNED"
+msgstr ""
+
+#: scripts/pause_overlay.gd
+msgid "PAUSE_AD_IN"
 msgstr ""
