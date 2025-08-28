@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://5p6tgqxxxe03"]
+
+[ext_resource type="Texture2D" uid="uid://c25h4r0owbxfn" path="res://assets/icons/double_rewarded.png" id="1_6dl52"]
+[ext_resource type="Script" uid="uid://jj3bqmuxrlpu" path="res://scripts/reward_button.gd" id="1_wp60y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wp60y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wp60y"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="RewardButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wp60y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6dl52")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.6
+anchor_bottom = 2.22222
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wp60y")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelContainer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+text = "120"
+label_settings = SubResource("LabelSettings_wp60y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 120.0
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

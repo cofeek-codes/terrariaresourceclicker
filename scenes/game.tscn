@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene load_steps=16 format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_uwrxv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c6u6dd6vrme1g" path="res://scenes/block/block.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bo4owrjcvds1y" path="res://scenes/buffs/buffs.tscn" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b74fuiowiv0iv" path="res://scenes/coins/coins.tscn" id="8_vtaks"]
+[ext_resource type="PackedScene" uid="uid://5p6tgqxxxe03" path="res://scenes/reward_button.tscn" id="9_trtic"]
 [ext_resource type="PackedScene" uid="uid://b6eiq62mirqlh" path="res://scenes/world/world.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dh7oijrwetq4w" path="res://scenes/env_manager.tscn" id="12_dinhu"]
 
@@ -79,6 +80,15 @@ anchor_right = 0.434028
 anchor_bottom = 0.376543
 offset_bottom = -1.52588e-05
 metadata/_edit_use_anchors_ = true
+
+[node name="RewardButton" parent="CanvasLayer/GameUI" instance=ExtResource("9_trtic")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -134.0
+offset_bottom = -94.0
+grow_vertical = 2
 
 [node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
