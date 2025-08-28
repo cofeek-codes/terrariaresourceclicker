@@ -71,7 +71,10 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_leaderboards_button_pressed() -> void:
-	get_tree().change_scene_to_packed(leaderboards_scene_preload)
+	if !YandexManager.is_authorized():
+		auth_modal.show()
+	else:
+		get_tree().change_scene_to_packed(leaderboards_scene_preload)
 
 
 func _on_cloud_save_button_pressed() -> void:

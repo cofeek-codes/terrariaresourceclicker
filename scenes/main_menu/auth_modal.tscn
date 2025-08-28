@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d4hta3fuj2pkg" path="res://scripts/main_menu/auth_modal.gd" id="2_rqedj"]
 
 [node name="AuthModal" type="Control"]
+z_index = 5
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 3
 anchors_preset = 8
