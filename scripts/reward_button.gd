@@ -1,5 +1,7 @@
 extends Control
 
+signal reward_completed
+
 @onready var player_data: PlayerData = Globals.get_player_data()
 
 @onready var button: Button = %Button
@@ -16,11 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	player_data.coins_per_click.multiplyEquals(2)
-	player_data.coins_per_second.multiplyEquals(2)
-	button.disabled = true
-	cooldown_timer.start()
-	time_label.show()
+	YandexManager.show_rewarded()
 
 
 func _on_cooldown_timer_timeout() -> void:
@@ -28,3 +26,11 @@ func _on_cooldown_timer_timeout() -> void:
 	player_data.coins_per_second.divideEquals(2)
 	button.disabled = false
 	time_label.hide()
+
+
+func _on_reward_completed() -> void:
+	player_data.coins_per_click.multiplyEquals(2)
+	player_data.coins_per_second.multiplyEquals(2)
+	button.disabled = true
+	cooldown_timer.start()
+	time_label.show()

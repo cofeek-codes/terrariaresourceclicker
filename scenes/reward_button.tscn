@@ -68,5 +68,6 @@ unique_name_in_owner = true
 wait_time = 120.0
 one_shot = true
 
+[connection signal="reward_completed" from="." to="." method="_on_reward_completed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
