@@ -14,6 +14,7 @@ var leaderboards_scene_preload: PackedScene = preload("res://scenes/main_menu/le
 
 
 func _ready() -> void:
+	print("desktop: %s, mobile: %s" % [OS.has_feature("web"), OS.has_feature("web_android") || OS.has_feature("web_ios")])
 	_init_locale()
 	_set_cloudsave_btn_text()
 	SaveManager.load_settings()
