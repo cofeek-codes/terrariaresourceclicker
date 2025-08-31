@@ -56,6 +56,16 @@ offset_bottom = -97.0
 
 [node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.369792
+anchor_top = 0.177469
+anchor_right = 0.630208
+anchor_bottom = 0.416667
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
 layout_mode = 1
