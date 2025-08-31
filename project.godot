@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="terrariaresourceclicker"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="uid://djq4e6mvyhj0x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/use_filter=false
