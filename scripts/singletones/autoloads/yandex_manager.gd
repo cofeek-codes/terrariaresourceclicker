@@ -33,7 +33,10 @@ func is_authorized():
 
 
 func authorize():
-	var options = {"scopes": true}
+	var options = {}
+
+	if Bridge.platform.id == "yandex":
+		options = {"scopes": true}
 
 	Bridge.player.authorize(options, _on_player_authorize_completed)
 
