@@ -82,6 +82,8 @@ offset_bottom = -1.52588e-05
 metadata/_edit_use_anchors_ = true
 
 [node name="RewardButton" parent="CanvasLayer/GameUI" instance=ExtResource("9_trtic")]
+process_mode = 4
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
