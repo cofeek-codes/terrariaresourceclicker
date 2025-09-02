@@ -137,7 +137,7 @@ msgstr ""
 "\n"
 "[font_size=21]\n"
 "In order to be able to save game progress in cloud or use leaderboards you "
-"need to Sign in to your Yadnex ID account\n"
+"need to Sign in to your account\n"
 "[/font_size]"
 
 #: scenes/main_menu/auth_modal.tscn
