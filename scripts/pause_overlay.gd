@@ -19,4 +19,5 @@ func _on_pre_ad_timer_timeout() -> void:
 
 func _on_visibility_changed() -> void:
 	if self.visible:
-		pre_ad_timer.start()
+		#pre_ad_timer.start()
+		pass

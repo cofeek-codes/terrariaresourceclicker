@@ -25,6 +25,7 @@ Globals="*res://scripts/singletones/autoloads/globals.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
 YandexManager="*res://scripts/singletones/autoloads/yandex_manager.gd"
 SaveManager="*res://scripts/singletones/autoloads/save_manager.gd"
+PauseManager="*res://scripts/singletones/autoloads/pause_manager.gd"
 
 [debug]
 

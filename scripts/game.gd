@@ -7,7 +7,6 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
-@onready var pause_overlay: Control = %PauseOverlay
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
@@ -20,6 +19,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	print("coins loaded from file: %s" % player_data.coins.toAA(true))
 	handle_mouse_hover_ui_elements()
+	PauseManager.get_overlay()
 
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
 
@@ -57,25 +57,6 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	canvas_layer.add_child(new_pickaxe_scene)
 
 
-func pause(is_ad: bool = false):
-	print_debug("game.pause called")
-	if is_ad:
-		print("pause with is_ad = true")
-	get_tree().paused = true
-	pause_overlay.is_ad = is_ad
-	pause_overlay.show()
-	AudioServer.set_bus_mute(0, true)
-	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
-
-
-func unpause():
-	print_debug("game.unpause called")
-	get_tree().paused = false
-	pause_overlay.hide()
-	AudioServer.set_bus_mute(0, false)
-	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
-
-
 func _on_ad_timer_timeout() -> void:
 	print("_on_ad_timer_timeout")
-	self.pause(true)
+	PauseManager.pause()

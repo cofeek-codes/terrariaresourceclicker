@@ -10,21 +10,13 @@ func _ready():
 
 
 func show_interstitial():
-	game = get_node_or_null("/root/Game")
-	if game == null:
-		return
-
-	game.pause()
+	PauseManager.pause()
 	Bridge.advertisement.show_interstitial()
 	SaveManager.save_player_data()
 
 
 func show_rewarded():
-	game = get_node_or_null("/root/Game")
-	if game == null:
-		return
-
-	game.pause()
+	PauseManager.pause()
 	Bridge.advertisement.show_rewarded()
 
 
@@ -53,24 +45,14 @@ func _on_interstitial_state_changed(state):
 	match state:
 		"closed", "failed":
 			print("closing interstitial ad...")
-			game.unpause()
+			PauseManager.unpause()
 
 
 func _on_visibility_state_changed(state):
-	game = get_node_or_null("/root/Game")
-
 	if state == "hidden":
-		if game != null:
-			game.pause()
-		else:
-			get_tree().paused = true
-			Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
+		PauseManager.pause()
 	else:
-		if game != null:
-			game.unpause()
-		else:
-			get_tree().paused = false
-			Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
+		PauseManager.unpause()
 
 
 func _on_rewarded_state_changed(state):
@@ -79,11 +61,12 @@ func _on_rewarded_state_changed(state):
 		"rewarded":
 			print("reward completed: emitting signal")
 			var reward_button = get_node_or_null("/root/Game/CanvasLayer/GameUI/RewardButton")
+
 			if reward_button == null:
 				return
 
 			reward_button.emit_signal("reward_completed")
-			game.unpause()
+			PauseManager.unpause()
 
 		_:
-			game.unpause()
+			PauseManager.unpause()
