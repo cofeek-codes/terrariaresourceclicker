@@ -15,13 +15,14 @@ func _on_tree_exiting():
 		pause_overlay.queue_free()
 
 
-func pause():
+func pause(with_timer: bool = false):
 	print_debug("PauseManager.pause called")
 	get_tree().paused = true
 	AudioServer.set_bus_mute(0, true)
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
 
 	if pause_overlay != null:
+		pause_overlay.is_ad = with_timer
 		pause_overlay.show()
 
 

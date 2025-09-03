@@ -14,10 +14,9 @@ func _process(delta: float) -> void:
 
 
 func _on_pre_ad_timer_timeout() -> void:
-	YandexManager.show_interstitial()
+	Bridge.advertisement.show_interstitial()
 
 
 func _on_visibility_changed() -> void:
-	if self.visible:
-		#pre_ad_timer.start()
-		pass
+	if self.visible && is_ad:
+		pre_ad_timer.start()

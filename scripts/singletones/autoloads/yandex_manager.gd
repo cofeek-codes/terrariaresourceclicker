@@ -9,9 +9,12 @@ func _ready():
 	Bridge.advertisement.connect("rewarded_state_changed", Callable(self, "_on_rewarded_state_changed"))
 
 
-func show_interstitial():
-	PauseManager.pause()
-	Bridge.advertisement.show_interstitial()
+func show_interstitial(with_timer: bool = false):
+	if with_timer:
+		PauseManager.pause(true)
+	else:
+		Bridge.advertisement.show_interstitial()
+
 	SaveManager.save_player_data()
 
 

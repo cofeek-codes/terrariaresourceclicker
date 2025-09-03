@@ -7,6 +7,7 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
+@onready var ad_timer: Timer = %AdTimer
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
@@ -59,4 +60,4 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 
 func _on_ad_timer_timeout() -> void:
 	print("_on_ad_timer_timeout")
-	PauseManager.pause()
+	YandexManager.show_interstitial(true)
