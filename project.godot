@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/use_filter=false
 boot_splash/image="uid://cw2wrsmpp74ok"
 config/icon="uid://dkbptdo2aw2bs"
+config/tags=PackedStringArray("moderation_failed")
 
 [autoload]
 
