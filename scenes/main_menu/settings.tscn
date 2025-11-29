@@ -1,14 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c34hf2hbo8jao"]
+[gd_scene load_steps=4 format=3 uid="uid://c34hf2hbo8jao"]
 
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_1uif8"]
-[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_hguh2"]
-[ext_resource type="Script" uid="uid://b7rfrpjlhp8n7" path="res://scripts/main_menu/settings.gd" id="2_110wl"]
-[ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="4_1tatf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hguh2"]
-font_size = 36
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Script" uid="uid://bed21a1jy4e8n" path="res://scripts/main_menu/settings.gd" id="2_110wl"]
+[ext_resource type="PackedScene" uid="uid://b32ruasievmtm" path="res://scenes/main_menu/settings_control.tscn" id="4_ilrlu"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -17,7 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_hguh2")
 script = ExtResource("2_110wl")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -29,90 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1uif8")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="SettingsControl" parent="." instance=ExtResource("4_ilrlu")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="SettingsContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="VolumeLabel" type="Label" parent="CenterContainer/SettingsContainer"]
-layout_mode = 2
-text = "SETTINGS_VOLUME"
-label_settings = SubResource("LabelSettings_hguh2")
-
-[node name="MasterVolumeContainer" type="VBoxContainer" parent="CenterContainer/SettingsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="MasterVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/MasterVolumeContainer"]
-layout_mode = 2
-text = "VOLUME_MASTER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/SettingsContainer/MasterVolumeContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 2.0
-step = 0.01
-
-[node name="MusicVolumeContainer" type="VBoxContainer" parent="CenterContainer/SettingsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="MusicVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/MusicVolumeContainer"]
-layout_mode = 2
-text = "VOLUME_MUSIC"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/SettingsContainer/MusicVolumeContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 2.0
-step = 0.01
-
-[node name="SoundVolumeContainer" type="VBoxContainer" parent="CenterContainer/SettingsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="SoundVolumeLabel" type="Label" parent="CenterContainer/SettingsContainer/SoundVolumeContainer"]
-layout_mode = 2
-text = "VOLUME_SOUND"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SoundVolumeSlider" type="HSlider" parent="CenterContainer/SettingsContainer/SoundVolumeContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 2.0
-step = 0.01
-
-[node name="BackButton" type="Button" parent="CenterContainer/SettingsContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "BACK_BTN"
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_1tatf")
-bus = &"Sound"
-
-[connection signal="value_changed" from="CenterContainer/SettingsContainer/MasterVolumeContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/SettingsContainer/MusicVolumeContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/SettingsContainer/SoundVolumeContainer/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
-[connection signal="mouse_entered" from="CenterContainer/SettingsContainer/BackButton" to="." method="_on_back_button_mouse_entered"]
-[connection signal="mouse_exited" from="CenterContainer/SettingsContainer/BackButton" to="." method="_on_back_button_mouse_exited"]
-[connection signal="pressed" from="CenterContainer/SettingsContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="back_button_pressed" from="SettingsControl" to="." method="_on_settings_control_back_button_pressed"]

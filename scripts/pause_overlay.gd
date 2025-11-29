@@ -1,22 +1,15 @@
 extends Control
 
-@export var is_ad: bool
-
-@onready var pause_label: Label = %PauseLabel
-@onready var pre_ad_timer: Timer = %PreAdTimer
-
-
-func _process(delta: float) -> void:
-	if is_ad:
-		pause_label.text = "%s: %d" % [tr("PAUSE_AD_IN"), pre_ad_timer.time_left]
-	else:
-		pause_label.text = tr("PAUSE")
-
-
-func _on_pre_ad_timer_timeout() -> void:
-	Bridge.advertisement.show_interstitial()
+@onready var cursor: Cursor = $"/root/Game/CanvasLayer/Cursor"
 
 
 func _on_visibility_changed() -> void:
-	if self.visible && is_ad:
-		pre_ad_timer.start()
+	if cursor:
+		if self.visible:
+			cursor.show_ui_cursor()
+		else:
+			cursor.show_game_cursor()
+
+
+func _on_settings_control_back_button_pressed() -> void:
+	PauseManager.unpause()

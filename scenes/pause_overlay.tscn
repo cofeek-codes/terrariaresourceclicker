@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqvag3kerawc8"]
+[gd_scene load_steps=5 format=3 uid="uid://dqvag3kerawc8"]
 
 [ext_resource type="Script" uid="uid://djxqxsyagwgn1" path="res://scripts/pause_overlay.gd" id="1_23pkr"]
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_fggc0"]
+[ext_resource type="PackedScene" uid="uid://b32ruasievmtm" path="res://scenes/main_menu/settings_control.tscn" id="2_3fhia"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0mu0o"]
 font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseOverlay" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_fggc0")
 script = ExtResource("1_23pkr")
 
 [node name="Overlay" type="ColorRect" parent="."]
@@ -31,7 +37,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseLabel" type="Label" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="PauseLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "PAUSE"
@@ -39,10 +50,8 @@ label_settings = SubResource("LabelSettings_0mu0o")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PreAdTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 2.0
-one_shot = true
+[node name="SettingsControl" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_3fhia")]
+layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="timeout" from="PreAdTimer" to="." method="_on_pre_ad_timer_timeout"]
+[connection signal="back_button_pressed" from="CenterContainer/VBoxContainer/SettingsControl" to="." method="_on_settings_control_back_button_pressed"]

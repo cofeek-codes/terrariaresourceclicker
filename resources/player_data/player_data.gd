@@ -24,4 +24,4 @@ func get_pickaxe_texture() -> Texture2D:
 
 func calculate_damage():
 #	@TODO: improve
-	return tier * current_pickaxe.damage
+	return current_pickaxe.damage * tier

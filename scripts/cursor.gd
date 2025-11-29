@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Cursor
+
 signal update_pickaxe
 
 enum CursorMode {

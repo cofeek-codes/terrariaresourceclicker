@@ -11,7 +11,7 @@ func save_player_data():
 	_save_coins()
 	_save_active_timers()
 
-	if YandexManager.is_authorized():
+	if PlaygamaManager.is_authorized():
 		_save_player_data_cloud()
 
 	else:
@@ -33,7 +33,7 @@ func _save_player_data_cloud():
 
 
 func load_player_data():
-	if YandexManager.is_authorized():
+	if PlaygamaManager.is_authorized():
 		_load_player_data_cloud()
 	else:
 		_load_player_data_local()
@@ -111,7 +111,7 @@ func _save_active_timers():
 
 
 func _update_leaderboard():
-	if YandexManager.is_authorized():
+	if PlaygamaManager.is_authorized():
 		print("leaderboards type")
 		print(Bridge.leaderboards.type)
 		var leaderboard_id = Constants.COINS_LEADERBOARD_ID
@@ -129,7 +129,7 @@ func save_settings():
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
 
-	#if YandexManager.is_authorized():
+	#if PlaygamaManager.is_authorized():
 	#_save_settings_cloud(settings)
 	#else:
 
@@ -147,7 +147,7 @@ func _save_settings_cloud(settings: Settings):
 func load_settings():
 	var settings: Settings = null
 
-	#if YandexManager.is_authorized():
+	#if PlaygamaManager.is_authorized():
 	#settings = load_settings_cloud()
 	#else:
 

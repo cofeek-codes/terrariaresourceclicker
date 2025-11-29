@@ -7,7 +7,6 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
-@onready var ad_timer: Timer = %AdTimer
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
@@ -26,6 +25,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		PauseManager.pause()
+
 	if Input.is_action_just_pressed("click"):
 		cursor.handle_click()
 
@@ -37,11 +39,13 @@ func _on_save_timer_timeout() -> void:
 
 
 func ui_mouse_entered():
-	cursor.show_ui_cursor()
+	if !get_tree().paused:
+		cursor.show_ui_cursor()
 
 
 func ui_mouse_exited():
-	cursor.show_game_cursor()
+	if !get_tree().paused:
+		cursor.show_game_cursor()
 
 
 func handle_mouse_hover_ui_elements():
@@ -56,8 +60,3 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	var new_pickaxe_scene = new_pickaxe_scene_preload.instantiate()
 	new_pickaxe_scene.pickaxe_texture = pickaxe_texture
 	canvas_layer.add_child(new_pickaxe_scene)
-
-
-func _on_ad_timer_timeout() -> void:
-	print("_on_ad_timer_timeout")
-	YandexManager.show_interstitial(true)

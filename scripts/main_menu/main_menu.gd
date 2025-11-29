@@ -1,11 +1,7 @@
 extends Control
 
-signal cloudsave_state_changed
-
 @onready var menu_container: VBoxContainer = %MenuContainer
 @onready var audio_player: AudioStreamPlayer = %AudioPlayer
-@onready var cloud_save_button: Button = %CloudSaveButton
-@onready var auth_modal: Control = %AuthModal
 @onready var logo: Control = %Logo
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
@@ -16,26 +12,12 @@ var leaderboards_scene_preload: PackedScene = preload("res://scenes/main_menu/le
 func _ready() -> void:
 	print("desktop: %s, mobile: %s" % [OS.has_feature("web"), OS.has_feature("web_android") || OS.has_feature("web_ios")])
 	_init_locale()
-	_set_cloudsave_btn_text()
 	SaveManager.load_settings()
 	for btn in get_tree().get_nodes_in_group("menu_buttons"):
 		btn.mouse_entered.connect(_on_mouse_entered.bind(btn))
 		btn.mouse_exited.connect(_on_mouse_exited.bind(btn))
 
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
-
-
-func _set_cloudsave_btn_text(force_true: bool = false):
-	# Had to modify it due it didn't change state on signal properly
-
-	var s: String
-
-	if force_true:
-		s = "%s: %s" % [tr("MENU_CLOUDSAVE"), tr("ON")]
-	else:
-		s = "%s: %s" % [tr("MENU_CLOUDSAVE"), tr("ON") if YandexManager.is_authorized() else tr("OFF")]
-
-	cloud_save_button.text = s
 
 
 func _init_locale():
@@ -72,17 +54,7 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_leaderboards_button_pressed() -> void:
-	if !YandexManager.is_authorized():
-		auth_modal.show()
+	if !PlaygamaManager.is_authorized():
+		pass
 	else:
 		get_tree().change_scene_to_packed(leaderboards_scene_preload)
-
-
-func _on_cloud_save_button_pressed() -> void:
-	if !YandexManager.is_authorized():
-		auth_modal.show()
-
-
-func _on_cloudsave_state_changed() -> void:
-	print("cloudsave_state_changed")
-	_set_cloudsave_btn_text(true)

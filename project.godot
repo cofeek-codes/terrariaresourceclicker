@@ -12,21 +12,21 @@ config_version=5
 
 config/name="terrariaresourceclicker"
 config/version="1.0.1"
+config/tags=PackedStringArray("moderation_failed")
 run/main_scene="uid://djq4e6mvyhj0x"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/use_filter=false
 boot_splash/image="uid://cw2wrsmpp74ok"
 config/icon="uid://dkbptdo2aw2bs"
-config/tags=PackedStringArray("moderation_failed")
 
 [autoload]
 
 Bridge="*res://addons/playgama_bridge/bridge.gd"
 Globals="*res://scripts/singletones/autoloads/globals.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
-YandexManager="*res://scripts/singletones/autoloads/yandex_manager.gd"
 SaveManager="*res://scripts/singletones/autoloads/save_manager.gd"
 PauseManager="*res://scripts/singletones/autoloads/pause_manager.gd"
+PlaygamaManager="*res://scripts/singletones/autoloads/playgama_manager.gd"
 
 [debug]
 
@@ -40,6 +40,7 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
+window/size/mode.editor=0
 
 [editor]
 
@@ -81,6 +82,11 @@ click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(393, 20),"global_position":Vector2(402, 68),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
@@ -88,7 +94,7 @@ locale/translation_remaps={
 "res://assets/logo.png": PackedStringArray("res://assets/logo_ru.png:ru")
 }
 locale/translations=PackedStringArray("res://localizations/en.po", "res://localizations/ru.po", "res://localizations/resources/ShopItem/ShopItem.en.translation", "res://localizations/resources/ShopItem/ShopItem.ru.translation", "res://localizations/resources/DropItem/DropItem.en.translation", "res://localizations/resources/DropItem/DropItem.ru.translation", "res://localizations/resources/MobData/SlimeMobData/SlimeMobData.en.translation", "res://localizations/resources/MobData/SlimeMobData/SlimeMobData.ru.translation", "res://localizations/resources/MobData/MobData.en.translation", "res://localizations/resources/MobData/MobData.ru.translation", "res://localizations/resources/Buff/Buff.en.translation", "res://localizations/resources/Buff/Buff.ru.translation")
-locale/translations_pot_files=PackedStringArray("res://scenes/game.tscn", "res://scenes/animations/introduce_pickaxe.tscn", "res://scenes/animations/new_resource.tscn", "res://scenes/block/block.tscn", "res://scenes/coins/coins.tscn", "res://scenes/cursor/cursor.tscn", "res://scenes/inventory/inventory.tscn", "res://scenes/inventory/sell_buttons.tscn", "res://scenes/main_menu/main_menu.tscn", "res://scenes/main_menu/settings.tscn", "res://scenes/shop/shop.tscn", "res://resources/shop_items/shop_item.gd", "res://scripts/pickup_text/pickup_text.gd", "res://scenes/pause_overlay.tscn", "res://scripts/main_menu/main_menu.gd", "res://scenes/main_menu/auth_modal.tscn", "res://scenes/main_menu/leaderboards.tscn", "res://scripts/main_menu/leaderboards.gd", "res://scripts/pause_overlay.gd")
+locale/translations_pot_files=PackedStringArray("res://scenes/game.tscn", "res://scenes/animations/introduce_pickaxe.tscn", "res://scenes/animations/new_resource.tscn", "res://scenes/block/block.tscn", "res://scenes/coins/coins.tscn", "res://scenes/cursor/cursor.tscn", "res://scenes/inventory/inventory.tscn", "res://scenes/inventory/sell_buttons.tscn", "res://scenes/main_menu/main_menu.tscn", "res://scenes/main_menu/settings.tscn", "res://scenes/shop/shop.tscn", "res://resources/shop_items/shop_item.gd", "res://scripts/pickup_text/pickup_text.gd", "res://scenes/pause_overlay.tscn", "res://scripts/main_menu/main_menu.gd", "res://scenes/main_menu/leaderboards.tscn", "res://scripts/main_menu/leaderboards.gd", "res://scripts/pause_overlay.gd")
 
 [layer_names]
 

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d168aahi36mmq" path="res://scripts/coins/coins.gd" id="1_gjpli"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8yhlj"]
-outline_size = 2
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Coins" type="Control"]
@@ -47,7 +47,6 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 text = "100"
-label_settings = SubResource("LabelSettings_8yhlj")
 
 [node name="CPSHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

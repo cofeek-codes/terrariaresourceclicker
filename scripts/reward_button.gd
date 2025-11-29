@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	YandexManager.show_rewarded()
+	PlaygamaManager.show_rewarded()
 
 
 func _on_cooldown_timer_timeout() -> void:

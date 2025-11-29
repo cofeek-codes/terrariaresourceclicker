@@ -16,13 +16,12 @@ func _on_tree_exiting():
 
 
 func pause(with_timer: bool = false):
-	print_debug("PauseManager.pause called")
+	print("PauseManager.pause called")
 	get_tree().paused = true
 	AudioServer.set_bus_mute(0, true)
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STOPPED)
 
 	if pause_overlay != null:
-		pause_overlay.is_ad = with_timer
 		pause_overlay.show()
 
 
