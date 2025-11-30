@@ -20,7 +20,6 @@ func _ready() -> void:
 	print("coins loaded from file: %s" % player_data.coins.toAA(true))
 	handle_mouse_hover_ui_elements()
 	PauseManager.get_overlay()
-
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
 
 

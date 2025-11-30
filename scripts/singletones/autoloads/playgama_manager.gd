@@ -6,7 +6,7 @@ var game: Node2D
 func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", _on_interstitial_state_changed)
 	Bridge.game.connect("visibility_state_changed", _on_visibility_state_changed)
-	Bridge.advertisement.connect("rewarded_state_changed", Callable(self, "_on_rewarded_state_changed"))
+	Bridge.advertisement.connect("rewarded_state_changed", _on_rewarded_state_changed)
 
 
 func show_interstitial(with_timer: bool = false):
@@ -25,6 +25,19 @@ func show_rewarded():
 
 func is_authorized():
 	return Bridge.player.is_authorized
+
+
+func authorize():
+	var options = {}
+
+	Bridge.player.authorize(options, _on_authorize_completed)
+
+
+func _on_authorize_completed(success):
+	if success:
+		print("[PLAYGAMA]: Authorized")
+	else:
+		print("[PLAYGAMA]: Authorization error")
 
 
 func _on_interstitial_state_changed(state):

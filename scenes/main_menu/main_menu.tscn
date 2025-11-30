@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djq4e6mvyhj0x"]
+[gd_scene load_steps=7 format=3 uid="uid://djq4e6mvyhj0x"]
 
 [ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_0ebjn"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_fsom3"]
 [ext_resource type="Script" uid="uid://cvaig28jc7uga" path="res://scripts/main_menu/main_menu.gd" id="2_ob46e"]
 [ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="4_uqeha"]
+[ext_resource type="PackedScene" path="res://scenes/main_menu/auth_modal.tscn" id="5_wem23"]
 [ext_resource type="Texture2D" uid="uid://5ej157mk4fic" path="res://assets/logo.png" id="6_3ovsr"]
 
 [node name="MainMenu" type="Control"]
@@ -52,6 +53,21 @@ text = "MENU_SETTINGS"
 layout_mode = 2
 text = "MENU_LIDERBOARDS"
 
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MenuContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="CloudSaveButton" type="Button" parent="CenterContainer/MenuContainer/MarginContainer" groups=["menu_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MENU_CLOUDSAVE"
+
+[node name="AuthModal" parent="." instance=ExtResource("5_wem23")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
 [node name="Logo" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -85,3 +101,4 @@ bus = &"Sound"
 [connection signal="pressed" from="CenterContainer/MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MenuContainer/LeaderboardsButton" to="." method="_on_leaderboards_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuContainer/MarginContainer/CloudSaveButton" to="." method="_on_cloud_save_button_pressed"]

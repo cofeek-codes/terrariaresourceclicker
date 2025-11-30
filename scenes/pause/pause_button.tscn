@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://de836jk5e5a1x"]
+
+[ext_resource type="Script" uid="uid://basfjw5cg32b8" path="res://scripts/pause/pause_button.gd" id="1_dmv0w"]
+[ext_resource type="StyleBox" uid="uid://bx3nskay77piu" path="res://theming/styles/inventory/inventory_outer_panel.tres" id="1_rh5fn"]
+[ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="2_thq0x"]
+[ext_resource type="StyleBox" uid="uid://b6l1h7eyhf3xx" path="res://theming/styles/inventory/inventory_cell_select_hover_pressed.tres" id="4_35x6h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssvqc"]
+font_size = 36
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PauseButton" type="Control"]
+z_index = 999
+custom_minimum_size = Vector2(48, 46)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -40.0
+offset_right = -15.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_dmv0w")
+
+[node name="PausePanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_rh5fn")
+
+[node name="PauseButtonLabel" type="Label" parent="PausePanelContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 1
+text = "||"
+label_settings = SubResource("LabelSettings_ssvqc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="PausePanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_thq0x")
+theme_override_styles/hover = ExtResource("4_35x6h")
+
+[connection signal="pressed" from="PausePanelContainer/PauseButton" to="." method="_on_pause_button_pressed"]
