@@ -59,3 +59,7 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 	var new_pickaxe_scene = new_pickaxe_scene_preload.instantiate()
 	new_pickaxe_scene.pickaxe_texture = pickaxe_texture
 	canvas_layer.add_child(new_pickaxe_scene)
+
+
+func _on_interstitial_ad_timer_timeout() -> void:
+	PauseManager.pause(true)

@@ -20,11 +20,8 @@ func _on_banner_state_changed(state):
 	print_debug(state)
 
 
-func show_interstitial(with_timer: bool = false):
-	if with_timer:
-		PauseManager.pause(true)
-	else:
-		Bridge.advertisement.show_interstitial()
+func show_interstitial():
+	Bridge.advertisement.show_interstitial()
 
 	SaveManager.save_player_data()
 

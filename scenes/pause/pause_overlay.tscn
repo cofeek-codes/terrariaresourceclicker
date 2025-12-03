@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqvag3kerawc8"]
+[gd_scene load_steps=6 format=3 uid="uid://dqvag3kerawc8"]
 
 [ext_resource type="Script" uid="uid://djxqxsyagwgn1" path="res://scripts/pause/pause_overlay.gd" id="1_23pkr"]
 [ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_fggc0"]
 [ext_resource type="PackedScene" uid="uid://b32ruasievmtm" path="res://scenes/main_menu/settings_control.tscn" id="2_3fhia"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0mu0o"]
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jiiw6"]
 font_size = 32
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
@@ -51,7 +56,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsControl" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_3fhia")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
+
+[node name="AdIn" type="Control" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AdInLabel" type="Label" parent="CenterContainer/VBoxContainer/AdIn"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.57471263
+anchor_right = 1.5747126
+offset_left = 50.0
+offset_right = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSE_AD_IN"
+label_settings = SubResource("LabelSettings_jiiw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AdInTimer" type="Timer" parent="CenterContainer/VBoxContainer/AdIn"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="back_button_pressed" from="CenterContainer/VBoxContainer/SettingsControl" to="." method="_on_settings_control_back_button_pressed"]
+[connection signal="timeout" from="CenterContainer/VBoxContainer/AdIn/AdInTimer" to="." method="_on_ad_in_timer_timeout"]
