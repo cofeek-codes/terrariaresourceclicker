@@ -7,6 +7,17 @@ func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", _on_interstitial_state_changed)
 	Bridge.game.connect("visibility_state_changed", _on_visibility_state_changed)
 	Bridge.advertisement.connect("rewarded_state_changed", _on_rewarded_state_changed)
+	Bridge.advertisement.connect("banner_state_changed", _on_banner_state_changed)
+
+
+func show_banner():
+	var position = Bridge.BannerPosition.BOTTOM
+	var placement = "test_placement"
+	Bridge.advertisement.show_banner(position, placement)
+
+
+func _on_banner_state_changed(state):
+	print_debug(state)
 
 
 func show_interstitial(with_timer: bool = false):

@@ -20,6 +20,8 @@ func _ready() -> void:
 
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
 
+	PlaygamaManager.show_banner()
+
 
 func _init_locale():
 	TranslationServer.set_locale(Bridge.platform.language)
