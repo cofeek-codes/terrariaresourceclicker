@@ -22,9 +22,7 @@ func _save_player_data_local():
 
 func _save_player_data_cloud():
 	_save_player_data_local()  # save local anyway as a source for cloud
-	var player_data_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	var player_data_as_text = player_data_file.get_as_text()
-	var player_data_encoded = JSON.stringify(player_data_as_text)
+	var player_data_encoded = _tres_to_json(SAVE_PATH)
 	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed)
 
 
@@ -49,19 +47,12 @@ func _load_player_data_cloud():
 func _post_load_player_data_cloud(player_data_loaded_json: String):
 	print_debug("player_data_loaded_json")
 	print_debug(player_data_loaded_json)
-	var json = JSON.new()
-	var player_data_parsed = json.parse(player_data_loaded_json)
-	if player_data_parsed != OK:
-		Globals.player_data = Globals.default_player_data
-	else:
-		print_debug("player_data_parsed")
-		print_debug(player_data_parsed)
-		var cloud_save_file = FileAccess.open(CLOUD_SAVE_TMP_PATH, FileAccess.WRITE_READ)
-		cloud_save_file.store_string(player_data_parsed)
-		cloud_save_file.close()
-		var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
-		if pd != null:
-			Globals.player_data = pd
+	_json_to_tres(CLOUD_SAVE_TMP_PATH, player_data_loaded_json)
+	var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
+	if pd != null:
+		Globals.player_data = pd
+
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(CLOUD_SAVE_TMP_PATH))
 
 	_load_coins()
 
@@ -121,11 +112,7 @@ func save_settings():
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
 
-	#if PlaygamaManager.is_authorized():
-	#_save_settings_cloud(settings)
-	#else:
-
-	_save_settings_local(settings)
+	_save_settings_cloud(settings)
 
 
 func _save_settings_local(settings: Settings):
@@ -133,6 +120,12 @@ func _save_settings_local(settings: Settings):
 
 
 func _save_settings_cloud(settings: Settings):
+	_save_settings_local(settings)
+	var settings_encoded = _tres_to_json(SETTINGS_PATH)
+	Bridge.storage.set("settings", settings_encoded, _on_save_settings_cloud_completed)
+
+
+func _on_save_settings_cloud_completed():
 	pass
 
 
@@ -191,3 +184,22 @@ func _on_load_player_data_cloud_completed(success: bool, data):
 		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
 
 	_post_load_player_data_cloud(player_data_loaded_json)
+
+
+func _tres_to_json(file_path: String):
+	var player_data_file = FileAccess.open(file_path, FileAccess.READ)
+	var player_data_as_text = player_data_file.get_as_text()
+	player_data_file.close()
+	return JSON.stringify(player_data_as_text)
+
+
+func _json_to_tres(file_path: String, json_string: String):
+	var data_file = FileAccess.open(file_path, FileAccess.WRITE)
+	var json = JSON.new()
+	var json_parsed = json.parse(json_string)
+	if json_parsed != OK:
+		return null
+
+	var json_parsed_data = json.data
+	data_file.store_string(json_parsed_data)
+	data_file.close()
