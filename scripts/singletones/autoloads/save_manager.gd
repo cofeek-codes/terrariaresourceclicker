@@ -11,11 +11,7 @@ func save_player_data():
 	_save_coins()
 	_save_active_timers()
 
-	if PlaygamaManager.is_authorized():
-		_save_player_data_cloud()
-
-	else:
-		_save_player_data_local()
+	_save_player_data_cloud()
 
 	_update_leaderboard()
 
@@ -29,14 +25,11 @@ func _save_player_data_cloud():
 	var player_data_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	var player_data_as_text = player_data_file.get_as_text()
 	var player_data_encoded = JSON.stringify(player_data_as_text)
-	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
+	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed)
 
 
 func load_player_data():
-	if PlaygamaManager.is_authorized():
-		_load_player_data_cloud()
-	else:
-		_load_player_data_local()
+	_load_player_data_cloud()
 
 
 func _load_player_data_local():
@@ -50,14 +43,15 @@ func _load_player_data_local():
 
 func _load_player_data_cloud():
 	Globals.player_data = Globals.default_player_data
-	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed, Bridge.StorageType.PLATFORM_INTERNAL)
+	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed)
 
 
 func _post_load_player_data_cloud(player_data_loaded_json: String):
 	print_debug("player_data_loaded_json")
 	print_debug(player_data_loaded_json)
-	var player_data_parsed = JSON.parse_string(player_data_loaded_json)
-	if player_data_parsed == null:
+	var json = JSON.new()
+	var player_data_parsed = json.parse(player_data_loaded_json)
+	if player_data_parsed != OK:
 		Globals.player_data = Globals.default_player_data
 	else:
 		print_debug("player_data_parsed")
@@ -68,8 +62,6 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 		var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
 		if pd != null:
 			Globals.player_data = pd
-
-		# TODO: fallback to local save on fail
 
 	_load_coins()
 
