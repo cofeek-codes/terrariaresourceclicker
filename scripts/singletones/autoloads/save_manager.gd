@@ -5,6 +5,7 @@ var player_data_loaded_json: String
 const SAVE_PATH: String = "user://player_data.tres"
 const CLOUD_SAVE_TMP_PATH: String = "user://player_data_cloud.tres"
 const SETTINGS_PATH: String = "user://settings.tres"
+const CLOUD_SETTINGS_TMP_PATH: String = "user://settings_cloud.tres"
 
 
 func save_player_data():
@@ -126,26 +127,14 @@ func _save_settings_cloud(settings: Settings):
 
 
 func _on_save_settings_cloud_completed(success):
-	pass
+	if success:
+		print("[%s]: SUCCESS" % _on_save_settings_cloud_completed.get_method().to_upper())
+	else:
+		print("[%s]: ERROR" % _on_save_settings_cloud_completed.get_method().to_upper())
 
 
 func load_settings():
-	var settings: Settings = null
-
-	#if PlaygamaManager.is_authorized():
-	#settings = load_settings_cloud()
-	#else:
-
-	settings = load_settings_local()
-
-	if settings != null:
-		var master_bus_index = AudioServer.get_bus_index("Master")
-		var music_bus_index = AudioServer.get_bus_index("Music")
-		var sound_bus_index = AudioServer.get_bus_index("Sound")
-
-		AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
-		AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
-		AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)
+	load_settings_cloud()
 
 
 func load_settings_local():
@@ -156,7 +145,34 @@ func load_settings_local():
 
 
 func load_settings_cloud():
-	return null
+	Bridge.storage.get("settings", _on_load_settings_cloud_completed)
+
+
+func _on_load_settings_cloud_completed(success, data):
+	if success:
+		print("[%s]: SUCCESS" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("data")
+		print(data)
+		if data != null:
+			player_data_loaded_json = data
+	else:
+		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
+
+	_post_load_settings_cloud(player_data_loaded_json)
+
+
+func _post_load_settings_cloud(settings_json):
+	var settings = Settings.new()
+	_json_to_tres(CLOUD_SETTINGS_TMP_PATH, settings_json)
+	settings = load(CLOUD_SETTINGS_TMP_PATH)
+
+	var master_bus_index = AudioServer.get_bus_index("Master")
+	var music_bus_index = AudioServer.get_bus_index("Music")
+	var sound_bus_index = AudioServer.get_bus_index("Sound")
+
+	AudioServer.set_bus_volume_linear(master_bus_index, settings.master_volume)
+	AudioServer.set_bus_volume_linear(music_bus_index, settings.music_volume)
+	AudioServer.set_bus_volume_linear(sound_bus_index, settings.sound_volume)
 
 
 func _on_update_leaderboard_completed(success: bool):
