@@ -48,13 +48,13 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 	print_debug("player_data_loaded_json")
 	print_debug(player_data_loaded_json)
 	_json_to_tres(CLOUD_SAVE_TMP_PATH, player_data_loaded_json)
-	var pd: PlayerData = load(CLOUD_SAVE_TMP_PATH)
+	var pd: PlayerData
+	if !FileAccess.get_file_as_string(CLOUD_SAVE_TMP_PATH).is_empty():
+		pd = load(CLOUD_SAVE_TMP_PATH)
 	if pd != null:
 		Globals.player_data = pd
 
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(CLOUD_SAVE_TMP_PATH))
-
-	_load_coins()
+		_load_coins()
 
 
 func _save_coins():
@@ -125,7 +125,7 @@ func _save_settings_cloud(settings: Settings):
 	Bridge.storage.set("settings", settings_encoded, _on_save_settings_cloud_completed)
 
 
-func _on_save_settings_cloud_completed():
+func _on_save_settings_cloud_completed(success):
 	pass
 
 
