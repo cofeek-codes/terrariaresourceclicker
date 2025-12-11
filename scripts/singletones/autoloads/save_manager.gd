@@ -1,6 +1,7 @@
 extends Node
 
 var player_data_loaded_json: String
+var settings_loaded_json: String
 
 const SAVE_PATH: String = "user://player_data.tres"
 const CLOUD_SAVE_TMP_PATH: String = "user://player_data_cloud.tres"
@@ -154,17 +155,18 @@ func _on_load_settings_cloud_completed(success, data):
 		print("data")
 		print(data)
 		if data != null:
-			player_data_loaded_json = data
+			settings_loaded_json = data
 	else:
 		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
 
-	_post_load_settings_cloud(player_data_loaded_json)
+	_post_load_settings_cloud(settings_loaded_json)
 
 
 func _post_load_settings_cloud(settings_json):
 	var settings = Settings.new()
 	_json_to_tres(CLOUD_SETTINGS_TMP_PATH, settings_json)
-	settings = load(CLOUD_SETTINGS_TMP_PATH)
+	if !FileAccess.get_file_as_string(CLOUD_SETTINGS_TMP_PATH).is_empty():
+		settings = load(CLOUD_SETTINGS_TMP_PATH)
 
 	var master_bus_index = AudioServer.get_bus_index("Master")
 	var music_bus_index = AudioServer.get_bus_index("Music")
