@@ -6,7 +6,6 @@ extends Control
 @onready var audio_player: AudioStreamPlayer = %AudioPlayer
 @onready var avatar_http_request: HTTPRequest = %AvatarHTTPRequest
 
-var avatar_preload = preload("res://assets/avatar.webp")
 var main_menu_scene_preload: PackedScene = load("res://scenes/main_menu/main_menu.tscn")
 
 var avatar_request_count: int = 0
@@ -35,9 +34,11 @@ func _on_fetch_leaderboard_completed(success, entries):
 	for entry in entries:
 		print("leaderboard entry")
 		print(entry)
-		_get_entry_image(str(entry.photo), entries.find(entry))
+		if entry.photo:
+			_get_entry_image(str(entry.photo), entries.find(entry))
+			avatar_request_count += 1
 		data.push_back([str(entry.rank), str(entry.name), int(entry.score)])
-		avatar_request_count += 1
+		dynamic_table.set_data(data)
 
 
 func _get_entry_image(image_url: String, entry_idx: int):
