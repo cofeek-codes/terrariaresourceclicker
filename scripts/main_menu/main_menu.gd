@@ -11,7 +11,7 @@ var leaderboards_scene_preload: PackedScene = preload("res://scenes/main_menu/le
 
 
 func _ready() -> void:
-	print("desktop: %s, mobile: %s" % [OS.has_feature("web"), OS.has_feature("web_android") || OS.has_feature("web_ios")])
+	print("desktop: %s, mobile: %s, editor: %s" % [OS.has_feature("web"), OS.has_feature("web_android") || OS.has_feature("web_ios"), OS.has_feature("editor")])
 	_init_locale()
 	SaveManager.load_settings()
 	for btn in get_tree().get_nodes_in_group("menu_buttons"):
