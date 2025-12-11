@@ -31,8 +31,9 @@ func _set_with_ad(value: bool):
 	with_ad = value
 	if with_ad:
 		ad_in_timer.start()
-		settings_control.hide()
 		ad_in.show()
+	else:
+		settings_control.show()
 
 
 func _on_ad_in_timer_timeout() -> void:
