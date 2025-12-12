@@ -37,7 +37,7 @@ func _on_fetch_leaderboard_completed(success, entries):
 		if entry.photo:
 			_get_entry_image(str(entry.photo), entries.find(entry))
 			avatar_request_count += 1
-		data.push_back([str(entry.rank), str(entry.name), int(entry.score)])
+		data.push_back([str(entry.rank), null, str(entry.name), int(entry.score)])
 		dynamic_table.set_data(data)
 
 
@@ -75,7 +75,7 @@ func _on_avatar_http_request_request_completed(result: int, response_code: int, 
 	print(data)
 	print("avatar_request_count in _on_avatar_http_request_request_completed: %d" % avatar_request_count)
 	var current_entry: Array = data[avatar_request_count - 1]
-	current_entry.insert(1, texture)
+	current_entry[1] = texture
 	print("updated current entry")
 	print(current_entry)
 	print(data)
