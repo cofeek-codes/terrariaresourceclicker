@@ -27,7 +27,7 @@ func pause(with_ad: bool = false):
 
 
 func unpause():
-	print_debug("PauseManager.unpause called")
+	print("PauseManager.unpause called")
 	get_tree().paused = false
 	AudioServer.set_bus_mute(0, false)
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)
@@ -38,5 +38,5 @@ func unpause():
 
 func get_overlay():
 	pause_overlay = get_node_or_null("/root/Game/CanvasLayer/PauseOverlay")
-	print_debug("pause_overlay")
-	print_debug(pause_overlay)
+	print("pause_overlay")
+	print(pause_overlay)
