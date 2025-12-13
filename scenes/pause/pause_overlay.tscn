@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqvag3kerawc8"]
+[gd_scene load_steps=7 format=3 uid="uid://dqvag3kerawc8"]
 
 [ext_resource type="Script" uid="uid://djxqxsyagwgn1" path="res://scripts/pause/pause_overlay.gd" id="1_23pkr"]
+[ext_resource type="Material" uid="uid://cmcio8ltemo5" path="res://shaders/unshaded_canvas_material.tres" id="1_bjmpu"]
 [ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_fggc0"]
 [ext_resource type="PackedScene" uid="uid://b32ruasievmtm" path="res://scenes/main_menu/settings_control.tscn" id="2_3fhia"]
 
@@ -16,6 +17,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseOverlay" type="Control"]
 process_mode = 2
+material = ExtResource("1_bjmpu")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +28,7 @@ theme = ExtResource("1_fggc0")
 script = ExtResource("1_23pkr")
 
 [node name="Overlay" type="ColorRect" parent="."]
+material = ExtResource("1_bjmpu")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +38,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.498039)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+material = ExtResource("1_bjmpu")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,12 +47,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+material = ExtResource("1_bjmpu")
 layout_mode = 2
 theme_override_constants/separation = 35
 alignment = 1
 
 [node name="PauseLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
+material = ExtResource("1_bjmpu")
 layout_mode = 2
 text = "PAUSE"
 label_settings = SubResource("LabelSettings_0mu0o")
@@ -58,16 +64,19 @@ vertical_alignment = 1
 [node name="SettingsControl" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_3fhia")]
 unique_name_in_owner = true
 visible = false
+material = ExtResource("1_bjmpu")
 layout_mode = 2
 
 [node name="AdIn" type="Control" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
+material = ExtResource("1_bjmpu")
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AdInLabel" type="Label" parent="CenterContainer/VBoxContainer/AdIn"]
 unique_name_in_owner = true
+material = ExtResource("1_bjmpu")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.57471263

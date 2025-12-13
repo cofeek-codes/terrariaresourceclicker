@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4j13io34hy5x"]
+[gd_scene load_steps=10 format=3 uid="uid://b4j13io34hy5x"]
 
+[ext_resource type="Material" uid="uid://cmcio8ltemo5" path="res://shaders/unshaded_canvas_material.tres" id="1_ghxni"]
 [ext_resource type="Script" uid="uid://btjp8pttcrsnn" path="res://scripts/cursor.gd" id="1_ndevg"]
 [ext_resource type="Texture2D" uid="uid://gbn70djm1kpw" path="res://resources/shop_items/cooper_pickaxe/copper_pickaxe.png" id="1_s0nli"]
 [ext_resource type="AudioStream" uid="uid://d4fc8bigc1eve" path="res://assets/audio/sounds/pickaxe_swing.wav" id="4_n5qf0"]
@@ -63,16 +64,20 @@ _data = {
 [node name="Cursor" type="Node2D"]
 process_mode = 3
 z_index = 9
+material = ExtResource("1_ghxni")
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ndevg")
 
 [node name="CursorArea" type="Area2D" parent="."]
+material = ExtResource("1_ghxni")
 
 [node name="CursorSprite" type="Sprite2D" parent="CursorArea"]
 z_index = 999
+material = ExtResource("1_ghxni")
 texture = ExtResource("1_s0nli")
 
 [node name="CursorCollider" type="CollisionShape2D" parent="CursorArea"]
+material = ExtResource("1_ghxni")
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_u5sy4")
 

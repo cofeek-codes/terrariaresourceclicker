@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b32ruasievmtm"]
+[gd_scene load_steps=6 format=3 uid="uid://b32ruasievmtm"]
 
 [ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_1hpul"]
 [ext_resource type="Script" uid="uid://b7rfrpjlhp8n7" path="res://scripts/main_menu/settings_control.gd" id="1_7porx"]
+[ext_resource type="Material" uid="uid://cmcio8ltemo5" path="res://shaders/unshaded_canvas_material.tres" id="1_tl1qq"]
 [ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="2_qda14"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hguh2"]
@@ -10,6 +11,7 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="SettingsControl" type="CenterContainer"]
+material = ExtResource("1_tl1qq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,20 +21,24 @@ theme = ExtResource("1_1hpul")
 script = ExtResource("1_7porx")
 
 [node name="SettingsContainer" type="VBoxContainer" parent="."]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="VolumeLabel" type="Label" parent="SettingsContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 text = "SETTINGS_VOLUME"
 label_settings = SubResource("LabelSettings_hguh2")
 
 [node name="MasterVolumeContainer" type="VBoxContainer" parent="SettingsContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="MasterVolumeLabel" type="Label" parent="SettingsContainer/MasterVolumeContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 text = "VOLUME_MASTER"
 horizontal_alignment = 1
@@ -40,17 +46,20 @@ vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/MasterVolumeContainer"]
 unique_name_in_owner = true
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
 step = 0.01
 
 [node name="MusicVolumeContainer" type="VBoxContainer" parent="SettingsContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="MusicVolumeLabel" type="Label" parent="SettingsContainer/MusicVolumeContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 text = "VOLUME_MUSIC"
 horizontal_alignment = 1
@@ -58,17 +67,20 @@ vertical_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="SettingsContainer/MusicVolumeContainer"]
 unique_name_in_owner = true
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
 step = 0.01
 
 [node name="SoundVolumeContainer" type="VBoxContainer" parent="SettingsContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="SoundVolumeLabel" type="Label" parent="SettingsContainer/SoundVolumeContainer"]
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 text = "VOLUME_SOUND"
 horizontal_alignment = 1
@@ -76,6 +88,7 @@ vertical_alignment = 1
 
 [node name="SoundVolumeSlider" type="HSlider" parent="SettingsContainer/SoundVolumeContainer"]
 unique_name_in_owner = true
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
@@ -83,6 +96,7 @@ step = 0.01
 
 [node name="BackButton" type="Button" parent="SettingsContainer"]
 unique_name_in_owner = true
+material = ExtResource("1_tl1qq")
 layout_mode = 2
 text = "BACK_BTN"
 
