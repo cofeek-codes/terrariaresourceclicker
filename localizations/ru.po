@@ -162,7 +162,7 @@ msgstr "Имя"
 
 #: scripts/main_menu/leaderboards.gd
 msgid "LDB_COINS_EARNED"
-msgstr "Монет Заработано"
+msgstr "Монеты"
 
 #: scripts/pause_overlay.gd
 msgid "PAUSE_AD_IN"

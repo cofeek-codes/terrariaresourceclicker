@@ -162,7 +162,7 @@ msgstr "Name"
 
 #: scripts/main_menu/leaderboards.gd
 msgid "LDB_COINS_EARNED"
-msgstr "Coins Earned"
+msgstr "Coins"
 
 #: scripts/pause_overlay.gd
 msgid "PAUSE_AD_IN"
