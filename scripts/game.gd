@@ -37,6 +37,10 @@ func _on_save_timer_timeout() -> void:
 	SaveManager.save_player_data()
 
 
+func _on_tree_exiting() -> void:
+	SaveManager.save_player_data()
+
+
 func ui_mouse_entered():
 	if !get_tree().paused:
 		cursor.show_ui_cursor()

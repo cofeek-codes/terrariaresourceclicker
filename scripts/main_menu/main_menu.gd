@@ -49,6 +49,8 @@ func _on_mouse_exited(button: Button):
 
 
 func _on_play_button_pressed() -> void:
+	SaveManager.load_player_data()
+	await SaveManager.player_data_loaded
 	get_tree().change_scene_to_packed(game_scene_preload)
 
 

@@ -1,5 +1,7 @@
 extends Node
 
+signal player_data_loaded
+
 var player_data_loaded_json: String
 var settings_loaded_json: String
 
@@ -57,6 +59,8 @@ func _post_load_player_data_cloud(player_data_loaded_json: String):
 		Globals.player_data = pd
 
 		_load_coins()
+
+	player_data_loaded.emit()
 
 
 func _save_coins():
@@ -212,12 +216,12 @@ func _tres_to_json(file_path: String):
 
 
 func _json_to_tres(file_path: String, json_string: String):
-	var data_file = FileAccess.open(file_path, FileAccess.WRITE)
 	var json = JSON.new()
 	var json_parsed = json.parse(json_string)
 	if json_parsed != OK:
 		return null
 
 	var json_parsed_data = json.data
+	var data_file = FileAccess.open(file_path, FileAccess.WRITE)
 	data_file.store_string(json_parsed_data)
 	data_file.close()
