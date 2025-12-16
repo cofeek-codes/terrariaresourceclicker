@@ -7,6 +7,8 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 @onready var cursor: Node2D = %Cursor
 @onready var block: Node2D = %Block
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
+@onready var interstitial_timer_label: Label = %InterstitialTimerLabel
+@onready var interstitial_ad_timer: Timer = %InterstitialAdTimer
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
@@ -24,6 +26,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	interstitial_timer_label.text = "Until next ad: " + str(int(interstitial_ad_timer.time_left))
 	if Input.is_action_just_pressed("pause"):
 		PauseManager.pause()
 
