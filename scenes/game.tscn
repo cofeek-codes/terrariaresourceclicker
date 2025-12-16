@@ -51,6 +51,7 @@ grow_vertical = 2
 texture = SubResource("AnimatedTexture_uwrxv")
 
 [node name="Shop" parent="CanvasLayer/GameUI" instance=ExtResource("2_yqjtg")]
+z_index = 3
 layout_mode = 1
 offset_left = -300.0
 offset_bottom = -97.0
@@ -74,9 +75,9 @@ anchors_preset = -1
 anchor_right = 0.18316
 anchor_bottom = 0.850309
 offset_right = 0.0
-metadata/_edit_use_anchors_ = true
 
 [node name="InventoryButton" parent="CanvasLayer/GameUI" instance=ExtResource("7_0tnpc")]
+z_index = 2
 layout_mode = 1
 
 [node name="Coins" parent="CanvasLayer/GameUI" instance=ExtResource("8_vtaks")]
