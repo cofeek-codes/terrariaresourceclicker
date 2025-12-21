@@ -66,7 +66,8 @@ theme_override_constants/margin_bottom = 50
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 2
+focus_behavior_recursive = 1
+mouse_filter = 2
 script = ExtResource("2_tmwms")
 default_minimum_column_width = 196.5
 metadata/_custom_type_script = "uid://by7ubl72da02t"
@@ -89,15 +90,6 @@ stream = ExtResource("5_h3ryc")
 
 [node name="AvatarHTTPRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
-
-[node name="Overlay" type="Control" parent="."]
-layout_mode = 1
-anchor_top = 0.109568
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="BackButtonMarginContainer/BackButton" to="." method="_on_back_button_mouse_exited"]
