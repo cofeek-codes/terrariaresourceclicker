@@ -124,7 +124,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SaveTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 15.0
 autostart = true
 
 [node name="InterstitialAdTimer" type="Timer" parent="."]
