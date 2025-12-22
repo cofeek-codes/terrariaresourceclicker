@@ -40,6 +40,7 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
+mouse_cursor/custom_image="uid://bud07nhjvffo5"
 window/size/mode.editor=0
 
 [editor]
