@@ -8,20 +8,24 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="terrariaresourceclicker"
 config/version="1.0.1"
 config/tags=PackedStringArray("moderation_failed")
 run/main_scene="uid://djq4e6mvyhj0x"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/use_filter=false
 boot_splash/image="uid://cw2wrsmpp74ok"
 config/icon="uid://dkbptdo2aw2bs"
 
 [autoload]
 
-Bridge="*res://addons/playgama_bridge/bridge.gd"
+Bridge="*uid://cx4klxojbw6ck"
 Globals="*res://scripts/singletones/autoloads/globals.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
 SaveManager="*res://scripts/singletones/autoloads/save_manager.gd"

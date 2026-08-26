@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://djq4e6mvyhj0x"]
+[gd_scene format=3 uid="uid://djq4e6mvyhj0x"]
 
 [ext_resource type="Theme" uid="uid://c4eynk341nu50" path="res://theming/themes/main_menu_theme.tres" id="1_0ebjn"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_fsom3"]
 [ext_resource type="Script" uid="uid://cvaig28jc7uga" path="res://scripts/main_menu/main_menu.gd" id="2_ob46e"]
 [ext_resource type="AudioStream" uid="uid://cdhnicrpcjkiy" path="res://assets/audio/sounds/menu_select.wav" id="4_uqeha"]
-[ext_resource type="PackedScene" path="res://scenes/main_menu/auth_modal.tscn" id="5_wem23"]
+[ext_resource type="PackedScene" uid="uid://cnvkr8wi3agf1" path="res://scenes/main_menu/auth_modal.tscn" id="5_wem23"]
 [ext_resource type="Texture2D" uid="uid://5ej157mk4fic" path="res://assets/logo.png" id="6_3ovsr"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=790925042]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_vertical = 2
 theme = ExtResource("1_0ebjn")
 script = ExtResource("2_ob46e")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=436898931]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fsom3")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1037078577]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,41 +34,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2016939640]
 layout_mode = 2
 
-[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1289365416]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
+[node name="PlayButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=1210134118 groups=["menu_buttons"]]
 layout_mode = 2
 text = "MENU_PLAY"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=1535764008 groups=["menu_buttons"]]
 layout_mode = 2
 text = "MENU_SETTINGS"
 
-[node name="LeaderboardsButton" type="Button" parent="CenterContainer/MenuContainer" groups=["menu_buttons"]]
+[node name="LeaderboardsButton" type="Button" parent="CenterContainer/MenuContainer" unique_id=1366035827 groups=["menu_buttons"]]
 layout_mode = 2
 text = "MENU_LIDERBOARDS"
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MenuContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MenuContainer" unique_id=1514809843]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 45
 
-[node name="CloudSaveButton" type="Button" parent="CenterContainer/MenuContainer/MarginContainer" groups=["menu_buttons"]]
+[node name="CloudSaveButton" type="Button" parent="CenterContainer/MenuContainer/MarginContainer" unique_id=2095188952 groups=["menu_buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MENU_CLOUDSAVE"
 
-[node name="AuthModal" parent="." instance=ExtResource("5_wem23")]
+[node name="AuthModal" parent="." unique_id=1991674207 instance=ExtResource("5_wem23")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="Logo" type="Control" parent="."]
+[node name="Logo" type="Control" parent="." unique_id=344491292]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -77,7 +77,7 @@ anchor_right = 0.5
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 
-[node name="LogoMarginContainer" type="MarginContainer" parent="Logo"]
+[node name="LogoMarginContainer" type="MarginContainer" parent="Logo" unique_id=1344278801]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -88,12 +88,12 @@ offset_bottom = 95.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 15
 
-[node name="LogoImage" type="TextureRect" parent="Logo/LogoMarginContainer"]
+[node name="LogoImage" type="TextureRect" parent="Logo/LogoMarginContainer" unique_id=1114546227]
 layout_mode = 2
 texture = ExtResource("6_3ovsr")
 stretch_mode = 5
 
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=850698699]
 unique_name_in_owner = true
 stream = ExtResource("4_uqeha")
 bus = &"Sound"
