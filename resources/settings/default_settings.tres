@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Settings" format=3 uid="uid://1udy48rbyytg"]
+
+[ext_resource type="Script" uid="uid://cfmy1rviq2y40" path="res://resources/settings/settings.gd" id="1_p606f"]
+
+[resource]
+script = ExtResource("1_p606f")
+master_volume = 0.7
+metadata/_custom_type_script = "uid://cfmy1rviq2y40"

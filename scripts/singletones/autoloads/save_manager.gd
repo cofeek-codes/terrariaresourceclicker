@@ -2,9 +2,6 @@ extends Node
 
 signal player_data_loaded
 
-var player_data_loaded_json: String
-var settings_loaded_json: String
-
 const SAVE_PATH: String = "user://player_data.tres"
 const CLOUD_SAVE_TMP_PATH: String = "user://player_data_cloud.tres"
 const SETTINGS_PATH: String = "user://settings.tres"
@@ -15,50 +12,34 @@ func save_player_data():
 	_save_coins()
 	_save_active_timers()
 
-	_save_player_data_cloud()
-
-	_update_leaderboard()
+	_save_player_data()
 
 
-func _save_player_data_local():
-	ResourceSaver.save(Globals.player_data, SAVE_PATH)
-
-
-func _save_player_data_cloud():
-	_save_player_data_local()  # save local anyway as a source for cloud
-	var player_data_encoded = _tres_to_json(SAVE_PATH)
+func _save_player_data():
+	var player_data_encoded = _tres_to_json(Globals.player_data)
 	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed)
 
 
 func load_player_data():
-	_load_player_data_cloud()
+	_load_player_data()
 
 
-func _load_player_data_local():
-	if FileAccess.file_exists(SAVE_PATH):
-		Globals.player_data = ResourceLoader.load(SAVE_PATH, "PlayerData")
+func _load_player_data():
+	Bridge.storage.get("player_data", _on_load_player_data_completed)
+
+
+func _post_load_player_data_cloud(player_data_loaded_json):
+	print_debug("player_data_loaded_json")
+	print_debug(player_data_loaded_json)
+
+	var pd = _json_to_tres(player_data_loaded_json, PlayerData)
+
+	if pd:
+		Globals.player_data = pd
 	else:
 		Globals.player_data = Globals.default_player_data
 
 	_load_coins()
-
-
-func _load_player_data_cloud():
-	Globals.player_data = Globals.default_player_data
-	Bridge.storage.get("player_data", _on_load_player_data_cloud_completed)
-
-
-func _post_load_player_data_cloud(player_data_loaded_json: String):
-	print_debug("player_data_loaded_json")
-	print_debug(player_data_loaded_json)
-	_json_to_tres(CLOUD_SAVE_TMP_PATH, player_data_loaded_json)
-	var pd: PlayerData
-	if !FileAccess.get_file_as_string(CLOUD_SAVE_TMP_PATH).is_empty():
-		pd = load(CLOUD_SAVE_TMP_PATH)
-	if pd != null:
-		Globals.player_data = pd
-
-		_load_coins()
 
 	player_data_loaded.emit()
 
@@ -126,8 +107,7 @@ func _save_settings_local(settings: Settings):
 
 
 func _save_settings_cloud(settings: Settings):
-	_save_settings_local(settings)
-	var settings_encoded = _tres_to_json(SETTINGS_PATH)
+	var settings_encoded = _tres_to_json(settings)
 	Bridge.storage.set("settings", settings_encoded, _on_save_settings_cloud_completed)
 
 
@@ -139,7 +119,7 @@ func _on_save_settings_cloud_completed(success):
 
 
 func load_settings():
-	load_settings_cloud()
+	_load_settings()
 
 
 func load_settings_local():
@@ -149,28 +129,26 @@ func load_settings_local():
 	return null
 
 
-func load_settings_cloud():
-	Bridge.storage.get("settings", _on_load_settings_cloud_completed)
+func _load_settings():
+	Bridge.storage.get("settings", _on_load_settings_completed)
 
 
-func _on_load_settings_cloud_completed(success, data):
+func _on_load_settings_completed(success, data):
 	if success:
-		print("[%s]: SUCCESS" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: SUCCESS" % _on_load_settings_completed.get_method().to_upper())
 		print("data")
 		print(data)
-		if data != null:
-			settings_loaded_json = data
 	else:
-		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: ERROR" % _on_load_settings_completed.get_method().to_upper())
 
-	_post_load_settings_cloud(settings_loaded_json)
+	_post_load_settings(data)
 
 
-func _post_load_settings_cloud(settings_json):
-	var settings = Settings.new()
-	_json_to_tres(CLOUD_SETTINGS_TMP_PATH, settings_json)
-	if !FileAccess.get_file_as_string(CLOUD_SETTINGS_TMP_PATH).is_empty():
-		settings = load(CLOUD_SETTINGS_TMP_PATH)
+func _post_load_settings(settings_json):
+	var settings = _json_to_tres(settings_json, Settings)
+
+	if !settings:
+		settings = Globals.default_settings
 
 	var master_bus_index = AudioServer.get_bus_index("Master")
 	var music_bus_index = AudioServer.get_bus_index("Music")
@@ -195,33 +173,24 @@ func _on_save_player_data_cloud_completed(success: bool):
 		print("[%s]: ERROR" % _on_save_player_data_cloud_completed.get_method().to_upper())
 
 
-func _on_load_player_data_cloud_completed(success: bool, data):
+func _on_load_player_data_completed(success: bool, data):
 	if success:
-		print("[%s]: SUCCESS" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: SUCCESS" % _on_load_player_data_completed.get_method().to_upper())
 		print("data")
 		print(data)
-		if data != null:
-			player_data_loaded_json = data
 	else:
-		print("[%s]: ERROR" % _on_load_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: ERROR" % _on_load_settings_completed.get_method().to_upper())
 
-	_post_load_player_data_cloud(player_data_loaded_json)
-
-
-func _tres_to_json(file_path: String):
-	var player_data_file = FileAccess.open(file_path, FileAccess.READ)
-	var player_data_as_text = player_data_file.get_as_text()
-	player_data_file.close()
-	return JSON.stringify(player_data_as_text)
+	_post_load_player_data_cloud(data)
 
 
-func _json_to_tres(file_path: String, json_string: String):
-	var json = JSON.new()
-	var json_parsed = json.parse(json_string)
-	if json_parsed != OK:
+func _tres_to_json(resource: Resource) -> String:
+	return JSONConverter.resource_to_json(resource)
+
+
+# Trere is not `String | null` in godot
+func _json_to_tres(json_string: Variant, type_hint: Variant) -> Resource:
+	if json_string:
+		return JSONConverter.json_to_resource(json_string, type_hint)
+	else:
 		return null
-
-	var json_parsed_data = json.data
-	var data_file = FileAccess.open(file_path, FileAccess.WRITE)
-	data_file.store_string(json_parsed_data)
-	data_file.close()

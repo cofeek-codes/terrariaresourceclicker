@@ -3,7 +3,6 @@ extends Control
 @onready var menu_container: VBoxContainer = %MenuContainer
 @onready var audio_player: AudioStreamPlayer = %AudioPlayer
 @onready var logo: Control = %Logo
-@onready var auth_modal: Control = %AuthModal
 
 var game_scene_preload: PackedScene = preload("res://scenes/game.tscn")
 var settings_scene_preload: PackedScene = preload("res://scenes/main_menu/settings.tscn")
@@ -50,7 +49,7 @@ func _on_mouse_exited(button: Button):
 
 func _on_play_button_pressed() -> void:
 	SaveManager.load_player_data()
-	await SaveManager.player_data_loaded
+	#await SaveManager.player_data_loaded
 	get_tree().change_scene_to_packed(game_scene_preload)
 
 
@@ -60,10 +59,6 @@ func _on_settings_button_pressed() -> void:
 
 func _on_leaderboards_button_pressed() -> void:
 	if !PlaygamaManager.is_authorized():
-		auth_modal.show()
+		PlaygamaManager.authorize()
 	else:
 		get_tree().change_scene_to_packed(leaderboards_scene_preload)
-
-
-func _on_cloud_save_button_pressed() -> void:
-	auth_modal.show()

@@ -5,9 +5,10 @@ var game: Node2D
 
 func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", _on_interstitial_state_changed)
-	Bridge.game.connect("visibility_state_changed", _on_visibility_state_changed)
 	Bridge.advertisement.connect("rewarded_state_changed", _on_rewarded_state_changed)
 	Bridge.advertisement.connect("banner_state_changed", _on_banner_state_changed)
+	Bridge.platform.connect("audio_state_changed", _on_audio_state_changed)
+	Bridge.platform.connect("pause_state_changed", _on_pause_state_changed)
 
 
 func show_banner():
@@ -56,13 +57,6 @@ func _on_interstitial_state_changed(state):
 			PauseManager.unpause()
 
 
-func _on_visibility_state_changed(state):
-	if state == "hidden":
-		PauseManager.pause()
-	else:
-		PauseManager.unpause()
-
-
 func _on_rewarded_state_changed(state):
 	print_debug(state)
 	match state:
@@ -78,3 +72,17 @@ func _on_rewarded_state_changed(state):
 
 		_:
 			PauseManager.unpause()
+
+
+func _on_audio_state_changed(is_enabled: bool):
+	if is_enabled:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
+
+
+func _on_pause_state_changed(is_enabled: bool):
+	if is_enabled:
+		PauseManager.pause()
+	else:
+		PauseManager.unpause()

@@ -9,11 +9,10 @@ enum Biome {
 var player_data: PlayerData
 
 var default_player_data = load("res://resources/player_data/default_player_data.tres")
+var default_settings = load("res://resources/settings/default_settings.tres")
 
 
 func get_player_data() -> PlayerData:
-	if player_data == null:
-		SaveManager.load_player_data()
 	return player_data
 
 
