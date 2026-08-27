@@ -2,11 +2,6 @@ extends Node
 
 signal player_data_loaded
 
-const SAVE_PATH: String = "user://player_data.tres"
-const CLOUD_SAVE_TMP_PATH: String = "user://player_data_cloud.tres"
-const SETTINGS_PATH: String = "user://settings.tres"
-const CLOUD_SETTINGS_TMP_PATH: String = "user://settings_cloud.tres"
-
 
 func save_player_data():
 	_save_coins()
@@ -17,7 +12,7 @@ func save_player_data():
 
 func _save_player_data():
 	var player_data_encoded = _tres_to_json(Globals.player_data)
-	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_cloud_completed)
+	Bridge.storage.set("player_data", player_data_encoded, _on_save_player_data_completed)
 
 
 func load_player_data():
@@ -28,11 +23,11 @@ func _load_player_data():
 	Bridge.storage.get("player_data", _on_load_player_data_completed)
 
 
-func _post_load_player_data_cloud(player_data_loaded_json):
+func _post_load_player_data(player_data_loaded_json):
 	print_debug("player_data_loaded_json")
 	print_debug(player_data_loaded_json)
 
-	var pd = _json_to_tres(player_data_loaded_json, PlayerData)
+	var pd = _json_to_tres(player_data_loaded_json, "PlayerData")
 
 	if pd:
 		Globals.player_data = pd
@@ -99,34 +94,23 @@ func save_settings():
 	settings.music_volume = AudioServer.get_bus_volume_linear(music_bus_index)
 	settings.sound_volume = AudioServer.get_bus_volume_linear(sound_bus_index)
 
-	_save_settings_cloud(settings)
+	_save_settings(settings)
 
 
-func _save_settings_local(settings: Settings):
-	ResourceSaver.save(settings, SETTINGS_PATH)
-
-
-func _save_settings_cloud(settings: Settings):
+func _save_settings(settings: Settings):
 	var settings_encoded = _tres_to_json(settings)
-	Bridge.storage.set("settings", settings_encoded, _on_save_settings_cloud_completed)
+	Bridge.storage.set("settings", settings_encoded, _on_save_settings_completed)
 
 
-func _on_save_settings_cloud_completed(success):
+func _on_save_settings_completed(success):
 	if success:
-		print("[%s]: SUCCESS" % _on_save_settings_cloud_completed.get_method().to_upper())
+		print("[%s]: SUCCESS" % _on_save_settings_completed.get_method().to_upper())
 	else:
-		print("[%s]: ERROR" % _on_save_settings_cloud_completed.get_method().to_upper())
+		print("[%s]: ERROR" % _on_save_settings_completed.get_method().to_upper())
 
 
 func load_settings():
 	_load_settings()
-
-
-func load_settings_local():
-	if FileAccess.file_exists(SETTINGS_PATH):
-		return ResourceLoader.load(SETTINGS_PATH, "Settings")
-
-	return null
 
 
 func _load_settings():
@@ -145,7 +129,7 @@ func _on_load_settings_completed(success, data):
 
 
 func _post_load_settings(settings_json):
-	var settings = _json_to_tres(settings_json, Settings)
+	var settings = _json_to_tres(settings_json, "Settings")
 
 	if !settings:
 		settings = Globals.default_settings
@@ -166,11 +150,11 @@ func _on_update_leaderboard_completed(success: bool):
 		print("[%s]: ERROR" % _on_update_leaderboard_completed.get_method().to_upper())
 
 
-func _on_save_player_data_cloud_completed(success: bool):
+func _on_save_player_data_completed(success: bool):
 	if success:
-		print("[%s]: SUCCESS" % _on_save_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: SUCCESS" % _on_save_player_data_completed.get_method().to_upper())
 	else:
-		print("[%s]: ERROR" % _on_save_player_data_cloud_completed.get_method().to_upper())
+		print("[%s]: ERROR" % _on_save_player_data_completed.get_method().to_upper())
 
 
 func _on_load_player_data_completed(success: bool, data):
@@ -181,16 +165,28 @@ func _on_load_player_data_completed(success: bool, data):
 	else:
 		print("[%s]: ERROR" % _on_load_settings_completed.get_method().to_upper())
 
-	_post_load_player_data_cloud(data)
+	_post_load_player_data(data)
 
 
 func _tres_to_json(resource: Resource) -> String:
-	return JSONConverter.resource_to_json(resource)
+	var presave_path = "user://resource_presave.tres"
+	ResourceSaver.save(resource, presave_path)
+	var saved = FileAccess.get_file_as_string(presave_path)
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(presave_path))
+
+	return JSON.stringify(saved)
 
 
 # Trere is not `String | null` in godot
-func _json_to_tres(json_string: Variant, type_hint: Variant) -> Resource:
+func _json_to_tres(json_string: Variant, type_hint: String) -> Resource:
 	if json_string:
-		return JSONConverter.json_to_resource(json_string, type_hint)
+		var preload_path = "user://resource_preload.tres"
+		var preload_file = FileAccess.open(preload_path, FileAccess.WRITE)
+		preload_file.store_string(JSON.parse_string(json_string))
+		preload_file.close()
+		var loaded_res = ResourceLoader.load(preload_path, type_hint)
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(preload_path))
+
+		return loaded_res
 	else:
 		return null
