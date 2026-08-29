@@ -10,7 +10,7 @@ signal introduce_pickaxe(pickaxe_texture: Texture2D)
 
 @onready var block_area: Area2D = block.get_node("BlockArea")
 
-var new_pickaxe_scene_preload = preload("res://scenes/animations/introduce_pickaxe.tscn")
+var new_pickaxe_scene_preload = preload("res://scenes/animations/new_tier_unlocked/introduce_pickaxe.tscn")
 
 var on_before_unload_callback: JavaScriptObject
 

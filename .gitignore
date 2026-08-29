@@ -4,3 +4,8 @@
 
 # Localization editor specific files
 localizations/resources/**/*.ini
+
+
+# Exports (builds)
+
+export/web

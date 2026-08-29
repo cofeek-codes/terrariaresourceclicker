@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var game: Node2D = $"/root/Game"
 
-var new_resource_preload = preload("res://scenes/animations/new_resource.tscn")
+var new_resource_preload = preload("res://scenes/animations/new_tier_unlocked/new_resource.tscn")
 
 var blocks: Array[BlockData]
 
@@ -55,4 +55,5 @@ func _on_continue_button_pressed() -> void:
 
 	animation_player.play_backwards("introduce_reverse")
 	await animation_player.animation_finished
+	PlaygamaManager.show_interstitial()
 	self.queue_free()

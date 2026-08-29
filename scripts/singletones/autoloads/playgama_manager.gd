@@ -44,21 +44,22 @@ func authorize():
 
 func _on_authorize_completed(success):
 	if success:
-		print("[PLAYGAMA]: Authorized")
+		print("[PLAYGAMA_AUTH]: Authorized")
 	else:
-		print("[PLAYGAMA]: Authorization error")
+		print("[PLAYGAMA_AUTH]: Authorization error")
 
 
 func _on_interstitial_state_changed(state):
-	print_debug(state)
+	print("[INTERSTITIAL_STATE]: " + state)
 	match state:
 		"closed", "failed":
 			print("closing interstitial ad...")
-			PauseManager.unpause()
+			#PauseManager.unpause()
 
 
 func _on_rewarded_state_changed(state):
-	print_debug(state)
+	print("[REWARDED_STATE]: " + state)
+
 	match state:
 		"rewarded":
 			print("reward completed: emitting signal")
