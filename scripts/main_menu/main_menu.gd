@@ -12,6 +12,7 @@ var leaderboards_scene_preload: PackedScene = preload("res://scenes/main_menu/le
 func _ready() -> void:
 	print("desktop: %s, mobile: %s, editor: %s" % [OS.has_feature("web"), OS.has_feature("web_android") || OS.has_feature("web_ios"), OS.has_feature("editor")])
 	_init_locale()
+	_init_audio()
 	SaveManager.load_settings()
 	for btn in get_tree().get_nodes_in_group("menu_buttons"):
 		btn.mouse_entered.connect(_on_mouse_entered.bind(btn))
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
 
-	PlaygamaManager.show_banner()
+	PlaygamaManager.show_banner("main_menu")
 
 
 func _init_locale():
@@ -32,6 +33,11 @@ func _init_logo():
 		logo.scale = Vector2(0.6, 0.6)
 	else:
 		logo.scale = Vector2(0.8, 0.8)
+
+
+func _init_audio():
+	if !Bridge.platform.is_audio_enabled:
+		AudioServer.set_bus_mute(0, true)
 
 
 func _on_mouse_entered(button: Button):
@@ -49,7 +55,10 @@ func _on_mouse_exited(button: Button):
 
 func _on_play_button_pressed() -> void:
 	SaveManager.load_player_data()
-	#await SaveManager.player_data_loaded
+	# Wierd bug that in editor you need to click "Play" twice to load `PlayerData`
+	if !Engine.is_editor_hint():
+		await SaveManager.player_data_loaded
+
 	get_tree().change_scene_to_packed(game_scene_preload)
 
 

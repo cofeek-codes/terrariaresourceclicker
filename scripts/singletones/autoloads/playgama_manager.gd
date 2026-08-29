@@ -11,14 +11,13 @@ func _ready():
 	Bridge.platform.connect("pause_state_changed", _on_pause_state_changed)
 
 
-func show_banner():
+func show_banner(placement: String):
 	var position = Bridge.BannerPosition.BOTTOM
-	var placement = "test_placement"
 	Bridge.advertisement.show_banner(position, placement)
 
 
 func _on_banner_state_changed(state):
-	print_debug(state)
+	print("[PLAYGAMA_BANNER]: " + state)
 
 
 func show_interstitial():
@@ -77,9 +76,9 @@ func _on_rewarded_state_changed(state):
 
 func _on_audio_state_changed(is_enabled: bool):
 	if is_enabled:
-		AudioServer.set_bus_mute(0, true)
-	else:
 		AudioServer.set_bus_mute(0, false)
+	else:
+		AudioServer.set_bus_mute(0, true)
 
 
 func _on_pause_state_changed(is_enabled: bool):
