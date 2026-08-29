@@ -172,7 +172,6 @@ func _tres_to_json(resource: Resource) -> String:
 	var presave_path = "user://resource_presave.tres"
 	ResourceSaver.save(resource, presave_path)
 	var saved = FileAccess.get_file_as_string(presave_path)
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(presave_path))
 
 	return JSON.stringify(saved)
 
@@ -185,7 +184,6 @@ func _json_to_tres(json_string: Variant, type_hint: String) -> Resource:
 		preload_file.store_string(JSON.parse_string(json_string))
 		preload_file.close()
 		var loaded_res = ResourceLoader.load(preload_path, type_hint)
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(preload_path))
 
 		return loaded_res
 	else:
