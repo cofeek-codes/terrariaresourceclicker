@@ -56,7 +56,7 @@ func _on_mouse_exited(button: Button):
 func _on_play_button_pressed() -> void:
 	SaveManager.load_player_data()
 	# Wierd bug that in editor you need to click "Play" twice to load `PlayerData`
-	if !Engine.is_editor_hint():
+	if !OS.has_feature("editor"):
 		await SaveManager.player_data_loaded
 
 	get_tree().change_scene_to_packed(game_scene_preload)
