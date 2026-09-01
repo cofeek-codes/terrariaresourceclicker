@@ -28,8 +28,13 @@ func _ready() -> void:
 	_load_blocks()
 	var block_data: BlockData = get_random_block()
 	load_block_data(block_data)
+	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	animation_player.play_backwards("disappear")
+
+
+func _on_viewport_size_changed():
+	self.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 
 
 func _load_blocks():
