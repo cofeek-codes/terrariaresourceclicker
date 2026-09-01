@@ -1,12 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ew47euyja2"]
+[gd_scene format=3 uid="uid://c2ew47euyja2"]
 
 [ext_resource type="Script" uid="uid://bbrjma1mmbg8b" path="res://scripts/mobs/mob_spawner.gd" id="1_lnnj0"]
 
-[node name="MobSpawner" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_lnnj0"]
+script/source = "extends Marker2D
+
+
+func _ready():
+	if !get_tree().debug_collisions_hint:
+		queue_free()
+		return
+
+
+func _draw():
+	# Draw a simple cross at the marker's position
+	var size = gizmo_extents
+	draw_line(Vector2(-size, 0), Vector2(size, 0), Color.RED, 2)
+	draw_line(Vector2(0, -size), Vector2(0, size), Color.RED, 2)
+"
+
+[node name="MobSpawner" type="Node2D" unique_id=1887900915]
 script = ExtResource("1_lnnj0")
 
-[node name="SpawnCooldownTimer" type="Timer" parent="."]
+[node name="SpawnCooldownTimer" type="Timer" parent="." unique_id=19044173]
 wait_time = 5.0
 autostart = true
+
+[node name="SpawnerDebugMarker" type="Marker2D" parent="." unique_id=1235417518]
+z_index = 999
+script = SubResource("GDScript_lnnj0")
 
 [connection signal="timeout" from="SpawnCooldownTimer" to="." method="_on_spawn_cooldown_timer_timeout"]

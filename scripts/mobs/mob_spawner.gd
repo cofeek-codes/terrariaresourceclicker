@@ -15,7 +15,20 @@ const MOBS_FILE_PATH: String = "res://resources/mob_data/mobs.json"
 
 
 func _ready() -> void:
+	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	_load_mobs()
+
+
+func _on_viewport_size_changed():
+	match spawner_side:
+		SpawnerSide.LEFT:
+			self.position.x = 0
+			print("[RESIZE]: LEFT SPAWNER POSITION")
+			print(self.position)
+		SpawnerSide.RIGHT:
+			self.position.x = get_viewport_rect().size.x
+		_:
+			return
 
 
 func _load_mobs():
