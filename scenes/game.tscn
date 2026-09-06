@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxb8ptr3q702f"]
+[gd_scene format=3 uid="uid://bxb8ptr3q702f"]
 
 [ext_resource type="Script" uid="uid://dscya558jt88a" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_uwrxv"]
@@ -19,13 +19,13 @@
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_uwrxv"]
 frame_0/texture = ExtResource("1_uwrxv")
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1490815482]
 script = ExtResource("1_lnu2h")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1227915149]
 unique_name_in_owner = true
 
-[node name="GameUI" type="Control" parent="CanvasLayer"]
+[node name="GameUI" type="Control" parent="CanvasLayer" unique_id=1375730114]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BgWrapper" type="Control" parent="CanvasLayer/GameUI"]
+[node name="BgWrapper" type="Control" parent="CanvasLayer/GameUI" unique_id=1717750744]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/GameUI/BgWrapper"]
+[node name="Background" type="TextureRect" parent="CanvasLayer/GameUI/BgWrapper" unique_id=1679059751]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,13 +50,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_uwrxv")
 
-[node name="Shop" parent="CanvasLayer/GameUI" instance=ExtResource("2_yqjtg")]
+[node name="Shop" parent="CanvasLayer/GameUI" unique_id=1955735954 instance=ExtResource("2_yqjtg")]
 z_index = 3
 layout_mode = 1
 offset_left = -300.0
 offset_bottom = -107.0
 
-[node name="PickupText" parent="CanvasLayer/GameUI" instance=ExtResource("5_u5sy4")]
+[node name="PickupText" parent="CanvasLayer/GameUI" unique_id=65353202 instance=ExtResource("5_u5sy4")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.369792
@@ -69,21 +69,21 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" parent="CanvasLayer/GameUI" instance=ExtResource("6_gee14")]
+[node name="Inventory" parent="CanvasLayer/GameUI" unique_id=1252599323 instance=ExtResource("6_gee14")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.18316
 anchor_bottom = 0.850309
 offset_right = 0.0
 
-[node name="InventoryButton" parent="CanvasLayer/GameUI" instance=ExtResource("7_0tnpc")]
+[node name="InventoryButton" parent="CanvasLayer/GameUI" unique_id=1171285792 instance=ExtResource("7_0tnpc")]
 z_index = 2
 layout_mode = 1
 
-[node name="Coins" parent="CanvasLayer/GameUI" instance=ExtResource("8_vtaks")]
+[node name="Coins" parent="CanvasLayer/GameUI" unique_id=689167782 instance=ExtResource("8_vtaks")]
 layout_mode = 1
 
-[node name="Buffs" parent="CanvasLayer/GameUI" instance=ExtResource("8_kvpfn")]
+[node name="Buffs" parent="CanvasLayer/GameUI" unique_id=1288064917 instance=ExtResource("8_kvpfn")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.293403
@@ -93,7 +93,7 @@ anchor_bottom = 0.376543
 offset_bottom = -1.52588e-05
 metadata/_edit_use_anchors_ = true
 
-[node name="RewardButton" parent="CanvasLayer/GameUI" instance=ExtResource("9_trtic")]
+[node name="RewardButton" parent="CanvasLayer/GameUI" unique_id=1936599523 instance=ExtResource("9_trtic")]
 process_mode = 4
 visible = false
 layout_mode = 1
@@ -104,37 +104,54 @@ offset_top = -134.0
 offset_bottom = -94.0
 grow_vertical = 2
 
-[node name="PauseButton" parent="CanvasLayer/GameUI" instance=ExtResource("10_ir15t")]
+[node name="PauseButton" parent="CanvasLayer/GameUI" unique_id=956436813 instance=ExtResource("10_ir15t")]
 layout_mode = 1
 
-[node name="Block" parent="CanvasLayer" instance=ExtResource("7_u5sy4")]
+[node name="DebugInterstitialBtn" type="Control" parent="CanvasLayer/GameUI" unique_id=902385149]
+anchors_preset = 0
+offset_left = 281.0
+offset_top = 24.0
+offset_right = 321.0
+offset_bottom = 64.0
+
+[node name="DebugInterstitialBtn" type="Button" parent="CanvasLayer/GameUI/DebugInterstitialBtn" unique_id=4760815 groups=["ui_cursor"]]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 26.0
+text = "Show interstitial
+"
+
+[node name="Block" parent="CanvasLayer" unique_id=1189912466 instance=ExtResource("7_u5sy4")]
 unique_name_in_owner = true
 
-[node name="Cursor" parent="CanvasLayer" instance=ExtResource("6_p57ef")]
+[node name="Cursor" parent="CanvasLayer" unique_id=1323145341 instance=ExtResource("6_p57ef")]
 unique_name_in_owner = true
 
-[node name="World" parent="CanvasLayer" instance=ExtResource("11_kvpfn")]
+[node name="World" parent="CanvasLayer" unique_id=1615946635 instance=ExtResource("11_kvpfn")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer" unique_id=2089352014]
 
-[node name="PauseOverlay" parent="CanvasLayer" instance=ExtResource("2_kvuet")]
+[node name="PauseOverlay" parent="CanvasLayer" unique_id=343163379 instance=ExtResource("2_kvuet")]
 unique_name_in_owner = true
 visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SaveTimer" type="Timer" parent="."]
+[node name="SaveTimer" type="Timer" parent="." unique_id=776865525]
 wait_time = 15.0
 autostart = true
 
-[node name="InterstitialAdTimer" type="Timer" parent="."]
+[node name="InterstitialAdTimer" type="Timer" parent="." unique_id=1416746058]
 unique_name_in_owner = true
 wait_time = 180.0
 autostart = true
 
-[node name="EnvManager" parent="." instance=ExtResource("12_dinhu")]
+[node name="EnvManager" parent="." unique_id=881021364 instance=ExtResource("12_dinhu")]
 
 [connection signal="introduce_pickaxe" from="." to="." method="_on_introduce_pickaxe"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="pressed" from="CanvasLayer/GameUI/DebugInterstitialBtn/DebugInterstitialBtn" to="." method="_on_debug_interstitial_btn_pressed"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
 [connection signal="timeout" from="InterstitialAdTimer" to="." method="_on_interstitial_ad_timer_timeout"]

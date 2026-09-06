@@ -67,3 +67,7 @@ func _on_introduce_pickaxe(pickaxe_texture: Texture2D) -> void:
 
 func _on_interstitial_ad_timer_timeout() -> void:
 	PauseManager.pause(true)
+
+
+func _on_debug_interstitial_btn_pressed() -> void:
+	PlaygamaManager.show_interstitial()
