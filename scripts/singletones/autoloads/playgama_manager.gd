@@ -52,7 +52,7 @@ func _on_interstitial_state_changed(state):
 	print("[INTERSTITIAL_STATE]: " + state)
 	match state:
 		"closed":
-			print('closing SUCCESSEFULL ("closed" state) interstitial ad...')
+			print('closing SUCCESSFUL ("closed" state) interstitial ad...')
 		"failed":
 			print("closing FAILED interstitial ad...")
 			#PauseManager.unpause()

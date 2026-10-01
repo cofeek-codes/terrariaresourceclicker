@@ -26,11 +26,11 @@ config/icon="uid://dkbptdo2aw2bs"
 [autoload]
 
 Bridge="*uid://cx4klxojbw6ck"
+PlaygamaManager="*res://scripts/singletones/autoloads/playgama_manager.gd"
 Globals="*res://scripts/singletones/autoloads/globals.gd"
 BackgroundMusic="*res://scenes/background_music.tscn"
 SaveManager="*res://scripts/singletones/autoloads/save_manager.gd"
 PauseManager="*res://scripts/singletones/autoloads/pause_manager.gd"
-PlaygamaManager="*res://scripts/singletones/autoloads/playgama_manager.gd"
 
 [debug]
 
