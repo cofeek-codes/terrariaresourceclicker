@@ -115,6 +115,8 @@ offset_right = 321.0
 offset_bottom = 64.0
 
 [node name="DebugInterstitialBtn" type="Button" parent="CanvasLayer/GameUI/DebugInterstitialBtn" unique_id=4760815 groups=["ui_cursor"]]
+process_mode = 4
+visible = false
 layout_mode = 0
 offset_left = -64.0
 offset_top = -1.0
