@@ -47,7 +47,7 @@ func _spawn_mob() -> void:
 
 func _on_spawn_cooldown_timer_timeout() -> void:
 	print("mob spawner timeout")
-	if get_tree().get_node_count_in_group("mobs") <= Constants.MAX_MOBS:
+	if get_tree().get_node_count_in_group("mobs") < Constants.MAX_MOBS:
 		var side = randi_range(0, 1)
 		print("about to spawn mob on side %s" % SpawnerSide.keys()[spawner_side])
 		print("current side: %s | chosen side: %s" % [SpawnerSide.keys()[side], SpawnerSide.keys()[spawner_side]])
