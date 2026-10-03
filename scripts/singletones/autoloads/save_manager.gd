@@ -156,6 +156,8 @@ func _on_save_player_data_completed(success: bool):
 	else:
 		print("[%s]: ERROR" % _on_save_player_data_completed.get_method().to_upper())
 
+	_update_leaderboard()
+
 
 func _on_load_player_data_completed(success: bool, data):
 	if success:
