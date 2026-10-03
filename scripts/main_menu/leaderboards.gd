@@ -38,7 +38,7 @@ func _on_fetch_leaderboard_completed(success, entries):
 			_get_entry_image(str(entry.photo), entries.find(entry))
 			avatar_request_count += 1
 		data.push_back([str(entry.rank), null, str(entry.name), int(entry.score)])
-		dynamic_table.set_data(data)
+	dynamic_table.set_data(data)
 
 
 func _get_entry_image(image_url: String, entry_idx: int):
@@ -67,6 +67,7 @@ func _on_back_button_pressed() -> void:
 func _on_avatar_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		print("Avatar HTTP Request Error")
+		return
 
 	var image = Image.new()
 	image.load_png_from_buffer(body)

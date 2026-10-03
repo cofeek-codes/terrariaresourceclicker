@@ -1,16 +1,16 @@
 {
-	"$schema": "https://bridge.playgama.com/v2/stable/schema.json",
-	"advertisement": {
-		"interstitial": {
-			"preloadOnStart": true
-		},
-		"rewarded": {
-			"preloadOnStart": true
-		},
-		"useBuiltInErrorPopup": true,
-		"backfillId": ""
-	},
-	"payments": [],
-	"leaderboards": [],
-	"sendAnalyticsEvents": true
+  "debug": true,
+  "advertisement": {
+    "initialInterstitialDelay": 30
+  },
+  "leaderboards": [
+    {
+      "id": "coins",
+      "isMain": true
+    }
+  ],
+  "device": {
+    "useBuiltInOrientationPopup": true,
+    "supportedOrientations": ["landscape"]
+  }
 }
