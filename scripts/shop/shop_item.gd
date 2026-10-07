@@ -64,6 +64,7 @@ func add_active_item(item: ShopItem):
 				player_data.tier += (item.tier - player_data.tier)
 				print("new tier")
 				print(player_data.tier)
+				Bridge.analytics.send("tier_unlocked", {"tier": player_data.tier})
 				game.emit_signal("introduce_pickaxe", item.texture)
 
 	if item.type == ShopItem.ItemType.BUFF:
