@@ -13,8 +13,16 @@ func _ready() -> void:
 	time_label.hide()
 
 
+var _time_left_int: int = -1
+
+
 func _process(delta: float) -> void:
-	time_label.text = str(int(cooldown_timer.time_left))
+	if cooldown_timer.is_stopped():
+		return
+	var time_left: int = int(cooldown_timer.time_left)
+	if time_left != _time_left_int:
+		_time_left_int = time_left
+		time_label.text = str(time_left)
 
 
 func _on_button_pressed() -> void:

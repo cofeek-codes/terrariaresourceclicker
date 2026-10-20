@@ -22,6 +22,8 @@ func _ready() -> void:
 
 	PlaygamaManager.show_banner("main_menu")
 
+	Globals.warmup_game_resources()
+
 
 func _init_locale():
 	TranslationServer.set_locale(Bridge.platform.language)

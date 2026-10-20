@@ -10,9 +10,16 @@ extends Control
 @onready var ad_in_timer: Timer = %AdInTimer
 
 
+var _displayed_seconds: int = -1
+
+
 func _process(delta: float) -> void:
-	if with_ad:
-		ad_in_label.text = tr("PAUSE_AD_IN") + ": " + str(int(ad_in_timer.time_left))
+	if !with_ad:
+		return
+	var seconds: int = int(ad_in_timer.time_left)
+	if seconds != _displayed_seconds:
+		_displayed_seconds = seconds
+		ad_in_label.text = tr("PAUSE_AD_IN") + ": " + str(seconds)
 
 
 func _on_visibility_changed() -> void:

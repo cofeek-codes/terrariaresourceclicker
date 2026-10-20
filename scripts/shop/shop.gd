@@ -13,10 +13,17 @@ const SHOP_ITEMS_PATH: String = "res://resources/shop_items/shop_items.json"
 func _ready() -> void:
 	_init_scroll()
 	_load_shop_items()
+	_instantiate_shop_items()
+
+
+func _instantiate_shop_items() -> void:
+	# Instantiating every shop panel in one _ready adds a noticeable hitch to
+	# the game scene entry on web builds, so spread creation across frames.
 	for item in shop_items:
 		var item_scene = item_scene_preload.instantiate()
 		item_scene.item = item
 		shop_items_container.add_child(item_scene)
+		await get_tree().process_frame
 
 
 func _load_shop_items():

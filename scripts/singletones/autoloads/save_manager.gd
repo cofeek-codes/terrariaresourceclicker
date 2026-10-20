@@ -24,9 +24,6 @@ func _load_player_data():
 
 
 func _post_load_player_data(player_data_loaded_json):
-	print_debug("player_data_loaded_json")
-	print_debug(player_data_loaded_json)
-
 	var pd = _json_to_tres(player_data_loaded_json, "PlayerData")
 
 	if pd:
@@ -61,7 +58,6 @@ func _save_active_timers():
 			existing_buff.amount += 1
 			if timer is Timer:
 				existing_buff.time_left = timer.time_left
-			print_debug(existing_buff.buff.to_dict())
 
 		else:
 			var new_active_buff = ActiveBuff.new()
@@ -71,14 +67,11 @@ func _save_active_timers():
 			new_active_buff.amount = 1
 			if timer is Timer:
 				new_active_buff.time_left = timer.time_left
-			print_debug(new_active_buff.buff.to_dict())
 			Globals.player_data.active_buffs.push_back(new_active_buff)
 
 
 func _update_leaderboard():
 	if PlaygamaManager.is_authorized():
-		print("leaderboards type")
-		print(Bridge.leaderboards.type)
 		var leaderboard_id = Constants.COINS_LEADERBOARD_ID
 		var coins: int = int(Globals.player_data.coins.toFloat())
 		Bridge.leaderboards.set_score(leaderboard_id, coins, _on_update_leaderboard_completed)
@@ -103,10 +96,7 @@ func _save_settings(settings: Settings):
 
 
 func _on_save_settings_completed(success):
-	if success:
-		print("[%s]: SUCCESS" % _on_save_settings_completed.get_method().to_upper())
-	else:
-		print("[%s]: ERROR" % _on_save_settings_completed.get_method().to_upper())
+	pass
 
 
 func load_settings():
@@ -118,13 +108,6 @@ func _load_settings():
 
 
 func _on_load_settings_completed(success, data):
-	if success:
-		print("[%s]: SUCCESS" % _on_load_settings_completed.get_method().to_upper())
-		print("data")
-		print(data)
-	else:
-		print("[%s]: ERROR" % _on_load_settings_completed.get_method().to_upper())
-
 	_post_load_settings(data)
 
 
@@ -144,29 +127,14 @@ func _post_load_settings(settings_json):
 
 
 func _on_update_leaderboard_completed(success: bool):
-	if success:
-		print("[%s]: SUCCESS" % _on_update_leaderboard_completed.get_method().to_upper())
-	else:
-		print("[%s]: ERROR" % _on_update_leaderboard_completed.get_method().to_upper())
+	pass
 
 
 func _on_save_player_data_completed(success: bool):
-	if success:
-		print("[%s]: SUCCESS" % _on_save_player_data_completed.get_method().to_upper())
-	else:
-		print("[%s]: ERROR" % _on_save_player_data_completed.get_method().to_upper())
-
 	_update_leaderboard()
 
 
 func _on_load_player_data_completed(success: bool, data):
-	if success:
-		print("[%s]: SUCCESS" % _on_load_player_data_completed.get_method().to_upper())
-		print("data")
-		print(data)
-	else:
-		print("[%s]: ERROR" % _on_load_settings_completed.get_method().to_upper())
-
 	_post_load_player_data(data)
 
 

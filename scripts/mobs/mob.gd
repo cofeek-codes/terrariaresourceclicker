@@ -23,6 +23,7 @@ var sprite_size: Vector2
 var direction: int
 
 var is_dead: bool = false
+var _current_animation: StringName = &""
 
 var drop_item_scene_preload = preload("res://scenes/drop_item.tscn")
 
@@ -30,8 +31,6 @@ const KNOCKBACK_VELOCITY_MULTIPLYER: float = 1.1
 
 
 func _ready() -> void:
-	print("Mob base scene initialized in _ready()")
-	print("Mob %s ai_type %s" % [mob_data.name, mob_data.AIType.keys()[mob_data.ai_type]])
 	max_hp = mob_data.health
 	current_hp = max_hp
 	health_bar.max_value = max_hp
@@ -45,26 +44,34 @@ func _physics_process(delta: float) -> void:
 	_move(delta)
 
 
+func _play_animation(anim: StringName) -> void:
+	# Avoid re-calling play() with the same animation every physics frame.
+	if _current_animation == anim and sprite_animation_player.is_playing():
+		return
+	_current_animation = anim
+	sprite_animation_player.play(anim)
+
+
 func _move(delta: float):
 	if !is_on_floor() && mob_data.ai_type != mob_data.AIType.FLYING:
 		velocity += get_gravity() * delta
-		sprite_animation_player.play("fall")
+		_play_animation(&"fall")
 	if is_on_wall():
 		_change_direction(true)
 	match mob_data.ai_type:
 		mob_data.AIType.JUMPING:
 			_jump(delta)
 		mob_data.AIType.FLYING:
-			sprite_animation_player.play("move")
+			_play_animation(&"move")
 			sprite_animation_player.flip_h = direction > 0
 			velocity.x += mob_data.speed * direction
 			velocity.y += mob_data.speed * direction
 		mob_data.AIType.WALKING:
 			if direction == 0:
-				sprite_animation_player.play("idle")
+				_play_animation(&"idle")
 				velocity.x = 0
 			else:
-				sprite_animation_player.play("move")
+				_play_animation(&"move")
 				sprite_animation_player.flip_h = direction > 0
 				velocity.x = mob_data.speed * direction
 
@@ -74,21 +81,21 @@ func _move(delta: float):
 func _jump(delta: float):
 	if is_on_floor():
 		if jump_cooldown_timer.is_stopped():
+			_current_animation = &""
 			# not all mobs will have dedicated jump animation
 			if sprite_animation_player.sprite_frames.has_animation("jump"):
-				sprite_animation_player.play("jump")
+				_play_animation(&"jump")
 			velocity.x = mob_data.speed * direction
 			velocity.y = -abs(mob_data.jump_force)
 			jump_cooldown_timer.wait_time = randf_range(1, 1.5)
 			jump_cooldown_timer.start()
 		else:
 			velocity.x = 0
-			sprite_animation_player.play("idle")
+			_play_animation(&"idle")
 
 
 func handle_click():
 	if !is_dead:
-		print("clicked on mob %s" % mob_data.name)
 		hit_audio_player.play()
 		_apply_knockback()
 		_emit_particles()
@@ -100,35 +107,29 @@ func _emit_particles():
 		var particles: GPUParticles2D = mob_hit_particles.duplicate()
 		self.add_child(particles)
 		particles.add_to_group("particles")
-		print("current particles amount: %d" % get_tree().get_node_count_in_group("particles"))
 		particles.position = to_local(get_global_mouse_position())
 		particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
 		particles.restart()
 		await particles.finished
 		particles.queue_free()
-	else:
-		print("too many mob particles")
 
 
 func _apply_knockback():
 	var direction = 1 if !cursor.is_cursor_right() else -1
 	velocity.x = (mob_data.speed * KNOCKBACK_VELOCITY_MULTIPLYER) * direction
 	velocity.y = -abs(mob_data.jump_force * KNOCKBACK_VELOCITY_MULTIPLYER)
-	print("%d | %d" % [velocity.x, direction])
 
 
 func _take_damage(damage: int):
 	current_hp -= damage
 	_update_healthbar()
-	print("mob %s recieved damage: %d, remaining hp: %d" % [mob_data.name, damage, current_hp])
 	if current_hp <= 0:
 		_die()
 
 
 func _die():
-	print("mob %s should die" % mob_data.name)
 	is_dead = true
-	sprite_animation_player.play("die")
+	_play_animation(&"die")
 	mob_death_particles.restart()
 	death_audio_player.play()
 	health_bar.visible = false
@@ -150,13 +151,9 @@ func _update_healthbar():
 
 
 func _spawn_drop():
-	print("should spawn drop")
-	print(mob_data.drop)
-	for item in mob_data.drop:
-		print(item)
-		print(mob_data.drop[item])
-		for i in randi_range(mob_data.drop[item].x, mob_data.drop[item].y):
-			print("drop i - %d" % i)
+	for item in mob_data.drop: # keys are DropItem resources
+		var drop_range: Vector2i = mob_data.drop[item]
+		for i in randi_range(drop_range.x, drop_range.y):
 			var drop_item = drop_item_scene_preload.instantiate()
 			drop_item.position = self.position
 			drop_item.drop_item_data = item

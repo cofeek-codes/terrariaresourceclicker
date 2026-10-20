@@ -18,8 +18,6 @@ func _ready() -> void:
 
 
 func _on_sell_one_button_pressed() -> void:
-	print("sell_one_button_pressed")
-	print("before: %s (%d)" % [selected_item.item.title, selected_item.amount])
 	sell_audio_player.play()
 	player_data.coins.plusEquals(selected_item.item.price)
 	pickup_text.emit_signal("item_sold", selected_item.item.title, 1, selected_item.item.price)
@@ -36,12 +34,8 @@ func _on_sell_one_button_pressed() -> void:
 		player_data.inventory[selected_item_idx].amount -= 1
 		inventory_cells_container.get_child(inventory_cell_idx).emit_signal("display_item")
 
-	print("after: %s (%d)" % [selected_item.item.title, selected_item.amount])
-
 
 func _on_sell_all_button_pressed() -> void:
-	print("sell_all_button_pressed")
-	print("%s (%d)" % [selected_item.item.title, selected_item.amount])
 	sell_audio_player.play()
 	var total_price = selected_item.item.price * selected_item.amount
 	player_data.coins.plusEquals(total_price)

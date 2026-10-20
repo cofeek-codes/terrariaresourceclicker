@@ -25,11 +25,26 @@ func _ready() -> void:
 	buy_button.tooltip_text = item.get_description()
 
 
+const AFFORDABILITY_UPDATE_INTERVAL: float = 0.2
+
+var _affordability_accumulator: float = 0.0
+var _affordable: bool = false
+var _affordable_checked: bool = false
+
+
 func _process(delta: float) -> void:
-	if player_data.coins.isLessThan(item.price):
-		buy_button.disabled = true
-	else:
-		buy_button.disabled = false
+	_affordability_accumulator += delta
+	if _affordability_accumulator < AFFORDABILITY_UPDATE_INTERVAL:
+		return
+	_affordability_accumulator = 0.0
+
+	# Big number comparison is expensive, throttle it and only touch
+	# the button when the state actually changes.
+	var affordable: bool = !player_data.coins.isLessThan(item.price)
+	if !_affordable_checked or affordable != _affordable:
+		_affordable = affordable
+		_affordable_checked = true
+		buy_button.disabled = !affordable
 
 
 func _on_buy_button_pressed() -> void:
@@ -62,8 +77,6 @@ func add_active_item(item: ShopItem):
 			if item.tier > player_data.tier:
 				player_data.prev_tier = player_data.tier
 				player_data.tier += (item.tier - player_data.tier)
-				print("new tier")
-				print(player_data.tier)
 				Bridge.analytics.send("tier_unlocked", {"tier": player_data.tier})
 				game.emit_signal("introduce_pickaxe", item.texture)
 
@@ -74,11 +87,4 @@ func add_active_item(item: ShopItem):
 
 
 func apply_new_item_stats(item: ShopItem):
-	print("about to apply item stats for item: %s" % item.title)
-	match item.type:
-		item.ItemType.PICKAXE:
-			print("applying stats for new pickaxe: %s" % item.title)
-		item.ItemType.BUFF:
-			print("applying stats for new buff: %s" % item.title)
-
 	Globals.update_income()

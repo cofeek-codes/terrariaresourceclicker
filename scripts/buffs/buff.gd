@@ -15,7 +15,6 @@ signal buff_updated
 
 
 func _ready() -> void:
-	print_debug(self.buff.to_dict())
 	buff_icon.texture = buff.icon
 	if buff_duration_left == -1:
 		buff_duration_timer.wait_time = buff.duration
@@ -23,15 +22,24 @@ func _ready() -> void:
 		buff_duration_timer.wait_time = buff_duration_left
 	buff_duration_timer.start()
 	buff_icon.tooltip_text = make_tooltip()
-	print("buff tooltip")
-	print(make_tooltip())
+
+
+var _displayed_time: int = -1
 
 
 func _process(delta: float) -> void:
-	if buff_duration_timer.time_left >= 60:
-		buff_label.text = "%d m" % [round(buff_duration_timer.time_left / 60)]
+	# Only push new text to the Label when the displayed value changes.
+	var time_left: float = buff_duration_timer.time_left
+	if time_left >= 60:
+		var minutes: int = roundi(time_left / 60)
+		if minutes != _displayed_time:
+			_displayed_time = minutes
+			buff_label.text = "%d m" % minutes
 	else:
-		buff_label.text = "%d s" % [buff_duration_timer.time_left]
+		var seconds: int = int(time_left)
+		if seconds != _displayed_time:
+			_displayed_time = seconds
+			buff_label.text = "%d s" % seconds
 
 
 func get_buff_amount():

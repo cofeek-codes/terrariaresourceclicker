@@ -20,20 +20,17 @@ var inventory_cell_preload = preload("res://scenes/inventory/inventory_cell.tscn
 
 
 func _ready() -> void:
-	print(player_data.inventory)
 	init_inventory_cells()
 	sell_buttons.emit_signal("get_inventory_cells_container", inventory_items_container)
 	self.position.x = -self.size.x
 
 
 func _on_inventory_open() -> void:
-	print("inventory_open signal recieved")
 	animation_player.play("appear")
 	open_audio_player.play()
 
 
 func close_inventory() -> void:
-	print("inventory_close signal recieved")
 	animation_player.play_backwards("appear")
 	inventory_button.emit_signal("inventory_close")
 	close_audio_player.play()
@@ -70,8 +67,6 @@ func add_item_to_inventory(item: DropItem):
 		player_data.inventory.push_back(new_item)
 		pickup_text.emit_signal("resource_pickedup", new_item.item.get_localized_title(), 1)
 
-	print("player_data.inventory in add_item_to_inventory")
-	print(player_data.inventory.map(func(i: InventoryItem): return "%s (%d)" % [i.item.title, i.amount]))
 	add_or_update_inventory_cell(existing_item_idx)
 
 
@@ -88,12 +83,10 @@ func add_or_update_inventory_cell(update_index: int):
 
 
 func _on_item_added(item: DropItem) -> void:
-	print("item added: %s" % item.title)
 	pickup_audio_player.play()
 	add_item_to_inventory(item)
 
 
 func _on_item_selected(item: InventoryItem) -> void:
-	print("item selected: %s (%d)" % [item.item.title, item.amount])
 	sell_buttons.selected_item = item
 	sell_buttons.show()

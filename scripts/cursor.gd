@@ -29,12 +29,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if self.mode == CursorMode.GAME:
-		cursor_sprite.flip_h = is_cursor_right()
-	else:
-		cursor_sprite.flip_h = false
-
-	self.position = get_global_mouse_position()
+	var mouse_pos := get_global_mouse_position()
+	cursor_sprite.flip_h = self.mode == CursorMode.GAME and mouse_pos.x > get_viewport_rect().size.x / 2
+	self.position = mouse_pos
 
 
 func is_cursor_right():
@@ -55,8 +52,6 @@ func show_game_cursor():
 
 
 func handle_click():
-	print("click")
-
 	if self.mode == CursorMode.GAME:
 		audio_player.pitch_scale = randf_range(0.5, 1.5)
 		audio_player.play()

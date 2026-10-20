@@ -42,7 +42,6 @@ func _load_blocks():
 
 
 func handle_click():
-	print("clicked on block")
 	apply_click_visuals()
 	block_hit()
 
@@ -50,12 +49,7 @@ func handle_click():
 func get_random_block() -> BlockData:
 	var player_tier = player_data.tier
 	var player_tier_blocks: Array[BlockData] = blocks.filter(func(b: BlockData): return b.tier <= player_tier)
-	print("player tier: %d " % player_tier)
-	print("player tier blocks")
-	print(player_tier_blocks.map(func(b: BlockData): return b.title))
-	var res: BlockData = player_tier_blocks.pick_random()
-	print(res.title)
-	return res
+	return player_tier_blocks.pick_random()
 
 
 func load_block_data(bd: BlockData):
@@ -65,7 +59,6 @@ func load_block_data(bd: BlockData):
 	sprite.texture = current_block_data.texture
 	block_hit_particles.process_material = current_block_data.particles_material
 	current_hp = current_block_data.calculate_health(player_data.tier)
-	print("current block hp: " + str(current_block_data.calculate_health(player_data.tier)))
 	hit_audio_player.stream = current_block_data.hit_sound
 	destroy_audio_player.stream = current_block_data.destroy_sound
 
@@ -77,11 +70,9 @@ func block_hit():
 	current_hp -= 1
 	if current_hp <= 0:
 		block_destroy()
-	print(current_hp)
 
 
 func block_destroy():
-	print("block should be destroyed")
 	destroy_audio_player.play()
 	await destroy_audio_player.finished
 	var new_block_data: BlockData = get_random_block()
@@ -119,11 +110,8 @@ func emit_particles():
 		var particles: GPUParticles2D = block_hit_particles.duplicate()
 		self.add_child(particles)
 		particles.add_to_group("particles")
-		print("current particles amount: %d" % get_tree().get_node_count_in_group("particles"))
 		particles.position = to_local(get_global_mouse_position())
 		particles.process_material.direction.x = 1 if cursor.is_cursor_right() else -1
 		particles.restart()
 		await particles.finished
 		particles.queue_free()
-	else:
-		print("too many block particles")

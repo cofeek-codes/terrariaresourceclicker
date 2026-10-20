@@ -52,3 +52,31 @@ func load_json_array(path: String, arr: Array):
 	for line in parsed:
 		arr.push_back(load(line))
 	file.close()
+
+
+const GAME_RESOURCE_WARMUP_JSON_PATHS: Array[String] = [
+	"res://resources/blocks/blocks.json",
+	"res://resources/mob_data/mobs.json",
+	"res://resources/biomes/biomes.json",
+	"res://resources/shop_items/shop_items.json",
+]
+
+
+func warmup_game_resources() -> void:
+	# On web builds loading every game resource synchronously right when the
+	# game scene enters is way too heavy and freezes the first seconds.
+	# While the player is still in the main menu, pull one resource into the
+	# `res://` cache per frame so entering the game stays cheap.
+	for json_path in GAME_RESOURCE_WARMUP_JSON_PATHS:
+		var file = FileAccess.open(json_path, FileAccess.READ)
+		if file == null:
+			continue
+		var parsed: Variant = JSON.parse_string(file.get_as_text())
+		file.close()
+		if parsed is Array:
+			for line in parsed:
+				var res: Variant = load(line)
+				if res is MobData:
+					# mob scenes get loaded on first spawn otherwise
+					load(res.scene_path)
+				await get_tree().process_frame
