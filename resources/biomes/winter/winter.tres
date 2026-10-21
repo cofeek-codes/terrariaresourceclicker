@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="1_1gxdp"]
 [ext_resource type="Texture2D" uid="uid://cqllkjafw18yh" path="res://resources/biomes/winter/bg_winter.webp" id="1_pornn"]
-[ext_resource type="AudioStream" uid="uid://dqc35syfwcjho" path="res://resources/biomes/winter/bgm_winter.wav" id="3_xk2o1"]
+[ext_resource type="AudioStream" uid="uid://b5fjh3geabq5c" path="res://resources/biomes/winter/bgm_winter.ogg" id="3_xk2o1"]
 
 [resource]
 script = ExtResource("1_1gxdp")

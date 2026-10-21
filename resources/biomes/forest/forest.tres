@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://be6gqblmdixgn" path="res://resources/biomes/forest/bg_forest.webp" id="1_rjhtc"]
 [ext_resource type="Script" uid="uid://uah37q8x5ele" path="res://resources/biomes/biome_data.gd" id="2_kkt48"]
-[ext_resource type="AudioStream" uid="uid://cehcjnr3serxj" path="res://resources/biomes/forest/bgm_forest.wav" id="3_kkt48"]
+[ext_resource type="AudioStream" uid="uid://ce3d1la13i1rd" path="res://resources/biomes/forest/bgm_forest.ogg" id="3_kkt48"]
 
 [resource]
 script = ExtResource("2_kkt48")
